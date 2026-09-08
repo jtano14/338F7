@@ -306,3 +306,7 @@ blockquote {
     .strategy-card { padding: 24px; }
     h2 { font-size: 1.85rem; }
 }
+/* Prevent the sticky navigation from covering anchored sections */
+section {
+    scroll-margin-top: 90px;
+}
