@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -187,42 +187,125 @@
 
         <section
           id="services"
-          class="strategy-section"
-          aria-labelledby="strategy-title"
-         >
-            <div class="container">
-                <p class="section-tag center-text">STRATEGIC PATHWAYS</p>
+          class="strategy-section services-section"
+          aria-labelledby="services-title"
+        >
+          <div class="container">
+            <p class="section-tag center-text">OUR SERVICES</p>
 
-                <h2 id="strategy-title" class="center-text">
-                    Two Directions, One Seamless Strategy
-                </h2>
+            <h2 id="services-title" class="center-text">
+              Two Directions, One Seamless Strategy
+            </h2>
 
-                <div class="grid-2 gap-2">
-                    <article class="strategy-card">
-                        <div class="card-icon" aria-hidden="true">↗</div>
+            <div class="services-grid">
+              <!-- Into Japan & Asia service card -->
+              <article class="service-card" data-service-card>
+                <div class="service-card-front">
+                  <div class="service-card-header">
+                    <div class="card-icon" aria-hidden="true">⌾</div>
 
-                        <h3>Inbound Solutions</h3>
+                    <button
+                      class="service-toggle"
+                      type="button"
+                      aria-expanded="false"
+                      aria-controls="japan-asia-services"
+                      aria-label="Show Into Japan and Asia services"
+                      data-service-toggle
+                    >
+                      <span aria-hidden="true">→</span>
+                    </button>
+                  </div>
 
-                        <p>
-                            Streamlined regulatory clearances, entity formation,
-                            and localized market architecture for firms entering
-                            Asian markets.
-                        </p>
-                    </article>
+                  <h3>Into Japan &amp; Asia</h3>
 
-                    <article class="strategy-card">
-                        <div class="card-icon" aria-hidden="true">↙</div>
-
-                        <h3>Outbound Expansion</h3>
-
-                        <p>
-                            Connecting regional conglomerates directly into
-                            active Western capital markets and regulatory
-                            jurisdictions.
-                        </p>
-                    </article>
+                  <p>
+                    For global companies entering Japan, India, Singapore,
+                    Brunei, and GCC markets.
+                  </p>
                 </div>
+
+                <div
+                  id="japan-asia-services"
+                  class="service-card-details"
+                  aria-hidden="true"
+                  data-service-details
+                >
+                  <h4>Our services include:</h4>
+
+                  <ul>
+                    <li>
+                      Strategic market entry &amp; JV/M&amp;A partner matching
+                    </li>
+                    <li>
+                      Network introductions &amp; deal facilitation
+                    </li>
+                    <li>
+                      Organizational design &amp; cultural alignment
+                    </li>
+                    <li>
+                      Regulatory deep dive &amp; compliance
+                    </li>
+                    <li>
+                      Supply chain localization
+                    </li>
+                  </ul>
+                </div>
+              </article>
+
+              <!-- Going Global service card -->
+              <article class="service-card" data-service-card>
+                <div class="service-card-front">
+                  <div class="service-card-header">
+                    <div class="card-icon" aria-hidden="true">◎</div>
+
+                    <button
+                      class="service-toggle"
+                      type="button"
+                      aria-expanded="false"
+                      aria-controls="global-services"
+                      aria-label="Show Going Global services"
+                      data-service-toggle
+                    >
+                      <span aria-hidden="true">→</span>
+                    </button>
+                  </div>
+
+                  <h3>Going Global</h3>
+
+                  <p>
+                    For regional companies scaling to international markets.
+                  </p>
+                </div>
+
+                <div
+                  id="global-services"
+                  class="service-card-details"
+                  aria-hidden="true"
+                  data-service-details
+                >
+                  <h4>Our services include:</h4>
+
+                  <ul>
+                    <li>
+                      Global expansion strategy &amp; roadmap
+                    </li>
+                    <li>
+                      Cross-border partnership facilitation
+                    </li>
+                    <li>
+                      Technology &amp; system integration
+                    </li>
+                    <li>
+                      Risk, finance &amp; compliance management
+                    </li>
+                    <li>
+                      Leadership immersion &amp; cultural workshops
+                    </li>
+                  </ul>
+                </div>
+              </article>
             </div>
+          </div>
         </section>
 
         <section id="pillars" class="pillars-section" aria-labelledby="pillars-title">
