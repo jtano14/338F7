@@ -112,3 +112,23 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+/* ==========================================================================
+   4. HERO INTERACTIVE MOUSE PARALLAX CONTROLLER
+   ========================================================================== */
+document.addEventListener("mousemove", (e) => {
+    const bgImage = document.querySelector(".hero-background");
+    const verticalText = document.querySelector(".hero-vertical-text");
+    
+    if (!bgImage || !verticalText) return;
+
+    // Calculate movement ratios based on viewport center
+    const moveX = (e.clientX - window.innerWidth / 2) / 40;
+    const moveY = (e.clientY - window.innerHeight / 2) / 40;
+
+    // Background Image moves in OPPOSITE direction (-moveX, -moveY)
+    bgImage.style.transform = `scale(1.1) translate(${-moveX}px, ${-moveY}px)`;
+
+    // Japanese Text moves in SAME direction (keep the structural translate Y layout lock)
+    verticalText.style.transform = `translate(${moveX}px, calc(-50% + ${moveY}px))`;
+});
+
