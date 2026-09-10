@@ -132,3 +132,28 @@ document.addEventListener("mousemove", (e) => {
     verticalText.style.transform = `translate(${moveX}px, calc(-50% + ${moveY}px))`;
 });
 
+/* ==========================================================================
+   5. HERO BACKGROUND IMAGE & JAPANESE TEXT PARALLAX MOUSE CONTROLLER
+   ========================================================================== */
+document.addEventListener("mousemove", (event) => {
+    const bgImage = document.querySelector(".hero-background");
+    const japaneseText = document.querySelector(".hero-vertical-text");
+    
+    if (!bgImage || !japaneseText) return;
+
+    const centerX = window.innerWidth / 2;
+    const centerY = window.innerHeight / 2;
+    const distanceX = event.clientX - centerX;
+    const distanceY = event.clientY - centerY;
+
+    // Slight movement dampening division ratio factors
+    const shiftX = distanceX / 40;
+    const shiftY = distanceY / 40;
+
+    // Moving opposite directions via negative calculations
+    bgImage.style.transform = `scale(1.1) translate(${-shiftX}px, ${-shiftY}px)`;
+
+    // Moving matching directions with the cursor footprint
+    japaneseText.style.transform = `translate(${shiftX}px, calc(-50% + ${shiftY}px))`;
+});
+
