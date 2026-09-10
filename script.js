@@ -135,7 +135,7 @@ document.addEventListener("mousemove", (e) => {
 /* ==========================================================================
    5. INTERACTIVE LOGO CANVAS ANIMATION SYSTEM
    ========================================================================== */
-const LOGO_URL = 'https://imgur.com'; // Replace this URL when ready!
+const LOGO_URL = 'assets/images/your-logo-filename.png'; 
 const canvas = document.getElementById('bubbleCanvas');
 const ctx = canvas.getContext('2d');
 const width = 600;
