@@ -311,8 +311,7 @@ function animate() {
     ctx.clearRect(0, 0, width, height);
     ctx.drawImage(transparentLogoCanvas, 0, 0);
   } else {
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.1)'; // Changed to white backdrop fade so it matches light website background seamlessly!
-    ctx.fillRect(0, 0, width, height);
+    ctx.clearRect(0, 0, width, height);
     particles.forEach(p => p.draw());
     if (isInteracting && mouse.x > 0 && mouse.y > 0) {
       ctx.save();
