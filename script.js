@@ -294,6 +294,16 @@ canvas.addEventListener('mouseleave', () => {
   isInteracting = false;
 });
 
+canvas.addEventListener('mousemove', (e) => {
+  const rect = canvas.getBoundingClientRect();
+  const mouseX = e.pageX - (rect.left + window.scrollX);
+  const mouseY = e.pageY - (rect.top + window.scrollY);
+  
+  mouse.x = mouseX * (width / rect.width);
+  mouse.y = mouseY * (height / rect.height);
+  isInteracting = true;
+});
+
 function animate() {
   allParticlesAtHome = true;
   particles.forEach(p => p.update(mouse.x, mouse.y));
