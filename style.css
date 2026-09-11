@@ -274,83 +274,95 @@ h2 {
     transition: transform 0.1s ease-out;
 }
 
-/* Brand Arena Wrapper Sizing Box */
+/* --- Brand Container Layout (FIXED FOR PROPER WIDTH EXTENSION) --- */
 .brand-container {
     position: relative;
     width: 100%;
-    max-width: 800px;
-    height: 340px; /* Lowered total bounding footprint to prevent pushing text below it downward */
-    margin: 0 auto 12px; /* Tightened gap underneath */
+    max-width: 600px; /* Restrained to comfortably house the 450px wide logo layers */
+    height: 180px;    /* Greatly lowered height to prevent pushing elements below it downward */
+    margin: 0 auto 16px; 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
 }
 
-/* Logo Image Layer Controls */
+* Force the sharp arrow graphic to stay centered and clear */
 .sharp-logo-layer {
     position: absolute;
-    top: 50px; /* Shifted down inside the canvas box to allow maximum ceiling area for bubbles */
+    top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 190px; /* Refined geometric display scale */
+    width: 180px; /* Clean crisp sizing bounds for your chevron arrow image */
     height: auto;
     z-index: 2;
     transition: opacity 0.1s ease-in-out;
     pointer-events: none;
 }
 
-/* Canvas Playground Layer Configuration */
+/* Position the canvas container box right over the graphic area */
 #bubbleCanvas {
     position: absolute;
-    top: 0; 
+    top: -50px; /* Shifted up so bubbles have plenty of roof room to fly upwards */
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
     background: transparent;
+    pointer-events: auto;
 }
 
 .brand-container.is-bursting .sharp-logo-layer {
     opacity: 0;
 }
 
-/* Main Brand Structural Typography Node */
+/* Main Brand Structural Typography Node (FIXED FOR PROPER LINE HEIGHT WIDTH) */
 .logo-text {
     color: var(--primary-color); 
-    font-size: clamp(26px, 4.5vw, 48px); /* Refined scale to save space */
+    font-size: clamp(28px, 5.5vw, 56px); 
     font-weight: 700;
-    letter-spacing: clamp(10px, 1.8vw, 20px); 
-    text-indent: clamp(10px, 1.8vw, 20px);    
+    letter-spacing: clamp(12px, 2.2vw, 24px); 
+    text-indent: clamp(12px, 2.2vw, 24px);    
     text-align: center;
     text-transform: uppercase;
     user-select: none;
     width: 100%;
-    margin-top: 230px; /* Perfectly aligned to flow cleanly below the arrow space */
+    margin-top: 130px; /* Brought up significantly to stop pushing everything else down */
+    position: relative;
+    z-index: 3;
 }
 
-/* Secondary Multi-Point Tagline Row Element */
+/* Secondary Tagline Element (Flow. Link. Unite. X-pand.) */
 .logo-tagline {
     color: var(--text-muted);
-    font-size: clamp(9px, 1.4vw, 13px); 
+    font-size: clamp(10px, 1.8vw, 15px); 
     font-weight: 500;
-    letter-spacing: clamp(3px, 0.6vw, 6px); 
-    text-indent: clamp(3px, 0.6vw, 6px); 
+    letter-spacing: clamp(4px, 0.8vw, 8px); 
+    text-indent: clamp(4px, 0.8vw, 8px); 
     text-align: center;
     text-transform: uppercase;
     user-select: none;
     width: 100%;
-    margin-top: 8px; /* Compacted height tracking gap */
+    margin-top: 10px;
     white-space: nowrap;
+    position: relative;
+    z-index: 3;
+}
+
+/* --- Content Width Restorations (STOPS THE CENTER COLLAPSE BUG) --- */
+.hero-content.container {
+    width: min(100% - 40px, var(--container-width)) !important; /* Forces container back out to full desktop layout width */
+    margin: 0 auto;
+    display: block; /* Changes from center flex layout to standard stack flow */
 }
 
 /* Subheading Row (GLOBAL TRANSITION...) Spacer Values */
 .hero-subtitle.section-tag {
     color: var(--accent-blue);
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 700;
-    letter-spacing: 0.16em;
-    margin-top: 14px; /* Brought closer to the branding text */
-    margin-bottom: 12px; /* Decreased space underneath to bring description up */
+    letter-spacing: 0.18em;
+    margin-top: 32px; /* Adds clear buffer distance below your brand name block */
+    margin-bottom: 16px;
     text-align: center;
     width: 100%;
     display: block;
@@ -358,13 +370,14 @@ h2 {
 
 /* Country Constraints Headline Wrapper Style */
 .market-line {
-    font-size: clamp(1.3rem, 2.4vw, 1.9rem) !important; /* Elegant modern proportion alignment */
+    font-size: clamp(1.6rem, 3.2vw, 2.6rem) !important; /* Restored back to your preferred larger readability scale */
     font-weight: 700;
     color: var(--primary-color);
     letter-spacing: -0.01em;
     white-space: nowrap;
-    margin-bottom: 14px; /* Reduced to sit tightly with descriptive paragraph */
+    margin-bottom: 20px;
     text-align: center;
+    width: 100%;
 }
 
 /* Main Strategic Body Text Description Block */
