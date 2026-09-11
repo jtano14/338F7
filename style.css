@@ -252,15 +252,24 @@ h2 {
     justify-content: center;
 }
 
-/* Force the core wrapper content to expand to wide horizontal center limits */
+/* --- Content Width Restorations (STOPS THE SIDE-BY-SIDE COLUMN BUG) --- */
 .hero-content.container {
     width: min(100% - 40px, 960px) !important; /* Wide full layout container bounds */
     max-width: 960px !important;
-    margin: 0 auto;
-    display: block !important; /* Disables the right-hand column crunching bug */
+    margin: 0 auto !important;
+    display: block !important;       /* Disables old flexbox column squeezing layout */
+    grid-template-columns: none !important; /* Shuts off old CSS grid separation columns completely */
     position: relative;
     z-index: 5;
-    text-align: center; /* Aligns all text nicely down the center axis */
+    text-align: center; /* Forces every element to line up beautifully down the center axis */
+}
+
+/* Restores your main heading configuration to sit wide and center in block flow */
+.hero-title {
+    width: 100% !important;
+    max-width: 1080px;
+    margin: 0 auto 20px !important;
+    display: block !important;
 }
 
 /* Enforce the building image to stretch completely across the full background */
@@ -392,24 +401,26 @@ h2 {
     width: 100%;
 }
 
-/* Core Corporate Body Text Paragraph */
+/* Force descriptive text paragraph to remain un-squeezed and centered */
 .hero-desc {
-    max-width: 680px; /* Compact width layout container prevents text stretching lines */
-    margin: 0 auto 16px; 
+    max-width: 680px !important; /* Compact width block prevents text lines from stretching too long */
+    margin: 0 auto 16px !important; 
     font-size: 1rem;
     line-height: 1.5;
     color: var(--text-muted);
-    text-align: center;
+    text-align: center !important;
+    display: block !important;
 }
 
-/* Action Control Button Wrapper Area Container */
+/* Force button clusters to line up horizontally in the center instead of a tight vertical column */
 .hero-buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 16px;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+    margin-bottom: 16px !important;
+    width: 100% !important;
 }
 
 /* Secondary CTA Button Hover Override State */
