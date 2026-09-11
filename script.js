@@ -119,20 +119,20 @@ document.addEventListener("mousemove", (e) => {
 });
 
 /* ==========================================================================
-   5. INTERACTIVE LOGO CANVAS ANIMATION ENGINE (ULTRA-FLUID LAYERED BURST)
+   5. INTERACTIVE LOGO CANVAS ANIMATION ENGINE (UNCONFINED ARROW BURST)
    ========================================================================== */
 const canvas = document.getElementById('bubbleCanvas');
 const ctx = canvas.getContext('2d');
 const brandContainer = document.querySelector('.brand-container');
 
-const width = 450;
-const height = 280;
+// Massively expanded internal canvas sizing metrics to completely remove the trapped square box clipping look
+const width = 850;
+const height = 500;
 canvas.width = width;
 canvas.height = height;
 
 const particles = [];
 let mouse = { x: -1000, y: -1000 };
-let burstActive = false;
 
 class FluidParticle {
   constructor(x, y) {
@@ -142,8 +142,7 @@ class FluidParticle {
     this.y = y;
     this.vx = 0;
     this.vy = 0;
-    // Added particle size variation to make the burst look richer and more organic
-    this.size = Math.random() * 1.5 + 0.8; 
+    this.size = Math.random() * 1.4 + 0.8; 
     this.returnDelay = 0; 
     this.currentColor = 'rgba(11, 44, 102, 0.95)';
   }
@@ -152,35 +151,30 @@ class FluidParticle {
     const dy = this.y - mouseY;
     const distance = Math.sqrt(dx * dx + dy * dy);
     
-    // Increased interactive explosion radius for a dramatic, cleaner look
-    const pushRadius = 45; 
+    const pushRadius = 50; // Increased radius for an explosive burst distance look
     if (distance < pushRadius) {
-      burstActive = true;
       const angle = Math.atan2(dy, dx);
       const force = (pushRadius - distance) / pushRadius;
-      
-      // Increased explosive speed to make the bubbles blast outwards dynamically
-      const speed = force * (Math.random() * 28 + 14); 
+      const speed = force * (Math.random() * 24 + 12); 
       this.vx = Math.cos(angle) * speed;
       this.vy = Math.sin(angle) * speed;
       
-      // DELAY INCREASED: Bubbles will now float out out longer before returning home
-      this.returnDelay = Math.random() * 45 + 40; 
+      // Kept particles floating out far away for a longer duration before assembling home
+      this.returnDelay = Math.random() * 50 + 45; 
     }
     
     if (this.returnDelay > 0) {
       this.returnDelay--;
-      this.vx *= 0.94; // Higher friction allows particles to suspend elegantly in the air
+      this.vx *= 0.94; 
       this.vy *= 0.94;
     } else {
       const homeDx = this.targetX - this.x;
       const homeDy = this.targetY - this.y;
       
-      // Softened return force pulls them back home in a smooth, graceful fluid motion
-      this.vx += homeDx * 0.04; 
-      this.vy += homeDy * 0.04;
-      this.vx *= 0.78; 
-      this.vy *= 0.78;
+      this.vx += homeDx * 0.05; 
+      this.vy += homeDy * 0.05;
+      this.vx *= 0.76; 
+      this.vy *= 0.76;
     }
     this.x += this.vx;
     this.y += this.vy;
@@ -193,7 +187,7 @@ class FluidParticle {
   }
 }
 
-// Generates a mathematically perfect vector arrow map so text elements NEVER appear inside the canvas
+// Generates a perfect isolated vector coordinates map for the arrow graphic only
 function generatePerfectArrowMap() {
   const tempCanvas = document.createElement('canvas');
   tempCanvas.width = width;
@@ -203,13 +197,13 @@ function generatePerfectArrowMap() {
   tCtx.fillStyle = '#0b2c66';
   tCtx.beginPath();
   
-  // Creates a clean, high-density geometric replica of your upward chevron/arrow symbol
+  // Center alignment anchoring coordinates
   const centerX = width / 2;
-  const centerY = height / 2 - 20;
+  const centerY = height / 2 - 80;
   
-  tCtx.moveTo(centerX - 80, centerY + 10);
-  tCtx.quadraticCurveTo(centerX - 10, centerY - 55, centerX + 90, centerY - 65);
-  tCtx.quadraticCurveTo(centerX + 30, centerY + 15, centerX - 30, centerY + 100);
+  tCtx.moveTo(centerX - 85, centerY + 10);
+  tCtx.quadraticCurveTo(centerX - 10, centerY - 60, centerX + 95, centerY - 70);
+  tCtx.quadraticCurveTo(centerX + 35, centerY + 15, centerX - 30, centerY + 105);
   tCtx.quadraticCurveTo(centerX - 10, centerY + 20, centerX + 40, centerY - 25);
   
   tCtx.closePath();
@@ -217,9 +211,9 @@ function generatePerfectArrowMap() {
   
   const imgData = tCtx.getImageData(0, 0, width, height).data;
   
-  // ADDED MORE BUBBLES: High-density step tracking generates an abundant volume of particles
-  for (let y = 0; y < height; y += 1.5) { 
-    for (let x = 0; x < width; x += 1.5) {
+  // High volume step density loops generate an abundant canvas particle weight
+  for (let y = 0; y < height; y += 1.8) { 
+    for (let x = 0; x < width; x += 1.8) {
       const index = (Math.floor(y) * width + Math.floor(x)) * 4;
       if (imgData[index + 3] > 50) { 
         particles.push(new FluidParticle(x, y));
@@ -247,13 +241,12 @@ function animate() {
     p.update(mouse.x, mouse.y);
     p.draw();
     
-    // Check if particles are currently floating away from home base
-    if (p.returnDelay > 0 || Math.abs(p.vx) > 0.1) {
+    if (p.returnDelay > 0 || Math.abs(p.vx) > 0.15) {
         layoutIsMoving = true;
     }
   });
   
-  // Swap visibility states between clean image layer and bursting particles automatically
+  // Toggles transparency classifications back and forth smoothly based on activity states
   if (layoutIsMoving && brandContainer) {
       brandContainer.classList.add('is-bursting');
   } else if (brandContainer) {
