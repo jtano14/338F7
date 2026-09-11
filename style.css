@@ -243,41 +243,43 @@ h2 {
 .brand-container {
     position: relative;
     width: 100%;
-    max-width: 800px; /* Expanded drastically to let particles fly far to the left and right */
-    height: 380px; /* Tall box boundary avoids bottom and top text clamping rules */
+    max-width: 800px; /* Allows bubbles to burst out wide to the left and right sides */
+    height: 440px; /* Expanded vertical height block allows text to fit comfortably below canvas */
     margin: 0 auto; 
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 }
 
-/* Perfect alignment positioning layers */
+/* Perfect absolute stacking adjustments */
 .sharp-logo-layer {
     position: absolute;
-    top: 0;
+    top: 30px; /* Positioned down slightly to leave plenty of canvas space overhead */
     left: 50%;
     transform: translateX(-50%);
-    width: 320px; /* Keeps your original graphic dimensions completely sharp */
+    width: 220px; /* Tailored scale focusing purely on the arrow asset */
     height: auto;
     z-index: 2;
-    transition: opacity 0.15s ease-in-out;
-    pointer-events: none; /* Mouse signals pass straight down to the canvas underneath */
+    transition: opacity 0.1s ease-in-out;
+    pointer-events: none; /* Passes mouse triggers straight down into the particle canvas box */
 }
 
 #bubbleCanvas {
     position: absolute;
-    top: -50px; /* Positioned slightly higher so bubbles can float upwards freely */
+    top: 0; /* Giving the top canvas maximum box ceiling area */
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
     background: transparent;
 }
 
-/* The exact instant your mouse enters the zone, hide the solid image layer instantly */
+/* Fades the solid image out cleanly when the canvas burst becomes active */
 .brand-container.is-bursting .sharp-logo-layer {
     opacity: 0;
 }
 
+/* Clean, crisp HTML main typography heading rules */
 .logo-text {
     color: var(--primary-color); 
     font-size: clamp(28px, 5.5vw, 56px); 
@@ -288,12 +290,13 @@ h2 {
     text-transform: uppercase;
     user-select: none;
     width: 100%;
-    margin-top: 210px; /* Pushes the crisp header text cleanly down below the absolute canvas space */
+    margin-top: 270px; /* Pushes text down nicely past the arrow animation playground zone */
 }
 
+/* Single line core tagline spacing formatting layout */
 .logo-tagline {
     color: var(--primary-color);
-    font-size: clamp(10px, 1.8vw, 18px); 
+    font-size: clamp(10px, 1.8vw, 16px); 
     font-weight: 500;
     letter-spacing: clamp(4px, 0.8vw, 8px); 
     text-indent: clamp(4px, 0.8vw, 8px); 
@@ -301,7 +304,8 @@ h2 {
     text-transform: uppercase;
     user-select: none;
     width: 100%;
-    margin-top: 15px;
+    margin-top: 14px;
+    white-space: nowrap; /* Rigid constraint keeps tagline row from folding into 2 lines */
 }
 
 .hero-section {
@@ -352,13 +356,13 @@ h2 {
     object-fit: contain;
 }
 
-/* Formats your crisp Accent Blue line so it sits cleanly underneath the expanded brand space */
+/* Formats your primary sub-tag line cleanly beneath the layout */
 .hero-subtitle.section-tag {
     color: var(--accent-blue);
     font-size: 1.1rem;
     font-weight: 700;
     letter-spacing: 0.18em;
-    margin-top: 20px;
+    margin-top: 24px;
     margin-bottom: 24px;
     text-align: center;
     width: 100%;
