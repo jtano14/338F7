@@ -237,73 +237,92 @@ h2 {
 }
 
 /* ==========================================================================
-   3. HERO SECTION (COMPACT DESKTOP BALANCE FOR 100% STANDARD VIEW)
+   3. HERO SECTION (RE-ARCHITECTED FOR BALANCED CENTER 100% DISPLAY)
    ========================================================================== */
 
 .hero-section {
     position: relative;
-    /* Compressed overall padding from 136px down to 80px to pull everything up safely */
-    padding: calc(80px + 76px) 0 60px; 
+    padding: calc(60px + 76px) 0 40px; /* Reduced vertical padding blocks */
     overflow: visible;
     background-color: var(--white);
     z-index: 1;
-    min-height: calc(100vh - 76px); /* Ensures it frames desktop displays perfectly */
+    min-height: calc(100vh - 76px); /* Ensures full display sizing frames */
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
-.hero-content {
+/* Force the core wrapper content to expand to wide horizontal center limits */
+.hero-content.container {
+    width: min(100% - 40px, 960px) !important; /* Wide full layout container bounds */
+    max-width: 960px !important;
+    margin: 0 auto;
+    display: block !important; /* Disables the right-hand column crunching bug */
     position: relative;
-    z-index: 2;
-    width: 100%;
+    z-index: 5;
+    text-align: center; /* Aligns all text nicely down the center axis */
 }
 
-/* Re-balanced position of the large Japanese watermark text to sit dead-center at 100% view */
-.hero-vertical-text {
+/* Enforce the building image to stretch completely across the full background */
+.hero-background {
     position: absolute;
-    right: 40px;
-    top: 48%; /* Pulled up slightly to align cleanly with the newly compressed layout center */
-    transform: translateY(-50%);
-    writing-mode: vertical-rl;
-    font-size: clamp(2.5rem, 3.8vw, 3.5rem);
-    font-weight: 700;
-    color: rgba(11, 34, 64, 0.16); /* Slightly softened overlay footprint */
-    letter-spacing: 0.15em;
+    top: 0;
+    left: 0;
+    width: 100% !important; /* Expands to full screen width instead of cut in half */
+    height: 100% !important;
+    object-fit: cover;
+    opacity: 0.12; /* Keeps image subtle so text remains highly readable */
     z-index: 1;
     pointer-events: none;
+    transform: scale(1.05);
     transition: transform 0.1s ease-out;
 }
 
-/* --- Brand Container Layout (FIXED FOR PROPER WIDTH EXTENSION) --- */
+/* Reposition your Japanese watermark layout into a clean background asset alignment */
+.hero-vertical-text {
+    position: absolute;
+    right: 6%;
+    top: 50%;
+    transform: translateY(-50%);
+    writing-mode: vertical-rl;
+    font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+    font-weight: 700;
+    color: rgba(11, 34, 64, 0.12);
+    letter-spacing: 0.18em;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* --- Brand Container Canvas Mechanics --- */
 .brand-container {
     position: relative;
     width: 100%;
-    max-width: 600px; /* Restrained to comfortably house the 450px wide logo layers */
-    height: 180px;    /* Greatly lowered height to prevent pushing elements below it downward */
-    margin: 0 auto 16px; 
+    max-width: 500px; /* Snug fit limits purely over the chevron path bounds */
+    height: 150px;    /* Compact vertical height pulls description text upwards */
+    margin: 0 auto; 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
 }
 
-/* Force the sharp arrow graphic to stay centered and clear */
+/* Arrow Symbol Layer */
 .sharp-logo-layer {
     position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 180px; /* Clean crisp sizing bounds for your chevron arrow image */
+    width: 160px; /* Clean crisp sizing proportion */
     height: auto;
     z-index: 2;
     transition: opacity 0.1s ease-in-out;
     pointer-events: none;
 }
 
-/* Position the canvas container box right over the graphic area */
+/* Free-flowing Bubble Burst Canvas */
 #bubbleCanvas {
     position: absolute;
-    top: -50px; /* Shifted up so bubbles have plenty of roof room to fly upwards */
+    top: -55px; /* Shifted up so bubbles have an abundance of ceiling clearance */
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
@@ -315,90 +334,85 @@ h2 {
     opacity: 0;
 }
 
-/* Main Brand Structural Typography Node (FIXED FOR PROPER LINE HEIGHT WIDTH) */
+/* Crisp HTML Wording Header */
 .logo-text {
     color: var(--primary-color); 
-    font-size: clamp(28px, 5.5vw, 56px); 
+    font-size: clamp(24px, 4vw, 42px); /* Refined sizing footprint scales cleanly */
     font-weight: 700;
-    letter-spacing: clamp(12px, 2.2vw, 24px); 
-    text-indent: clamp(12px, 2.2vw, 24px);    
+    letter-spacing: clamp(10px, 1.8vw, 18px); 
+    text-indent: clamp(10px, 1.8vw, 18px);    
     text-align: center;
     text-transform: uppercase;
     user-select: none;
     width: 100%;
-    margin-top: 130px; /* Brought up significantly to stop pushing everything else down */
+    margin-top: 110px; /* Snaps wording into place directly beneath canvas arena */
     position: relative;
     z-index: 3;
 }
 
-/* Secondary Tagline Element (Flow. Link. Unite. X-pand.) */
+/* Secondary Tagline (Flow. Link. Unite. X-pand) */
 .logo-tagline {
     color: var(--text-muted);
-    font-size: clamp(10px, 1.8vw, 15px); 
+    font-size: clamp(9px, 1.4vw, 12px); 
     font-weight: 500;
-    letter-spacing: clamp(4px, 0.8vw, 8px); 
-    text-indent: clamp(4px, 0.8vw, 8px); 
+    letter-spacing: clamp(3px, 0.6vw, 5px); 
+    text-indent: clamp(3px, 0.6vw, 5px); 
     text-align: center;
     text-transform: uppercase;
     user-select: none;
     width: 100%;
-    margin-top: 10px;
+    margin-top: 6px;
     white-space: nowrap;
     position: relative;
     z-index: 3;
 }
 
-/* --- Content Width Restorations (STOPS THE CENTER COLLAPSE BUG) --- */
-.hero-content.container {
-    width: min(100% - 40px, var(--container-width)) !important; /* Forces container back out to full desktop layout width */
-    margin: 0 auto;
-    display: block; /* Changes from center flex layout to standard stack flow */
-}
-
-/* Subheading Row (GLOBAL TRANSITION...) Spacer Values */
+/* Subheading Row (GLOBAL TRANSITION...) Style Layout */
 .hero-subtitle.section-tag {
     color: var(--accent-blue);
-    font-size: 1.1rem;
+    font-size: 0.95rem;
     font-weight: 700;
-    letter-spacing: 0.18em;
-    margin-top: 32px; /* Adds clear buffer distance below your brand name block */
-    margin-bottom: 16px;
+    letter-spacing: 0.16em;
+    margin-top: 24px;   /* Tightened gap below brand lines */
+    margin-bottom: 8px; /* Brought closer to country headline */
     text-align: center;
     width: 100%;
     display: block;
 }
 
-/* Country Constraints Headline Wrapper Style */
+/* Country Headline (Japan - India - Singapore...) */
 .market-line {
-    font-size: clamp(1.6rem, 3.2vw, 2.6rem) !important; /* Restored back to your preferred larger readability scale */
+    font-size: clamp(1.4rem, 2.6vw, 2.2rem) !important; /* Balanced legible display width scale */
     font-weight: 700;
     color: var(--primary-color);
     letter-spacing: -0.01em;
     white-space: nowrap;
-    margin-bottom: 20px;
+    margin-bottom: 12px; /* Close mapping parameters directly over description paragraphs */
     text-align: center;
     width: 100%;
 }
 
-/* Main Strategic Body Text Description Block */
+/* Core Corporate Body Text Paragraph */
 .hero-desc {
-    max-width: 740px; /* Slightly tightened width layout container */
-    margin: 0 auto 20px; /* Reduced gap underneath to pull call-to-action buttons upward */
-    font-size: 1.05rem; /* Highly readable clean density weight scales */
-    line-height: 1.6;
+    max-width: 680px; /* Compact width layout container prevents text stretching lines */
+    margin: 0 auto 16px; 
+    font-size: 1rem;
+    line-height: 1.5;
     color: var(--text-muted);
+    text-align: center;
 }
 
-/* CTA Navigation Link Buttons Area Container */
+/* Action Control Button Wrapper Area Container */
 .hero-buttons {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     gap: 12px;
-    margin-bottom: 24px; /* Controlled buffer zone prior to scroll indicator */
+    margin-bottom: 16px;
 }
 
-/* Update Explore Our Framework button hover state to Accent Blue */
+/* Secondary CTA Button Hover Override State */
 .btn-secondary:hover {
     color: var(--white);
     background-color: var(--accent-blue) !important;
@@ -411,24 +425,24 @@ h2 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 10px;
+    margin-top: 4px;
     cursor: pointer;
     background: transparent;
     width: 100%;
 }
 
 .scroll-text {
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     font-weight: 700;
     letter-spacing: 0.18em;
     color: var(--text-muted);
     text-transform: uppercase;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
 }
 
 .scroll-arrow {
-    width: 24px;
-    height: 14px;
+    width: 20px;
+    height: 12px;
     fill: none;
     stroke: var(--primary-color);
     stroke-width: 2.5;
@@ -439,14 +453,14 @@ h2 {
 
 @keyframes pulseArrow {
     0% { transform: translateY(0); opacity: 0.4; }
-    50% { transform: translateY(6px); opacity: 1; }
+    50% { transform: translateY(5px); opacity: 1; }
     100% { transform: translateY(0); opacity: 0.4; }
 }
 
 /* --- Dynamic Sequential Fade-in Animations --- */
 .fade-init {
     opacity: 0;
-    transform: translateY(15px);
+    transform: translateY(12px);
     transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
