@@ -65,6 +65,10 @@
     </header>
 
     <main>
+      
+      <!-- ==========================================================================
+         3. HERO SECTION (UPDATED FOR SEQUENCE TAGS, MARKET LINES, & ARROW INDICATOR)
+         ========================================================================== -->
       <section
         class="hero-section"
         aria-labelledby="hero-title"
@@ -88,50 +92,51 @@
 
         <div class="container center-text hero-content">
 
-          <!-- ========================================== -->
-          <!-- NEW INTERACTIVE LOGO CANVAS INSERTED HERE -->
-          <!-- ========================================== -->
-          <div class="brand-container">
-            <!-- Interactive canvas handles the fluid arrow symbol -->
+          <!-- Sequence Area 1: Brand Logo Simulation Arena -->
+          <div class="brand-container fade-init" id="seq-1">
             <canvas id="bubbleCanvas"></canvas>
-        
-            <!-- Crisp, geometric main brand typography -->
             <div class="logo-text">FLUX 7</div>
-        
-            <!-- Sharp, flush-aligned secondary corporate tagline -->
             <div class="logo-tagline">Flow. Link. Unite. X-pand.</div>
           </div>
-          <!-- ========================================== -->
          
-          <p class="hero-subtitle">
-            GLOBAL TRANSITION. ASIA–GCC MASTERY.
+          <!-- Sequence Area 2: Subheading Processing Wrapper -->
+          <p class="hero-subtitle section-tag fade-init" id="seq-2">
+            GLOBAL TRANSITION. ASIA–GCC MASTERY
           </p>
 
-          <h1 id="hero-title" class="hero-title">
-            <span>Bridging</span>
-            <span>Japan · India · Singapore · Brunei · GCC</span>
-            <span>to the World</span>
+          <!-- Sequence Area 3: Main Geographic Constraints Headline -->
+          <h1 id="hero-title" class="hero-title fade-init" id="seq-3">
+            <div class="market-line">Japan &middot; India &middot; Singapore &middot; Brunei &middot; GCC</div>
           </h1>
 
-          <p class="hero-desc">
+          <!-- Sequence Area 4: Strategic Statement Block -->
+          <p class="hero-desc fade-init" id="seq-4">
             FLUX7 guides companies through complex global expansions and
             cross-border partnerships. We deliver on-the-ground expertise
             for multinationals entering these markets and for regional
             companies scaling globally.
           </p>
 
-          <div class="hero-buttons">
+          <!-- Sequence Area 5: Call To Actions & Navigation Anchor -->
+          <div class="hero-buttons fade-init" id="seq-5">
             <a href="#contact" class="btn btn-primary">
               Start a Conversation
             </a>
-
-            <a href="#pillars" class="btn btn-secondary">
+            <a href="#framework" class="btn btn-secondary">
               Explore Our Framework
             </a>
           </div>
+
+          <!-- Sequence Area 6: Interactive Micro Scroll Navigation Element -->
+          <div class="scroll-indicator-container fade-init" id="seq-6" onclick="document.querySelector('.about-section').scrollIntoView({behavior: 'smooth'});">
+            <span class="scroll-text">Scroll Down</span>
+            <svg class="scroll-arrow" viewBox="0 0 24 24">
+                <path d="M4 9l8 8 8-8" />
+            </svg>
+          </div>
         </div>
       </section>
-      
+ 
         <section
           id="about"
           class="about-section"
