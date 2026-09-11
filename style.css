@@ -306,32 +306,32 @@ h2 {
 .brand-container {
     position: relative;
     width: 100%;
-    max-width: 500px; /* Snug fit limits purely over the chevron path bounds */
-    height: 150px;    /* Compact vertical height pulls description text upwards */
-    margin: 0 auto; 
+    max-width: 600px; /* Snug fit limits purely over the chevron path bounds */
+    height: 190px;    /* Compact vertical height pulls description text upwards */
+    margin: 0 auto 10px; 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
 }
 
-/* Arrow Symbol Layer */
+/* Force the sharp arrow image layer to remain perfectly crisp on center balance */
 .sharp-logo-layer {
     position: absolute;
-    top: 0;
+    top: 10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 160px; /* Clean crisp sizing proportion */
+    width: 160px; /* Refined layout proportion limits */
     height: auto;
     z-index: 2;
     transition: opacity 0.1s ease-in-out;
     pointer-events: none;
 }
 
-/* Free-flowing Bubble Burst Canvas */
+/* Open canvas bounding roof boundaries */
 #bubbleCanvas {
     position: absolute;
-    top: -55px; /* Shifted up so bubbles have an abundance of ceiling clearance */
+    top: -45px; 
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
@@ -343,50 +343,66 @@ h2 {
     opacity: 0;
 }
 
-/* Crisp HTML Wording Header */
+/* Main Brand Header Text Block */
 .logo-text {
     color: var(--primary-color); 
-    font-size: clamp(24px, 4vw, 42px); /* Refined sizing footprint scales cleanly */
+    font-size: clamp(32px, 5.5vw, 56px); /* Enhanced sizing parameters */
     font-weight: 700;
-    letter-spacing: clamp(10px, 1.8vw, 18px); 
-    text-indent: clamp(10px, 1.8vw, 18px);    
+    letter-spacing: clamp(12px, 2.2vw, 24px); 
+    text-indent: clamp(12px, 2.2vw, 24px);    
     text-align: center;
     text-transform: uppercase;
     user-select: none;
     width: 100%;
-    margin-top: 110px; /* Snaps wording into place directly beneath canvas arena */
+    margin-top: 155px; /* Perfect clearance layout snaps text safely under arrow zone */
     position: relative;
     z-index: 3;
 }
 
-/* Secondary Tagline (Flow. Link. Unite. X-pand) */
+/* Secondary Micro Tagline (Flow. Link. Unite. X-pand.) */
 .logo-tagline {
-    color: var(--text-muted);
-    font-size: clamp(9px, 1.4vw, 12px); 
+    color: var(--primary-color);
+    font-size: clamp(10px, 1.8vw, 15px); 
     font-weight: 500;
-    letter-spacing: clamp(3px, 0.6vw, 5px); 
-    text-indent: clamp(3px, 0.6vw, 5px); 
+    letter-spacing: clamp(4px, 0.8vw, 8px); 
+    text-indent: clamp(4px, 0.8vw, 8px); 
     text-align: center;
     text-transform: uppercase;
     user-select: none;
     width: 100%;
-    margin-top: 6px;
+    margin-top: 16px; /* Balanced spacer gap separates tagline row from FLUX 7 */
     white-space: nowrap;
     position: relative;
     z-index: 3;
 }
 
-/* Subheading Row (GLOBAL TRANSITION...) Style Layout */
+/* Subheading Row (GLOBAL TRANSITION. ASIA-GCC MASTERY) Spacer Fixes */
 .hero-subtitle.section-tag {
     color: var(--accent-blue);
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     font-weight: 700;
-    letter-spacing: 0.16em;
-    margin-top: 24px;   /* Tightened gap below brand lines */
-    margin-bottom: 8px; /* Brought closer to country headline */
+    letter-spacing: 0.18em;
+    margin-top: 36px;   /* Creates clear breathing space below your tagline elements */
+    margin-bottom: 24px; /* Distinct vertical separation gap before description elements */
     text-align: center;
     width: 100%;
     display: block;
+}
+
+/* Reposition your Japanese watermark layout (FIXED FOR SINGLE LINE CONSTRAINT) */
+.hero-vertical-text {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    writing-mode: vertical-rl;
+    font-size: clamp(2rem, 3.2vw, 3rem);
+    font-weight: 700;
+    color: rgba(11, 34, 64, 0.12);
+    letter-spacing: 0.15em;
+    z-index: 1;
+    pointer-events: none;
+    white-space: nowrap !important; /* Enforces text characters to remain strictly on 1 straight column */
 }
 
 /* Country Headline (Japan - India - Singapore...) */
