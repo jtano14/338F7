@@ -436,14 +436,6 @@ h2 {
     transform: translateY(0);
 }
 
-/* --- Custom System Cursor Architecture --- */
-body {
-    cursor: none; /* Hide default browser cursor globally */
-}
-a, button, [role="button"], .scroll-indicator-container {
-    cursor: none; /* Keep native cursor hidden over interactable areas */
-}
-
 .custom-sys-cursor {
     position: fixed;
     top: 0;
