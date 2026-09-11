@@ -119,13 +119,12 @@ document.addEventListener("mousemove", (e) => {
 });
 
 /* ==========================================================================
-   5. INTERACTIVE LOGO CANVAS ANIMATION ENGINE (UNCONFINED ARROW BURST)
+   5. INTERACTIVE LOGO CANVAS ANIMATION ENGINE (CLEAN HOVER BURST ENGINE)
    ========================================================================== */
 const canvas = document.getElementById('bubbleCanvas');
 const ctx = canvas.getContext('2d');
 const brandContainer = document.querySelector('.brand-container');
 
-// Massively expanded internal canvas sizing metrics to completely remove the trapped square box clipping look
 const width = 850;
 const height = 500;
 canvas.width = width;
@@ -142,7 +141,7 @@ class FluidParticle {
     this.y = y;
     this.vx = 0;
     this.vy = 0;
-    this.size = Math.random() * 1.4 + 0.8; 
+    this.size = Math.random() * 1.5 + 0.8; 
     this.returnDelay = 0; 
     this.currentColor = 'rgba(11, 44, 102, 0.95)';
   }
@@ -151,16 +150,15 @@ class FluidParticle {
     const dy = this.y - mouseY;
     const distance = Math.sqrt(dx * dx + dy * dy);
     
-    const pushRadius = 50; // Increased radius for an explosive burst distance look
+    const pushRadius = 55; // Generates wide interactive displacement explosions
     if (distance < pushRadius) {
       const angle = Math.atan2(dy, dx);
       const force = (pushRadius - distance) / pushRadius;
-      const speed = force * (Math.random() * 24 + 12); 
+      const speed = force * (Math.random() * 26 + 14); 
       this.vx = Math.cos(angle) * speed;
       this.vy = Math.sin(angle) * speed;
       
-      // Kept particles floating out far away for a longer duration before assembling home
-      this.returnDelay = Math.random() * 50 + 45; 
+      this.returnDelay = Math.random() * 55 + 45; // Generates a long floating particle duration
     }
     
     if (this.returnDelay > 0) {
@@ -187,7 +185,7 @@ class FluidParticle {
   }
 }
 
-// Generates a perfect isolated vector coordinates map for the arrow graphic only
+// Generates the hidden blueprint coordinate map exclusively targeting the arrow path geometry
 function generatePerfectArrowMap() {
   const tempCanvas = document.createElement('canvas');
   tempCanvas.width = width;
@@ -197,9 +195,9 @@ function generatePerfectArrowMap() {
   tCtx.fillStyle = '#0b2c66';
   tCtx.beginPath();
   
-  // Center alignment anchoring coordinates
+  // Centers positioning loops inside the canvas coordinate box window space
   const centerX = width / 2;
-  const centerY = height / 2 - 80;
+  const centerY = height / 2 - 100;
   
   tCtx.moveTo(centerX - 85, centerY + 10);
   tCtx.quadraticCurveTo(centerX - 10, centerY - 60, centerX + 95, centerY - 70);
@@ -211,7 +209,6 @@ function generatePerfectArrowMap() {
   
   const imgData = tCtx.getImageData(0, 0, width, height).data;
   
-  // High volume step density loops generate an abundant canvas particle weight
   for (let y = 0; y < height; y += 1.8) { 
     for (let x = 0; x < width; x += 1.8) {
       const index = (Math.floor(y) * width + Math.floor(x)) * 4;
@@ -239,14 +236,15 @@ function animate() {
   let layoutIsMoving = false;
   particles.forEach(p => {
     p.update(mouse.x, mouse.y);
-    p.draw();
     
+    // Only render particles onto screen context while an interactive movement is active
     if (p.returnDelay > 0 || Math.abs(p.vx) > 0.15) {
         layoutIsMoving = true;
+        p.draw();
     }
   });
   
-  // Toggles transparency classifications back and forth smoothly based on activity states
+  // Toggle layout display configurations depending on hover status levels
   if (layoutIsMoving && brandContainer) {
       brandContainer.classList.add('is-bursting');
   } else if (brandContainer) {
