@@ -243,38 +243,37 @@ h2 {
 .brand-container {
     position: relative;
     width: 100%;
-    max-width: 450px;
-    height: 280px;
-    margin: 0 auto 34px;
+    max-width: 800px; /* Expanded drastically to let particles fly far to the left and right */
+    height: 380px; /* Tall box boundary avoids bottom and top text clamping rules */
+    margin: 0 auto; 
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: flex-start;
 }
 
-/* Force the sharp image and the interactive canvas to sit perfectly on top of each other */
+/* Perfect alignment positioning layers */
 .sharp-logo-layer {
     position: absolute;
-    top: 20px;
+    top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 240px; /* Focuses exclusively on your graphic element scale */
+    width: 320px; /* Keeps your original graphic dimensions completely sharp */
     height: auto;
     z-index: 2;
     transition: opacity 0.15s ease-in-out;
-    pointer-events: none; /* Allows mouse tracking to pass straight into the canvas */
+    pointer-events: none; /* Mouse signals pass straight down to the canvas underneath */
 }
 
 #bubbleCanvas {
     position: absolute;
-    top: 0;
+    top: -50px; /* Positioned slightly higher so bubbles can float upwards freely */
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
     background: transparent;
 }
 
-/* When interacting, fade the sharp image out so the bubble burst is completely visible */
+/* The exact instant your mouse enters the zone, hide the solid image layer instantly */
 .brand-container.is-bursting .sharp-logo-layer {
     opacity: 0;
 }
@@ -312,7 +311,6 @@ h2 {
     background-color: var(--white);
     z-index: 1;
 }
-
 
 .hero-background {
     position: absolute;
@@ -354,12 +352,17 @@ h2 {
     object-fit: contain;
 }
 
-.hero-subtitle, .section-tag {
-    margin-bottom: 20px;
+/* Formats your crisp Accent Blue line so it sits cleanly underneath the expanded brand space */
+.hero-subtitle.section-tag {
     color: var(--accent-blue);
     font-size: 1.1rem;
     font-weight: 700;
     letter-spacing: 0.18em;
+    margin-top: 20px;
+    margin-bottom: 24px;
+    text-align: center;
+    width: 100%;
+    display: block;
 }
 
 .hero-title {
