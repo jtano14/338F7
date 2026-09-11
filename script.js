@@ -189,15 +189,16 @@ class FluidParticle {
 function generatePerfectArrowMap() {
   const tempCanvas = document.createElement('canvas');
   tempCanvas.width = width;
-  tempCanvas.height = height;
+  // Increased measurement box slightly to give bubbles absolute freedom up top
+  tempCanvas.height = 550; 
   const tCtx = tempCanvas.getContext('2d');
   
   tCtx.fillStyle = '#0b2c66';
   tCtx.beginPath();
   
-  // Centers positioning loops inside the canvas coordinate box window space
   const centerX = width / 2;
-  const centerY = height / 2 - 100;
+  // Shifted drawing anchor node position down slightly to ensure zero ceiling trapping artifacts
+  const centerY = height / 2 - 60; 
   
   tCtx.moveTo(centerX - 85, centerY + 10);
   tCtx.quadraticCurveTo(centerX - 10, centerY - 60, centerX + 95, centerY - 70);
