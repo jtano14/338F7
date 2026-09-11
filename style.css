@@ -139,7 +139,8 @@ h2 {
 
 .btn-secondary:hover {
     color: var(--white);
-    background-color: var(--primary-color);
+    background-color: var(--accent-blue) !important;
+    border-color: var(--accent-blue) !important;
 }
 
 .full-width {
@@ -337,7 +338,7 @@ h2 {
 .hero-subtitle, .section-tag {
     margin-bottom: 20px;
     color: var(--accent-blue);
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     font-weight: 700;
     letter-spacing: 0.18em;
 }
@@ -368,11 +369,143 @@ h2 {
     gap: 14px;
 }
 
+/* Increase the middle market line typography relative to surrounding copy */
+.market-line {
+    font-size: clamp(1.4rem, 2.8vw, 2.2rem) !important;
+    font-weight: 700;
+    color: var(--primary-color);
+    letter-spacing: -0.01em;
+    white-space: nowrap; /* Forces line constraint across viewport profiles */
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+/* Update Explore Our Framework button hover state to Accent Blue */
+.btn-secondary:hover {
+    color: var(--white);
+    background-color: var(--accent-blue) !important;
+    border-color: var(--accent-blue) !important;
+}
+
+/* --- Animated Scroll Down Indicator Component --- */
+.scroll-indicator-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    cursor: pointer;
+    background: transparent;
+}
+
+.scroll-text {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.scroll-arrow {
+    width: 24px;
+    height: 14px;
+    fill: none;
+    stroke: var(--primary-color);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    animation: pulseArrow 1.6s infinite ease-in-out;
+}
+
+@keyframes pulseArrow {
+    0% { transform: translateY(0); opacity: 0.4; }
+    50% { transform: translateY(6px); opacity: 1; }
+    100% { transform: translateY(0); opacity: 0.4; }
+}
+
+/* --- Dynamic Sequential Fade-in Animations --- */
+.fade-init {
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-init.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Custom System Cursor Architecture --- */
+body {
+    cursor: none; /* Hide default browser cursor globally */
+}
+a, button, [role="button"], .scroll-indicator-container {
+    cursor: none; /* Keep native cursor hidden over interactable areas */
+}
+
+.custom-sys-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+    pointer-events: none; /* Prevents cursor from intercepting hover tracking target triggers */
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transform: translate3d(-5px, -5px, 0); /* Initial resting center balance point */
+    transition: transform 0.04s linear;
+}
+
+.cursor-pointer-node {
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 14px solid var(--primary-color);
+    transform: rotate(-35deg);
+    margin-bottom: 2px;
+    transition: border-bottom-color 0.2s ease;
+}
+
+.cursor-pill-badge {
+    background-color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    color: #f8f9fa;
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(11, 34, 64, 0.15);
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+/* Clickable Interactive Context State Overrides */
+.custom-sys-cursor.is-hovering .cursor-pointer-node {
+    border-bottom-color: var(--accent-blue);
+}
+.custom-sys-cursor.is-hovering .cursor-pill-badge {
+    background-color: var(--accent-blue);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
 /* ==========================================================================
    4. ABOUT US SECTION
    ========================================================================== */
 .about-section {
     background-color: var(--light-bg);
+    position: relative;
+    z-index: 10; /* Higher layer index to sit cleanly on top of the hero during scroll */
+    margin-top: -50px; /* Slight negative margin pull to create an overlapping effect */
+    box-shadow: 0 -20px 40px rgba(11, 34, 64, 0.05); /* Adds soft depth over the hero */
 }
 
 .grid-2 {
