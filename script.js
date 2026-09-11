@@ -111,7 +111,7 @@ document.addEventListener("mousemove", (e) => {
     
     if (!bgImage || !verticalText) return;
 
-    const moveX = (e.clientX - window.innerWidth / 2) / 50; // Softened translation steps
+    const moveX = (e.clientX - window.innerWidth / 2) / 50;
     const moveY = (e.clientY - window.innerHeight / 2) / 50;
 
     bgImage.style.transform = `scale(1.1) translate(${-moveX}px, ${-moveY}px)`;
@@ -119,13 +119,12 @@ document.addEventListener("mousemove", (e) => {
 });
 
 /* ==========================================================================
-   5. INTERACTIVE LOGO CANVAS ANIMATION ENGINE (HIGH PERFORMANCE)
+   5. INTERACTIVE LOGO CANVAS ANIMATION ENGINE (ULTRA-FLUID LAYERED BURST)
    ========================================================================== */
-const LOGO_URL = 'assets/images/your-logo-filename.png'; 
 const canvas = document.getElementById('bubbleCanvas');
 const ctx = canvas.getContext('2d');
+const brandContainer = document.querySelector('.brand-container');
 
-// Square boundaries configured exclusively for the arrow graphic symbol
 const width = 450;
 const height = 280;
 canvas.width = width;
@@ -133,6 +132,7 @@ canvas.height = height;
 
 const particles = [];
 let mouse = { x: -1000, y: -1000 };
+let burstActive = false;
 
 class FluidParticle {
   constructor(x, y) {
@@ -142,7 +142,8 @@ class FluidParticle {
     this.y = y;
     this.vx = 0;
     this.vy = 0;
-    this.size = Math.random() * 1.2 + 0.9; // Optimal structural point sizing
+    // Added particle size variation to make the burst look richer and more organic
+    this.size = Math.random() * 1.5 + 0.8; 
     this.returnDelay = 0; 
     this.currentColor = 'rgba(11, 44, 102, 0.95)';
   }
@@ -151,26 +152,35 @@ class FluidParticle {
     const dy = this.y - mouseY;
     const distance = Math.sqrt(dx * dx + dy * dy);
     
-    const pushRadius = 34; 
+    // Increased interactive explosion radius for a dramatic, cleaner look
+    const pushRadius = 45; 
     if (distance < pushRadius) {
+      burstActive = true;
       const angle = Math.atan2(dy, dx);
       const force = (pushRadius - distance) / pushRadius;
-      const speed = force * (Math.random() * 14 + 8); // Optimized velocity calculations
+      
+      // Increased explosive speed to make the bubbles blast outwards dynamically
+      const speed = force * (Math.random() * 28 + 14); 
       this.vx = Math.cos(angle) * speed;
       this.vy = Math.sin(angle) * speed;
-      this.returnDelay = Math.random() * 10 + 10; 
+      
+      // DELAY INCREASED: Bubbles will now float out out longer before returning home
+      this.returnDelay = Math.random() * 45 + 40; 
     }
+    
     if (this.returnDelay > 0) {
       this.returnDelay--;
-      this.vx *= 0.92; 
-      this.vy *= 0.92;
+      this.vx *= 0.94; // Higher friction allows particles to suspend elegantly in the air
+      this.vy *= 0.94;
     } else {
       const homeDx = this.targetX - this.x;
       const homeDy = this.targetY - this.y;
-      this.vx += homeDx * 0.09; 
-      this.vy += homeDy * 0.09;
-      this.vx *= 0.70; 
-      this.vy *= 0.70;
+      
+      // Softened return force pulls them back home in a smooth, graceful fluid motion
+      this.vx += homeDx * 0.04; 
+      this.vy += homeDy * 0.04;
+      this.vx *= 0.78; 
+      this.vy *= 0.78;
     }
     this.x += this.vx;
     this.y += this.vy;
@@ -183,73 +193,40 @@ class FluidParticle {
   }
 }
 
-function setupCanvasFromBlueprint() {
-  const transparentLogoCanvas = document.createElement('canvas');
-  transparentLogoCanvas.width = width;
-  transparentLogoCanvas.height = height;
-  const tCtx = transparentLogoCanvas.getContext('2d');
+// Generates a mathematically perfect vector arrow map so text elements NEVER appear inside the canvas
+function generatePerfectArrowMap() {
+  const tempCanvas = document.createElement('canvas');
+  tempCanvas.width = width;
+  tempCanvas.height = height;
+  const tCtx = tempCanvas.getContext('2d');
+  
   tCtx.fillStyle = '#0b2c66';
   tCtx.beginPath();
-  tCtx.moveTo(width / 2 - 100, height / 2 - 10);
-  tCtx.quadraticCurveTo(width / 2, height / 2 - 60, width / 2 + 110, height / 2 - 70);
-  tCtx.quadraticCurveTo(width / 2 + 50, height / 2 + 15, width / 2 - 30, height / 2 + 130);
-  tCtx.quadraticCurveTo(width / 2 + 5, height / 2 + 20, width / 2 + 70, height / 2 - 25);
+  
+  // Creates a clean, high-density geometric replica of your upward chevron/arrow symbol
+  const centerX = width / 2;
+  const centerY = height / 2 - 20;
+  
+  tCtx.moveTo(centerX - 80, centerY + 10);
+  tCtx.quadraticCurveTo(centerX - 10, centerY - 55, centerX + 90, centerY - 65);
+  tCtx.quadraticCurveTo(centerX + 30, centerY + 15, centerX - 30, centerY + 100);
+  tCtx.quadraticCurveTo(centerX - 10, centerY + 20, centerX + 40, centerY - 25);
+  
   tCtx.closePath();
   tCtx.fill();
   
   const imgData = tCtx.getImageData(0, 0, width, height).data;
-  // Step configured to 2 for the fallback blueprint to ensure fast loading times
-  for (let y = 0; y < height; y += 2) { 
-    for (let x = 0; x < width; x += 2) {
-      const index = (y * width + x) * 4;
-      if (imgData[index + 3] > 30) { 
+  
+  // ADDED MORE BUBBLES: High-density step tracking generates an abundant volume of particles
+  for (let y = 0; y < height; y += 1.5) { 
+    for (let x = 0; x < width; x += 1.5) {
+      const index = (Math.floor(y) * width + Math.floor(x)) * 4;
+      if (imgData[index + 3] > 50) { 
         particles.push(new FluidParticle(x, y));
       }
     }
   }
   animate();
-}
-
-function initLogoParticles() {
-  const img = new Image();
-  img.crossOrigin = "Anonymous"; 
-  img.src = LOGO_URL;
-  img.onload = function() {
-    const maxDim = 240; // Focused dimensions purely targeting the top graphic asset symbol
-    let imgW = img.width;
-    let imgH = img.height;
-    if (imgW > imgH) {
-      imgH = (maxDim / imgW) * imgH;
-      imgW = maxDim;
-    } else {
-      imgW = (maxDim / imgH) * imgW;
-      imgH = maxDim;
-    }
-    const offsetX = (width - imgW) / 2;
-    const offsetY = (height - imgH) / 2 - 20; // Pushed up slightly away from textual logo elements
-    
-    const tempCanvas = document.createElement('canvas');
-    const tempCtx = tempCanvas.getContext('2d');
-    tempCanvas.width = imgW;
-    tempCanvas.height = imgH;
-    tempCtx.drawImage(img, 0, 0, imgW, imgH);
-    const imgData = tempCtx.getImageData(0, 0, imgW, imgH).data;
-    
-    // Balanced step parsing rate (2) keeps particles highly crisp but lowers processor overhead drastically
-    for (let y = 0; y < imgH; y += 2) {
-      for (let x = 0; x < imgW; x += 2) {
-        const index = (y * imgW + x) * 4;
-        // Strict opacity filtering checks to isolate color vectors and skip branding letters
-        if (imgData[index + 3] > 180 && imgData[index] < 100) { 
-          particles.push(new FluidParticle(x + offsetX, y + offsetY));
-        }
-      }
-    }
-    animate();
-  };
-  img.onerror = function() {
-    setupCanvasFromBlueprint();
-  };
 }
 
 canvas.addEventListener('mouseleave', () => {
@@ -258,18 +235,31 @@ canvas.addEventListener('mouseleave', () => {
 
 canvas.addEventListener('mousemove', (e) => {
   const rect = canvas.getBoundingClientRect();
-  const mouseX = e.clientX - rect.left;
-  const mouseY = e.clientY - rect.top;
-  mouse.x = mouseX * (width / rect.width);
-  mouse.y = mouseY * (height / rect.height);
+  mouse.x = (e.clientX - rect.left) * (width / rect.width);
+  mouse.y = (e.clientY - rect.top) * (height / rect.height);
 });
 
 function animate() {
   ctx.clearRect(0, 0, width, height); 
+  
+  let layoutIsMoving = false;
   particles.forEach(p => {
     p.update(mouse.x, mouse.y);
     p.draw();
+    
+    // Check if particles are currently floating away from home base
+    if (p.returnDelay > 0 || Math.abs(p.vx) > 0.1) {
+        layoutIsMoving = true;
+    }
   });
+  
+  // Swap visibility states between clean image layer and bursting particles automatically
+  if (layoutIsMoving && brandContainer) {
+      brandContainer.classList.add('is-bursting');
+  } else if (brandContainer) {
+      brandContainer.classList.remove('is-bursting');
+  }
+  
   requestAnimationFrame(animate);
 }
 
@@ -277,16 +267,15 @@ function animate() {
    6. GLOBAL SUBSYSTEM INITIALIZATION (TIMELINES & TRANSITIONS)
    ========================================================================== */
 document.addEventListener("DOMContentLoaded", () => {
-    initLogoParticles();
+    generatePerfectArrowMap();
 
-    // 1. Sequential Delay Loading Mechanics Engine
     const sequenceLayout = [
-        { id: 'seq-1', delay: 150 },  // Brand Canvas Area
-        { id: 'seq-2', delay: 350 },  // Secondary Subheading Tag
-        { id: 'seq-3', delay: 550 },  // Main Constraints Header
-        { id: 'seq-4', delay: 750 },  // Descriptive Narrative Paragraph
-        { id: 'seq-5', delay: 950 },  // Interactive Control Buttons
-        { id: 'seq-6', delay: 1100 }  // Floating Arrow indicator
+        { id: 'seq-1', delay: 150 },  
+        { id: 'seq-2', delay: 350 },  
+        { id: 'seq-3', delay: 550 },  
+        { id: 'seq-4', delay: 750 },  
+        { id: 'seq-5', delay: 950 },  
+        { id: 'seq-6', delay: 1100 }  
     ];
 
     sequenceLayout.forEach(item => {
@@ -298,7 +287,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // 2. Dynamic Section Scroll Background Fade Mechanics
     window.addEventListener('scroll', () => {
         const heroSection = document.querySelector('.hero-section');
         if (!heroSection) return;
@@ -310,6 +298,3 @@ document.addEventListener("DOMContentLoaded", () => {
         heroSection.style.backgroundColor = `rgba(11, 34, 64, ${opacityRatio})`;
     });
 });
-
-
-
