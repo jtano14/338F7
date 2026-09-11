@@ -237,29 +237,46 @@ h2 {
 }
 
 /* ==========================================================================
-   3. HERO SECTION
+   3. HERO SECTION (UPDATED FOR IMAGE OVERLAY LAYER)
    ========================================================================== */
 
 .brand-container {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+    height: 280px;
+    margin: 0 auto 34px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto 34px;
-    padding: 20px;
-    box-sizing: border-box;
-    position: relative;
-    z-index: 5;
+    justify-content: flex-start;
+}
+
+/* Force the sharp image and the interactive canvas to sit perfectly on top of each other */
+.sharp-logo-layer {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 240px; /* Focuses exclusively on your graphic element scale */
+    height: auto;
+    z-index: 2;
+    transition: opacity 0.15s ease-in-out;
+    pointer-events: none; /* Allows mouse tracking to pass straight into the canvas */
 }
 
 #bubbleCanvas {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
     background: transparent;
-    cursor: crosshair;
-    width: 100%;       
-    height: auto;      
-    margin-bottom: -4%;
+}
+
+/* When interacting, fade the sharp image out so the bubble burst is completely visible */
+.brand-container.is-bursting .sharp-logo-layer {
+    opacity: 0;
 }
 
 .logo-text {
@@ -272,6 +289,7 @@ h2 {
     text-transform: uppercase;
     user-select: none;
     width: 100%;
+    margin-top: 210px; /* Pushes the crisp header text cleanly down below the absolute canvas space */
 }
 
 .logo-tagline {
@@ -289,11 +307,12 @@ h2 {
 
 .hero-section {
     position: relative;
-    padding: calc(136px + 76px) 0 136 px;
-    overflow: visable;
+    padding: calc(136px + 76px) 0 136px; /* Fixed: Removed the broken space in "136 px" */
+    overflow: visible; /* Fixed: Spelled "visible" correctly with an 'i' so it works */
     background-color: var(--white);
     z-index: 1;
 }
+
 
 .hero-background {
     position: absolute;
