@@ -111,30 +111,28 @@ document.addEventListener("mousemove", (e) => {
     
     if (!bgImage || !verticalText) return;
 
-    const moveX = (e.clientX - window.innerWidth / 2) / 40;
-    const moveY = (e.clientY - window.innerHeight / 2) / 40;
+    const moveX = (e.clientX - window.innerWidth / 2) / 50; // Softened translation steps
+    const moveY = (e.clientY - window.innerHeight / 2) / 50;
 
-    // Smoothly pushes background away from cursor while pulling Japanese text along with it
     bgImage.style.transform = `scale(1.1) translate(${-moveX}px, ${-moveY}px)`;
     verticalText.style.transform = `translate(${moveX}px, calc(-50% + ${moveY}px))`;
 });
 
 /* ==========================================================================
-   5. INTERACTIVE LOGO CANVAS ANIMATION ENGINE (UPDATED SHARP EDGES)
+   5. INTERACTIVE LOGO CANVAS ANIMATION ENGINE (HIGH PERFORMANCE)
    ========================================================================== */
 const LOGO_URL = 'assets/images/your-logo-filename.png'; 
 const canvas = document.getElementById('bubbleCanvas');
 const ctx = canvas.getContext('2d');
 
-// Expanded width and height boundaries to ensure bubble bursts are never clipped or trapped
-const width = 750;
-const height = 400;
+// Square boundaries configured exclusively for the arrow graphic symbol
+const width = 450;
+const height = 280;
 canvas.width = width;
 canvas.height = height;
 
 const particles = [];
 let mouse = { x: -1000, y: -1000 };
-let isInteracting = false;
 
 class FluidParticle {
   constructor(x, y) {
@@ -144,8 +142,7 @@ class FluidParticle {
     this.y = y;
     this.vx = 0;
     this.vy = 0;
-    // Scaled sizes down slightly to ensure high precision point maps (removes rounded bunching)
-    this.size = Math.random() * 1.1 + 0.8; 
+    this.size = Math.random() * 1.2 + 0.9; // Optimal structural point sizing
     this.returnDelay = 0; 
     this.currentColor = 'rgba(11, 44, 102, 0.95)';
   }
@@ -154,28 +151,26 @@ class FluidParticle {
     const dy = this.y - mouseY;
     const distance = Math.sqrt(dx * dx + dy * dy);
     
-    // Increased push radius to simulate strong burst activity
-    const pushRadius = 38; 
+    const pushRadius = 34; 
     if (distance < pushRadius) {
-      isInteracting = true;
       const angle = Math.atan2(dy, dx);
       const force = (pushRadius - distance) / pushRadius;
-      const speed = force * (Math.random() * 24 + 12); 
+      const speed = force * (Math.random() * 14 + 8); // Optimized velocity calculations
       this.vx = Math.cos(angle) * speed;
       this.vy = Math.sin(angle) * speed;
-      this.returnDelay = Math.random() * 15 + 15; 
+      this.returnDelay = Math.random() * 10 + 10; 
     }
     if (this.returnDelay > 0) {
       this.returnDelay--;
-      this.vx *= 0.93; 
-      this.vy *= 0.93;
+      this.vx *= 0.92; 
+      this.vy *= 0.92;
     } else {
       const homeDx = this.targetX - this.x;
       const homeDy = this.targetY - this.y;
-      this.vx += homeDx * 0.085; 
-      this.vy += homeDy * 0.085;
-      this.vx *= 0.72; 
-      this.vy *= 0.72;
+      this.vx += homeDx * 0.09; 
+      this.vy += homeDy * 0.09;
+      this.vx *= 0.70; 
+      this.vy *= 0.70;
     }
     this.x += this.vx;
     this.y += this.vy;
@@ -195,16 +190,17 @@ function setupCanvasFromBlueprint() {
   const tCtx = transparentLogoCanvas.getContext('2d');
   tCtx.fillStyle = '#0b2c66';
   tCtx.beginPath();
-  tCtx.moveTo(width / 2 - 140, height / 2 - 10);
-  tCtx.quadraticCurveTo(width / 2, height / 2 - 70, width / 2 + 150, height / 2 - 80);
-  tCtx.quadraticCurveTo(width / 2 + 60, height / 2 + 20, width / 2 - 40, height / 2 + 180);
-  tCtx.quadraticCurveTo(width / 2 + 10, height / 2 + 30, width / 2 + 100, height / 2 - 40);
+  tCtx.moveTo(width / 2 - 100, height / 2 - 10);
+  tCtx.quadraticCurveTo(width / 2, height / 2 - 60, width / 2 + 110, height / 2 - 70);
+  tCtx.quadraticCurveTo(width / 2 + 50, height / 2 + 15, width / 2 - 30, height / 2 + 130);
+  tCtx.quadraticCurveTo(width / 2 + 5, height / 2 + 20, width / 2 + 70, height / 2 - 25);
   tCtx.closePath();
   tCtx.fill();
   
   const imgData = tCtx.getImageData(0, 0, width, height).data;
-  for (let y = 0; y < height; y += 1) { 
-    for (let x = 0; x < width; x += 1) {
+  // Step configured to 2 for the fallback blueprint to ensure fast loading times
+  for (let y = 0; y < height; y += 2) { 
+    for (let x = 0; x < width; x += 2) {
       const index = (y * width + x) * 4;
       if (imgData[index + 3] > 30) { 
         particles.push(new FluidParticle(x, y));
@@ -219,7 +215,7 @@ function initLogoParticles() {
   img.crossOrigin = "Anonymous"; 
   img.src = LOGO_URL;
   img.onload = function() {
-    const maxDim = 380; 
+    const maxDim = 240; // Focused dimensions purely targeting the top graphic asset symbol
     let imgW = img.width;
     let imgH = img.height;
     if (imgW > imgH) {
@@ -230,7 +226,7 @@ function initLogoParticles() {
       imgH = maxDim;
     }
     const offsetX = (width - imgW) / 2;
-    const offsetY = (height - imgH) / 2;
+    const offsetY = (height - imgH) / 2 - 20; // Pushed up slightly away from textual logo elements
     
     const tempCanvas = document.createElement('canvas');
     const tempCtx = tempCanvas.getContext('2d');
@@ -239,11 +235,12 @@ function initLogoParticles() {
     tempCtx.drawImage(img, 0, 0, imgW, imgH);
     const imgData = tempCtx.getImageData(0, 0, imgW, imgH).data;
     
-    // Scan steps adjusted to 1 to read every single pixel coordinate for absolute line crispness
-    for (let y = 0; y < imgH; y += 1) {
-      for (let x = 0; x < imgW; x += 1) {
+    // Balanced step parsing rate (2) keeps particles highly crisp but lowers processor overhead drastically
+    for (let y = 0; y < imgH; y += 2) {
+      for (let x = 0; x < imgW; x += 2) {
         const index = (y * imgW + x) * 4;
-        if (imgData[index + 3] > 50) { 
+        // Strict opacity filtering checks to isolate color vectors and skip branding letters
+        if (imgData[index + 3] > 180 && imgData[index] < 100) { 
           particles.push(new FluidParticle(x + offsetX, y + offsetY));
         }
       }
@@ -257,7 +254,6 @@ function initLogoParticles() {
 
 canvas.addEventListener('mouseleave', () => {
   mouse.x = -1000;  mouse.y = -1000;
-  isInteracting = false;
 });
 
 canvas.addEventListener('mousemove', (e) => {
@@ -266,11 +262,10 @@ canvas.addEventListener('mousemove', (e) => {
   const mouseY = e.clientY - rect.top;
   mouse.x = mouseX * (width / rect.width);
   mouse.y = mouseY * (height / rect.height);
-  isInteracting = true;
 });
 
 function animate() {
-  ctx.clearRect(0, 0, width, height); // Native frame clear to stop bounding box tracks
+  ctx.clearRect(0, 0, width, height); 
   particles.forEach(p => {
     p.update(mouse.x, mouse.y);
     p.draw();
@@ -279,40 +274,19 @@ function animate() {
 }
 
 /* ==========================================================================
-   6. GLOBAL SUBSYSTEM INITIALIZATION (TIMELINES, LOADERS & CUSTOM CURSORS)
+   6. GLOBAL SUBSYSTEM INITIALIZATION (TIMELINES & TRANSITIONS)
    ========================================================================== */
 document.addEventListener("DOMContentLoaded", () => {
     initLogoParticles();
 
-    // 1. Build and Inject Custom Cursor Structure Elements
-    const cursorNode = document.createElement('div');
-    cursorNode.className = 'custom-sys-cursor';
-    cursorNode.innerHTML = `
-        <div class="cursor-pointer-node"></div>
-        <div class="cursor-pill-badge">You</div>
-    `;
-    document.body.appendChild(cursorNode);
-
-    // Feed real-time window tracking positions to pointer Node
-    window.addEventListener('mousemove', (e) => {
-        cursorNode.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
-    });
-
-    // Detect clickable components to trigger hover appearance shifts
-    const interactables = document.querySelectorAll('a, button, [role="button"], .scroll-indicator-container, #bubbleCanvas');
-    interactables.forEach(item => {
-        item.addEventListener('mouseenter', () => cursorNode.classList.add('is-hovering'));
-        item.addEventListener('mouseleave', () => cursorNode.classList.remove('is-hovering'));
-    });
-
-    // 2. Sequential Delay Loading Mechanics Engine
+    // 1. Sequential Delay Loading Mechanics Engine
     const sequenceLayout = [
-        { id: 'seq-1', delay: 200 },  // Brand Canvas
-        { id: 'seq-2', delay: 500 },  // Secondary Subheading Tag
-        { id: 'seq-3', delay: 750 },  // Main Constraints Header
-        { id: 'seq-4', delay: 1050 }, // Descriptive Narrative Paragraph
-        { id: 'seq-5', delay: 1300 }, // Interactive Control Buttons
-        { id: 'seq-6', delay: 1500 }  // Floating Arrow indicator
+        { id: 'seq-1', delay: 150 },  // Brand Canvas Area
+        { id: 'seq-2', delay: 350 },  // Secondary Subheading Tag
+        { id: 'seq-3', delay: 550 },  // Main Constraints Header
+        { id: 'seq-4', delay: 750 },  // Descriptive Narrative Paragraph
+        { id: 'seq-5', delay: 950 },  // Interactive Control Buttons
+        { id: 'seq-6', delay: 1100 }  // Floating Arrow indicator
     ];
 
     sequenceLayout.forEach(item => {
@@ -324,7 +298,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // 3. Dynamic Section Scroll Background Fade Mechanics
+    // 2. Dynamic Section Scroll Background Fade Mechanics
     window.addEventListener('scroll', () => {
         const heroSection = document.querySelector('.hero-section');
         if (!heroSection) return;
@@ -333,9 +307,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const fadeThreshold = 450; 
         const opacityRatio = Math.min(scrollPosition / fadeThreshold, 1);
         
-        // Transitions background hue from the light CSS baseline to the Corporate Navy color
         heroSection.style.backgroundColor = `rgba(11, 34, 64, ${opacityRatio})`;
     });
 });
+
 
 
