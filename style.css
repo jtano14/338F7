@@ -237,173 +237,152 @@ h2 {
 }
 
 /* ==========================================================================
-   3. HERO SECTION (UPDATED FOR IMAGE OVERLAY LAYER)
+   3. HERO SECTION (COMPACT DESKTOP BALANCE FOR 100% STANDARD VIEW)
    ========================================================================== */
 
+.hero-section {
+    position: relative;
+    /* Compressed overall padding from 136px down to 80px to pull everything up safely */
+    padding: calc(80px + 76px) 0 60px; 
+    overflow: visible;
+    background-color: var(--white);
+    z-index: 1;
+    min-height: calc(100vh - 76px); /* Ensures it frames desktop displays perfectly */
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+/* Re-balanced position of the large Japanese watermark text to sit dead-center at 100% view */
+.hero-vertical-text {
+    position: absolute;
+    right: 40px;
+    top: 48%; /* Pulled up slightly to align cleanly with the newly compressed layout center */
+    transform: translateY(-50%);
+    writing-mode: vertical-rl;
+    font-size: clamp(2.5rem, 3.8vw, 3.5rem);
+    font-weight: 700;
+    color: rgba(11, 34, 64, 0.16); /* Slightly softened overlay footprint */
+    letter-spacing: 0.15em;
+    z-index: 1;
+    pointer-events: none;
+    transition: transform 0.1s ease-out;
+}
+
+/* Brand Arena Wrapper Sizing Box */
 .brand-container {
     position: relative;
     width: 100%;
-    max-width: 800px; /* Allows bubbles to burst out wide to the left and right sides */
-    height: 440px; /* Expanded vertical height block allows text to fit comfortably below canvas */
-    margin: 0 auto; 
+    max-width: 800px;
+    height: 340px; /* Lowered total bounding footprint to prevent pushing text below it downward */
+    margin: 0 auto 12px; /* Tightened gap underneath */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
 }
 
-/* Perfect absolute stacking adjustments */
+/* Logo Image Layer Controls */
 .sharp-logo-layer {
     position: absolute;
-    top: 30px; /* Positioned down slightly to leave plenty of canvas space overhead */
+    top: 50px; /* Shifted down inside the canvas box to allow maximum ceiling area for bubbles */
     left: 50%;
     transform: translateX(-50%);
-    width: 220px; /* Tailored scale focusing purely on the arrow asset */
+    width: 190px; /* Refined geometric display scale */
     height: auto;
     z-index: 2;
     transition: opacity 0.1s ease-in-out;
-    pointer-events: none; /* Passes mouse triggers straight down into the particle canvas box */
+    pointer-events: none;
 }
 
+/* Canvas Playground Layer Configuration */
 #bubbleCanvas {
     position: absolute;
-    top: 0; /* Giving the top canvas maximum box ceiling area */
+    top: 0; 
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
     background: transparent;
 }
 
-/* Fades the solid image out cleanly when the canvas burst becomes active */
 .brand-container.is-bursting .sharp-logo-layer {
     opacity: 0;
 }
 
-/* Clean, crisp HTML main typography heading rules */
+/* Main Brand Structural Typography Node */
 .logo-text {
     color: var(--primary-color); 
-    font-size: clamp(28px, 5.5vw, 56px); 
+    font-size: clamp(26px, 4.5vw, 48px); /* Refined scale to save space */
     font-weight: 700;
-    letter-spacing: clamp(12px, 2.2vw, 24px); 
-    text-indent: clamp(12px, 2.2vw, 24px);    
+    letter-spacing: clamp(10px, 1.8vw, 20px); 
+    text-indent: clamp(10px, 1.8vw, 20px);    
     text-align: center;
     text-transform: uppercase;
     user-select: none;
     width: 100%;
-    margin-top: 270px; /* Pushes text down nicely past the arrow animation playground zone */
+    margin-top: 230px; /* Perfectly aligned to flow cleanly below the arrow space */
 }
 
-/* Single line core tagline spacing formatting layout */
+/* Secondary Multi-Point Tagline Row Element */
 .logo-tagline {
-    color: var(--primary-color);
-    font-size: clamp(10px, 1.8vw, 16px); 
+    color: var(--text-muted);
+    font-size: clamp(9px, 1.4vw, 13px); 
     font-weight: 500;
-    letter-spacing: clamp(4px, 0.8vw, 8px); 
-    text-indent: clamp(4px, 0.8vw, 8px); 
+    letter-spacing: clamp(3px, 0.6vw, 6px); 
+    text-indent: clamp(3px, 0.6vw, 6px); 
     text-align: center;
     text-transform: uppercase;
     user-select: none;
     width: 100%;
-    margin-top: 14px;
-    white-space: nowrap; /* Rigid constraint keeps tagline row from folding into 2 lines */
-}
-
-.hero-section {
-    position: relative;
-    padding: calc(136px + 76px) 0 136px; /* Fixed: Removed the broken space in "136 px" */
-    overflow: visible; /* Fixed: Spelled "visible" correctly with an 'i' so it works */
-    background-color: var(--white);
-    z-index: 1;
-}
-
-.hero-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.15;
-    z-index: 1;
-    pointer-events: none;
-    transform: scale(1.1);
-    transition: transform 0.1s ease-out;
-}
-
-.hero-vertical-text {
-    position: absolute;
-    right: 40px;
-    top: 50%;
-    transform: translateY(-50%);
-    writing-mode: vertical-rl;
-    font-size: 3.5rem;
-    font-weight: 700;
-    color: rgba(11, 34, 64, 0.22);
-    letter-spacing: 0.1em;
-    z-index: 1;
-    pointer-events: none;
-    transition: transform 0.1s ease-out;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-}
-
-.hero-logo {
-    max-width: 260px;
-    margin: 0 auto 24px;
-    object-fit: contain;
-}
-
-/* Formats your primary sub-tag line cleanly beneath the layout */
-.hero-subtitle.section-tag {
-    color: var(--accent-blue);
-    font-size: 1.1rem;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    margin-top: 24px;
-    margin-bottom: 24px;
-    text-align: center;
-    width: 100%;
-    display: block;
-}
-
-.hero-title {
-    max-width: 1080px;
-    margin: 0 auto 28px;
-    font-size: clamp(1.8rem, 4.2vw, 3.8rem);
-    letter-spacing: -0.025em;
+    margin-top: 8px; /* Compacted height tracking gap */
     white-space: nowrap;
 }
 
-.hero-title span {
+/* Subheading Row (GLOBAL TRANSITION...) Spacer Values */
+.hero-subtitle.section-tag {
+    color: var(--accent-blue);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    margin-top: 14px; /* Brought closer to the branding text */
+    margin-bottom: 12px; /* Decreased space underneath to bring description up */
+    text-align: center;
+    width: 100%;
     display: block;
 }
 
+/* Country Constraints Headline Wrapper Style */
+.market-line {
+    font-size: clamp(1.3rem, 2.4vw, 1.9rem) !important; /* Elegant modern proportion alignment */
+    font-weight: 700;
+    color: var(--primary-color);
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    margin-bottom: 14px; /* Reduced to sit tightly with descriptive paragraph */
+    text-align: center;
+}
+
+/* Main Strategic Body Text Description Block */
 .hero-desc {
-    max-width: 800px;
-    margin: 0 auto 34px;
-    font-size: 1.2rem;
+    max-width: 740px; /* Slightly tightened width layout container */
+    margin: 0 auto 20px; /* Reduced gap underneath to pull call-to-action buttons upward */
+    font-size: 1.05rem; /* Highly readable clean density weight scales */
+    line-height: 1.6;
     color: var(--text-muted);
 }
 
+/* CTA Navigation Link Buttons Area Container */
 .hero-buttons {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 14px;
-}
-
-/* Increase the middle market line typography relative to surrounding copy */
-.market-line {
-    font-size: clamp(1.4rem, 2.8vw, 2.2rem) !important;
-    font-weight: 700;
-    color: var(--primary-color);
-    letter-spacing: -0.01em;
-    white-space: nowrap; /* Forces line constraint across viewport profiles */
-    margin-bottom: 24px;
-    text-align: center;
+    gap: 12px;
+    margin-bottom: 24px; /* Controlled buffer zone prior to scroll indicator */
 }
 
 /* Update Explore Our Framework button hover state to Accent Blue */
@@ -415,13 +394,14 @@ h2 {
 
 /* --- Animated Scroll Down Indicator Component --- */
 .scroll-indicator-container {
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 40px;
+    margin-top: 10px;
     cursor: pointer;
     background: transparent;
+    width: 100%;
 }
 
 .scroll-text {
@@ -460,59 +440,6 @@ h2 {
 .fade-init.is-visible {
     opacity: 1;
     transform: translateY(0);
-}
-
-.custom-sys-cursor {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: auto;
-    height: auto;
-    pointer-events: none; /* Prevents cursor from intercepting hover tracking target triggers */
-    z-index: 9999;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    transform: translate3d(-5px, -5px, 0); /* Initial resting center balance point */
-    transition: transform 0.04s linear;
-}
-
-.cursor-pointer-node {
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 14px solid var(--primary-color);
-    transform: rotate(-35deg);
-    margin-bottom: 2px;
-    transition: border-bottom-color 0.2s ease;
-}
-
-.cursor-pill-badge {
-    background-color: var(--primary-color);
-    border: 2px solid var(--primary-color);
-    color: #f8f9fa;
-    padding: 6px 14px;
-    border-radius: 30px;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 12px rgba(11, 34, 64, 0.15);
-    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-}
-
-/* Clickable Interactive Context State Overrides */
-.custom-sys-cursor.is-hovering .cursor-pointer-node {
-    border-bottom-color: var(--accent-blue);
-}
-.custom-sys-cursor.is-hovering .cursor-pill-badge {
-    background-color: var(--accent-blue);
-    border-color: var(--primary-color);
-    color: var(--primary-color);
 }
 
 /* ==========================================================================
