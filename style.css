@@ -500,32 +500,36 @@ h2 {
 }
 
 /* ==========================================================================
-   UPDATED HERO HOVER STATES (MATCHING HEADER STYLE)
+   UPDATED HERO HOVER STATES (FIXED SPECIFIC BORDER SYMMETRY)
    ========================================================================== */
 
 /* 
    1. Primary Button Hover (Start a Conversation)
-   Smoothly flips from solid dark blue to a clean white/transparent background 
-   with a dark blue border and text—perfectly matching a high-end header button!
+   FIXED: We explicitly lock in 'border: 1px solid var(--primary-color) !important;'. 
+   This forces the border, text, and transparent center to use the exact same 
+   weight and color profile, completely eliminating any hollow background bleeding!
 */
 .brand-container .hero-buttons .btn-primary:hover {
     background-color: transparent !important;
+    background: transparent !important;
     color: var(--primary-color) !important;
+    
+    /* Strong explicit border definition locks out the glitch */
+    border: 1px solid var(--primary-color) !important;
     border-color: var(--primary-color) !important;
 }
 
 /* 
    2. Secondary Button Hover (Explore Our Framework)
-   Removes the harsh accent-blue fill. Instead, it subtly shifts its border color 
-   to match the brand color and gives a tiny, premium background hint when you hover.
+   Maintains its clean outline look while shifting its border and text color 
+   to match the primary button state on hover.
 */
 .brand-container .hero-buttons .btn-secondary:hover {
     color: var(--primary-color) !important;
-    background-color: rgba(11, 34, 64, 0.03) !important; /* Soft, premium background tint */
-    border-color: var(--primary-color) !important;       /* Changes border state smoothly */
+    background-color: rgba(11, 34, 64, 0.03) !important; 
+    border: 1px solid var(--primary-color) !important;
+    border-color: var(--primary-color) !important;       
 }
-
-
 
 /* ==========================================================================
    HERO → ABOUT OVERLAP
