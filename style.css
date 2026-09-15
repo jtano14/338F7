@@ -527,44 +527,33 @@ h2 {
    ALL SECTIONS ABOVE THE STICKY HERO
    ========================================================================== */
 
-main > section:not(.hero-section), 
- ,main-footer {
+.scroll-stack-wrapper {
     position: relative;
     z-index: 10;
-    will-change: opacity;
+    width: 100%;
+    transform: translate3d(0, 0, 0); 
+    backface-visibility: hidden;
 }
 
-/* 
-   CRITICAL FIX: Ensure every incoming content section has a solid 
-   background color so that the hero text does not bleed through.
-*/
-.about-section {
-    background-color: var(--light-bg) !important;
-}
-
-.services-section {
-    background-color: var(--white) !important;
-}
-
-.framework-section {
-    background-color: var(--light-bg) !important;
-}
-
-.leadership-section {
-    background-color: var(--white) !important;
-}
-
-.sectors-section {
-    background-color: var(--light-bg) !important;
-}
-
-.contact-section {
-    background-color: var(--white) !important;
+main > section:not(.hero-section) {
+    position: relative;
+    z-index: 15 !important; /* Lifts content higher than the wrapper plane */
+    will-change: opacity, transform;
 }
 
 .main-footer {
-    background-color: var(--primary-color) !important;
+    position: relative;
+    z-index: 20 !important; /* Forces footer to cleanly mask out your hero end-point */
 }
+
+/* Ensure completely flat, opaque backdrops across all panels */
+.about-section { background-color: var(--light-bg) !important; }
+.services-section { background-color: var(--white) !important; }
+.framework-section { background-color: var(--light-bg) !important; }
+.leadership-section { background-color: var(--white) !important; }
+.sectors-section { background-color: var(--light-bg) !important; }
+.contact-section { background-color: var(--white) !important; }
+.main-footer { background-color: var(--primary-color) !important; }
 
 .grid-2 {
     display: grid;
