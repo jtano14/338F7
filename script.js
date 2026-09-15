@@ -308,23 +308,15 @@ function updateScrollEffects() {
         const rect = section.getBoundingClientRect();
 
         if (rect.top < 0) {
-            /* 
-               The active section is scrolling UP out of the viewport.
-               Fade it out smoothly over 35% of the viewport height.
-            */
+            /* Smoothly fade out the current active section over 35% viewport height as it exits up */
             const fadeDistance = viewportHeight * 0.35;
             const distanceAboveViewport = Math.abs(rect.top);
             let opacity = 1 - (distanceAboveViewport / fadeDistance);
 
-            // Maintain your 0.25 visibility baseline floor
             opacity = Math.max(0.25, Math.min(1, opacity));
             section.style.opacity = opacity;
         } else {
-            /* 
-               FIX: By explicitly resetting incoming section styles to a 
-               string value of "1", we prevent the browser engine from freezing 
-               the section's visibility state on high-refresh-rate displays.
-            */
+            /* Fix: Force incoming sections rising from the bottom to remain 100% solid "1" */
             section.style.opacity = "1";
         }
     });
