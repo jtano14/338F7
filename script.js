@@ -298,46 +298,39 @@ function updateScrollEffects() {
             `rgba(11, 34, 64, ${opacityRatio})`;
     }
 
-    /* SECTION EXIT FADE */
-
-    const sections = document.querySelectorAll(
-        'main > section:not(.hero-section)'
-    );
-
+    /* ==========================================================================
+       SECTION EXIT FADE ENGINE (REVISED LOGIC FOR CLEAN OVERLAPS)
+       ========================================================================== */
+    const sections = document.querySelectorAll('main > section:not(.hero-section)');
     const viewportHeight = window.innerHeight;
+
     sections.forEach(section => {
         const rect = section.getBoundingClientRect();
-        /*
-         * Only fade a section once its top has started
-         * moving above the top of the viewport.
-         */
+
         if (rect.top < 0) {
-            /*
-             * The fade happens over approximately 35%
-             * of the viewport height.
-             */
+            /* 
+               The active section is scrolling UP out of the viewport.
+               Fade it out smoothly over 35% of the viewport height.
+            */
             const fadeDistance = viewportHeight * 0.35;
             const distanceAboveViewport = Math.abs(rect.top);
-            let opacity =
-                1 - (distanceAboveViewport / fadeDistance);
+            let opacity = 1 - (distanceAboveViewport / fadeDistance);
 
-           /*
-             * Keep a small amount of the previous section visible.
-             * This prevents it from disappearing completely.
-             */
+            // Maintain your 0.25 visibility baseline floor
             opacity = Math.max(0.25, Math.min(1, opacity));
             section.style.opacity = opacity;
         } else {
-            /*
-             * Sections entering the screen remain fully visible.
-             */
-            section.style.opacity = 1;
+            /* 
+               FIX: By explicitly resetting incoming section styles to a 
+               string value of "1", we prevent the browser engine from freezing 
+               the section's visibility state on high-refresh-rate displays.
+            */
+            section.style.opacity = "1";
         }
     });
 
     scrollTicking = false;
 }
-
 
 window.addEventListener('scroll', () => {
 
