@@ -534,6 +534,15 @@ h2 {
     box-shadow: 0 -12px 30px rgba(0, 0, 0, 0.08); /* Adds soft depth over the hero */
 }
 
+/* ==========================================================================
+   ALL SECTIONS ABOVE THE STICKY HERO
+   ========================================================================== */
+
+main > section:not(.hero-section) {
+    position: relative;
+    z-index: 10;
+}
+
 .grid-2 {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
