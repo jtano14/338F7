@@ -326,7 +326,7 @@ h2 {
     position: relative;
     width: 100%;
     max-width: 600px; /* Snug fit limits purely over the chevron path bounds */
-    height: 190px;    /* Compact vertical height pulls description text upwards */
+    height: auto !important; 
     margin: 0 auto 10px; 
     display: flex;
     flex-direction: column;
@@ -374,10 +374,7 @@ h2 {
     user-select: none;
     width: 100%;
     margin-top: 155px; /* Leaves clear space below the sharp logo arrow graphics */
-    
-    /* CRITICAL FIX: Zero out the bottom margin so the tagline can sit right under it */
     margin-bottom: 0 !important;
-    
     position: relative;
     z-index: 3;
 }
@@ -393,35 +390,67 @@ h2 {
     text-transform: uppercase;
     user-select: none;
     width: 100%;
-    
-    /* 
-       FIX: Pull the corporate tagline directly under FLUX 7 
-       by stripping away excess margin blocks.
-    */
     margin-top: 4px !important; 
     margin-bottom: 0 !important;
-    
     white-space: nowrap;
     position: relative;
     z-index: 3;
 }
 
-/* Subheading Row (GLOBAL TRANSITION. ASIA-GCC MASTERY) Spacer Fixes */
-.hero-subtitle.section-tag {
-    color: var(--accent-blue);
+/* Subheading Row (GLOBAL TRANSITION. ASIA-GCC MASTERY) Spacing */
+.brand-container .hero-subtitle.section-tag {
+    color: var(--accent-blue) !important;
     font-size: 1.1rem;
     font-weight: 700;
     letter-spacing: 0.18em;
-    /* 
-       FIX: Give the geographic mastery tagline a clean, balanced 
-       breathing space directly below your company tagline lockup.
-    */
-    margin-top: 24px !important;   
-    margin-bottom: 24px !important; 
-    
     text-align: center;
     width: 100%;
     display: block;
+    
+    /* Perfect stack placement safely under your tagline string */
+    margin-top: 24px !important;   
+    margin-bottom: 0 !important;
+    position: relative !important;
+}
+
+/* ==========================================================================
+   NEW THREE-LINE STACKED HEADLINE TEXT LAYOUTS
+   ========================================================================== */
+.stacked-headline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 24px !important;    /* Clean padding below accent blue tag */
+    margin-bottom: 24px !important; /* Balanced breathing space over description text */
+    text-align: center;
+    position: relative;
+    z-index: 3;
+}
+
+/* Typography styles for "Bridging" and "to the World." */
+.stacked-headline .headline-prefix,
+.stacked-headline .headline-suffix {
+    color: var(--primary-color);
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    margin: 4px 0;
+    width: 100%;
+}
+
+/* Refined style rules for your central nested geographic countries list row */
+.stacked-headline .market-line {
+    font-size: clamp(1.4rem, 2.6vw, 2.2rem) !important;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: #4a5d78 !important; /* Clean corporate slate-blue breaks up the headings beautifully */
+    margin: 6px 0 !important;
+    line-height: 1.3;
+    text-align: center;
+    width: 100%;
+    white-space: normal !important; /* Soft wraps neatly on small desktop breakpoints */
 }
 
 /* Reposition your Japanese watermark layout (FIXED FOR SINGLE LINE CONSTRAINT) */
