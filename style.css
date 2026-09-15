@@ -405,52 +405,57 @@ h2 {
 }
 
 /* ==========================================================================
-   NEW THREE-LINE STACKED HEADLINE TEXT LAYOUTS (BOLD SYMMETRY FIX)
+   NEW THREE-LINE STACKED HEADLINE (PRIMARY FOCUS SCALE ENGINE)
    ========================================================================== */
 .stacked-headline {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: flex !important;
+    flex-direction: column !important; /* Force a strict vertical stack layout */
+    align-items: center !important;    /* Keep all three text rows perfectly centered */
     width: 100%;
     margin-top: 24px !important;   
-    margin-bottom: 16px !important; 
+    margin-bottom: 20px !important; 
     text-align: center;
     position: relative;
     z-index: 3;
 }
 
-/* Forces Line 1 and Line 3 to display as independent standalone blocks */
+/* 
+   Line 1 (Bridging) & Line 3 (to the World.) 
+   These act as supporting framing elements. We make them slightly smaller 
+   and use a clean semi-bold font weight.
+*/
 .stacked-headline .headline-prefix,
 .stacked-headline .headline-suffix {
-    display: block; /* Forces line break spacing natively */
+    display: block !important; /* Force a complete line break before and after */
     color: var(--primary-color);
-    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-    font-weight: 700; /* Balanced bold density matching line 2 */
+    font-size: clamp(1.6rem, 3vw, 2.2rem) !important; /* Subtle supporting size */
+    font-weight: 600 !important; /* Clean semi-bold frame weight */
     letter-spacing: -0.01em;
     line-height: 1.2;
-    margin: 4px 0;
+    margin: 4px 0 !important;
     width: 100%;
 }
 
-/* Line 2: The Core Countries Market Row Parameter Fixes */
+/* 
+   Line 2: THE PRIMARY FOCUS MARKETS 
+   By giving this an explicitly larger font scale and heavy font weight, 
+   it breaks onto its own line and pops out as the main focus of the page.
+*/
 .stacked-headline .market-line {
-    display: block; /* Forces line break spacing natively */
-    font-size: clamp(1.4rem, 2.6vw, 2.2rem) !important;
+    display: block !important; /* Force onto its own completely independent middle row */
+    width: 100%;
     
-    /* 
-       CRITICAL FIX: Overrides previous lightweight slate-blue assignments 
-       to match the weight and brand color of the prefix and suffix lines.
-    */
-    font-weight: 700 !important; 
+    /* SCALE UP ENGINE: Notice the larger font clamp parameters for your display */
+    font-size: clamp(2rem, 4vw, 3.2rem) !important; 
+    font-weight: 800 !important; /* Heavy extra-bold to make the markets pop out significantly */
     color: var(--primary-color) !important; 
     
-    margin: 8px 0 !important;
-    line-height: 1.3;
-    text-align: center;
-    width: 100%;
-    white-space: normal !important; 
-    letter-spacing: -0.01em;
+    letter-spacing: -0.01em !important;
+    line-height: 1.3 !important;
+    margin: 10px 0 !important; /* Adds clear breathing space above and below the markets */
+    white-space: normal !important; /* Safe soft wrapping layout on narrow desktop frames */
 }
+
 
 /* Force descriptive text paragraph to sit beautifully centered beneath the headline */
 .brand-container .hero-desc {
