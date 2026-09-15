@@ -726,45 +726,72 @@ main > section:not(.hero-section) {
 }
 
 /* ==========================================================================
-   6. THE FLUX7 FRAMEWORK & PACKAGES
+   6. THE FLUX7 FRAMEWORK & PACKAGES (CENTERED ROW ARCHITECTURE)
    ========================================================================== */
 .framework-section {
     background-color: var(--light-bg);
-}
-
-.framework-layout {
-    display: flex;
     position: relative;
+    width: 100%;
 }
 
+/* 
+   FIX 1: We convert this from a side-by-side flex layout to a standardized 
+   centered block layout container that matches your About and Services sections.
+*/
+.framework-layout {
+    display: block !important; 
+    position: relative;
+    width: min(100% - 40px, 1200px) !important; /* Forces perfect outer alignment */
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+}
+
+/* 
+   FIX 2: We extract the large vertical title from the layout flow. 
+   By positioning it absolutely, it floats on the far right or left edge 
+   without shrinking, squeezing, or distorting your main content grids!
+*/
 .framework-side-label {
+    position: absolute !important;
+    right: -60px !important; /* Pins it safely to the outer layout margin gutter */
+    top: 50%;
+    transform: translateY(-50%) rotate(180deg) !important;
     writing-mode: vertical-rl;
-    transform: rotate(180deg);
-    padding: 0 40px;
     font-weight: 700;
-    color: rgba(11, 34, 64, 0.04);
+    color: rgba(11, 34, 64, 0.035) !important; /* Elegant subtle background tint */
     font-size: 4rem;
     letter-spacing: 0.15em;
     display: flex;
     align-items: center;
     justify-content: center;
+    pointer-events: none; /* Prevents it from blocking clicks on your cards */
+    z-index: 1;
 }
 
+/* 
+   FIX 3: Expands the inner content container to fill 100% of the centered runway plane.
+*/
 .framework-content {
-    flex: 1;
+    width: 100% !important;
+    margin: 0 auto !important;
+    text-align: center !important;
 }
 
 .framework-intro {
     max-width: 680px;
     margin: 0 auto 36px;
     color: var(--text-muted);
+    text-align: center !important;
 }
 
+/* --- THE SEVEN PILLARS INTERACTIVE CARDS GRID --- */
 .pillars-list {
     display: grid;
+    /* Auto-fits your 7 cards evenly down the page grid context rows */
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 24px;
     margin: 48px 0 80px;
+    width: 100%;
 }
 
 .pillar-card {
@@ -810,6 +837,7 @@ main > section:not(.hero-section) {
 
 .pillar-card-front h3 {
     margin: 12px 0 0;
+    text-align: left; /* Keeps title layout text inside cards readable */
 }
 
 .pillar-action {
@@ -825,6 +853,7 @@ main > section:not(.hero-section) {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    text-align: left; /* Keeps explanation layout text inside cards readable */
 }
 
 .pillar-card-back h3 {
@@ -840,21 +869,27 @@ main > section:not(.hero-section) {
     margin: 0;
 }
 
+/* --- THE SERVICE PACKAGES MATRIX ROW --- */
 .service-packages {
     margin-top: 64px;
     border-top: 1px solid var(--border-color);
     padding-top: 64px;
+    width: 100%;
+    text-align: center !important;
 }
 
 .service-packages h3 {
     font-size: 1.8rem;
     margin-bottom: 32px;
+    text-align: center !important;
 }
 
 .service-packages-grid {
     display: grid;
+    /* Clean three-column matrix matching your Services layout width thresholds */
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
+    width: 100%;
 }
 
 .package-card {
@@ -865,6 +900,7 @@ main > section:not(.hero-section) {
     border-radius: 4px;
     display: flex;
     flex-direction: column;
+    text-align: left; /* Packages list descriptions read better left-aligned */
 }
 
 .package-card-featured {
@@ -903,6 +939,7 @@ main > section:not(.hero-section) {
     font-size: 0.92rem;
     margin: 0;
 }
+
 
 /* ==========================================================================
    7. LEADERSHIP SECTION
