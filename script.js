@@ -287,21 +287,17 @@ function updateScrollEffects() {
     const heroSection = document.querySelector('.hero-section');
     const scrollPosition = window.scrollY;
     
-    /* ==========================================================================
-       1. HERO COLOR FADE ENGINE (FIXED INITIAL BLANK GLITCH)
+        /* ==========================================================================
+       1. HERO COLOR FADE ENGINE
        ========================================================================== */
     if (heroSection) {
-        if (scrollPosition <= 10) {
-            /* 
-               CRITICAL FIX: When the user is at the absolute top of the page, 
-               force the hero background color back to solid white so it does 
-               not load dark!
-            */
-            heroSection.style.backgroundColor = "var(--white)";
+        if (scrollPosition <= 5) {
+            // Forces background back to a crisp, un-masked solid white state at the top
+            heroSection.style.backgroundColor = "#ffffff";
         } else {
             const fadeThreshold = 450;
             const opacityRatio = Math.min(scrollPosition / fadeThreshold, 1);
-            // Smoothly transitions from transparent overlay to your corporate primary color
+            // Smoothly transitions from transparent layer to your corporate primary color
             heroSection.style.backgroundColor = `rgba(11, 34, 64, ${opacityRatio})`;
         }
     }
