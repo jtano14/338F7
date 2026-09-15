@@ -524,31 +524,23 @@ h2 {
 }
 
 /* ==========================================================================
-   ALL SECTIONS ABOVE THE STICKY HERO
+   ALL SECTIONS ABOVE THE STICKY HERO (CLEAN CONTROL STACK)
    ========================================================================== */
 
 .scroll-stack-wrapper {
     position: relative;
     z-index: 10;
     width: 100%;
-    transform: translate3d(0, 0, 0); 
-    backface-visibility: hidden;
-/* CRITICAL BACKDROP ADDITIONS */
-    background-color: var(--primary-color) !important; /* Locks out the hero */
 }
 
-main > section:not(.hero-section) {
-    position: relative;
-    z-index: 15 !important; /* Lifts content higher than the wrapper plane */
-    will-change: opacity, transform;
-}
-
+main > section:not(.hero-section),
 .main-footer {
     position: relative;
-    z-index: 20 !important; /* Forces footer to cleanly mask out your hero end-point */
+    z-index: 10;
+    will-change: opacity;
 }
 
-/* Ensure completely flat, opaque backdrops across all panels */
+/* Maintain solid backgrounds for seamless section cards */
 .about-section { background-color: var(--light-bg) !important; }
 .services-section { background-color: var(--white) !important; }
 .framework-section { background-color: var(--light-bg) !important; }
