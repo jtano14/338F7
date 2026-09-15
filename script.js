@@ -288,27 +288,17 @@ function updateScrollEffects() {
     const scrollPosition = window.scrollY;
     
     /* ==========================================================================
-       1. HERO COLOR FADE & ACCURATE AUTO-HIDE ENGINE
+       1. HERO COLOR FADE (STREAMLINED)
        ========================================================================== */
     if (heroSection) {
         const fadeThreshold = 450;
         const opacityRatio = Math.min(scrollPosition / fadeThreshold, 1);
         heroSection.style.backgroundColor = `rgba(11, 34, 64, ${opacityRatio})`;
-
-        /* 
-           FIX: We read the exact bounding edge of the hero container.
-           Once its bottom edge moves completely off the top of the screen,
-           we safely turn it off. This eliminates border flickering loop bugs.
-        */
-        const heroRect = heroSection.getBoundingClientRect();
-        if (heroRect.bottom <= 0) {
-            heroSection.style.visibility = "hidden";
-        } else {
-            heroSection.style.visibility = "visible";
-        }
+        
+        // REMOVED the bounding rect hidden check entirely to stop the layout jumping loop
     }
 
-    /* ==========================================================================
+   /* ==========================================================================
        2. SECTION EXIT FADE ENGINE
        ========================================================================== */
     const sections = document.querySelectorAll('main > section:not(.hero-section)');
@@ -317,10 +307,6 @@ function updateScrollEffects() {
     sections.forEach(section => {
         const rect = section.getBoundingClientRect();
 
-        /*
-           Only apply the fade effect to a section if it is actively moving out
-           of the top of the viewport. Incoming sections stay solid.
-        */
         if (rect.top < 0 && rect.bottom > 0) {
             const fadeDistance = viewportHeight * 0.35;
             const distanceAboveViewport = Math.abs(rect.top);
