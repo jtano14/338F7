@@ -279,14 +279,77 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    window.addEventListener('scroll', () => {
-        const heroSection = document.querySelector('.hero-section');
-        if (!heroSection) return;
-        
+/* SCROLL TRANSITIONS */
+
+let scrollTicking = false;
+function updateScrollEffects() {
+    /* HERO COLOR FADE */
+
+    const heroSection = document.querySelector('.hero-section');
+    if (heroSection) {
         const scrollPosition = window.scrollY;
-        const fadeThreshold = 450; 
-        const opacityRatio = Math.min(scrollPosition / fadeThreshold, 1);
-        
-        heroSection.style.backgroundColor = `rgba(11, 34, 64, ${opacityRatio})`;
+        const fadeThreshold = 450;
+        const opacityRatio = Math.min(
+            scrollPosition / fadeThreshold,
+            1
+        );
+
+        heroSection.style.backgroundColor =
+            `rgba(11, 34, 64, ${opacityRatio})`;
+    }
+
+    /* SECTION EXIT FADE */
+
+    const sections = document.querySelectorAll(
+        'main > section:not(.hero-section)'
+    );
+
+    const viewportHeight = window.innerHeight;
+    sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        /*
+         * Only fade a section once its top has started
+         * moving above the top of the viewport.
+         */
+        if (rect.top < 0) {
+            /*
+             * The fade happens over approximately 35%
+             * of the viewport height.
+             */
+            const fadeDistance = viewportHeight * 0.35;
+            const distanceAboveViewport = Math.abs(rect.top);
+            let opacity =
+                1 - (distanceAboveViewport / fadeDistance);
+
+           /*
+             * Keep a small amount of the previous section visible.
+             * This prevents it from disappearing completely.
+             */
+            opacity = Math.max(0.25, Math.min(1, opacity));
+            section.style.opacity = opacity;
+        } else {
+            /*
+             * Sections entering the screen remain fully visible.
+             */
+            section.style.opacity = 1;
+        }
     });
-});
+
+    scrollTicking = false;
+}
+
+
+window.addEventListener('scroll', () => {
+
+    if (!scrollTicking) {
+        window.requestAnimationFrame(updateScrollEffects);
+        scrollTicking = true;
+    }
+
+}, { passive: true });
+window.addEventListener('resize', updateScrollEffects);
+
+/* Set the correct state immediately when the page loads */
+updateScrollEffects();
+
+});                          
