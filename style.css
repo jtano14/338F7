@@ -527,34 +527,28 @@ h2 {
    ALL SECTIONS ABOVE THE STICKY HERO (CLEAN CONTROL STACK)
    ========================================================================== */
 
-.scroll-stack-wrapper {
+main {
     position: relative;
     z-index: 10;
+    background-color: var(--white) !important;
     width: 100%;
-    transform: translate3d(0, 0, 0);
 }
 
-.scroll-stack-wrapper::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
+.scroll-stack-wrapper {
+    position: relative;
     width: 100%;
-    height: 100vh;
-    background-color: var(--white); /* Ensures a crisp white backdrop */
-    z-index: 1; /* Sits directly beneath your sections */
-    pointer-events: none;
+    background-color: var(--white) !important;
 }
 
 main > section:not(.hero-section) {
     position: relative;
-    z-index: 5 !important; 
+    z-index: 15 !important;
     will-change: opacity;
 }
 
 .main-footer {
     position: relative;
-    z-index: 10 !important;
+    z-index: 20 !important;
     background-color: var(--primary-color) !important;
 }
 
