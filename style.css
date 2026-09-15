@@ -299,14 +299,15 @@ h2 {
    ========================================================================== */
 .hero-vertical-text {
     position: absolute;
-    left: 50% !important;
-    top: 52% !important; /* Slightly offset below the logo graphic to sit nicely behind the words */
-    transform: translate(-50%, -50%) !important;
+    right: 6% !important;
+    left: auto !important; /* Clears any previous centering rules */
+    top: 50% !important;
+    transform: translateY(-50%) !important;
     writing-mode: vertical-rl;
-    font-size: clamp(3rem, 7vw, 5.5rem) !important; /* Scaled up beautifully to fill the vertical axis area */
+    font-size: clamp(2.2rem, 3.5vw, 3.2rem) !important; /* Restored to its elegant base size */
     font-weight: 700;
-    color: rgba(11, 34, 64, 0.04) !important;
-    letter-spacing: 0.25em !important; /* Increased spacing gives the characters a premium look */
+    color: rgba(11, 34, 64, 0.08) !important; /* Muted corporate accent shade */
+    letter-spacing: 0.18em !important;
     z-index: 1 !important;
     pointer-events: none;
     white-space: nowrap !important;
@@ -323,6 +324,7 @@ h2 {
     max-width: 800px;       /* Gives the description comfortable breathing room */
     height: auto !important; /* Allows the container to stretch downwards to fit all data */
     margin: 0 auto;
+    padding-top: 230px !important;
 }
 
 /* Force the sharp arrow image layer to remain perfectly crisp on center balance */
@@ -364,7 +366,7 @@ h2 {
     text-transform: uppercase;
     user-select: none;
     width: 100%;
-    margin-top: 155px; /* Leaves clear space below the sharp logo arrow graphics */
+    margin-top: 0 !important; 
     margin-bottom: 0 !important;
     position: relative;
     z-index: 3;
