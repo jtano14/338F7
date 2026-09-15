@@ -294,24 +294,22 @@ h2 {
     transition: transform 0.1s ease-out;
 }
 
-/* 
-   ✅ BACKGROUND WATERMARK LOCK:
-   This keeps your beautiful Japanese lettering locked safely to the right side of the screen.
-   By keeping it single-line and at z-index: 1, it stays softly behind your text stack.
-*/
+/* ==========================================================================
+   JAPANESE BACKGROUND WATERMARK (PERFECT DISPLAY CENTER ACCELERATION)
+   ========================================================================== */
 .hero-vertical-text {
     position: absolute;
-    right: 4%;
-    top: 50%;
-    transform: translateY(-50%);
+    left: 50% !important;
+    top: 52% !important; /* Slightly offset below the logo graphic to sit nicely behind the words */
+    transform: translate(-50%, -50%) !important;
     writing-mode: vertical-rl;
-    font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+    font-size: clamp(3rem, 7vw, 5.5rem) !important; /* Scaled up beautifully to fill the vertical axis area */
     font-weight: 700;
-    color: rgba(11, 34, 64, 0.08); 
-    letter-spacing: 0.18em;
-    z-index: 1;
+    color: rgba(11, 34, 64, 0.04) !important;
+    letter-spacing: 0.25em !important; /* Increased spacing gives the characters a premium look */
+    z-index: 1 !important;
     pointer-events: none;
-    white-space: nowrap !important; 
+    white-space: nowrap !important;
 }
 
 /* --- Brand Container Canvas Mechanics --- */
