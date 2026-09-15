@@ -298,16 +298,21 @@ h2 {
    JAPANESE BACKGROUND WATERMARK (PERFECT DISPLAY CENTER ACCELERATION)
    ========================================================================== */
 .hero-vertical-text {
-    position: absolute !important;
+    position: fixed !important;
     right: 4% !important;
     left: auto !important; 
     top: 50% !important;
-    transform: translateY(-50%) !important; /* Vertically center-aligns right text row natively */
+    transform: translateY(-50%) !important; 
+    
     writing-mode: vertical-rl;
     font-size: clamp(2.2rem, 3.5vw, 3.2rem) !important; 
     font-weight: 700;
-    color: rgba(11, 34, 64, 0.08) !important; /* Highly subtle, premium watermark tone */
+    
+    /* Keeps the watermark elegantly subtle and soft behind your scrolling cards */
+    color: rgba(11, 34, 64, 0.06) !important; 
     letter-spacing: 0.18em !important;
+    
+    /* Safely locks it behind buttons and content cards */
     z-index: 1 !important;
     pointer-events: none;
     white-space: nowrap !important;
@@ -321,10 +326,10 @@ h2 {
     align-items: center;    /* Centers all text rows and button sets perfectly */
     justify-content: flex-start;
     width: 100%;
-    max-width: 800px;       /* Gives the description comfortable breathing room */
-    height: auto !important; /* Allows the container to stretch downwards to fit all data */
+    max-width: 800px;       
+    height: auto !important; 
     margin: 0 auto;
-    padding-top: 140px !important;
+    padding-top: 80px !important; 
 }
 
 /* Force the sharp arrow image layer to remain perfectly crisp on center balance */
