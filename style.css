@@ -322,8 +322,8 @@ h2 {
 .brand-container {
     position: relative;
     display: flex;
-    flex-direction: column; /* Forces everything inside to stack vertically naturally */
-    align-items: center;    /* Centers all text rows and button sets perfectly */
+    flex-direction: column; 
+    align-items: center;    
     justify-content: flex-start;
     width: 100%;
     max-width: 800px;       
@@ -332,32 +332,45 @@ h2 {
     padding-top: 80px !important; 
 }
 
-/* Force the sharp arrow image layer to remain perfectly crisp on center balance */
+.logo-wrapper {
+    position: relative;
+    width: 160px;  /* Matches the exact width layout profile of your arrow image logo asset */
+    height: 110px; /* Provides the necessary breathing space context framework */
+    margin: 0 auto !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .sharp-logo-layer {
-    position: absolute;
-    top: 35px !important; 
-    left: 50%;
-    transform: translateX(-50%);
-    width: 160px; 
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    transform: none !important; /* Clears manual translate offsets that caused the layout skip */
+    width: 100% !important; 
     height: auto;
     z-index: 2;
-    transition: opacity 0.1s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
     pointer-events: none;
 }
 
-/* Open canvas bounding roof boundaries */
 #bubbleCanvas {
-    position: absolute;
-    top: -15px !important; 
-    left: 50%;
-    transform: translateX(-50%);
+    position: absolute !important;
+    /* Centered directly behind the arrow image layout boundary layer */
+    top: 50% !important; 
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
     z-index: 1;
     background: transparent;
     pointer-events: auto;
+    width: 500px !important;
+    height: 400px !important;
+    max-width: none !important;
 }
 
 .brand-container.is-bursting .sharp-logo-layer {
-    opacity: 0;
+    opacity: 0 !important;
+    visibility: hidden;
 }
 
 /* Main Brand Header Text Block */
@@ -371,7 +384,7 @@ h2 {
     text-transform: uppercase;
     user-select: none;
     width: 100%;
-    margin-top: 115px !important; 
+    margin-top: 16px !important; 
     margin-bottom: 0 !important;
     position: relative;
     z-index: 3;
