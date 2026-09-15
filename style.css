@@ -531,13 +531,18 @@ h2 {
     position: relative;
     z-index: 10;
     width: 100%;
+    background-color: var(--white) !important;
 }
 
-main > section:not(.hero-section),
+main > section:not(.hero-section) {
+    position: relative;
+    z-index: 15 !important;
+    will-change: opacity;
+
 .main-footer {
     position: relative;
-    z-index: 10;
-    will-change: opacity;
+    z-index: 20 !important;
+    background-color: var(--primary-color) !important;
 }
 
 /* Maintain solid backgrounds for seamless section cards */
