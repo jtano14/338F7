@@ -240,14 +240,30 @@ h2 {
    3. HERO SECTION (RE-ARCHITECTED FOR BALANCED CENTER 100% DISPLAY)
    ========================================================================== */
 
+/* ==========================================================================
+   3. HERO SECTION (UPDATED FOR SOLID CLEAN INITIAL LOAD)
+   ========================================================================== */
+
 .hero-section {
     position: sticky;
     top: 0;
     min-height: calc(100vh - 76px);
     padding: calc(60px + 76px) 0 40px;
     overflow: hidden;
-    background-color: var(--white); /* This gets overridden or conflicts during layer rendering */
+    
+    /* 
+       CRITICAL LOAD FIX: Explicitly enforce a solid white canvas paint backdrop 
+       shorthand property with an !important layout declaration override.
+       This physically blocks any underlying document color masks from bleeding 
+       through before your scroll script initializes.
+    */
+    background: #ffffff !important;
+    background-color: var(--white) !important;
+    
     z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* --- Content Width Restorations (STOPS THE SIDE-BY-SIDE COLUMN BUG) --- */
