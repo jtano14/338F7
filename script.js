@@ -299,20 +299,31 @@ function updateScrollEffects() {
     sections.forEach(section => {
         const rect = section.getBoundingClientRect();
 
-        if (rect.top < 0 && rect.bottom > 0) {
-            const fadeDistance = viewportHeight * 0.35;
-            const distanceAboveViewport = Math.abs(rect.top);
-            let opacity = 1 - (distanceAboveViewport / fadeDistance);
+        /*
+           FIX: We calculate the fade based on the SECTION'S BOTTOM EDGE.
+           The section remains completely solid (opacity 1) while you are reading it.
+           It only starts fading out when its bottom edge gets close to leaving 
+           the top of the screen (within 400 pixels of the top border window viewport).
+        */
+        if (rect.bottom < 400 && rect.bottom > 0) {
+            // Smoothly fade out over the final 400 pixels of the section's height
+            let opacity = rect.bottom / 400;
 
+            // Lock the minimum visibility to your 0.25 layout floor rule
             opacity = Math.max(0.25, Math.min(1, opacity));
             section.style.opacity = opacity.toString();
+        } else if (rect.bottom <= 0) {
+            // Completely scrolled off the screen
+            section.style.opacity = "0.25";
         } else {
+            // The section is actively being read or entering from the bottom -> Keep perfectly readable!
             section.style.opacity = "1";
         }
     });
 
     scrollTicking = false;
 }
+
 
 window.addEventListener('scroll', () => {
 
