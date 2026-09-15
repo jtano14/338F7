@@ -144,8 +144,8 @@ h2 {
 
 .btn-secondary:hover {
     color: var(--white);
-    background-color: var(--accent-blue) !important;
-    border-color: var(--accent-blue) !important;
+    background-color: var(--border-color) !important;
+    border-color: var(--border-color) !important;
 }
 
 .full-width {
