@@ -1476,3 +1476,20 @@ h2 {
         width: 100% !important;
     }
 }
+
+/* ==========================================================================
+   MOBILE — HERO OVERLAP BEHAVIOR
+   ========================================================================== */
+
+@media (max-width: 768px) {
+
+    .hero-section {
+        min-height: calc(100vh - 64px);
+        padding: 80px 20px 40px;
+    }
+
+    .about-section {
+        margin-top: 0;
+    }
+
+}
