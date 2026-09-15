@@ -530,14 +530,14 @@ h2 {
 main {
     position: relative;
     z-index: 10;
-    background-color: var(--white) !important;
+    background-color: var(--primary-color) !important; /* Changed to dark corporate blue */
     width: 100%;
 }
 
 .scroll-stack-wrapper {
     position: relative;
     width: 100%;
-    background-color: var(--white) !important;
+    background-color: var(--primary-color) !important; /* Changed to dark corporate blue */
 }
 
 main > section:not(.hero-section) {
