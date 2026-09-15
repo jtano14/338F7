@@ -405,62 +405,71 @@ h2 {
 }
 
 /* ==========================================================================
-   NEW THREE-LINE STACKED HEADLINE (EXTENDED WIDTH RUNWAY ENGINE)
+   NEW THREE-LINE STACKED HEADLINE (TIGHT VERTICAL LOCKUP - UNBOLDED)
    ========================================================================== */
 .stacked-headline {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;    
-    
-    /* 
-       CRITICAL WIDE RUNWAY FIX: We break past the brand-container's 800px limits 
-       by explicitly forcing the headline block to safely utilize 100% of your 
-       available container space (up to a crisp 1140px widescreen frame).
-    */
     width: 100% !important;
     max-width: 1140px !important; 
     margin-left: auto !important;
     margin-right: auto !important;
     
-    margin-top: 24px !important;   
+    /* Spacing between the blue subtitle and the description */
+    margin-top: 20px !important;   
     margin-bottom: 20px !important; 
     text-align: center;
     position: relative;
     z-index: 3;
 }
 
-/* Framing rows (Bridging / to the World.) */
+/* 
+   Line 1 (Bridging) & Line 3 (to the World.)
+   We reduce the size slightly and use an unbolded weight so they fit 
+   beautifully into a compact vertical block.
+*/
 .stacked-headline .headline-prefix,
 .stacked-headline .headline-suffix {
     display: block !important;
     color: var(--primary-color);
-    font-size: clamp(1.5rem, 2.8vw, 2rem) !important;
-    font-weight: 600 !important;
+    font-size: clamp(1.4rem, 2.5vw, 1.8rem) !important;
+    
+    /* UNBOLD FIX: Changed from 600/700 down to a clean, regular weight */
+    font-weight: 400 !important; 
+    
     letter-spacing: -0.01em;
-    line-height: 1.2;
-    margin: 4px 0 !important;
+    line-height: 1.1 !important; /* Extremely tight line heights pull them close */
+    
+    /* CRITICAL SPACING FIX: Collapse margins to pull lines together */
+    margin: 2px 0 !important; 
     width: 100%;
 }
 
-/* Maximized Central Focus Market Row (EXTENDED FOR SINGLE ROW ALIGNMENT) */
+/* 
+   Line 2: THE UNBROKEN COUNTRY LIST ROW
+   We tighten the spacing and unbold the text so it matches your desired look 
+   while maintaining its clean, single-line horizontal alignment.
+*/
 .stacked-headline .market-line {
     display: block !important;
     width: 100% !important;
+    white-space: nowrap !important; /* Guarantees everything stays locked on one row */
     
-    /* 
-       STRETCH & FLATTEN ENGINE: Disables the narrow auto-wrapping constraint 
-       and fine-tunes letter tracking metrics so that your entire operational market list 
-       fits on one clean, bold line on high-resolution displays.
-    */
-    white-space: nowrap !important; /* Forces the browser to keep all markets on a single row */
-    font-size: clamp(1.8rem, 3.6vw, 3rem) !important; /* Scaled down slightly to perfectly anchor the 1080p frame runway */
-    font-weight: 800 !important; /* Retains your premium extra-bold weight impact */
+    /* Slightly adjusted size so it perfectly flows on a single line without wrapping */
+    font-size: clamp(1.6rem, 3.2vw, 2.4rem) !important; 
+    
+    /* UNBOLD FIX: Switched from 800 down to an elegant medium weight */
+    font-weight: 500 !important; 
+    
     color: var(--primary-color) !important;
+    letter-spacing: -0.01em !important;
+    line-height: 1.1 !important; /* Extremely tight line heights pull them close */
     
-    letter-spacing: -0.02em !important; /* Slightly tighter tracking locks row text beautifully */
-    line-height: 1.3 !important;
-    margin: 12px 0 !important;
+    /* CRITICAL SPACING FIX: Collapse margins to pull lines together */
+    margin: 4px 0 !important; 
 }
+
 
 
 
