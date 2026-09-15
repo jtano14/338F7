@@ -544,6 +544,10 @@ main > section:not(.hero-section),
     z-index: 10;
 }
 
+main > section:not(.hero-section) {
+    will-change: opacity;
+}
+
 .grid-2 {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
