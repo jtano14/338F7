@@ -288,7 +288,7 @@ function updateScrollEffects() {
     const scrollPosition = window.scrollY;
     
     /* ==========================================================================
-       1. HERO COLOR FADE & AUTO-HIDE ENGINE (THE FIX)
+       1. HERO COLOR FADE & ACCURATE AUTO-HIDE ENGINE
        ========================================================================== */
     if (heroSection) {
         const fadeThreshold = 450;
@@ -296,14 +296,15 @@ function updateScrollEffects() {
         heroSection.style.backgroundColor = `rgba(11, 34, 64, ${opacityRatio})`;
 
         /* 
-           If the user has scrolled down past the height of the hero page, 
-           completely shut it off so it cannot bleed through subsequent sections.
+           FIX: We read the exact bounding edge of the hero container.
+           Once its bottom edge moves completely off the top of the screen,
+           we safely turn it off. This eliminates border flickering loop bugs.
         */
-        if (scrollPosition > window.innerHeight) {
-            heroSection.style.display = "none";
+        const heroRect = heroSection.getBoundingClientRect();
+        if (heroRect.bottom <= 0) {
+            heroSection.style.visibility = "hidden";
         } else {
-            // Bring it back seamlessly if they scroll back to the very top
-            heroSection.style.display = "flex"; 
+            heroSection.style.visibility = "visible";
         }
     }
 
@@ -316,7 +317,10 @@ function updateScrollEffects() {
     sections.forEach(section => {
         const rect = section.getBoundingClientRect();
 
-        // Target only the panel leaving the top of the viewport
+        /*
+           Only apply the fade effect to a section if it is actively moving out
+           of the top of the viewport. Incoming sections stay solid.
+        */
         if (rect.top < 0 && rect.bottom > 0) {
             const fadeDistance = viewportHeight * 0.35;
             const distanceAboveViewport = Math.abs(rect.top);
@@ -325,14 +329,12 @@ function updateScrollEffects() {
             opacity = Math.max(0.25, Math.min(1, opacity));
             section.style.opacity = opacity.toString();
         } else {
-            /* Keep all incoming panels completely crisp and opaque */
             section.style.opacity = "1";
         }
     });
 
     scrollTicking = false;
 }
-
 
 window.addEventListener('scroll', () => {
 
