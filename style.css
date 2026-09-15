@@ -499,12 +499,32 @@ h2 {
     z-index: 3;
 }
 
-/* Secondary CTA Button Hover Override State */
-.btn-secondary:hover {
-    color: var(--white);
-    background-color: var(--accent-blue) !important;
-    border-color: var(--accent-blue) !important;
+/* ==========================================================================
+   UPDATED HERO HOVER STATES (MATCHING HEADER STYLE)
+   ========================================================================== */
+
+/* 
+   1. Primary Button Hover (Start a Conversation)
+   Smoothly flips from solid dark blue to a clean white/transparent background 
+   with a dark blue border and text—perfectly matching a high-end header button!
+*/
+.brand-container .hero-buttons .btn-primary:hover {
+    background-color: transparent !important;
+    color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
 }
+
+/* 
+   2. Secondary Button Hover (Explore Our Framework)
+   Removes the harsh accent-blue fill. Instead, it subtly shifts its border color 
+   to match the brand color and gives a tiny, premium background hint when you hover.
+*/
+.brand-container .hero-buttons .btn-secondary:hover {
+    color: var(--primary-color) !important;
+    background-color: rgba(11, 34, 64, 0.03) !important; /* Soft, premium background tint */
+    border-color: var(--primary-color) !important;       /* Changes border state smoothly */
+}
+
 
 
 /* ==========================================================================
