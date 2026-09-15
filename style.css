@@ -404,7 +404,9 @@ h2 {
     position: relative !important;
 }
 
-/* Three-Line Stacked Headline Structural Box */
+/* ==========================================================================
+   NEW THREE-LINE STACKED HEADLINE TEXT LAYOUTS (BOLD SYMMETRY FIX)
+   ========================================================================== */
 .stacked-headline {
     display: flex;
     flex-direction: column;
@@ -417,23 +419,32 @@ h2 {
     z-index: 3;
 }
 
+/* Forces Line 1 and Line 3 to display as independent standalone blocks */
 .stacked-headline .headline-prefix,
 .stacked-headline .headline-suffix {
+    display: block; /* Forces line break spacing natively */
     color: var(--primary-color);
     font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-    font-weight: 600;
+    font-weight: 700; /* Balanced bold density matching line 2 */
     letter-spacing: -0.01em;
     line-height: 1.2;
     margin: 4px 0;
     width: 100%;
 }
 
-/* Central nested geographic countries list row styling */
+/* Line 2: The Core Countries Market Row Parameter Fixes */
 .stacked-headline .market-line {
+    display: block; /* Forces line break spacing natively */
     font-size: clamp(1.4rem, 2.6vw, 2.2rem) !important;
-    font-weight: 700;
+    
+    /* 
+       CRITICAL FIX: Overrides previous lightweight slate-blue assignments 
+       to match the weight and brand color of the prefix and suffix lines.
+    */
+    font-weight: 700 !important; 
     color: var(--primary-color) !important; 
-    margin: 6px 0 !important;
+    
+    margin: 8px 0 !important;
     line-height: 1.3;
     text-align: center;
     width: 100%;
