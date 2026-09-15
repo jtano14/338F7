@@ -533,6 +533,8 @@ h2 {
     width: 100%;
     transform: translate3d(0, 0, 0); 
     backface-visibility: hidden;
+/* CRITICAL BACKDROP ADDITIONS */
+    background-color: var(--primary-color) !important; /* Locks out the hero */
 }
 
 main > section:not(.hero-section) {
