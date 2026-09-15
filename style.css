@@ -405,72 +405,67 @@ h2 {
 }
 
 /* ==========================================================================
-   NEW THREE-LINE STACKED HEADLINE (TIGHT VERTICAL LOCKUP - UNBOLDED)
+   NEW THREE-LINE STACKED HEADLINE (MAX SQUEEZE & CENTER BALANCED ENGINE)
    ========================================================================== */
 .stacked-headline {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;    
+    justify-content: center !important;
     width: 100% !important;
     max-width: 1140px !important; 
     margin-left: auto !important;
     margin-right: auto !important;
     
-    /* Spacing between the blue subtitle and the description */
-    margin-top: 20px !important;   
-    margin-bottom: 20px !important; 
-    text-align: center;
+    /* Pulled tight to squeeze the headline spacing into a crisp block profile */
+    margin-top: 12px !important;   
+    margin-bottom: 12px !important; 
+    
+    text-align: center !important;
     position: relative;
     z-index: 3;
 }
 
-/* 
-   Line 1 (Bridging) & Line 3 (to the World.)
-   We reduce the size slightly and use an unbolded weight so they fit 
-   beautifully into a compact vertical block.
-*/
+/* Line 1 (Bridging) & Line 3 (to the World.) Spacing Tightener */
 .stacked-headline .headline-prefix,
 .stacked-headline .headline-suffix {
     display: block !important;
     color: var(--primary-color);
     font-size: clamp(1.4rem, 2.5vw, 1.8rem) !important;
-    
-    /* UNBOLD FIX: Changed from 600/700 down to a clean, regular weight */
     font-weight: 400 !important; 
+    letter-spacing: -0.01em !important;
+    line-height: 1.0 !important; /* Crushed line height pulls lines extremely tight */
     
-    letter-spacing: -0.01em;
-    line-height: 1.1 !important; /* Extremely tight line heights pull them close */
+    /* Zero out any text-indent variables that might disrupt absolute center alignment */
+    text-indent: 0 !important;
+    text-align: center !important;
     
-    /* CRITICAL SPACING FIX: Collapse margins to pull lines together */
-    margin: 2px 0 !important; 
+    /* MAX SQUEEZE: Minimized to 0px to stack rows directly next to each other */
+    margin: 0px 0 !important; 
     width: 100%;
 }
 
-/* 
-   Line 2: THE UNBROKEN COUNTRY LIST ROW
-   We tighten the spacing and unbold the text so it matches your desired look 
-   while maintaining its clean, single-line horizontal alignment.
-*/
+/* Line 2: THE PERFECTLY CENTERED UNBROKEN COUNTRY ROW */
 .stacked-headline .market-line {
     display: block !important;
     width: 100% !important;
-    white-space: nowrap !important; /* Guarantees everything stays locked on one row */
+    white-space: nowrap !important; /* Guarantees everything stays locked on a single row */
+    text-align: center !important;   /* Forces absolute center-axis symmetry */
     
-    /* Slightly adjusted size so it perfectly flows on a single line without wrapping */
+    /* Reset any old margins or indents causing the Brunei/GCC rightward pull */
+    text-indent: 0 !important;
+    padding: 0 !important;
+    
     font-size: clamp(1.6rem, 3.2vw, 2.4rem) !important; 
-    
-    /* UNBOLD FIX: Switched from 800 down to an elegant medium weight */
     font-weight: 500 !important; 
-    
     color: var(--primary-color) !important;
-    letter-spacing: -0.01em !important;
-    line-height: 1.1 !important; /* Extremely tight line heights pull them close */
     
-    /* CRITICAL SPACING FIX: Collapse margins to pull lines together */
-    margin: 4px 0 !important; 
+    letter-spacing: -0.01em !important;
+    line-height: 1.0 !important; /* Crushed line height pulls lines extremely tight */
+    
+    /* MAX SQUEEZE: Minor spacing buffer strictly around the main country row text */
+    margin: 2px 0 !important; 
 }
-
-
 
 
 /* Force descriptive text paragraph to sit beautifully centered beneath the headline */
