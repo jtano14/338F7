@@ -241,12 +241,17 @@ h2 {
    ========================================================================== */
 
 .hero-section {
-    position: relative;
-    padding: calc(60px + 76px) 0 40px; /* Reduced vertical padding blocks */
-    overflow: visible;
+    position: sticky;
+    top: 0;
+    min-height: calc(100vh - 76px);
+    padding: calc(60px + 76px) 0 40px;
+    overflow: hidden;
     background-color: var(--white);
+    /*
+     * Hero sits behind the sections that follow it.
+     * About will slide over the top of it.
+     */
     z-index: 1;
-    min-height: calc(100vh - 76px); /* Ensures full display sizing frames */
     display: flex;
     align-items: center;
     justify-content: center;
