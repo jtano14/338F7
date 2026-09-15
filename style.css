@@ -502,14 +502,36 @@ h2 {
 }
 
 /* ==========================================================================
+   HERO → ABOUT OVERLAP
+   ========================================================================== */
+
+.about-section {
+    position: relative;
+
+    /*
+     * Higher than the Hero, so About physically moves
+     * over the Hero when scrolling.
+     */
+    z-index: 10;
+
+    background-color: var(--light-bg);
+
+    /*
+     * Creates a clean visual separation between
+     * the Hero and About sections.
+     */
+    box-shadow: 0 -12px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* ==========================================================================
    4. ABOUT US SECTION
    ========================================================================== */
 .about-section {
     background-color: var(--light-bg);
     position: relative;
     z-index: 10; /* Higher layer index to sit cleanly on top of the hero during scroll */
-    margin-top: -50px; /* Slight negative margin pull to create an overlapping effect */
-    box-shadow: 0 -20px 40px rgba(11, 34, 64, 0.05); /* Adds soft depth over the hero */
+    margin-top: 0px; /* Slight negative margin pull to create an overlapping effect */
+    box-shadow: 0 -12px 30px rgba(0, 0, 0, 0.08); /* Adds soft depth over the hero */
 }
 
 .grid-2 {
