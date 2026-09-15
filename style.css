@@ -531,10 +531,39 @@ main > section:not(.hero-section),
  ,main-footer {
     position: relative;
     z-index: 10;
+    will-change: opacity;
 }
 
-main > section:not(.hero-section) {
-    will-change: opacity;
+/* 
+   CRITICAL FIX: Ensure every incoming content section has a solid 
+   background color so that the hero text does not bleed through.
+*/
+.about-section {
+    background-color: var(--light-bg) !important;
+}
+
+.services-section {
+    background-color: var(--white) !important;
+}
+
+.framework-section {
+    background-color: var(--light-bg) !important;
+}
+
+.leadership-section {
+    background-color: var(--white) !important;
+}
+
+.sectors-section {
+    background-color: var(--light-bg) !important;
+}
+
+.contact-section {
+    background-color: var(--white) !important;
+}
+
+.main-footer {
+    background-color: var(--primary-color) !important;
 }
 
 .grid-2 {
@@ -1268,18 +1297,20 @@ main > section:not(.hero-section) {
     padding: 40px;
     max-width: 520px;
     width: calc(100% - 32px);
-    background-color: var(--white);
+    background-color: var(--white) !important;
     box-shadow: 0 20px 50px rgba(11, 34, 64, 0.15);
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     margin: 0;
+    z-index: 2000;
 }
 
 .office-dialog::backdrop {
     background-color: rgba(11, 34, 64, 0.6);
     backdrop-filter: blur(4px);
+    z-index: 1999;
 }
 
 .dialog-close {
