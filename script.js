@@ -302,37 +302,40 @@ function updateScrollEffects() {
         }
     }
 
-    /* ==========================================================================
-       2. SECTION EXIT FADE ENGINE (PINS FADE TO TRUE VISUAL DEPARTURE)
+        /* ==========================================================================
+       2. SECTION EXIT FADE ENGINE (BALANCED TIMING FOR TALL SECTIONS)
        ========================================================================== */
     const sections = document.querySelectorAll('main > section:not(.hero-section)');
-    const viewportHeight = window.innerHeight;
+    const viewportHeight = window.innerHeight; // Adapts natively to your 1080px screen height
 
     sections.forEach(section => {
         const rect = section.getBoundingClientRect();
 
         /*
-           CRITICAL FIX: The section stays 100% solid and legible while on screen.
-           It only starts fading out when its bottom boundary edge crosses past 
-           the absolute top line of the viewport (rect.bottom < 0).
+           CRITICAL TIMING FIX: 
+           If the bottom of the section is still inside or below the viewport window,
+           keep it 100% bright (opacity: 1). This completely stops long sections 
+           from going dark prematurely while you read them.
         */
         if (rect.top < 0 && rect.bottom > 0) {
             /* 
-               Calculate how much of the section has exited past the top screen border.
-               We smoothly scale the opacity from 1 down to 0.25 over 35% of the viewport height.
+               Only start fading when the BOTTOM edge of the section gets close 
+               to exiting the top line of your browser screen (within 500px).
             */
-            const fadeDistance = viewportHeight * 0.35;
-            const distancePastTop = Math.abs(rect.top);
-            let opacity = 1 - (distancePastTop / fadeDistance);
-
-            // Maintain your 0.25 visibility baseline floor layout rule
-            opacity = Math.max(0.25, Math.min(1, opacity));
-            section.style.opacity = opacity.toString();
+            if (rect.bottom < 500) {
+                // Smoothly fade from 1 down to 0.25 over the final 500px window frame
+                let opacity = rect.bottom / 500;
+                opacity = Math.max(0.25, Math.min(1, opacity));
+                section.style.opacity = opacity.toString();
+            } else {
+                // Fully visible while the bulk of the content passes through
+                section.style.opacity = "1";
+            }
         } else if (rect.bottom <= 0) {
-            // The section has completely moved out of view -> lock at baseline floor
+            // Completely scrolled past
             section.style.opacity = "0.25";
         } else {
-            // The section is actively entering or being read -> Keep 100% bright and clear!
+            // Incoming from the bottom -> Keep solid and crisp
             section.style.opacity = "1";
         }
     });
