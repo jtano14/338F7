@@ -405,7 +405,7 @@ h2 {
 }
 
 /* ==========================================================================
-   NEW THREE-LINE STACKED HEADLINE (OPTION B: HIGH IMPACT MARKETS)
+   NEW THREE-LINE STACKED HEADLINE (OPTION A: UNIFORM LARGE SCALE)
    ========================================================================== */
 .stacked-headline {
     display: flex !important;
@@ -419,35 +419,21 @@ h2 {
     z-index: 3;
 }
 
-/* Framing rows (Bridging / to the World.) */
+/* Forces all three layers to share a beautifully scaled, identical bold typography profile */
 .stacked-headline .headline-prefix,
-.stacked-headline .headline-suffix {
-    display: block !important;
-    color: var(--primary-color);
-    font-size: clamp(1.5rem, 2.8vw, 2rem) !important; /* Styled intentionally cleaner */
-    font-weight: 600 !important;
-    letter-spacing: -0.01em;
-    line-height: 1.2;
-    margin: 4px 0 !important;
-    width: 100%;
-}
-
-/* Maximized Central Focus Market Row */
+.stacked-headline .headline-suffix,
 .stacked-headline .market-line {
     display: block !important;
     width: 100%;
-    
-    /* 
-       MAX SCALE FIX: We expand the scaling parameter limits substantially 
-       to break past the browser restriction thresholds on desktop view.
-    */
-    font-size: clamp(2.4rem, 4.8vw, 3.8rem) !important; 
-    font-weight: 800 !important; /* Heavy extra-bold density wrapper */
     color: var(--primary-color) !important;
+    
+    /* Perfect unified large font sizing for your monitor layout screen width */
+    font-size: clamp(1.8rem, 3.8vw, 2.6rem) !important; 
+    font-weight: 700 !important; /* Uniform strong corporate weight */
     
     letter-spacing: -0.01em !important;
     line-height: 1.3 !important;
-    margin: 12px 0 !important;
+    margin: 6px 0 !important;
     white-space: normal !important;
 }
 
