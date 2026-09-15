@@ -531,17 +531,30 @@ h2 {
     position: relative;
     z-index: 10;
     width: 100%;
-    background-color: var(--white) !important;
+    transform: translate3d(0, 0, 0);
+}
+
+.scroll-stack-wrapper::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--white); /* Ensures a crisp white backdrop */
+    z-index: 1; /* Sits directly beneath your sections */
+    pointer-events: none;
 }
 
 main > section:not(.hero-section) {
     position: relative;
-    z-index: 15 !important;
+    z-index: 5 !important; 
     will-change: opacity;
+}
 
 .main-footer {
     position: relative;
-    z-index: 20 !important;
+    z-index: 10 !important;
     background-color: var(--primary-color) !important;
 }
 
@@ -552,7 +565,6 @@ main > section:not(.hero-section) {
 .leadership-section { background-color: var(--white) !important; }
 .sectors-section { background-color: var(--light-bg) !important; }
 .contact-section { background-color: var(--white) !important; }
-.main-footer { background-color: var(--primary-color) !important; }
 
 .grid-2 {
     display: grid;
