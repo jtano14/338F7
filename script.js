@@ -287,20 +287,12 @@ function updateScrollEffects() {
     const heroSection = document.querySelector('.hero-section');
     const scrollPosition = window.scrollY;
     
-    /* ==========================================================================
-       1. HERO COLOR FADE (STREAMLINED)
-       ========================================================================== */
     if (heroSection) {
         const fadeThreshold = 450;
         const opacityRatio = Math.min(scrollPosition / fadeThreshold, 1);
         heroSection.style.backgroundColor = `rgba(11, 34, 64, ${opacityRatio})`;
-        
-        // REMOVED the bounding rect hidden check entirely to stop the layout jumping loop
     }
 
-   /* ==========================================================================
-       2. SECTION EXIT FADE ENGINE
-       ========================================================================== */
     const sections = document.querySelectorAll('main > section:not(.hero-section)');
     const viewportHeight = window.innerHeight;
 
