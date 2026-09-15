@@ -298,8 +298,8 @@ function updateScrollEffects() {
             `rgba(11, 34, 64, ${opacityRatio})`;
     }
 
-    /* ==========================================================================
-       SECTION EXIT FADE ENGINE (REVISED LOGIC FOR CLEAN OVERLAPS)
+        /* ==========================================================================
+       SECTION EXIT FADE ENGINE (OPTIMIZED BOUNDING LAYER DETECTION)
        ========================================================================== */
     const sections = document.querySelectorAll('main > section:not(.hero-section)');
     const viewportHeight = window.innerHeight;
@@ -307,16 +307,16 @@ function updateScrollEffects() {
     sections.forEach(section => {
         const rect = section.getBoundingClientRect();
 
-        if (rect.top < 0) {
-            /* Smoothly fade out the current active section over 35% viewport height as it exits up */
+        // Target ONLY the panel whose top edge has scrolled off the screen
+        if (rect.top < 0 && rect.bottom > 0) {
             const fadeDistance = viewportHeight * 0.35;
             const distanceAboveViewport = Math.abs(rect.top);
             let opacity = 1 - (distanceAboveViewport / fadeDistance);
 
             opacity = Math.max(0.25, Math.min(1, opacity));
-            section.style.opacity = opacity;
+            section.style.opacity = opacity.toString();
         } else {
-            /* Fix: Force incoming sections rising from the bottom to remain 100% solid "1" */
+            /* Keep all incoming panels completely crisp and opaque */
             section.style.opacity = "1";
         }
     });
