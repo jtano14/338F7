@@ -365,7 +365,7 @@ h2 {
 /* Main Brand Header Text Block */
 .logo-text {
     color: var(--primary-color); 
-    font-size: clamp(32px, 5.5vw, 56px); /* Enhanced sizing parameters */
+    font-size: clamp(32px, 5.5vw, 56px);
     font-weight: 700;
     letter-spacing: clamp(12px, 2.2vw, 24px); 
     text-indent: clamp(12px, 2.2vw, 24px);    
@@ -373,7 +373,11 @@ h2 {
     text-transform: uppercase;
     user-select: none;
     width: 100%;
-    margin-top: 155px; /* Perfect clearance layout snaps text safely under arrow zone */
+    margin-top: 155px; /* Leaves clear space below the sharp logo arrow graphics */
+    
+    /* CRITICAL FIX: Zero out the bottom margin so the tagline can sit right under it */
+    margin-bottom: 0 !important;
+    
     position: relative;
     z-index: 3;
 }
@@ -389,7 +393,14 @@ h2 {
     text-transform: uppercase;
     user-select: none;
     width: 100%;
-    margin-top: 16px; /* Balanced spacer gap separates tagline row from FLUX 7 */
+    
+    /* 
+       FIX: Pull the corporate tagline directly under FLUX 7 
+       by stripping away excess margin blocks.
+    */
+    margin-top: 4px !important; 
+    margin-bottom: 0 !important;
+    
     white-space: nowrap;
     position: relative;
     z-index: 3;
@@ -401,8 +412,13 @@ h2 {
     font-size: 1.1rem;
     font-weight: 700;
     letter-spacing: 0.18em;
-    margin-top: 36px;   /* Creates clear breathing space below your tagline elements */
-    margin-bottom: 24px; /* Distinct vertical separation gap before description elements */
+    /* 
+       FIX: Give the geographic mastery tagline a clean, balanced 
+       breathing space directly below your company tagline lockup.
+    */
+    margin-top: 24px !important;   
+    margin-bottom: 24px !important; 
+    
     text-align: center;
     width: 100%;
     display: block;
