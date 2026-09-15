@@ -283,23 +283,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
 let scrollTicking = false;
 function updateScrollEffects() {
-    /* HERO COLOR FADE */
-
+    
     const heroSection = document.querySelector('.hero-section');
+    const scrollPosition = window.scrollY;
+    
+    /* ==========================================================================
+       1. HERO COLOR FADE & AUTO-HIDE ENGINE (THE FIX)
+       ========================================================================== */
     if (heroSection) {
-        const scrollPosition = window.scrollY;
         const fadeThreshold = 450;
-        const opacityRatio = Math.min(
-            scrollPosition / fadeThreshold,
-            1
-        );
+        const opacityRatio = Math.min(scrollPosition / fadeThreshold, 1);
+        heroSection.style.backgroundColor = `rgba(11, 34, 64, ${opacityRatio})`;
 
-        heroSection.style.backgroundColor =
-            `rgba(11, 34, 64, ${opacityRatio})`;
+        /* 
+           If the user has scrolled down past the height of the hero page, 
+           completely shut it off so it cannot bleed through subsequent sections.
+        */
+        if (scrollPosition > window.innerHeight) {
+            heroSection.style.display = "none";
+        } else {
+            // Bring it back seamlessly if they scroll back to the very top
+            heroSection.style.display = "flex"; 
+        }
     }
 
-        /* ==========================================================================
-       SECTION EXIT FADE ENGINE (OPTIMIZED BOUNDING LAYER DETECTION)
+    /* ==========================================================================
+       2. SECTION EXIT FADE ENGINE
        ========================================================================== */
     const sections = document.querySelectorAll('main > section:not(.hero-section)');
     const viewportHeight = window.innerHeight;
@@ -307,7 +316,7 @@ function updateScrollEffects() {
     sections.forEach(section => {
         const rect = section.getBoundingClientRect();
 
-        // Target ONLY the panel whose top edge has scrolled off the screen
+        // Target only the panel leaving the top of the viewport
         if (rect.top < 0 && rect.bottom > 0) {
             const fadeDistance = viewportHeight * 0.35;
             const distanceAboveViewport = Math.abs(rect.top);
@@ -323,6 +332,7 @@ function updateScrollEffects() {
 
     scrollTicking = false;
 }
+
 
 window.addEventListener('scroll', () => {
 
