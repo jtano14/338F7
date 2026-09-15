@@ -538,7 +538,8 @@ h2 {
    ALL SECTIONS ABOVE THE STICKY HERO
    ========================================================================== */
 
-main > section:not(.hero-section) {
+main > section:not(.hero-section), 
+ ,main-footer {
     position: relative;
     z-index: 10;
 }
