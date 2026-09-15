@@ -335,7 +335,7 @@ h2 {
 /* Force the sharp arrow image layer to remain perfectly crisp on center balance */
 .sharp-logo-layer {
     position: absolute;
-    top: 60px !important; 
+    top: 35px !important; 
     left: 50%;
     transform: translateX(-50%);
     width: 160px; 
@@ -348,7 +348,7 @@ h2 {
 /* Open canvas bounding roof boundaries */
 #bubbleCanvas {
     position: absolute;
-    top: 5px !important; 
+    top: -15px !important; 
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
@@ -371,7 +371,7 @@ h2 {
     text-transform: uppercase;
     user-select: none;
     width: 100%;
-    margin-top: 90px !important; 
+    margin-top: 115px !important; 
     margin-bottom: 0 !important;
     position: relative;
     z-index: 3;
