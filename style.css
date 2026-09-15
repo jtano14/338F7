@@ -72,7 +72,12 @@ button {
 }
 
 section {
-    padding: 96px 0;
+    /* 
+       Using viewport height (vh) keeps pages balanced across all monitors.
+       This adds extra vertical padding on large displays so short sections 
+       have clear depth, matching longer sections.
+    */
+    padding: clamp(100px, 12vh, 160px) 0;
 }
 
 .section-tag {
