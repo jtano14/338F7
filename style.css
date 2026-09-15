@@ -298,15 +298,15 @@ h2 {
    JAPANESE BACKGROUND WATERMARK (PERFECT DISPLAY CENTER ACCELERATION)
    ========================================================================== */
 .hero-vertical-text {
-    position: absolute;
-    right: 6% !important;
-    left: auto !important; /* Clears any previous centering rules */
+    position: absolute !important;
+    right: 4% !important;
+    left: auto !important; 
     top: 50% !important;
-    transform: translateY(-50%) !important;
+    transform: translateY(-50%) !important; /* Vertically center-aligns right text row natively */
     writing-mode: vertical-rl;
-    font-size: clamp(2.2rem, 3.5vw, 3.2rem) !important; /* Restored to its elegant base size */
+    font-size: clamp(2.2rem, 3.5vw, 3.2rem) !important; 
     font-weight: 700;
-    color: rgba(11, 34, 64, 0.08) !important; /* Muted corporate accent shade */
+    color: rgba(11, 34, 64, 0.08) !important; /* Highly subtle, premium watermark tone */
     letter-spacing: 0.18em !important;
     z-index: 1 !important;
     pointer-events: none;
@@ -324,13 +324,13 @@ h2 {
     max-width: 800px;       /* Gives the description comfortable breathing room */
     height: auto !important; /* Allows the container to stretch downwards to fit all data */
     margin: 0 auto;
-    padding-top: 230px !important;
+    padding-top: 140px !important;
 }
 
 /* Force the sharp arrow image layer to remain perfectly crisp on center balance */
 .sharp-logo-layer {
     position: absolute;
-    top: 10px;
+    top: 60px !important; 
     left: 50%;
     transform: translateX(-50%);
     width: 160px; 
@@ -343,7 +343,7 @@ h2 {
 /* Open canvas bounding roof boundaries */
 #bubbleCanvas {
     position: absolute;
-    top: -45px; 
+    top: 5px !important; 
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
@@ -366,7 +366,7 @@ h2 {
     text-transform: uppercase;
     user-select: none;
     width: 100%;
-    margin-top: 0 !important; 
+    margin-top: 90px !important; 
     margin-bottom: 0 !important;
     position: relative;
     z-index: 3;
