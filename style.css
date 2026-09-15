@@ -341,9 +341,17 @@ h2 {
 
 .sharp-logo-layer {
     position: absolute !important;
-    top: 50% !important;
-    left: 50% !important;
+    /* 
+       PRECISION CENTER CORRECTION:
+       We added a custom 4-pixel nudge to the top and a 4-pixel nudge to the left 
+       directly inside the centering transform calculation. This shifts the 
+       arrow graphic down and right just enough to perfectly synchronize it with 
+       the canvas particle explosion points!
+    */
+    top: calc(50% + 4px) !important;
+    left: calc(50% + 4px) !important;
     transform: translate(-50%, -50%) !important; 
+    
     width: 160px !important; 
     height: auto;
     z-index: 2;
