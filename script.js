@@ -264,7 +264,14 @@ document.addEventListener("DOMContentLoaded", () => {
     generatePerfectArrowMap();
     // NEW: Kick off the slow and smooth ocean wave movement background
     const oceanWaves = new Gradient();
+    
+    // Explicitly set the speed to be slow, deep, and gentle
+    oceanWaves.speed = 0.001; 
+    oceanWaves.amplitude = 1.0;
+    
+    // Boot up the canvas layout container
     oceanWaves.initGradient("#gradient-canvas");
+
 
 
     const sequenceLayout = [
