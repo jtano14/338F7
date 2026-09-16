@@ -262,18 +262,24 @@ function animate() {
    ========================================================================== */
 document.addEventListener("DOMContentLoaded", () => {
     generatePerfectArrowMap();
-    // NEW: Kick off the slow and smooth ocean wave movement background
-    const oceanWaves = new Gradient();
-    
-    // Explicitly set the speed to be slow, deep, and gentle
-    oceanWaves.speed = 0.001; 
-    oceanWaves.amplitude = 1.0;
-    
-    // Boot up the canvas layout container
-    oceanWaves.initGradient("#gradient-canvas");
+        // NEW: Safe initialization for the slow and smooth ocean wave background
+    setTimeout(() => {
+        const canvasCheck = document.getElementById("gradient-canvas");
+        
+        // Only run if the canvas is fully built and ready in the browser memory
+        if (canvasCheck) {
+            const oceanWaves = new Gradient();
+            
+            // Set speed parameters to look like slow, gentle flowing silk
+            oceanWaves.speed = 0.001;
+            oceanWaves.amplitude = 1.0;
+            
+            // Start the WebGL wave graphics rendering
+            oceanWaves.initGradient("#gradient-canvas");
+        }
+    }, 100); // Waits a tiny fraction of a second for perfect timing execution
 
-
-
+   
     const sequenceLayout = [
         { id: 'seq-1', delay: 150 },  
         { id: 'seq-2', delay: 350 },  
