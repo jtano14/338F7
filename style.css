@@ -280,7 +280,7 @@ h2 {
 }
 
 /* ==========================================================================
-   HIGH-CONTRAST NAVY SILK RIBBON ENGINE (FRAMER-GRADE VISIBILITY)
+   PURE NAVY & GREY TRANSLUCENT SILK RIBBON ENGINE (COLOR STABLE)
    ========================================================================== */
 .ocean-fluid-bg {
     position: absolute;
@@ -288,62 +288,60 @@ h2 {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1; /* Anchors the background safely beneath your typography elements */
-    
-    /* Clean, premium global corporate background canvas base */
-    background: #ffffff;
+    z-index: 1; /* Locks the background layer safely behind your text lines */
+    background: #ffffff; /* Crisp white canvas base */
     overflow: hidden;
 }
 
-/* Creating the distinct, high-visibility wave contour lines */
+/* Creating sharp, high-visibility wave contour paths */
 .ocean-fluid-bg::before,
 .ocean-fluid-bg::after {
     content: '';
     position: absolute;
-    width: 160vw; /* Massive size flattens the arcs into premium corporate lines */
-    height: 160vw;
-    top: -80vw;
-    left: -30vw;
+    width: 150vw; /* Massive size ensures ultra-wide wavelengths stretching wide */
+    height: 150vw;
+    top: -75vw;
+    left: -25vw;
     
-    /* Complex border-radius handles create the organic fluid lines you saw on the reference site */
+    /* Asymmetric curves make the lines look organic, like moving ocean swells */
     border-radius: 45% 38% 52% 41% / 43% 47% 39% 51%;
-    
-    /* THE CONTRAST SECRET: Forces overlapping lines to illuminate sharply against each other */
-    mix-blend-mode: difference;
     pointer-events: none;
 }
 
-/* Ribbon Layer 1: Deep Corporate Navy Current (Slow Base Swell) */
+/* Ribbon Layer 1: Sharp Corporate Navy Wave Contour */
 .ocean-fluid-bg::before {
-    /* Uses a sharp gradient clip window to make the line border pop clearly */
-    background: linear-gradient(135deg, rgba(11, 34, 64, 0.85) 0%, rgba(0, 119, 182, 0.4) 30%, rgba(255, 255, 255, 0) 65%);
-    filter: blur(8px); /* Low blur preserves the sharp silk-strand outlines */
-    animation: morphNavyRibbons 32s infinite alternate ease-in-out;
+    /* FIXED: Using a physical semi-translucent navy border outline creates a clear line definition */
+    border: 3px solid rgba(11, 34, 64, 0.18); 
+    background: linear-gradient(135deg, rgba(11, 34, 64, 0.05) 0%, rgba(255, 255, 255, 0) 50%);
+    filter: blur(4px); /* Minor blur softens the path edges without making them vanish */
+    animation: smoothNavyMorphism 38s infinite alternate ease-in-out;
 }
 
-/* Ribbon Layer 2: Vivid Seafoam Accent Current (Offset Tracking Swell) */
+/* Ribbon Layer 2: Sharp Accent Blue / Grey Wave Contour */
 .ocean-fluid-bg::after {
-    background: linear-gradient(225deg, rgba(0, 119, 182, 0.7) 0%, rgba(108, 117, 125, 0.3) 40%, rgba(255, 255, 255, 0) 70%);
-    filter: blur(14px);
-    animation: morphNavyRibbons 24s infinite alternate-reverse ease-in-out;
+    border: 2px solid rgba(0, 119, 182, 0.15);
+    background: linear-gradient(225deg, rgba(0, 119, 182, 0.04) 0%, rgba(255, 255, 255, 0) 50%);
+    filter: blur(6px);
+    animation: smoothNavyMorphism 28s infinite alternate-reverse ease-in-out;
 }
 
 /* THE SMOOTH WAVE MORPH ENGINE: Slow drifting currents with zero dizzying spins */
-@keyframes morphNavyRibbons {
+@keyframes smoothNavyMorphism {
     0% {
         transform: translate(0, 0) scale(1) rotate(0deg);
         border-radius: 45% 38% 52% 41% / 43% 47% 39% 51%;
     }
     50% {
         /* Gently warps the shapes back and forth to simulate folding satin currents */
-        transform: translate(5vw, 3vh) scale(1.04) rotate(12deg);
+        transform: translate(6vw, 3vh) scale(1.03) rotate(10deg);
         border-radius: 38% 48% 40% 55% / 50% 38% 52% 42%;
     }
     100% {
-        transform: translate(-2vw, 6vh) scale(0.97) rotate(-8deg);
+        transform: translate(-3vw, 5vh) scale(0.98) rotate(-6deg);
         border-radius: 52% 41% 45% 38% / 39% 51% 43% 47%;
     }
 }
+
 
 
 
