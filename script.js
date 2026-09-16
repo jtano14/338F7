@@ -103,25 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* ==========================================================================
-   4. HERO MOUSE PARALLAX CONTROLLER SYSTEM
-   ========================================================================== */
-/*
-document.addEventListener("mousemove", (e) => {
-    const bgImage = document.querySelector(".hero-background");
-    const verticalText = document.querySelector(".hero-vertical-text");
-    
-    if (!bgImage || !verticalText) return;
-
-    const moveX = (e.clientX - window.innerWidth / 2) / 50;
-    const moveY = (e.clientY - window.innerHeight / 2) / 50;
-
-    bgImage.style.transform = `scale(1.1) translate(${-moveX}px, ${-moveY}px)`;
-    verticalText.style.transform = `translate(${moveX}px, calc(-50% + ${moveY}px))`;
-});
-*/
-
-/* ==========================================================================
-   5. INTERACTIVE LOGO CANVAS ANIMATION ENGINE (CLEAN HOVER BURST ENGINE)
+   4. INTERACTIVE LOGO CANVAS ANIMATION ENGINE (CLEAN HOVER BURST ENGINE)
    ========================================================================== */
 const canvas = document.getElementById('bubbleCanvas');
 const ctx = canvas.getContext('2d');
@@ -147,20 +129,20 @@ class FluidParticle {
     this.returnDelay = 0; 
     this.currentColor = 'rgba(11, 44, 102, 0.95)';
   }
+
   update(mouseX, mouseY) {
     const dx = this.x - mouseX;
     const dy = this.y - mouseY;
     const distance = Math.sqrt(dx * dx + dy * dy);
     
-    const pushRadius = 55; // Generates wide interactive displacement explosions
+    const pushRadius = 55; // Wide interactive displacement explosion threshold
     if (distance < pushRadius) {
       const angle = Math.atan2(dy, dx);
       const force = (pushRadius - distance) / pushRadius;
       const speed = force * (Math.random() * 26 + 14); 
       this.vx = Math.cos(angle) * speed;
       this.vy = Math.sin(angle) * speed;
-      
-      this.returnDelay = Math.random() * 55 + 45; // Generates a long floating particle duration
+      this.returnDelay = Math.random() * 55 + 45; // Fluid particle float duration
     }
     
     if (this.returnDelay > 0) {
@@ -179,6 +161,7 @@ class FluidParticle {
     this.x += this.vx;
     this.y += this.vy;
   }
+
   draw() {
     ctx.fillStyle = this.currentColor; 
     ctx.beginPath();
@@ -187,11 +170,10 @@ class FluidParticle {
   }
 }
 
-// Generates the hidden blueprint coordinate map exclusively targeting the arrow path geometry
+// Generates hidden blueprint map targeting the exact arrow path geometry
 function generatePerfectArrowMap() {
   const tempCanvas = document.createElement('canvas');
   tempCanvas.width = width;
-  // Increased measurement box slightly to give bubbles absolute freedom up top
   tempCanvas.height = 550; 
   const tCtx = tempCanvas.getContext('2d');
   
@@ -199,7 +181,6 @@ function generatePerfectArrowMap() {
   tCtx.beginPath();
   
   const centerX = width / 2;
-  // Shifted drawing anchor node position down slightly to ensure zero ceiling trapping artifacts
   const centerY = height / 2 - 60; 
   
   tCtx.moveTo(centerX - 85, centerY + 10);
@@ -224,7 +205,8 @@ function generatePerfectArrowMap() {
 }
 
 canvas.addEventListener('mouseleave', () => {
-  mouse.x = -1000;  mouse.y = -1000;
+  mouse.x = -1000;  
+  mouse.y = -1000;
 });
 
 canvas.addEventListener('mousemove', (e) => {
@@ -239,15 +221,12 @@ function animate() {
   let layoutIsMoving = false;
   particles.forEach(p => {
     p.update(mouse.x, mouse.y);
-    
-    // Only render particles onto screen context while an interactive movement is active
     if (p.returnDelay > 0 || Math.abs(p.vx) > 0.15) {
         layoutIsMoving = true;
         p.draw();
     }
   });
   
-  // Toggle layout display configurations depending on hover status levels
   if (layoutIsMoving && brandContainer) {
       brandContainer.classList.add('is-bursting');
   } else if (brandContainer) {
@@ -258,11 +237,13 @@ function animate() {
 }
 
 /* ==========================================================================
-   6. GLOBAL SUBSYSTEM INITIALIZATION (TIMELINES & TRANSITIONS)
+   5. GLOBAL SUBSYSTEM INITIALIZATION (TIMELINES & TRANSITIONS)
    ========================================================================== */
 document.addEventListener("DOMContentLoaded", () => {
+    // Fire the custom logo particle engine mapping algorithm
     generatePerfectArrowMap();
            
+    // Sequential fade-in timing array for initial typography blocks
     const sequenceLayout = [
         { id: 'seq-1', delay: 150 },  
         { id: 'seq-2', delay: 350 },  
@@ -280,16 +261,16 @@ document.addEventListener("DOMContentLoaded", () => {
             }, item.delay);
         }
     }); 
-}); // <--- FIX: Added missing structural closing bracket block to un-freeze script execution!
-
+});
 
 /* ==========================================================================
-   NEW VANTA CLOUDS CONFIGURATION (DARK NAVY THEME ENGINE)
+   6. REFINE HIGH-CONTRAST VANTA CLOUDS GENERATION LOOP
    ========================================================================== */
 function initializeVantaClouds() {
     const targetBg = document.querySelector("#vanta-ocean-bg");
     
     if (typeof VANTA !== "undefined" && targetBg) {
+        // Delays initialization by 100ms to allow parent layout metrics to draw completely
         setTimeout(() => {
             VANTA.CLOUDS({
                 el: "#vanta-ocean-bg", 
@@ -299,17 +280,15 @@ function initializeVantaClouds() {
                 minHeight: 200.00,
                 minWidth: 200.00,
                 
-                backgroundColor: 0xffffff,    
-                skyColor: 0x68b8d7,           // Vibrant day sky-blue
+                backgroundColor: 0xffffff,    // Pure white bottom foundation backdrop
+                skyColor: 0x68b8d7,           // Vibrant daylight sky blue
+                cloudColor: 0x7692b8,         // Multi-dimensional denim blue cloud bodies
+                cloudShadowColor: 0x112233,   // Rich, deep slate charcoal shadow definitions
                 
-                /* HEAVY DEFINITION CONTRAST ENGINE */
-                cloudColor: 0x7692b8,         // FIXED: Darker denim-blue cloud bodies for solid structure
-                cloudShadowColor: 0x112233,   // FIXED: Very dark slate charcoal for sharp, deep shadow form
-                
-                sunColor: 0xff9919,           
+                sunColor: 0xff9919,           // Warm golden sunlight highlights
                 sunGlareColor: 0xff6633,      
                 sunlightColor: 0xff9933,      
-                speed: 1.00                   
+                speed: 1.00                   // Balanced, active gliding motion rate
             });
             console.log("3. Vanta Canvas injected and initialized successfully!");
         }, 100);
@@ -318,46 +297,37 @@ function initializeVantaClouds() {
 
 document.addEventListener("DOMContentLoaded", initializeVantaClouds);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ==========================================================================
-   7. SCROLL TRANSITIONS & SECTIONS CROSS-FADE TIMINGS
+   7. INTERACTIVE SCROLL PARALLAX ENGINE & SLOWER TEXT FADE LOOPS
    ========================================================================== */
 let scrollTicking = false;
+
 function updateScrollEffects() {
-    
-    const heroSection = document.querySelector('.hero-section');
+    const heroContent = document.querySelector('.hero-content.container');
+    const sections = document.querySelectorAll('main > section:not(.hero-section)');
     const scrollPosition = window.scrollY;
-    
-    /* 1. HERO COLOR FADE OVERLAY SYSTEM */
-    if (heroSection) {
-        if (scrollPosition <= 5) {
-            heroSection.style.backgroundColor = "transparent";
+    const windowHeight = window.innerHeight;
+
+    /* A. COMPACT CONTROLLER: Gradual text fading anchor calculations */
+    if (heroContent) {
+        // Multiplier stretches the fade envelope path, letting text dim slowly
+        let fadeThreshold = windowHeight * 1.2; 
+        let newOpacity = 1 - (scrollPosition / fadeThreshold);
+        
+        if (newOpacity >= 0) {
+            heroContent.style.opacity = newOpacity;
+            // Keeps the translation acceleration smooth and compact
+            heroContent.style.transform = `translateY(${scrollPosition * 0.18}px)`;
         } else {
-            const fadeThreshold = 450;
-            const opacityRatio = Math.min(scrollPosition / fadeThreshold, 1);
-            heroSection.style.backgroundColor = `rgba(11, 34, 64, ${opacityRatio})`;
+            heroContent.style.opacity = 0;
         }
     }
 
-    /* 2. SECTION EXIT FADE METRICS ENGINE */
-    const sections = document.querySelectorAll('main > section:not(.hero-section)');
-    const viewportHeight = window.innerHeight; 
-
+    /* B. SHEET SHEET OVERLAP MECHANICS: Calculates section layering properties */
     sections.forEach(section => {
         const rect = section.getBoundingClientRect();
 
+        // Checks if the block panel is entering the active monitor workspace view
         if (rect.top < 0 && rect.bottom > 0) {
             if (rect.bottom < 500) {
                 let opacity = rect.bottom / 500;
@@ -367,7 +337,7 @@ function updateScrollEffects() {
                 section.style.opacity = "1";
             }
         } else if (rect.bottom <= 0) {
-            section.style.opacity = "0.25";
+            section.style.opacity = "0.25"; // Softens sections exiting view
         } else {
             section.style.opacity = "1";
         }
@@ -376,6 +346,7 @@ function updateScrollEffects() {
     scrollTicking = false;
 }
 
+// Window scroll event listener running passive flags for high rendering framerates
 window.addEventListener('scroll', () => {
     if (!scrollTicking) {
         window.requestAnimationFrame(updateScrollEffects);
@@ -383,5 +354,9 @@ window.addEventListener('scroll', () => {
     }
 }, { passive: true });
 
+// Layout sizing adaptation refresh loops
 window.addEventListener('resize', updateScrollEffects);
+
+// Initial immediate system drawing call upon final timeline load
 updateScrollEffects();
+
