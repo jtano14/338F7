@@ -261,8 +261,8 @@ h2 {
     min-height: 100% !important;
     pointer-events: none !important;
     
-    /* We set it to a safe background zone behind your scenery vector maps */
-    z-index: 0 !important; 
+    /* Pushes the animation safely behind your building vector layout graphic */
+    z-index: -3 !important; 
     background-color: #ffffff !important;
 }
 
@@ -275,7 +275,7 @@ h2 {
     width: 100% !important;
     height: 100% !important;
     display: block !important;
-    z-index: 0 !important;
+    z-index: -3 !important;
 }
 
 .hero-background {
