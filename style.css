@@ -280,7 +280,7 @@ h2 {
 }
 
 /* ==========================================================================
-   PURE CSS ORGANIC ROLLING OCEAN WAVE SYSTEM
+   PURE CSS STABLE, HIGH-CONTRAST DEEP DEEP-DRIFT OCEAN SYSTEM
    ========================================================================== */
 .ocean-fluid-bg {
     position: absolute;
@@ -288,56 +288,64 @@ h2 {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1; /* Stay safely behind content blocks */
-    background: #ffffff;
+    z-index: 1; /* Locks the background layer safely under your text */
+    background: #ffffff; /* Clean white runway canvas base */
     overflow: hidden;
 }
 
-/* Layered Rolling Ocean Waves */
+/* Creating massive, high-visibility drifting ocean swells */
 .ocean-fluid-bg::before,
 .ocean-fluid-bg::after {
     content: '';
     position: absolute;
-    width: 180vw;
-    height: 180vw;
-    top: -90vw;
-    left: -40vw;
-    /* This complex border-radius creates the curved liquid wave shapes */
-    border-radius: 43% 40% 45% 42%;
+    width: 150vw; /* Massive size ensures ultra-wide wavelengths stretching wide */
+    height: 120vh;
+    opacity: 0.28; /* Increased opacity significantly so the waves are highly visible */
     pointer-events: none;
 }
 
-/* Wave Layer 1: Soft Seafoam Blue Deep Wave */
+/* Swell Layer 1: Vivid Ocean Sky Blue (Top Left Drift) */
 .ocean-fluid-bg::before {
-    background: linear-gradient(135deg, rgba(224, 242, 254, 0.7) 0%, rgba(255, 255, 255, 0) 70%);
-    filter: blur(25px); /* Softens the water edges beautifully */
-    animation: rollOceanWaves 28s infinite linear;
+    background: radial-gradient(circle at center, #90e0ff 0%, rgba(255, 255, 255, 0) 70%);
+    filter: blur(50px);
+    top: -30%;
+    left: -20%;
+    /* Swings smoothly back and forth with NO rotation to eliminate dizziness */
+    animation: gentleHorizontalDrift 22s infinite alternate ease-in-out;
 }
 
-/* Wave Layer 2: Pale Misty Blue Surface Wave */
+/* Swell Layer 2: Deep Slate Blue / Grey Swell (Bottom Right Drift) */
 .ocean-fluid-bg::after {
-    background: linear-gradient(225deg, rgba(219, 234, 254, 0.6) 0%, rgba(255, 255, 255, 0) 60%);
-    filter: blur(35px);
-    /* Rotates in reverse to create overlapping liquid crests and troughs */
-    animation: rollOceanWaves 38s infinite linear reverse;
+    background: radial-gradient(circle at center, #7cd0ff 0%, rgba(255, 255, 255, 0) 70%);
+    filter: blur(60px);
+    bottom: -30%;
+    right: -20%;
+    /* Drifts on an offset timing sequence for organic overlapping curves */
+    animation: gentleVerticalDrift 28s infinite alternate ease-in-out;
 }
 
-/* The fluid smooth movement path mechanics (Simulates drifting ocean swells) */
-@keyframes rollOceanWaves {
+/* NO-ROTATION MOVEMENT MECHANICS: Stops the spinning artifacts completely */
+
+/* Smooth Left-to-Right Horizontal Wave Drifting */
+@keyframes gentleHorizontalDrift {
     0% {
-        transform: rotate(0deg) translate(0, 0) scale(1);
-        border-radius: 43% 40% 45% 42%;
-    }
-    50% {
-        /* Warps the shape mid-cycle so the liquid waves actively squeeze and morph */
-        transform: rotate(180deg) translate(-2%, 4%) scale(1.05);
-        border-radius: 38% 42% 40% 45%;
+        transform: translate(0, 0) scale(1);
     }
     100% {
-        transform: rotate(360deg) translate(0, 0) scale(1);
-        border-radius: 43% 40% 45% 42%;
+        transform: translate(12vw, 5vh) scale(1.1); /* Slow, wide panning swell */
     }
 }
+
+/* Smooth Up-to-Down Vertical Wave Drifting */
+@keyframes gentleVerticalDrift {
+    0% {
+        transform: translate(0, 0) scale(1.1);
+    }
+    100% {
+        transform: translate(-10vw, -8vh) scale(0.95);
+    }
+}
+
 
 
 
