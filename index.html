@@ -1344,18 +1344,19 @@
           <div class="office-map">
             <p>
               Office map will be added here.
-                    </p>
+        </p>
       </div>
     </dialog>
    
-    <!-- Load the underlying 3D graphics engine FIRST -->
+    <!-- FIXED CDN 1: Cloudflare secure hosting mirror for 3D math -->
     <script src="https://cloudflare.com" defer></script>
     
-    <!-- Load the official Vanta Clouds animation engine SECOND -->
-    <script src="https://jsdelivr.net" defer></script>
+    <!-- FIXED CDN 2: UNPKG secure hosting mirror for Vanta Clouds -->
+    <script src="https://unpkg.com" defer></script>
     
-    <!-- Your existing main script THIRD (Keep the version cache breaker '?v=2') -->
+    <!-- Your main custom script file remains safely third -->
     <script src="script.js?v=2" defer></script>
 </body>
 </html>
+
 
