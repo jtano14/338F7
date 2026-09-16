@@ -286,8 +286,9 @@ document.addEventListener("DOMContentLoaded", () => {
 /* ==========================================================================
    NEW VANTA CLOUDS CONFIGURATION (DARK NAVY ENGINE)
    ========================================================================== */
-window.addEventListener("load", () => {
-    if (typeof VANTA !== "undefined") {
+document.addEventListener("DOMContentLoaded", () => {
+    // Check if the Vanta engine successfully registered before initializing elements
+    if (typeof VANTA !== "undefined" && document.querySelector("#vanta-ocean-bg")) {
         VANTA.CLOUDS({
             el: "#vanta-ocean-bg", 
             mouseControls: false, 
@@ -296,19 +297,20 @@ window.addEventListener("load", () => {
             minHeight: 200.00,
             minWidth: 200.00,
             
-            /* ADJUSTED TARGET BRIGHTNESS SCALE FOR CRISP BALANCED TEXT READABILITY */
+            /* BRIGHTNESS CONTROL: Tweaked to ensure high contrast over your text */
             backgroundColor: 0x0b2240,    // Solid corporate base navy blue
-            skyColor: 0x162a45,           // Clean deep sky depth setting
-            cloudColor: 0xbce6ff,         // Glowing crisp seafoam sky-blue clouds (Highly visible!)
-            cloudShadowColor: 0x051121,   
-            sunColor: 0xffa229,           
-            sunGlareColor: 0xff6633,
-            sunlightColor: 0xffa64d,
+            skyColor: 0x1a365d,           // Smooth deep sky depth transition accent
+            cloudColor: 0xa5e1fe,         // Bright, crisp seafoam sky-blue clouds
+            cloudShadowColor: 0x051329,   
+            sunColor: 0xffa31a,           
+            sunGlareColor: 0xff551a,
+            sunlightColor: 0xffaa33,
             
-            speed: 0.60 
+            speed: 0.70 
         });
     }
 });
+
 
 
 /* ==========================================================================
