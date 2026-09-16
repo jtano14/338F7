@@ -283,27 +283,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 /* ==========================================================================
-   NEW VANTA SYSTEM ENGINE: Completely independent and secure at the bottom
+   NEW VANTA CLOUDS CONFIGURATION (MATCHES YOUR PROPERTIES SCREENSHOT)
    ========================================================================== */
 window.addEventListener("load", () => {
     if (typeof VANTA !== "undefined") {
         VANTA.CLOUDS({
             el: "#vanta-ocean-bg", 
-            mouseControls: false,  
+            mouseControls: false, // Set to false to keep your central content stable  
             touchControls: false,
             gyroControls: false,
             minHeight: 200.00,
             minWidth: 200.00,
             
-            /* CUSTOM PALETTE CONFIGURATION */
-            backgroundColor: 0xffffff, 
-            skyColor: 0xe0f2fe,        
-            cloudColor: 0x90e0ff,      
+            /* EXACT CODES CAPTURED FROM YOUR VANTA SCREENSHOT PANEL */
+            backgroundColor: 0xffffff,
+            skyColor: 0x68b8d7,
+            cloudColor: 0xadc1de,
+            cloudShadowColor: 0x183550,
+            sunColor: 0xff9919,
+            sunGlareColor: 0xff6633,
+            sunlightColor: 0xff9933,
             
-            speed: 0.50                
+            speed: 0.60 // Slowed down slightly from 1 to keep it smooth and professional
         });
     }
 });
+
 
    
 /* SCROLL TRANSITIONS */
