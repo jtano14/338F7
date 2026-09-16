@@ -280,7 +280,7 @@ h2 {
 }
 
 /* ==========================================================================
-   UPDATED: 3D SILK RIBBON & OCEAN CURRENT SYSTEM (LIGHT HIGHLIGHTS)
+   PURE CSS ORGANIC ROLLING OCEAN WAVE SYSTEM
    ========================================================================== */
 .ocean-fluid-bg {
     position: absolute;
@@ -288,62 +288,57 @@ h2 {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1; /* Locked behind text */
+    z-index: 1; /* Stay safely behind content blocks */
     background: #ffffff;
     overflow: hidden;
 }
 
-/* Layered Wave Containers */
+/* Layered Rolling Ocean Waves */
 .ocean-fluid-bg::before,
 .ocean-fluid-bg::after {
     content: '';
     position: absolute;
-    width: 200%;
-    height: 200%;
-    top: -50%;
-    left: -50%;
-    opacity: 0.15; /* Keeps waves subtle so dark navy text remains perfectly readable */
+    width: 180vw;
+    height: 180vw;
+    top: -90vw;
+    left: -40vw;
+    /* This complex border-radius creates the curved liquid wave shapes */
+    border-radius: 43% 40% 45% 42%;
     pointer-events: none;
 }
 
-/* Wave Layer 1: Fine Silk Currents & Shadows */
+/* Wave Layer 1: Soft Seafoam Blue Deep Wave */
 .ocean-fluid-bg::before {
-    background: repeating-linear-gradient(
-        45deg,
-        #ffffff 0px,
-        #e0f2fe 100px,
-        #bfe2fd 200px,
-        #ffffff 300px
-    );
-    filter: blur(15px); /* Reduced blur to keep the wavy lines crisp and defined */
-    animation: waveRibbons 32s infinite linear;
+    background: linear-gradient(135deg, rgba(224, 242, 254, 0.7) 0%, rgba(255, 255, 255, 0) 70%);
+    filter: blur(25px); /* Softens the water edges beautifully */
+    animation: rollOceanWaves 28s infinite linear;
 }
 
-/* Wave Layer 2: Overlapping Deep Ocean Contours */
+/* Wave Layer 2: Pale Misty Blue Surface Wave */
 .ocean-fluid-bg::after {
-    background: repeating-linear-gradient(
-        -45deg,
-        #ffffff 0px,
-        #dbeafe 150px,
-        #eff6ff 300px,
-        #ffffff 450px
-    );
-    filter: blur(20px);
-    animation: waveRibbons 24s infinite linear reverse;
+    background: linear-gradient(225deg, rgba(219, 234, 254, 0.6) 0%, rgba(255, 255, 255, 0) 60%);
+    filter: blur(35px);
+    /* Rotates in reverse to create overlapping liquid crests and troughs */
+    animation: rollOceanWaves 38s infinite linear reverse;
 }
 
-/* Smooth Silk Morphing Grid Calculations */
-@keyframes waveRibbons {
+/* The fluid smooth movement path mechanics (Simulates drifting ocean swells) */
+@keyframes rollOceanWaves {
     0% {
         transform: rotate(0deg) translate(0, 0) scale(1);
+        border-radius: 43% 40% 45% 42%;
     }
     50% {
-        transform: rotate(4deg) translate(-2%, -4%) scale(1.08);
+        /* Warps the shape mid-cycle so the liquid waves actively squeeze and morph */
+        transform: rotate(180deg) translate(-2%, 4%) scale(1.05);
+        border-radius: 38% 42% 40% 45%;
     }
     100% {
-        transform: rotate(0deg) translate(0, 0) scale(1);
+        transform: rotate(360deg) translate(0, 0) scale(1);
+        border-radius: 43% 40% 45% 42%;
     }
 }
+
 
 
 
