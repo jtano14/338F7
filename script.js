@@ -283,28 +283,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 /* ==========================================================================
-   NEW VANTA CLOUDS CONFIGURATION (MATCHES YOUR PROPERTIES SCREENSHOT)
+   NEW VANTA CLOUDS CONFIGURATION (DARK NAVY THEME)
    ========================================================================== */
 window.addEventListener("load", () => {
     if (typeof VANTA !== "undefined") {
         VANTA.CLOUDS({
             el: "#vanta-ocean-bg", 
-            mouseControls: false, // Set to false to keep your central content stable  
+            mouseControls: false, // Disabled to keep your center logo completely stable
             touchControls: false,
             gyroControls: false,
             minHeight: 200.00,
             minWidth: 200.00,
             
-            /* EXACT CODES CAPTURED FROM YOUR VANTA SCREENSHOT PANEL */
-            backgroundColor: 0xffffff,
-            skyColor: 0x68b8d7,
-            cloudColor: 0xadc1de,
-            cloudShadowColor: 0x183550,
-            sunColor: 0xff9919,
+            /* UPDATED COLOR PALETTE FOR DARK NAVY SURFACES */
+            backgroundColor: 0x0b2240,    // Your deep corporate primary navy blue background base
+            skyColor: 0x1d3557,           // Deep mid-navy sky horizon color
+            cloudColor: 0x90e0ff,         // Glowing crisp seafoam sky-blue clouds (Highly visible!)
+            cloudShadowColor: 0x061324,   // Dark shadow depth accents
+            sunColor: 0xff9919,           // Warm golden accents
             sunGlareColor: 0xff6633,
             sunlightColor: 0xff9933,
             
-            speed: 0.60 // Slowed down slightly from 1 to keep it smooth and professional
+            speed: 0.60 // Slow, calming, and organic movement
         });
     }
 });
