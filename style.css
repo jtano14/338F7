@@ -280,49 +280,16 @@ h2 {
 }
 
 /* ==========================================================================
-   CRISP VECTOR OCEAN WAVE ENGINE (FRAMER-GRADE LINE MATCH)
+   VANTA.JS LIQUID BACKGROUND CANVAS WRAPPER
    ========================================================================== */
-.ocean-fluid-bg {
+#vanta-ocean-bg {
     position: absolute;
-    bottom: 0; /* Pinned cleanly behind the lower half of your hero section */
+    top: 0;
     left: 0;
-    width: 100%;
-    height: 60vh; /* Limits the footprint so it doesn't overwhelm the text blocks */
-    z-index: 1; /* Safety lock behind typography content blocks */
-    background: transparent;
-    overflow: hidden;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 1; /* Sits safely underneath all text blocks and interactive cards */
     pointer-events: none;
-}
-
-.wave-svg {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 200%; /* Stretches the wave wide so we have canvas room to animate it left-to-right */
-    height: 100%;
-}
-
-/* Animate Layer 1: Gentle Seafoam Wave Panning */
-.wave-path-1 {
-    animation: swayFramerWaves 22s infinite alternate ease-in-out;
-}
-
-/* Animate Layer 2: Deeper Corporate Blue Panning (Offset path to create layered overlap lines) */
-.wave-path-2 {
-    animation: swayFramerWaves 16s infinite alternate-reverse ease-in-out;
-}
-
-/* THE PERFECT LIQUID MOTION: Smooth horizontal swaying with ZERO blur or dizziness */
-@keyframes swayFramerWaves {
-    0% {
-        transform: translateX(0) scaleY(1);
-    }
-    50% {
-        transform: translateX(-25%) scaleY(1.08); /* Slides the curved path across the page */
-    }
-    100% {
-        transform: translateX(-50%) scaleY(0.95);
-    }
 }
 
 
