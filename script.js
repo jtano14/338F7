@@ -299,13 +299,13 @@ function initializeVantaClouds() {
                 minHeight: 200.00,
                 minWidth: 200.00,
                 
-                /* MOODY SLATE-TWILIGHT PALETTE */
-                backgroundColor: 0xffffff,    // White base floor
-                skyColor: 0x9cbcd4,           // Deeper, moody slate-blue sky
+                /* CHARCOAL SHADOW HIGH-DEFINITION CONFIGURATION */
+                backgroundColor: 0xffffff,    
+                skyColor: 0x9cbcd4,           // Moody slate-blue sky
                 cloudColor: 0xffffff,         // Crisp white drifting cloud bodies
-                cloudShadowColor: 0x5a7b9a,   // Rich, deep gray-blue cloud shadows for stark contrast
+                cloudShadowColor: 0x333333,   // FIX: Deep charcoal shadows for crisp definition
                 
-                sunColor: 0xfff9e6,           // Soft ambient light highlight
+                sunColor: 0xfff9e6,           
                 sunGlareColor: 0xffffff,      
                 sunlightColor: 0xffffff,      
                 speed: 0.38                   
@@ -316,6 +316,7 @@ function initializeVantaClouds() {
 }
 
 document.addEventListener("DOMContentLoaded", initializeVantaClouds);
+
 
 
 
