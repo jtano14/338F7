@@ -1345,14 +1345,16 @@
       </div>
     </dialog>
    
-    <!-- ==========================================================================
-         CORRECTED APPLICATION SCRIPT INJECTION (FIXED 404 PATH)
-         ========================================================================== -->
-    <!-- 
-       FIX: Changed from assets/js/script.js to assets/script.js to match 
-       the folder layout structure of your GitHub repository.
-    -->
-    <script src="assets/script.js"></script>
+    <!-- 1. The mandatory 3D graphics rendering library -->
+    <script src="https://cloudflare.com"></script>
+    
+    <!-- 2. The main Vanta clouds extension file -->
+    <script src="https://jsdelivr.net"></script>
+    
+    <!-- 3. Your custom animation settings file -->
+    <!-- FIX: Replaced "assets/script.js" with the direct root path to target your file! -->
+    <script src="script.js"></script>
+
 </body>
 </html>
 
