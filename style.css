@@ -279,20 +279,22 @@ h2 {
     display: block !important;
 }
 
-/* Enforce the building image to stretch completely across the full background */
-.hero-background {
+/* NEW: Replaced building image styles with the animated ocean wave background */
+#gradient-canvas {
     position: absolute;
     top: 0;
     left: 0;
     width: 100% !important; 
     height: 100% !important;
-    object-fit: cover;
-    opacity: 0.12; 
-    z-index: 1;
-    pointer-events: none;
-    transform: scale(1.05);
-    transition: transform 0.1s ease-out;
+    z-index: 1; /* Locks the canvas layer behind your text and arrow logos */
+    
+    /* MISTY OCEAN PALETTE: Safe for dark navy text contrast */
+    --gradient-color-1: #ffffff; /* Pure white base */
+    --gradient-color-2: #f0f4f8; /* Soft slate grey tint */
+    --gradient-color-3: #e0f2fe; /* Light seafoam sky blue */
+    --gradient-color-4: #dbeafe; /* Pale misty blue */
 }
+
 
 /* ==========================================================================
    JAPANESE BACKGROUND WATERMARK (PERFECT DISPLAY CENTER ACCELERATION)
