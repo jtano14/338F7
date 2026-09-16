@@ -280,94 +280,50 @@ h2 {
 }
 
 /* ==========================================================================
-   FRAMER-GRADE ORGANIC CENTERED SMOKE WAVE ENGINE (DEEP CURVES)
+   CRISP VECTOR OCEAN WAVE ENGINE (FRAMER-GRADE LINE MATCH)
    ========================================================================== */
 .ocean-fluid-bg {
     position: absolute;
-    top: 0;
+    bottom: 0; /* Pinned cleanly behind the lower half of your hero section */
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 60vh; /* Limits the footprint so it doesn't overwhelm the text blocks */
     z-index: 1; /* Safety lock behind typography content blocks */
-    background: #ffffff; /* Clean corporate white canvas base */
+    background: transparent;
     overflow: hidden;
-}
-
-/* Base wave layers configured as massive, tall vertical ovals tilted diagonally */
-.ocean-fluid-bg::before,
-.ocean-fluid-bg::after {
-    content: '';
-    position: absolute;
-    width: 120vw; /* Wide enough to stretch across the page */
-    height: 140vh; /* Taller than the viewport to create massive vertical wave heights */
-    top: -20vh;    /* Shifts the vertical center right behind your typography */
-    
-    /* Highly responsive blur filter softens the fluid borders into organic smoke layers */
-    filter: blur(80px); 
-    opacity: 0.22; /* Clean, subtle density that lets dark navy text pop clearly */
     pointer-events: none;
-    mix-blend-mode: multiply; /* Ensures smooth, non-glitchy corporate color mixing */
 }
 
-/* Fluid Wave Layer 1: Vivid Seafoam Horizon Wave (Left Panning Swell) */
-.ocean-fluid-bg::before {
-    background-color: #90e0ff;
-    left: -30vw;
-    /* Rotates the tall oval diagonally and morphs it back and forth */
-    transform: rotate(-15deg);
-    animation: organicFramerWaveOne 26s infinite alternate ease-in-out;
+.wave-svg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%; /* Stretches the wave wide so we have canvas room to animate it left-to-right */
+    height: 100%;
 }
 
-/* Fluid Wave Layer 2: Deeper Accent Ocean Blue Wave (Right Panning Swell) */
-.ocean-fluid-bg::after {
-    background-color: #0077b6;
-    right: -30vw;
-    transform: rotate(15deg);
-    /* Offsets the timing sequence for an organic overlapping folding effect */
-    animation: organicFramerWaveTwo 20s infinite alternate ease-in-out;
-    animation-delay: -5s;
+/* Animate Layer 1: Gentle Seafoam Wave Panning */
+.wave-path-1 {
+    animation: swayFramerWaves 22s infinite alternate ease-in-out;
 }
 
-/* MOTION MECHANICS: Slowly drifts the diagonal curves horizontally to create shifting peaks */
+/* Animate Layer 2: Deeper Corporate Blue Panning (Offset path to create layered overlap lines) */
+.wave-path-2 {
+    animation: swayFramerWaves 16s infinite alternate-reverse ease-in-out;
+}
 
-@keyframes organicFramerWaveOne {
+/* THE PERFECT LIQUID MOTION: Smooth horizontal swaying with ZERO blur or dizziness */
+@keyframes swayFramerWaves {
     0% {
-        transform: translate(0, 0) rotate(-15deg) scale(1);
-        border-radius: 42% 58% 45% 55% / 45% 45% 55% 55%;
+        transform: translateX(0) scaleY(1);
     }
     50% {
-        /* Pushes the wave crest horizontally and warps the curvature dynamically */
-        transform: translate(15vw, 4vh) rotate(-5deg) scale(1.1);
-        border-radius: 55% 45% 55% 45% / 55% 55% 45% 45%;
+        transform: translateX(-25%) scaleY(1.08); /* Slides the curved path across the page */
     }
     100% {
-        transform: translate(-5vw, -2vh) rotate(-20deg) scale(0.95);
-        border-radius: 45% 55% 40% 60% / 40% 50% 60% 50%;
+        transform: translateX(-50%) scaleY(0.95);
     }
 }
-
-@keyframes organicFramerWaveTwo {
-    0% {
-        transform: translate(0, 0) rotate(15deg) scale(1.05);
-        border-radius: 55% 45% 55% 45% / 55% 55% 45% 45%;
-    }
-    50% {
-        transform: translate(-12vw, -3vh) rotate(5deg) scale(0.9);
-        border-radius: 42% 58% 45% 55% / 45% 45% 55% 55%;
-    }
-    100% {
-        transform: translate(6vw, 5vh) rotate(22deg) scale(1.15);
-        border-radius: 50% 50% 40% 60% / 60% 40% 50% 50%;
-    }
-}
-
-
-
-
-
-
-
-
 
 
 
