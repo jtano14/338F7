@@ -1609,6 +1609,25 @@ main > section:not(.hero-section) {
 }
 
 /* ==========================================================================
+   VANTA CLOUDS - DE-FOGGING MASK TUNING
+   ========================================================================== */
+
+/* Locates any built-in white masking gradients sitting inside your hero section 
+   and dials their visibility down so the bright cloud shapes pop sharply */
+.hero-section::before,
+.hero-section::after,
+.hero-mask,
+.hero-overlay,
+.hero-fade-overlay,
+[data-parallax-section]::before {
+    background: transparent !important;
+    background-image: none !important;
+    opacity: 0 !important;
+    display: none !important;
+}
+
+
+/* ==========================================================================
    MOBILE — HERO OVERLAP BEHAVIOR
    ========================================================================== */
 
