@@ -284,11 +284,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 /* ==========================================================================
-   NEW VANTA CLOUDS CONFIGURATION (DARK NAVY ENGINE)
+   NEW VANTA CLOUDS CONFIGURATION (DARK NAVY THEME ENGINE)
    ========================================================================== */
-document.addEventListener("DOMContentLoaded", () => {
-    // Check if the Vanta engine successfully registered before initializing elements
-    if (typeof VANTA !== "undefined" && document.querySelector("#vanta-ocean-bg")) {
+function initializeVantaClouds() {
+    // Check if the HTML element and the Vanta library are completely ready
+    const targetBg = document.querySelector("#vanta-ocean-bg");
+    
+    if (typeof VANTA !== "undefined" && targetBg) {
         VANTA.CLOUDS({
             el: "#vanta-ocean-bg", 
             mouseControls: false, 
@@ -297,19 +299,23 @@ document.addEventListener("DOMContentLoaded", () => {
             minHeight: 200.00,
             minWidth: 200.00,
             
-            /* BRIGHTNESS CONTROL: Tweaked to ensure high contrast over your text */
-            backgroundColor: 0x0b2240,    // Solid corporate base navy blue
-            skyColor: 0x1a365d,           // Smooth deep sky depth transition accent
-            cloudColor: 0xa5e1fe,         // Bright, crisp seafoam sky-blue clouds
-            cloudShadowColor: 0x051329,   
-            sunColor: 0xffa31a,           
-            sunGlareColor: 0xff551a,
-            sunlightColor: 0xffaa33,
+            /* CONTRAST COLORS: Formatted to keep your central white text highly readable */
+            backgroundColor: 0x0b2240,    // Your brand navy blue base color
+            skyColor: 0x162c4c,           // Deep sky gradient
+            cloudColor: 0xa8e2ff,         // Soft seafoam sky-blue clouds
+            cloudShadowColor: 0x051326,   
+            sunColor: 0xffa024,           
+            sunGlareColor: 0xff5b24,
+            sunlightColor: 0xffa647,
             
-            speed: 0.70 
+            speed: 0.60 
         });
     }
-});
+}
+
+// Fire the setup immediately when the DOM loads, with a fallback timer
+document.addEventListener("DOMContentLoaded", initializeVantaClouds);
+window.addEventListener("load", initializeVantaClouds);
 
 
 
