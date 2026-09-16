@@ -289,6 +289,10 @@ document.addEventListener("DOMContentLoaded", () => {
 function initializeVantaClouds() {
     const targetBg = document.querySelector("#vanta-ocean-bg");
     
+    // DEBUG LOGS: This will print status messages directly into your console panel
+    console.log("1. Is Vanta library loaded?", typeof VANTA !== "undefined");
+    console.log("2. Is the background HTML element found?", targetBg);
+
     if (typeof VANTA !== "undefined" && targetBg) {
         VANTA.CLOUDS({
             el: "#vanta-ocean-bg", 
@@ -296,20 +300,22 @@ function initializeVantaClouds() {
             touchControls: true,
             gyroControls: false,
             minHeight: 200.00,
-            minWidth: 200.00,            
-            backgroundColor: 0xffffff,    // Pure White background
-            skyColor: 0xf0f5fa,           // Ultra-light sky blue tint
-            cloudColor: 0xffffff,         // Pure White fluffy cloud bodies
-            cloudShadowColor: 0xd9e5f0,   // Soft, light gray-blue cloud depths
-            sunColor: 0xfffcf5,           // Very subtle pale warm light
-            sunGlareColor: 0xffffff,      // Blended white glare
-            sunlightColor: 0xffffff,      // Pure white light casting
-            speed: 0.40                   // Kept gentle so it isn't distracting
+            minWidth: 200.00,
+            backgroundColor: 0xffffff,    
+            skyColor: 0xf0f5fa,           
+            cloudColor: 0xffffff,         
+            cloudShadowColor: 0xd9e5f0,   
+            sunColor: 0xfffcf5,           
+            sunGlareColor: 0xffffff,      
+            sunlightColor: 0xffffff,      
+            speed: 0.40
         });
+        console.log("3. Vanta Clouds initialized successfully!");
     }
 }
 
 document.addEventListener("DOMContentLoaded", initializeVantaClouds);
+
 
 
 
