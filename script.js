@@ -310,7 +310,7 @@ function initializeVantaClouds() {
                 sunGlareColor: 0xff6633,      // Vibrant amber sun flare
                 sunlightColor: 0xff9933,      // Warm golden sunshine illumination
                 
-                speed: 3.00                   // Set to 1 as requested to see movement immediately
+                speed: 1.20                   // Set to 1 as requested to see movement immediately
             });
             console.log("3. Vanta Canvas injected and initialized successfully!");
         }, 100);
