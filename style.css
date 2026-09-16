@@ -72,11 +72,6 @@ button {
 }
 
 section {
-    /* 
-       Using viewport height (vh) keeps pages balanced across all monitors.
-       This adds extra vertical padding on large displays so short sections 
-       have clear depth, matching longer sections.
-    */
     padding: clamp(100px, 12vh, 160px) 0;
 }
 
@@ -242,30 +237,38 @@ h2 {
 }
 
 /* ==========================================================================
-   HERO CANVAS & ANIMATION SYSTEM
+   3. HERO PARALLAX FRAME, CANVAS & OVERLAP CONTROL ENGINE (ALL IN ONE PLACE)
    ========================================================================== */
 
-/* 1. We make sure the parent section container allows layers inside it */
+/* --- Main Section Frame (Sticky Scroll Lock Activation) --- */
 .hero-section {
-    position: relative !important;
-}
-
-/* 2. Fix the background engine canvas floor wrapper */
-#vanta-ocean-bg {
-    position: fixed !important; /* Forces it to remain perfectly stationary */
+    position: -webkit-sticky !important;
+    position: sticky !important;
     top: 0 !important;
     left: 0 !important;
-    width: 100vw !important;    /* Locks dimension straight to the viewport width */
-    height: 100vh !important;   /* Locks dimension straight to the viewport height */
+    height: 100vh !important;
+    min-height: 100vh !important;
+    overflow: hidden !important;
+    z-index: 1 !important; /* Locks background floor plane below subsequent section sheets */
+    background: transparent !important;
+    background-color: transparent !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- Vanta.js Viewport Fixed Canvas Anchors --- */
+#vanta-ocean-bg {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
     pointer-events: none !important;
     background-color: #ffffff !important;
-    
-    /* Pushes the animation safely to the absolute back layer, allowing your 
-       About section to slide cleanly over the top like a sheet of paper */
     z-index: -10 !important; 
 }
 
-/* 3. Force Vanta's generated 3D engine canvas to render correctly */
 #vanta-ocean-bg canvas, 
 #vanta-ocean-bg .vanta-canvas {
     position: absolute !important;
@@ -277,24 +280,20 @@ h2 {
     z-index: -10 !important;
 }
 
-/* ==========================================================================
-   SCROLL ARROW COMPACT VISUAL BUG FIX
-   ========================================================================== */
-
-/* Cleans up unintended box-sizing overrides, forcing your scrolling chevron 
-   anchor graphics to return immediately to their native compact proportions */
-.hero-section a,
-.hero-section svg,
-.hero-section img,
-.scroll-down-icon {
-    width: auto !important;
-    height: auto !important;
-    max-width: initial !important;
-    max-height: initial !important;
-    display: inline-block !important;
+/* --- Fog Cleanups --- */
+.hero-section::before,
+.hero-section::after,
+.hero-mask,
+.hero-overlay,
+.hero-fade-overlay,
+[data-parallax-section]::before {
+    background: transparent !important;
+    background-image: none !important;
+    opacity: 0 !important;
+    display: none !important;
 }
 
-
+/* --- Vector Scenery Map Overlay --- */
 .hero-background {
     position: absolute !important;
     top: 0 !important;
@@ -309,6 +308,24 @@ h2 {
     z-index: 2 !important; 
 }
 
+/* --- Global Section Control Stacks & Main Sheet Runway --- */
+main, 
+.scroll-stack-wrapper {
+    position: relative !important;
+    width: 100% !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    z-index: 2 !important;
+}
+
+/* Forces subsequent solid sections to slide directly over top of locked canvas */
+main > section:not(.hero-section) {
+    position: relative !important;
+    z-index: 15 !important;
+    will-change: transform, opacity;
+}
+
+/* --- Core Text & Interactive Graphic Wrappers --- */
 .hero-content.container {
     width: min(100% - 40px, 960px) !important; 
     max-width: 960px !important;
@@ -319,8 +336,6 @@ h2 {
     z-index: 3 !important; 
 }
 
-
-/* Restores your main heading configuration to sit wide and center in block flow */
 .hero-title {
     width: 100% !important;
     max-width: 1080px;
@@ -328,31 +343,22 @@ h2 {
     display: block !important;
 }
 
-/* ==========================================================================
-   JAPANESE BACKGROUND WATERMARK (PERFECT DISPLAY CENTER ACCELERATION)
-   ========================================================================== */
 .hero-vertical-text {
     position: fixed !important;
     right: 4% !important;
     left: auto !important; 
     top: 50% !important;
     transform: translateY(-50%) !important; 
-    
     writing-mode: vertical-rl;
     font-size: clamp(2.2rem, 3.5vw, 3.2rem) !important; 
     font-weight: 700;
-    
-    /* Keeps the watermark elegantly subtle and soft behind your scrolling cards */
     color: rgba(11, 34, 64, 0.06) !important; 
     letter-spacing: 0.18em !important;
-    
-    /* Safely locks it behind buttons and content cards */
     z-index: 1 !important;
     pointer-events: none;
     white-space: nowrap !important;
 }
 
-/* --- Brand Container Canvas Mechanics --- */
 .brand-container {
     position: relative;
     display: flex;
@@ -369,23 +375,15 @@ h2 {
 .logo-wrapper {
     position: relative;
     width: 160px;  
-    height: 120px; /* Slight height increase to give the arrow scaling room */
+    height: 120px; 
     margin: 0 auto !important;
 }
 
 .sharp-logo-layer {
     position: absolute !important;
-    /* 
-       PRECISION CENTER CORRECTION:
-       We added a custom 4-pixel nudge to the top and a 4-pixel nudge to the left 
-       directly inside the centering transform calculation. This shifts the 
-       arrow graphic down and right just enough to perfectly synchronize it with 
-       the canvas particle explosion points!
-    */
     top: calc(50% + 4px) !important;
     left: calc(50% + 4px) !important;
     transform: translate(-50%, -50%) !important; 
-    
     width: 160px !important; 
     height: auto;
     z-index: 2;
@@ -411,7 +409,10 @@ h2 {
     visibility: hidden;
 }
 
-/* Main Brand Header Text Block */
+/* ==========================================================================
+   4B. HERO TYPOGRAPHY, BRAND LABELS & CTAs (CONTINUED)
+   ========================================================================== */
+
 .logo-text {
     color: var(--primary-color); 
     font-size: clamp(32px, 5.5vw, 56px);
@@ -422,8 +423,7 @@ h2 {
     text-transform: uppercase;
     user-select: none;
     width: 100%;
-    
-    margin-top: 36px !important; /* Premium spacing gap below the logo wrapper */
+    margin-top: 36px !important; 
     margin-bottom: 0 !important;
     position: relative;
     z-index: 3;
@@ -461,70 +461,6 @@ h2 {
     position: relative !important;
 }
 
-/* ==========================================================================
-   NEW THREE-LINE STACKED HEADLINE (MAX SQUEEZE & CENTER BALANCED ENGINE)
-   ========================================================================== */
-.stacked-headline {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;    
-    justify-content: center !important;
-    width: 100% !important;
-    max-width: 1140px !important; 
-    margin-left: auto !important;
-    margin-right: auto !important;
-    
-    /* Pulled tight to squeeze the headline spacing into a crisp block profile */
-    margin-top: 12px !important;   
-    margin-bottom: 12px !important; 
-    
-    text-align: center !important;
-    position: relative;
-    z-index: 3;
-}
-
-/* Line 1 (Bridging) & Line 3 (to the World.) Spacing Tightener */
-.stacked-headline .headline-prefix,
-.stacked-headline .headline-suffix {
-    display: block !important;
-    color: var(--primary-color);
-    font-size: clamp(1.4rem, 2.5vw, 1.8rem) !important;
-    font-weight: 400 !important; 
-    letter-spacing: -0.01em !important;
-    line-height: 1.0 !important; /* Crushed line height pulls lines extremely tight */
-    
-    /* Zero out any text-indent variables that might disrupt absolute center alignment */
-    text-indent: 0 !important;
-    text-align: center !important;
-    
-    /* MAX SQUEEZE: Minimized to 0px to stack rows directly next to each other */
-    margin: 0px 0 !important; 
-    width: 100%;
-}
-
-/* Line 2: THE PERFECTLY CENTERED UNBROKEN COUNTRY ROW */
-.stacked-headline .market-line {
-    display: block !important;
-    width: 100% !important;
-    white-space: nowrap !important; /* Guarantees everything stays locked on a single row */
-    text-align: center !important;   /* Forces absolute center-axis symmetry */
-    
-    /* Reset any old margins or indents causing the Brunei/GCC rightward pull */
-    text-indent: 0 !important;
-    padding: 0 !important;
-    
-    font-size: clamp(1.6rem, 3.2vw, 2.4rem) !important; 
-    font-weight: 500 !important; 
-    color: var(--primary-color) !important;
-    
-    letter-spacing: -0.01em !important;
-    line-height: 1.0 !important; /* Crushed line height pulls lines extremely tight */
-    
-    /* MAX SQUEEZE: Minor spacing buffer strictly around the main country row text */
-    margin: 2px 0 !important; 
-}
-
-
 /* Force descriptive text paragraph to sit beautifully centered beneath the headline */
 .brand-container .hero-desc {
     max-width: 680px !important; 
@@ -551,31 +487,16 @@ h2 {
     z-index: 3;
 }
 
-/* ==========================================================================
-   UPDATED HERO HOVER STATES (FIXED SPECIFIC BORDER SYMMETRY)
-   ========================================================================== */
-
-/* 
-   1. Primary Button Hover (Start a Conversation)
-   FIXED: We explicitly lock in 'border: 1px solid var(--primary-color) !important;'. 
-   This forces the border, text, and transparent center to use the exact same 
-   weight and color profile, completely eliminating any hollow background bleeding!
-*/
+/* Primary Button Hover (Start a Conversation) */
 .brand-container .hero-buttons .btn-primary:hover {
     background-color: transparent !important;
     background: transparent !important;
     color: var(--primary-color) !important;
-    
-    /* Strong explicit border definition locks out the glitch */
     border: 1px solid var(--primary-color) !important;
     border-color: var(--primary-color) !important;
 }
 
-/* 
-   2. Secondary Button Hover (Explore Our Framework)
-   Maintains its clean outline look while shifting its border and text color 
-   to match the primary button state on hover.
-*/
+/* Secondary Button Hover (Explore Our Framework) */
 .brand-container .hero-buttons .btn-secondary:hover {
     color: var(--primary-color) !important;
     background-color: rgba(11, 34, 64, 0.03) !important; 
@@ -584,70 +505,13 @@ h2 {
 }
 
 /* ==========================================================================
-   HERO → ABOUT OVERLAP
-   ========================================================================== */
-
-.about-section {
-    position: relative;
-    z-index: 10;
-    background-color: var(--light-bg);
-    box-shadow: 0 -12px 30px rgba(0, 0, 0, 0.08);
-}
-
-/* ==========================================================================
-   4. ABOUT US SECTION (CLEAN ALIGNMENT REMOVAL)
+   5. ABOUT US SECTION
    ========================================================================== */
 .about-section {
-    position: relative;
-    /* 
-       We removed margin-top: -50px to ensure your JavaScript scroll-fade calculations 
-       track your monitor screen edges with 100% pixel-perfect accuracy.
-    */
-    box-shadow: 0 -20px 40px rgba(11, 34, 64, 0.05); /* Keeps the beautiful soft shadow depth over the hero */
-}
-
-/* ==========================================================================
-   ALL SECTIONS ABOVE THE STICKY HERO (CLEAN CONTROL STACK)
-   ========================================================================== */
-
-main {
-    position: relative;
-    z-index: 10;
-    background-color: var(--primary-color) !important; /* Changed to dark corporate blue */
-    width: 100%;
-}
-
-.scroll-stack-wrapper {
-    position: relative;
-    width: 100%;
-    background-color: var(--primary-color) !important; /* Changed to dark corporate blue */
-}
-
-main > section:not(.hero-section) {
-    position: relative;
-    z-index: 15 !important;
-    will-change: opacity;
-}
-
-.main-footer {
-    position: relative;
-    z-index: 20 !important;
-    background-color: var(--primary-color) !important;
-}
-
-/* Maintain solid backgrounds for seamless section cards */
-.about-section { background-color: var(--light-bg) !important; }
-.services-section { background-color: var(--white) !important; }
-.framework-section { background-color: var(--light-bg) !important; }
-.leadership-section { background-color: var(--white) !important; }
-.sectors-section { background-color: var(--light-bg) !important; }
-.contact-section { background-color: var(--white) !important; }
-
-.grid-2 {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 64px;
-    align-items: center;
+    position: relative !important;
+    z-index: 15 !important; /* Raised layer sits over the sticky hero background */
+    background-color: var(--light-bg) !important;
+    box-shadow: 0 -20px 40px rgba(11, 34, 64, 0.08) !important; /* Beautiful soft depth shadow */
 }
 
 .about-content blockquote {
@@ -728,10 +592,12 @@ main > section:not(.hero-section) {
 }
 
 /* ==========================================================================
-   5. OUR SERVICES
+   6. OUR SERVICES
    ========================================================================== */
 .services-section {
-    background-color: var(--white);
+    position: relative !important;
+    z-index: 15 !important;
+    background-color: var(--white) !important;
 }
 
 .services-grid {
@@ -807,51 +673,40 @@ main > section:not(.hero-section) {
 }
 
 /* ==========================================================================
-   6. THE FLUX7 FRAMEWORK & PACKAGES (CENTERED ROW ARCHITECTURE)
+   7. THE FLUX7 FRAMEWORK & PACKAGES
    ========================================================================== */
 .framework-section {
-    background-color: var(--light-bg);
-    position: relative;
+    position: relative !important;
+    z-index: 15 !important;
+    background-color: var(--light-bg) !important;
     width: 100%;
 }
 
-/* 
-   FIX 1: We convert this from a side-by-side flex layout to a standardized 
-   centered block layout container that matches your About and Services sections.
-*/
 .framework-layout {
     display: block !important; 
     position: relative;
-    width: min(100% - 40px, 1200px) !important; /* Forces perfect outer alignment */
+    width: min(100% - 40px, 1200px) !important; 
     max-width: 1200px !important;
     margin: 0 auto !important;
 }
 
-/* 
-   FIX 2: We extract the large vertical title from the layout flow. 
-   By positioning it absolutely, it floats on the far right or left edge 
-   without shrinking, squeezing, or distorting your main content grids!
-*/
 .framework-side-label {
     position: absolute !important;
-    right: -60px !important; /* Pins it safely to the outer layout margin gutter */
+    right: -60px !important; 
     top: 50%;
     transform: translateY(-50%) rotate(180deg) !important;
     writing-mode: vertical-rl;
     font-weight: 700;
-    color: rgba(11, 34, 64, 0.035) !important; /* Elegant subtle background tint */
+    color: rgba(11, 34, 64, 0.035) !important; 
     font-size: 4rem;
     letter-spacing: 0.15em;
     display: flex;
     align-items: center;
     justify-content: center;
-    pointer-events: none; /* Prevents it from blocking clicks on your cards */
+    pointer-events: none; 
     z-index: 1;
 }
 
-/* 
-   FIX 3: Expands the inner content container to fill 100% of the centered runway plane.
-*/
 .framework-content {
     width: 100% !important;
     margin: 0 auto !important;
@@ -865,10 +720,9 @@ main > section:not(.hero-section) {
     text-align: center !important;
 }
 
-/* --- THE SEVEN PILLARS INTERACTIVE CARDS GRID --- */
+/* Seven Pillars Cards Grid */
 .pillars-list {
     display: grid;
-    /* Auto-fits your 7 cards evenly down the page grid context rows */
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 24px;
     margin: 48px 0 80px;
@@ -918,7 +772,7 @@ main > section:not(.hero-section) {
 
 .pillar-card-front h3 {
     margin: 12px 0 0;
-    text-align: left; /* Keeps title layout text inside cards readable */
+    text-align: left; 
 }
 
 .pillar-action {
@@ -934,7 +788,7 @@ main > section:not(.hero-section) {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    text-align: left; /* Keeps explanation layout text inside cards readable */
+    text-align: left; 
 }
 
 .pillar-card-back h3 {
@@ -950,7 +804,7 @@ main > section:not(.hero-section) {
     margin: 0;
 }
 
-/* --- THE SERVICE PACKAGES MATRIX ROW --- */
+/* Service Packages Row Matrix */
 .service-packages {
     margin-top: 64px;
     border-top: 1px solid var(--border-color);
@@ -967,7 +821,6 @@ main > section:not(.hero-section) {
 
 .service-packages-grid {
     display: grid;
-    /* Clean three-column matrix matching your Services layout width thresholds */
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     width: 100%;
@@ -981,7 +834,7 @@ main > section:not(.hero-section) {
     border-radius: 4px;
     display: flex;
     flex-direction: column;
-    text-align: left; /* Packages list descriptions read better left-aligned */
+    text-align: left; 
 }
 
 .package-card-featured {
@@ -1021,12 +874,13 @@ main > section:not(.hero-section) {
     margin: 0;
 }
 
-
 /* ==========================================================================
-   7. LEADERSHIP SECTION
+   8. LEADERSHIP SECTION
    ========================================================================== */
 .leadership-section {
-    background-color: var(--white);
+    position: relative !important;
+    z-index: 15 !important;
+    background-color: var(--white) !important;
 }
 
 .leadership-heading {
@@ -1107,10 +961,12 @@ main > section:not(.hero-section) {
 }
 
 /* ==========================================================================
-   8. INDUSTRIES WE SERVE / SECTORS
+   9. INDUSTRIES & SECTORS WE SERVE
    ========================================================================== */
 .sectors-section {
-    background-color: var(--light-bg);
+    position: relative !important;
+    z-index: 15 !important;
+    background-color: var(--light-bg) !important;
 }
 
 .sectors-heading {
@@ -1197,10 +1053,12 @@ main > section:not(.hero-section) {
 }
 
 /* ==========================================================================
-   9. CONTACT / CONNECT WITH US
+   10. CONTACT & FORM LAYOUT PANELS
    ========================================================================== */
 .contact-section {
-    background-color: var(--white);
+    position: relative !important;
+    z-index: 15 !important;
+    background-color: var(--white) !important;
 }
 
 .contact-panel {
@@ -1289,10 +1147,12 @@ main > section:not(.hero-section) {
 }
 
 /* ==========================================================================
-   10. MAIN SITE FOOTER
+   11. MAIN SITE FOOTER
    ========================================================================== */
 .main-footer {
-    background-color: var(--primary-color);
+    position: relative !important;
+    z-index: 20 !important; /* Floats highest to wrap up the page */
+    background-color: var(--primary-color) !important;
     color: rgba(255, 255, 255, 0.75);
     padding: 80px 0 40px;
 }
@@ -1403,7 +1263,7 @@ main > section:not(.hero-section) {
 }
 
 /* ==========================================================================
-   11. OFFICE INFORMATION MODAL DIALOGS
+   12. OFFICE MODAL POPUPS
    ========================================================================== */
 .office-dialog {
     border: none;
@@ -1473,7 +1333,7 @@ main > section:not(.hero-section) {
 }
 
 /* ==========================================================================
-   12. RESPONSIVE BREAKPOINTS (MEDIA QUERIES)
+   13. RESPONSIVE LAYOUT RESPONSIVENESS (MEDIA QUERIES)
    ========================================================================== */
 @media (max-width: 1024px) {
     .sectors-grid {
@@ -1590,7 +1450,17 @@ main > section:not(.hero-section) {
 }
 
 /* ==========================================================================
-   13. ACCESSIBILITY SYSTEM (REDUCED MOTION)
+   14. MOBILE SPECIFIC HERO OVERLAP TIMINGS
+   ========================================================================== */
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: calc(100vh - 64px) !important;
+        padding: 80px 20px 40px !important;
+    }
+}
+
+/* ==========================================================================
+   15. ACCESSIBILITY SYSTEM (REDUCED MOTION)
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
     html {
@@ -1623,40 +1493,4 @@ main > section:not(.hero-section) {
     .sector-card-line {
         width: 100% !important;
     }
-}
-
-/* ==========================================================================
-   VANTA CLOUDS - DE-FOGGING MASK TUNING
-   ========================================================================== */
-
-/* Locates any built-in white masking gradients sitting inside your hero section 
-   and dials their visibility down so the bright cloud shapes pop sharply */
-.hero-section::before,
-.hero-section::after,
-.hero-mask,
-.hero-overlay,
-.hero-fade-overlay,
-[data-parallax-section]::before {
-    background: transparent !important;
-    background-image: none !important;
-    opacity: 0 !important;
-    display: none !important;
-}
-
-
-/* ==========================================================================
-   MOBILE — HERO OVERLAP BEHAVIOR
-   ========================================================================== */
-
-@media (max-width: 768px) {
-
-    .hero-section {
-        min-height: calc(100vh - 64px);
-        padding: 80px 20px 40px;
-    }
-
-    .about-section {
-        margin-top: 0;
-    }
-
 }
