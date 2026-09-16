@@ -242,81 +242,69 @@ h2 {
 }
 
 /* ==========================================================================
-   3. HERO SECTION (RE-ARCHITECTED FOR BALANCED CENTER 100% DISPLAY)
+   HERO CANVAS & ANIMATION SYSTEM
    ========================================================================== */
 
 .hero-section {
-    position: relative;
-    min-height: calc(100vh - 76px);
-    padding: calc(60px + 76px) 0 40px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    /* FIX: We change this to transparent so it doesn't block your canvas animation */
+    position: relative !important;
+    min-height: calc(100vh - 76px) !important;
+    padding: calc(60px + 76px) 0 40px !important;
+    overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
     background: transparent !important;
     background-color: transparent !important;
 }
 
-/* ==========================================================================
-   VANTA.JS LIQUID BACKGROUND CANVAS WRAPPER
-   ========================================================================== */
 #vanta-ocean-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
     width: 100% !important;
     height: 100% !important;
-    pointer-events: none;
-    
-    /* FORCE THE CANVAS FORWARD: This brings the vanta-canvas out from under masks */
+    min-width: 100% !important;
+    min-height: 100% !important;
+    pointer-events: none !important;
     z-index: 1 !important; 
     background-color: #ffffff !important; 
 }
 
-/* Force Vanta's internal generated canvas layer to honor our visibility layer */
+#vanta-ocean-bg canvas, 
 #vanta-ocean-bg .vanta-canvas {
     position: absolute !important;
     top: 0 !important;
     left: 0 !important;
-    z-index: 1 !important; 
     width: 100% !important;
     height: 100% !important;
+    display: block !important;
+    z-index: 1 !important;
+}
 
-
-/* ==========================================================================
-   HERO SCENERY BACKGROUND IMAGE CONFIGURATIONS
-   ========================================================================== */
 .hero-background {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
     width: 100% !important; 
     height: 100% !important;
-    object-fit: cover;
-    opacity: 0.12; 
-    pointer-events: none;
-    transform: scale(1.05);
-    transition: transform 0.1s ease-out;
-    
-    /* Sits directly on top of the moving cloud canvas layer */
+    object-fit: cover !important;
+    opacity: 0.12 !important; 
+    pointer-events: none !important;
+    transform: scale(1.05) !important;
+    transition: transform 0.1s ease-out !important;
     z-index: 2 !important; 
 }
 
-/* --- Content Width Restorations (STOPS THE SIDE-BY-SIDE COLUMN BUG) --- */
 .hero-content.container {
     width: min(100% - 40px, 960px) !important; 
     max-width: 960px !important;
     margin: 0 auto !important;
     display: block !important;       
-    grid-template-columns: none !important; 
-    position: relative;
-    text-align: center; 
-    
-    /* FLOATS AT THE VERY TOP: Keeps your text sharp, crisp, and fully clickable */
+    position: relative !important;
+    text-align: center !important; 
     z-index: 3 !important; 
 }
+
 
 /* Restores your main heading configuration to sit wide and center in block flow */
 .hero-title {
