@@ -299,16 +299,16 @@ function initializeVantaClouds() {
                 minHeight: 200.00,
                 minWidth: 200.00,
                 
-                /* THE ULTRA-BRIGHT PASTEL CONTRAST ENGINE */
-                backgroundColor: 0xffffff,    // Crisp white base floor
-                skyColor: 0xe3edf7,           // Soft pastel mist sky (Allows white clouds to be seen)
-                cloudColor: 0xffffff,         // Fluffy white clouds
-                cloudShadowColor: 0xc4d7e8,   // Beautiful soft-blue cloud shadows for depth
-                sunColor: 0xfffbf0,           
+                /* TEMPORARY HIGH-CONTRAST TEST COLORS */
+                backgroundColor: 0x0000ff,    // Deep Blue Sky
+                skyColor: 0x0000ff,           // Deep Blue Sky
+                cloudColor: 0xff0000,         // Bright Red Clouds (Unmissable!)
+                cloudShadowColor: 0x00ff00,   // Neon Green Shadows
+                
+                sunColor: 0xffffff,           
                 sunGlareColor: 0xffffff,      
                 sunlightColor: 0xffffff,      
-                
-                speed: 0.35                   // Smooth, non-distracting drift speed
+                speed: 1.00                   // Speeds it up so it's obvious
             });
             console.log("3. Vanta Canvas injected and initialized successfully!");
         }, 100);
@@ -316,6 +316,7 @@ function initializeVantaClouds() {
 }
 
 document.addEventListener("DOMContentLoaded", initializeVantaClouds);
+
 
 
 
