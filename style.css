@@ -280,7 +280,7 @@ h2 {
 }
 
 /* ==========================================================================
-   PURE CSS MISTY OCEAN FLUID BACKGROUND ENGINE
+   UPDATED: 3D SILK RIBBON & OCEAN CURRENT SYSTEM (LIGHT HIGHLIGHTS)
    ========================================================================== */
 .ocean-fluid-bg {
     position: absolute;
@@ -288,57 +288,63 @@ h2 {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1; /* Places it safely behind text layers */
-    background-color: #ffffff; /* Base background */
+    z-index: 1; /* Locked behind text */
+    background: #ffffff;
     overflow: hidden;
 }
 
-/* Creating the moving ocean current spheres */
+/* Layered Wave Containers */
 .ocean-fluid-bg::before,
 .ocean-fluid-bg::after {
     content: '';
     position: absolute;
-    border-radius: 50%;
-    filter: blur(80px); /* Blurs the edges completely to create a smooth liquid look */
-    opacity: 0.65;
-    mix-blend-mode: multiply;
-    animation: flowCurrents 25s infinite alternate ease-in-out;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    opacity: 0.15; /* Keeps waves subtle so dark navy text remains perfectly readable */
+    pointer-events: none;
 }
 
-/* Current 1: Soft Seafoam Sky Blue */
+/* Wave Layer 1: Fine Silk Currents & Shadows */
 .ocean-fluid-bg::before {
-    width: 80vw;
-    height: 80vh;
-    background-color: #e0f2fe;
-    top: -20%;
-    left: -20%;
+    background: repeating-linear-gradient(
+        45deg,
+        #ffffff 0px,
+        #e0f2fe 100px,
+        #bfe2fd 200px,
+        #ffffff 300px
+    );
+    filter: blur(15px); /* Reduced blur to keep the wavy lines crisp and defined */
+    animation: waveRibbons 32s infinite linear;
 }
 
-/* Current 2: Pale Misty Blue */
+/* Wave Layer 2: Overlapping Deep Ocean Contours */
 .ocean-fluid-bg::after {
-    width: 75vw;
-    height: 75vh;
-    background-color: #dbeafe;
-    bottom: -15%;
-    right: -15%;
-    animation-delay: -10s; /* Offsets the animation cycle so they blend dynamically */
+    background: repeating-linear-gradient(
+        -45deg,
+        #ffffff 0px,
+        #dbeafe 150px,
+        #eff6ff 300px,
+        #ffffff 450px
+    );
+    filter: blur(20px);
+    animation: waveRibbons 24s infinite linear reverse;
 }
 
-/* The fluid smooth movement path mechanics */
-@keyframes flowCurrents {
+/* Smooth Silk Morphing Grid Calculations */
+@keyframes waveRibbons {
     0% {
-        transform: translate(0, 0) scale(1) rotate(0deg);
+        transform: rotate(0deg) translate(0, 0) scale(1);
     }
-    33% {
-        transform: translate(8%, 12%) scale(1.15) rotate(120deg);
-    }
-    66% {
-        transform: translate(-5%, 8%) scale(0.9) rotate(240deg);
+    50% {
+        transform: rotate(4deg) translate(-2%, -4%) scale(1.08);
     }
     100% {
-        transform: translate(0, 0) scale(1) rotate(360deg);
+        transform: rotate(0deg) translate(0, 0) scale(1);
     }
 }
+
 
 
 
