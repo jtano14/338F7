@@ -287,35 +287,33 @@ document.addEventListener("DOMContentLoaded", () => {
    NEW VANTA CLOUDS CONFIGURATION (DARK NAVY THEME ENGINE)
    ========================================================================== */
 function initializeVantaClouds() {
-    // Check if the HTML element and the Vanta library are completely ready
     const targetBg = document.querySelector("#vanta-ocean-bg");
     
     if (typeof VANTA !== "undefined" && targetBg) {
         VANTA.CLOUDS({
             el: "#vanta-ocean-bg", 
-            mouseControls: false, 
-            touchControls: false,
+            mouseControls: true, 
+            touchControls: true,
             gyroControls: false,
             minHeight: 200.00,
             minWidth: 200.00,
             
-            /* CONTRAST COLORS: Formatted to keep your central white text highly readable */
-            backgroundColor: 0x0b2240,    // Your brand navy blue base color
-            skyColor: 0x162c4c,           // Deep sky gradient
-            cloudColor: 0xa8e2ff,         // Soft seafoam sky-blue clouds
-            cloudShadowColor: 0x051326,   
-            sunColor: 0xffa024,           
-            sunGlareColor: 0xff5b24,
-            sunlightColor: 0xffa647,
+            /* BRIGHT WHITES THEME: High contrast baseline for dark text palettes */
+            backgroundColor: 0xffffff,    // Pure White background
+            skyColor: 0xf0f5fa,           // Ultra-light sky blue tint
+            cloudColor: 0xffffff,         // Pure White fluffy cloud bodies
+            cloudShadowColor: 0xd9e5f0,   // Soft, light gray-blue cloud depths
+            sunColor: 0xfffcf5,           // Very subtle pale warm light
+            sunGlareColor: 0xffffff,      // Blended white glare
+            sunlightColor: 0xffffff,      // Pure white light casting
             
-            speed: 0.60 
+            speed: 0.40                   // Kept gentle so it isn't distracting
         });
     }
 }
 
-// Fire the setup immediately when the DOM loads, with a fallback timer
 document.addEventListener("DOMContentLoaded", initializeVantaClouds);
-window.addEventListener("load", initializeVantaClouds);
+
 
 
 
