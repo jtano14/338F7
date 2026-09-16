@@ -280,7 +280,7 @@ h2 {
 }
 
 /* ==========================================================================
-   PURE CSS STABLE, HIGH-CONTRAST DEEP DEEP-DRIFT OCEAN SYSTEM
+   FRAMER-GRADE MESH WAVE GRADIENT ENGINE (HIGH VISIBILITY CURRENT LINES)
    ========================================================================== */
 .ocean-fluid-bg {
     position: absolute;
@@ -288,63 +288,66 @@ h2 {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1; /* Locks the background layer safely under your text */
-    background: #ffffff; /* Clean white runway canvas base */
+    z-index: 1; /* Safety lock behind typography content blocks */
+    
+    /* The core mesh gradient base layer matches the Framer backdrop palette */
+    background: radial-gradient(at 0% 0%, #e0f2fe 0px, transparent 50%),
+                radial-gradient(at 100% 0%, #fafafa 0px, transparent 50%),
+                radial-gradient(at 100% 100%, #dbeafe 0px, transparent 50%),
+                radial-gradient(at 0% 100%, #ffffff 0px, transparent 50%);
+    background-color: #ffffff;
     overflow: hidden;
 }
 
-/* Creating massive, high-visibility drifting ocean swells */
+/* Layering distinct, high-visibility wave curves that morph over each other */
 .ocean-fluid-bg::before,
 .ocean-fluid-bg::after {
     content: '';
     position: absolute;
-    width: 150vw; /* Massive size ensures ultra-wide wavelengths stretching wide */
-    height: 120vh;
-    opacity: 0.28; /* Increased opacity significantly so the waves are highly visible */
+    width: 160vw;
+    height: 160vw;
+    top: -80vw;
+    left: -30vw;
+    
+    /* This complex radius forms the visible liquid wave crest lines from the Framer site */
+    border-radius: 45% 38% 52% 41% / 43% 47% 39% 51%;
+    
+    /* CRITICAL FRAMER SECRET: High contrast blending makes the lines pop sharply */
+    mix-blend-mode: overlay;
     pointer-events: none;
 }
 
-/* Swell Layer 1: Vivid Ocean Sky Blue (Top Left Drift) */
+/* Fluid Wave Layer 1: Crisp Seafoam Horizon Current (Slow & Wide) */
 .ocean-fluid-bg::before {
-    background: radial-gradient(circle at center, #90e0ff 0%, rgba(255, 255, 255, 0) 70%);
-    filter: blur(50px);
-    top: -30%;
-    left: -20%;
-    /* Swings smoothly back and forth with NO rotation to eliminate dizziness */
-    animation: gentleHorizontalDrift 22s infinite alternate ease-in-out;
+    background: linear-gradient(135deg, rgba(0, 119, 182, 0.35) 0%, rgba(144, 224, 239, 0.1) 40%, rgba(255, 255, 255, 0) 70%);
+    filter: blur(12px); /* Dropped the blur down completely so you can see the wave lines sharp and clear! */
+    animation: morphFramerWaves 35s infinite alternate ease-in-out;
 }
 
-/* Swell Layer 2: Deep Slate Blue / Grey Swell (Bottom Right Drift) */
+/* Fluid Wave Layer 2: Deep Blue Global Current (Reverse Offset Path) */
 .ocean-fluid-bg::after {
-    background: radial-gradient(circle at center, #7cd0ff 0%, rgba(255, 255, 255, 0) 70%);
-    filter: blur(60px);
-    bottom: -30%;
-    right: -20%;
-    /* Drifts on an offset timing sequence for organic overlapping curves */
-    animation: gentleVerticalDrift 28s infinite alternate ease-in-out;
+    background: linear-gradient(225deg, rgba(11, 34, 64, 0.25) 0%, rgba(219, 234, 254, 0.15) 50%, rgba(255, 255, 255, 0) 80%);
+    filter: blur(18px);
+    animation: morphFramerWaves 25s infinite alternate-reverse ease-in-out;
 }
 
-/* NO-ROTATION MOVEMENT MECHANICS: Stops the spinning artifacts completely */
-
-/* Smooth Left-to-Right Horizontal Wave Drifting */
-@keyframes gentleHorizontalDrift {
+/* THE SEASICK-FREE MORPHING ENGINE: Liquid movement WITHOUT dizzying spins */
+@keyframes morphFramerWaves {
     0% {
-        transform: translate(0, 0) scale(1);
+        transform: translate(0, 0) scale(1) rotate(0deg);
+        border-radius: 45% 38% 52% 41% / 43% 47% 39% 51%;
+    }
+    50% {
+        /* Warps the physical border geometry lines back and forth to simulate organic folding silk */
+        transform: translate(6vw, 4vh) scale(1.05) rotate(15deg);
+        border-radius: 38% 48% 40% 55% / 50% 38% 52% 42%;
     }
     100% {
-        transform: translate(12vw, 5vh) scale(1.1); /* Slow, wide panning swell */
+        transform: translate(-3vw, 8vh) scale(0.98) rotate(-10deg);
+        border-radius: 52% 41% 45% 38% / 39% 51% 43% 47%;
     }
 }
 
-/* Smooth Up-to-Down Vertical Wave Drifting */
-@keyframes gentleVerticalDrift {
-    0% {
-        transform: translate(0, 0) scale(1.1);
-    }
-    100% {
-        transform: translate(-10vw, -8vh) scale(0.95);
-    }
-}
 
 
 
