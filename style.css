@@ -245,37 +245,28 @@ h2 {
    HERO CANVAS & ANIMATION SYSTEM
    ========================================================================== */
 
+/* 1. We make sure the parent section container allows layers inside it */
 .hero-section {
     position: relative !important;
-    min-height: calc(100vh - 76px) !important;
-    padding: calc(60px + 76px) 0 40px !important;
-    overflow: hidden !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    background: transparent !important;
-    background-color: transparent !important;
 }
 
+/* 2. Fix the background engine canvas floor wrapper */
 #vanta-ocean-bg {
     position: absolute !important;
     top: 0 !important;
     left: 0 !important;
-    
-    /* FIX: Force full layout box coverage based on the parent hero section container */
     width: 100% !important;
     height: 100% !important;
     min-width: 100% !important;
     min-height: 100% !important;
-    
-    /* Crucial safety net: ensures it has sizing weight even if parent collapses */
-    display: block !important; 
-    
     pointer-events: none !important;
-    background-color: #ffffff !important; 
-    z-index: 1 !important; 
+    
+    /* We set it to a safe background zone behind your scenery vector maps */
+    z-index: 0 !important; 
+    background-color: #ffffff !important;
 }
 
+/* 3. Force Vanta's generated 3D engine canvas to render correctly */
 #vanta-ocean-bg canvas, 
 #vanta-ocean-bg .vanta-canvas {
     position: absolute !important;
@@ -284,7 +275,7 @@ h2 {
     width: 100% !important;
     height: 100% !important;
     display: block !important;
-    z-index: 1 !important;
+    z-index: 0 !important;
 }
 
 .hero-background {
