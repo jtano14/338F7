@@ -76,8 +76,8 @@
         data-parallax-section
       >
           
-        <!-- Syncing the ID perfectly to match all scripts -->
-        <canvas id="oceanGradientCanvas" data-js-darken-top data-transition-in></canvas>
+        <!-- BULLETPROOF: A pure CSS animated ocean container -->
+        <div class="ocean-fluid-bg"></div>
 
         <div
           class="hero-vertical-text"
@@ -1346,8 +1346,6 @@
           </div>
         </dialog>
 
-        <!-- Adding ?v=2 forces your browser to discard its broken old cache memory -->
-        <script src="gradient-lib.js?v=2" defer></script>
         <script src="script.js?v=2" defer></script>
 
     </body>
