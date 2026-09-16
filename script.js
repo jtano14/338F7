@@ -262,19 +262,7 @@ function animate() {
    ========================================================================== */
 document.addEventListener("DOMContentLoaded", () => {
     generatePerfectArrowMap();
-    
-    // FIXED: Direct execution hook synchronized with your layout transitions
-    const canvasCheck = document.getElementById("oceanGradientCanvas");
-    if (canvasCheck) {
-        const oceanWaves = new Gradient();
-        oceanWaves.speed = 0.001;
-        oceanWaves.amplitude = 1.0;
-        
-        // This kicks off the animation smoothly alongside your text animations
-        oceanWaves.initGradient("#oceanGradientCanvas");
-    }
-
-   
+           
     const sequenceLayout = [
         { id: 'seq-1', delay: 150 },  
         { id: 'seq-2', delay: 350 },  
