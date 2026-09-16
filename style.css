@@ -261,7 +261,7 @@ h2 {
     min-height: 100% !important;
     pointer-events: none !important;
     
-    /* Pushes the animation safely behind your building vector layout graphic */
+    /* Pushes the animation safely behind your building artwork and fade overlays */
     z-index: -3 !important; 
     background-color: #ffffff !important;
 }
