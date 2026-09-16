@@ -250,14 +250,13 @@ h2 {
     min-height: calc(100vh - 76px);
     padding: calc(60px + 76px) 0 40px;
     overflow: hidden;
-    
-    /* Allows the clean white Vanta canvas to display through */
-    background: transparent !important; 
-    
-    z-index: 1;
     display: flex;
     align-items: center;
     justify-content: center;
+    
+    /* FIX: We change this to transparent so it doesn't block your canvas animation */
+    background: transparent !important;
+    background-color: transparent !important;
 }
 
 /* ==========================================================================
@@ -269,10 +268,10 @@ h2 {
     left: 0;
     width: 100% !important;
     height: 100% !important;
-    z-index: -2; /* Pushed all the way to the back layer */
     pointer-events: none;
-
-    /* FIX: Force a crisp white layer directly underneath the cloud animation canvas */
+    
+    /* FIX: Set to a positive layer and force the white backdrop floor directly here */
+    z-index: 1 !important; 
     background-color: #ffffff !important; 
 }
 
@@ -286,14 +285,13 @@ h2 {
     width: 100% !important; 
     height: 100% !important;
     object-fit: cover;
-    
-    /* Kept subtle so it layers elegantly right over the top of the white clouds */
     opacity: 0.12; 
-    
-    z-index: -1; /* FIXED: Changed from 1 to -1 so it sits between clouds and text */
     pointer-events: none;
     transform: scale(1.05);
     transition: transform 0.1s ease-out;
+    
+    /* FIX: Set to 2 so it sits perfectly on top of the moving clouds */
+    z-index: 2 !important; 
 }
 
 /* --- Content Width Restorations (STOPS THE SIDE-BY-SIDE COLUMN BUG) --- */
@@ -304,8 +302,10 @@ h2 {
     display: block !important;       
     grid-template-columns: none !important; 
     position: relative;
-    z-index: 5; /* Keeps your text layered safely on top of everything else */
     text-align: center; 
+    
+    /* FIX: Set to 5 so it floats crisp and high above the background artwork layers */
+    z-index: 5 !important; 
 }
 
 /* Restores your main heading configuration to sit wide and center in block flow */
