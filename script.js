@@ -289,11 +289,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function initializeVantaClouds() {
     const targetBg = document.querySelector("#vanta-ocean-bg");
     
-    console.log("1. Is Vanta library loaded?", typeof VANTA !== "undefined");
-    console.log("2. Is the background HTML element found?", targetBg);
-
     if (typeof VANTA !== "undefined" && targetBg) {
-        /* FIX: Give the browser 100ms to open up the container boxes before firing Vanta */
         setTimeout(() => {
             VANTA.CLOUDS({
                 el: "#vanta-ocean-bg", 
@@ -302,14 +298,17 @@ function initializeVantaClouds() {
                 gyroControls: false,
                 minHeight: 200.00,
                 minWidth: 200.00,
-                backgroundColor: 0xffffff,    
-                skyColor: 0xf0f5fa,           
-                cloudColor: 0xffffff,         
-                cloudShadowColor: 0xd9e5f0,   
-                sunColor: 0xfffcf5,           
+                
+                /* THE ULTRA-BRIGHT PASTEL CONTRAST ENGINE */
+                backgroundColor: 0xffffff,    // Crisp white base floor
+                skyColor: 0xe3edf7,           // Soft pastel mist sky (Allows white clouds to be seen)
+                cloudColor: 0xffffff,         // Fluffy white clouds
+                cloudShadowColor: 0xc4d7e8,   // Beautiful soft-blue cloud shadows for depth
+                sunColor: 0xfffbf0,           
                 sunGlareColor: 0xffffff,      
                 sunlightColor: 0xffffff,      
-                speed: 0.40
+                
+                speed: 0.35                   // Smooth, non-distracting drift speed
             });
             console.log("3. Vanta Canvas injected and initialized successfully!");
         }, 100);
@@ -317,6 +316,7 @@ function initializeVantaClouds() {
 }
 
 document.addEventListener("DOMContentLoaded", initializeVantaClouds);
+
 
 
 
