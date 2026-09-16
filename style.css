@@ -266,15 +266,23 @@ h2 {
     position: absolute;
     top: 0;
     left: 0;
-    display: block !important;
-    width: 100vw !important;  /* Forces full viewport width */
-    height: 100vh !important; /* Forces full viewport height */
-    min-width: 100% !important;
-    min-height: 100% !important;
+    width: 100% !important;
+    height: 100% !important;
     pointer-events: none;
+    
+    /* FORCE THE CANVAS FORWARD: This brings the vanta-canvas out from under masks */
     z-index: 1 !important; 
     background-color: #ffffff !important; 
 }
+
+/* Force Vanta's internal generated canvas layer to honor our visibility layer */
+#vanta-ocean-bg .vanta-canvas {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    z-index: 1 !important; 
+    width: 100% !important;
+    height: 100% !important;
 
 
 /* ==========================================================================
@@ -292,7 +300,7 @@ h2 {
     transform: scale(1.05);
     transition: transform 0.1s ease-out;
     
-    /* FIX: Set to 2 so it sits perfectly on top of the moving clouds */
+    /* Sits directly on top of the moving cloud canvas layer */
     z-index: 2 !important; 
 }
 
@@ -306,8 +314,8 @@ h2 {
     position: relative;
     text-align: center; 
     
-    /* FIX: Set to 5 so it floats crisp and high above the background artwork layers */
-    z-index: 5 !important; 
+    /* FLOATS AT THE VERY TOP: Keeps your text sharp, crisp, and fully clickable */
+    z-index: 3 !important; 
 }
 
 /* Restores your main heading configuration to sit wide and center in block flow */
