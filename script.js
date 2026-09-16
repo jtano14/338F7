@@ -279,95 +279,76 @@ document.addEventListener("DOMContentLoaded", () => {
                 targetElement.classList.add('is-visible');
             }, item.delay);
         }
-    }); //
+    }); 
+}); // <--- FIX: Added missing structural closing bracket block to un-freeze script execution!
 
 
 /* ==========================================================================
-   NEW VANTA CLOUDS CONFIGURATION (DARK NAVY THEME)
+   NEW VANTA CLOUDS CONFIGURATION (DARK NAVY ENGINE)
    ========================================================================== */
 window.addEventListener("load", () => {
     if (typeof VANTA !== "undefined") {
         VANTA.CLOUDS({
             el: "#vanta-ocean-bg", 
-            mouseControls: false, // Disabled to keep your center logo completely stable
+            mouseControls: false, 
             touchControls: false,
             gyroControls: false,
             minHeight: 200.00,
             minWidth: 200.00,
             
-            /* UPDATED COLOR PALETTE FOR DARK NAVY SURFACES */
-            backgroundColor: 0x0b2240,    // Your deep corporate primary navy blue background base
-            skyColor: 0x1d3557,           // Deep mid-navy sky horizon color
-            cloudColor: 0x90e0ff,         // Glowing crisp seafoam sky-blue clouds (Highly visible!)
-            cloudShadowColor: 0x061324,   // Dark shadow depth accents
-            sunColor: 0xff9919,           // Warm golden accents
+            /* ADJUSTED TARGET BRIGHTNESS SCALE FOR CRISP BALANCED TEXT READABILITY */
+            backgroundColor: 0x0b2240,    // Solid corporate base navy blue
+            skyColor: 0x162a45,           // Clean deep sky depth setting
+            cloudColor: 0xbce6ff,         // Glowing crisp seafoam sky-blue clouds (Highly visible!)
+            cloudShadowColor: 0x051121,   
+            sunColor: 0xffa229,           
             sunGlareColor: 0xff6633,
-            sunlightColor: 0xff9933,
+            sunlightColor: 0xffa64d,
             
-            speed: 0.60 // Slow, calming, and organic movement
+            speed: 0.60 
         });
     }
 });
 
 
-   
-/* SCROLL TRANSITIONS */
-
+/* ==========================================================================
+   7. SCROLL TRANSITIONS & SECTIONS CROSS-FADE TIMINGS
+   ========================================================================== */
 let scrollTicking = false;
 function updateScrollEffects() {
     
     const heroSection = document.querySelector('.hero-section');
     const scrollPosition = window.scrollY;
     
-        /* ==========================================================================
-       1. HERO COLOR FADE ENGINE
-       ========================================================================== */
+    /* 1. HERO COLOR FADE OVERLAY SYSTEM */
     if (heroSection) {
         if (scrollPosition <= 5) {
-            // Forces background back to a crisp, un-masked solid white state at the top
-            heroSection.style.backgroundColor = "#ffffff";
+            heroSection.style.backgroundColor = "transparent";
         } else {
             const fadeThreshold = 450;
             const opacityRatio = Math.min(scrollPosition / fadeThreshold, 1);
-            // Smoothly transitions from transparent layer to your corporate primary color
             heroSection.style.backgroundColor = `rgba(11, 34, 64, ${opacityRatio})`;
         }
     }
 
-        /* ==========================================================================
-       2. SECTION EXIT FADE ENGINE (BALANCED TIMING FOR TALL SECTIONS)
-       ========================================================================== */
+    /* 2. SECTION EXIT FADE METRICS ENGINE */
     const sections = document.querySelectorAll('main > section:not(.hero-section)');
-    const viewportHeight = window.innerHeight; // Adapts natively to your 1080px screen height
+    const viewportHeight = window.innerHeight; 
 
     sections.forEach(section => {
         const rect = section.getBoundingClientRect();
 
-        /*
-           CRITICAL TIMING FIX: 
-           If the bottom of the section is still inside or below the viewport window,
-           keep it 100% bright (opacity: 1). This completely stops long sections 
-           from going dark prematurely while you read them.
-        */
         if (rect.top < 0 && rect.bottom > 0) {
-            /* 
-               Only start fading when the BOTTOM edge of the section gets close 
-               to exiting the top line of your browser screen (within 500px).
-            */
             if (rect.bottom < 500) {
-                // Smoothly fade from 1 down to 0.25 over the final 500px window frame
                 let opacity = rect.bottom / 500;
                 opacity = Math.max(0.25, Math.min(1, opacity));
                 section.style.opacity = opacity.toString();
             } else {
-                // Fully visible while the bulk of the content passes through
                 section.style.opacity = "1";
             }
         } else if (rect.bottom <= 0) {
-            // Completely scrolled past
             section.style.opacity = "0.25";
         } else {
-            // Incoming from the bottom -> Keep solid and crisp
             section.style.opacity = "1";
         }
     });
@@ -376,16 +357,11 @@ function updateScrollEffects() {
 }
 
 window.addEventListener('scroll', () => {
-
     if (!scrollTicking) {
         window.requestAnimationFrame(updateScrollEffects);
         scrollTicking = true;
     }
-
 }, { passive: true });
+
 window.addEventListener('resize', updateScrollEffects);
-
-/* Set the correct state immediately when the page loads */
 updateScrollEffects();
-
-});                          
