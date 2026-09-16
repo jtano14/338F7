@@ -280,7 +280,7 @@ h2 {
 }
 
 /* ==========================================================================
-   PURE NAVY & GREY TRANSLUCENT SILK RIBBON ENGINE (CENTERED & VISIBLE)
+   FRAMER-GRADE CENTERED HORIZONTAL LIQUID SWAVE ENGINE
    ========================================================================== */
 .ocean-fluid-bg {
     position: absolute;
@@ -288,62 +288,79 @@ h2 {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1; /* Locks the background safely behind text layers */
-    background: #ffffff; /* Crisp white canvas base */
+    z-index: 1; /* Anchors the background safely beneath your typography elements */
+    background: #ffffff; /* Clean, premium white base */
     overflow: hidden;
 }
 
-/* Creating sharp, centered wave contour paths */
+/* Base wave belt pinned strictly to the middle-third horizontal section of the screen */
 .ocean-fluid-bg::before,
 .ocean-fluid-bg::after {
     content: '';
     position: absolute;
-    width: 100vw; /* Matches your screen width perfectly */
-    height: 100vh; /* Matches your screen height perfectly */
+    left: -20%;
+    width: 140%;
+    /* Squishes the vertical footprint so it sits elegantly behind the middle text rows */
+    height: 25vh; 
+    top: 38vh;
     
-    /* FIXED: Centered right in the middle of your layout window */
-    top: 0;
-    left: 0;
-    
-    /* Asymmetric curves make the lines look organic, like moving ocean swells */
-    border-radius: 45% 38% 52% 41% / 43% 47% 39% 51%;
+    /* This creates the soft, fluid, smoky liquid blend look from the reference site */
+    filter: blur(60px); 
+    opacity: 0.28; /* Dial this up to 0.40 if you want the colors to be even darker and more visible */
     pointer-events: none;
+    mix-blend-mode: multiply; /* Ensures smooth, non-glitchy corporate color mixing */
 }
 
-/* Ribbon Layer 1: Sharp Corporate Navy Wave Contour */
+/* Wave Layer 1: Soft Seafoam Blue Current (Panned slightly left) */
 .ocean-fluid-bg::before {
-    /* DARKED & SOLIDIFIED: Richer navy blue outline so it is completely visible */
-    border: 4px solid rgba(11, 34, 64, 0.4); 
-    background: linear-gradient(135deg, rgba(11, 34, 64, 0.08) 0%, rgba(255, 255, 255, 0) 60%);
-    filter: blur(4px); /* Minor blur softens the path edges without making them vanish */
-    animation: smoothNavyMorphism 38s infinite alternate ease-in-out;
+    background-color: #90e0ff;
+    border-radius: 40% 50% 35% 45% / 40% 40% 60% 60%;
+    /* Glides strictly left-to-right to match the horizontal flow of the Framer site */
+    animation: framerHorizontalWaveOne 22s infinite alternate ease-in-out;
 }
 
-/* Ribbon Layer 2: Sharp Accent Blue / Grey Wave Contour */
+/* Wave Layer 2: Deeper Accent Ocean Blue Current (Panned slightly right) */
 .ocean-fluid-bg::after {
-    /* DARKED & SOLIDIFIED: Richer accent blue outline */
-    border: 3px solid rgba(0, 119, 182, 0.35);
-    background: linear-gradient(225deg, rgba(0, 119, 182, 0.06) 0%, rgba(255, 255, 255, 0) 60%);
-    filter: blur(6px);
-    animation: smoothNavyMorphism 28s infinite alternate-reverse ease-in-out;
+    background-color: #0077b6;
+    border-radius: 50% 40% 45% 35% / 50% 60% 40% 40%;
+    /* Offsets the timing sequence for an organic overlapping folding effect */
+    animation: framerHorizontalWaveTwo 18s infinite alternate ease-in-out;
+    animation-delay: -4s;
 }
 
-/* THE SMOOTH WAVE MORPH ENGINE: Slow drifting currents with zero dizzying spins */
-@keyframes smoothNavyMorphism {
+/* HORIZONTAL MORPH MECHANICS: Simulates waves flowing gracefully across the screen center */
+
+@keyframes framerHorizontalWaveOne {
     0% {
-        transform: translate(0, 0) scale(1) rotate(0deg);
-        border-radius: 45% 38% 52% 41% / 43% 47% 39% 51%;
+        transform: translateX(0) scaleY(1) rotate(-1deg);
+        border-radius: 40% 50% 35% 45% / 40% 40% 60% 60%;
     }
     50% {
-        /* Gently warps the shapes back and forth to simulate folding satin currents */
-        transform: translate(4vw, 2vh) scale(1.05) rotate(8deg);
-        border-radius: 38% 48% 40% 55% / 50% 38% 52% 42%;
+        /* Gently warps the ribbon thickness as it slides across the workspace runway */
+        transform: translateX(8vw) scaleY(1.2) rotate(1deg);
+        border-radius: 35% 40% 50% 35% / 50% 50% 40% 40%;
     }
     100% {
-        transform: translate(-2vw, 4vh) scale(0.95) rotate(-5deg);
-        border-radius: 52% 41% 45% 38% / 39% 51% 43% 47%;
+        transform: translateX(-4vw) scaleY(0.95) rotate(-0.5deg);
+        border-radius: 45% 35% 40% 50% / 40% 60% 50% 50%;
     }
 }
+
+@keyframes framerHorizontalWaveTwo {
+    0% {
+        transform: translateX(0) scaleY(1.1) rotate(1deg);
+        border-radius: 50% 40% 45% 35% / 50% 60% 40% 40%;
+    }
+    50% {
+        transform: translateX(-6vw) scaleY(0.85) rotate(-1deg);
+        border-radius: 40% 45% 35% 50% / 40% 40% 60% 60%;
+    }
+    100% {
+        transform: translateX(4vw) scaleY(1.05) rotate(0.5deg);
+        border-radius: 45% 50% 40% 35% / 60% 40% 50% 40%;
+    }
+}
+
 
 
 
