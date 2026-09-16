@@ -246,23 +246,31 @@ h2 {
    ========================================================================== */
 
 .hero-section {
-    position: sticky;
-    top: 0;
+    position: relative;
     min-height: calc(100vh - 76px);
     padding: calc(60px + 76px) 0 40px;
     overflow: hidden;
     
-    /* 
-       RESTORED ARCHITECTURE: Forces a solid white background paint canvas on load.
-       This gives your navy text high contrast and high readability instantly!
-    */
-    background: #ffffff !important;
-    background-color: var(--white) !important;
+    /* Allows the clean white Vanta canvas to display through */
+    background: transparent !important; 
     
     z-index: 1;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/* ==========================================================================
+   VANTA.JS LIQUID BACKGROUND CANVAS WRAPPER
+   ========================================================================== */
+#vanta-ocean-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: -2; /* Pushed all the way to the back layer */
+    pointer-events: none;
 }
 
 /* ==========================================================================
@@ -276,10 +284,10 @@ h2 {
     height: 100% !important;
     object-fit: cover;
     
-    /* Adjust this visibility setting (0.12) to keep your building graphic subtle and clean */
+    /* Kept subtle so it layers elegantly right over the top of the white clouds */
     opacity: 0.12; 
     
-    z-index: 1;
+    z-index: -1; /* FIXED: Changed from 1 to -1 so it sits between clouds and text */
     pointer-events: none;
     transform: scale(1.05);
     transition: transform 0.1s ease-out;
@@ -293,7 +301,7 @@ h2 {
     display: block !important;       
     grid-template-columns: none !important; 
     position: relative;
-    z-index: 5; /* This keeps your text layered high and crisp above the clouds */
+    z-index: 5; /* Keeps your text layered safely on top of everything else */
     text-align: center; 
 }
 
@@ -304,22 +312,6 @@ h2 {
     margin: 0 auto 20px !important;
     display: block !important;
 }
-
-
-/* ==========================================================================
-   VANTA.JS LIQUID BACKGROUND CANVAS WRAPPER
-   ========================================================================== */
-#vanta-ocean-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100% !important;
-    height: 100% !important;
-    z-index: 1; /* Sits safely underneath all text blocks and interactive cards */
-    pointer-events: none;
-}
-
-
 
 /* ==========================================================================
    JAPANESE BACKGROUND WATERMARK (PERFECT DISPLAY CENTER ACCELERATION)
