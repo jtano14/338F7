@@ -271,6 +271,9 @@ h2 {
     height: 100% !important;
     z-index: -2; /* Pushed all the way to the back layer */
     pointer-events: none;
+
+    /* FIX: Force a crisp white layer directly underneath the cloud animation canvas */
+    background-color: #ffffff !important; 
 }
 
 /* ==========================================================================
