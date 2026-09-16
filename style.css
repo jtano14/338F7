@@ -266,14 +266,16 @@ h2 {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100% !important;
-    height: 100% !important;
+    display: block !important;
+    width: 100vw !important;  /* Forces full viewport width */
+    height: 100vh !important; /* Forces full viewport height */
+    min-width: 100% !important;
+    min-height: 100% !important;
     pointer-events: none;
-    
-    /* FIX: Set to a positive layer and force the white backdrop floor directly here */
     z-index: 1 !important; 
     background-color: #ffffff !important; 
 }
+
 
 /* ==========================================================================
    HERO SCENERY BACKGROUND IMAGE CONFIGURATIONS
