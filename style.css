@@ -280,7 +280,7 @@ h2 {
 }
 
 /* ==========================================================================
-   FRAMER-GRADE CENTERED HORIZONTAL LIQUID SWAVE ENGINE
+   FRAMER-GRADE ORGANIC CENTERED SMOKE WAVE ENGINE (DEEP CURVES)
    ========================================================================== */
 .ocean-fluid-bg {
     position: absolute;
@@ -288,76 +288,76 @@ h2 {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1; /* Anchors the background safely beneath your typography elements */
-    background: #ffffff; /* Clean, premium white base */
+    z-index: 1; /* Safety lock behind typography content blocks */
+    background: #ffffff; /* Clean corporate white canvas base */
     overflow: hidden;
 }
 
-/* Base wave belt pinned strictly to the middle-third horizontal section of the screen */
+/* Base wave layers configured as massive, tall vertical ovals tilted diagonally */
 .ocean-fluid-bg::before,
 .ocean-fluid-bg::after {
     content: '';
     position: absolute;
-    left: -20%;
-    width: 140%;
-    /* Squishes the vertical footprint so it sits elegantly behind the middle text rows */
-    height: 25vh; 
-    top: 38vh;
+    width: 120vw; /* Wide enough to stretch across the page */
+    height: 140vh; /* Taller than the viewport to create massive vertical wave heights */
+    top: -20vh;    /* Shifts the vertical center right behind your typography */
     
-    /* This creates the soft, fluid, smoky liquid blend look from the reference site */
-    filter: blur(60px); 
-    opacity: 0.28; /* Dial this up to 0.40 if you want the colors to be even darker and more visible */
+    /* Highly responsive blur filter softens the fluid borders into organic smoke layers */
+    filter: blur(80px); 
+    opacity: 0.22; /* Clean, subtle density that lets dark navy text pop clearly */
     pointer-events: none;
     mix-blend-mode: multiply; /* Ensures smooth, non-glitchy corporate color mixing */
 }
 
-/* Wave Layer 1: Soft Seafoam Blue Current (Panned slightly left) */
+/* Fluid Wave Layer 1: Vivid Seafoam Horizon Wave (Left Panning Swell) */
 .ocean-fluid-bg::before {
     background-color: #90e0ff;
-    border-radius: 40% 50% 35% 45% / 40% 40% 60% 60%;
-    /* Glides strictly left-to-right to match the horizontal flow of the Framer site */
-    animation: framerHorizontalWaveOne 22s infinite alternate ease-in-out;
+    left: -30vw;
+    /* Rotates the tall oval diagonally and morphs it back and forth */
+    transform: rotate(-15deg);
+    animation: organicFramerWaveOne 26s infinite alternate ease-in-out;
 }
 
-/* Wave Layer 2: Deeper Accent Ocean Blue Current (Panned slightly right) */
+/* Fluid Wave Layer 2: Deeper Accent Ocean Blue Wave (Right Panning Swell) */
 .ocean-fluid-bg::after {
     background-color: #0077b6;
-    border-radius: 50% 40% 45% 35% / 50% 60% 40% 40%;
+    right: -30vw;
+    transform: rotate(15deg);
     /* Offsets the timing sequence for an organic overlapping folding effect */
-    animation: framerHorizontalWaveTwo 18s infinite alternate ease-in-out;
-    animation-delay: -4s;
+    animation: organicFramerWaveTwo 20s infinite alternate ease-in-out;
+    animation-delay: -5s;
 }
 
-/* HORIZONTAL MORPH MECHANICS: Simulates waves flowing gracefully across the screen center */
+/* MOTION MECHANICS: Slowly drifts the diagonal curves horizontally to create shifting peaks */
 
-@keyframes framerHorizontalWaveOne {
+@keyframes organicFramerWaveOne {
     0% {
-        transform: translateX(0) scaleY(1) rotate(-1deg);
-        border-radius: 40% 50% 35% 45% / 40% 40% 60% 60%;
+        transform: translate(0, 0) rotate(-15deg) scale(1);
+        border-radius: 42% 58% 45% 55% / 45% 45% 55% 55%;
     }
     50% {
-        /* Gently warps the ribbon thickness as it slides across the workspace runway */
-        transform: translateX(8vw) scaleY(1.2) rotate(1deg);
-        border-radius: 35% 40% 50% 35% / 50% 50% 40% 40%;
+        /* Pushes the wave crest horizontally and warps the curvature dynamically */
+        transform: translate(15vw, 4vh) rotate(-5deg) scale(1.1);
+        border-radius: 55% 45% 55% 45% / 55% 55% 45% 45%;
     }
     100% {
-        transform: translateX(-4vw) scaleY(0.95) rotate(-0.5deg);
-        border-radius: 45% 35% 40% 50% / 40% 60% 50% 50%;
+        transform: translate(-5vw, -2vh) rotate(-20deg) scale(0.95);
+        border-radius: 45% 55% 40% 60% / 40% 50% 60% 50%;
     }
 }
 
-@keyframes framerHorizontalWaveTwo {
+@keyframes organicFramerWaveTwo {
     0% {
-        transform: translateX(0) scaleY(1.1) rotate(1deg);
-        border-radius: 50% 40% 45% 35% / 50% 60% 40% 40%;
+        transform: translate(0, 0) rotate(15deg) scale(1.05);
+        border-radius: 55% 45% 55% 45% / 55% 55% 45% 45%;
     }
     50% {
-        transform: translateX(-6vw) scaleY(0.85) rotate(-1deg);
-        border-radius: 40% 45% 35% 50% / 40% 40% 60% 60%;
+        transform: translate(-12vw, -3vh) rotate(5deg) scale(0.9);
+        border-radius: 42% 58% 45% 55% / 45% 45% 55% 55%;
     }
     100% {
-        transform: translateX(4vw) scaleY(1.05) rotate(0.5deg);
-        border-radius: 45% 50% 40% 35% / 60% 40% 50% 40%;
+        transform: translate(6vw, 5vh) rotate(22deg) scale(1.15);
+        border-radius: 50% 50% 40% 60% / 60% 40% 50% 50%;
     }
 }
 
