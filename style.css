@@ -279,21 +279,21 @@ h2 {
     display: block !important;
 }
 
-/* NEW: Replaced building image styles with the animated ocean wave background */
-#gradient-canvas {
+/* Update this exact name line to match the HTML */
+#oceanGradientCanvas {
     position: absolute;
     top: 0;
     left: 0;
     width: 100% !important; 
     height: 100% !important;
-    z-index: 1; /* Locks the canvas layer behind your text and arrow logos */
+    z-index: 1; 
     
-    /* MISTY OCEAN PALETTE: Safe for dark navy text contrast */
-    --gradient-color-1: #ffffff; /* Pure white base */
-    --gradient-color-2: #f0f4f8; /* Soft slate grey tint */
-    --gradient-color-3: #e0f2fe; /* Light seafoam sky blue */
-    --gradient-color-4: #dbeafe; /* Pale misty blue */
+    --gradient-color-1: #ffffff;
+    --gradient-color-2: #f0f4f8;
+    --gradient-color-3: #e0f2fe;
+    --gradient-color-4: #dbeafe;
 }
+
 
 
 /* ==========================================================================
