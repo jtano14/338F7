@@ -251,8 +251,11 @@ h2 {
     min-height: calc(100vh - 76px);
     padding: calc(60px + 76px) 0 40px;
     overflow: hidden;
-    background: #ffffff !important;
-    background-color: var(--white) !important;
+    
+    /* FIXED: Swapped solid white color code for transparent to let Vanta shine through */
+    background: transparent !important;
+    background-color: transparent !important;
+    
     z-index: 1;
     display: flex;
     align-items: center;
@@ -267,7 +270,7 @@ h2 {
     display: block !important;       
     grid-template-columns: none !important; 
     position: relative;
-    z-index: 5;
+    z-index: 5; /* This keeps your text layered high and crisp above the clouds */
     text-align: center; 
 }
 
@@ -278,6 +281,7 @@ h2 {
     margin: 0 auto 20px !important;
     display: block !important;
 }
+
 
 /* ==========================================================================
    VANTA.JS LIQUID BACKGROUND CANVAS WRAPPER
