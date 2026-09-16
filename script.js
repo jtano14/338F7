@@ -105,6 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
 /* ==========================================================================
    4. HERO MOUSE PARALLAX CONTROLLER SYSTEM
    ========================================================================== */
+/*
 document.addEventListener("mousemove", (e) => {
     const bgImage = document.querySelector(".hero-background");
     const verticalText = document.querySelector(".hero-vertical-text");
@@ -117,6 +118,7 @@ document.addEventListener("mousemove", (e) => {
     bgImage.style.transform = `scale(1.1) translate(${-moveX}px, ${-moveY}px)`;
     verticalText.style.transform = `translate(${moveX}px, calc(-50% + ${moveY}px))`;
 });
+*/
 
 /* ==========================================================================
    5. INTERACTIVE LOGO CANVAS ANIMATION ENGINE (CLEAN HOVER BURST ENGINE)
@@ -260,6 +262,10 @@ function animate() {
    ========================================================================== */
 document.addEventListener("DOMContentLoaded", () => {
     generatePerfectArrowMap();
+    // NEW: Kick off the slow and smooth ocean wave movement background
+    const oceanWaves = new Gradient();
+    oceanWaves.initGradient("#gradient-canvas");
+
 
     const sequenceLayout = [
         { id: 'seq-1', delay: 150 },  
