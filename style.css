@@ -279,20 +279,67 @@ h2 {
     display: block !important;
 }
 
-/* Update this exact name line to match the HTML */
-#oceanGradientCanvas {
+/* ==========================================================================
+   PURE CSS MISTY OCEAN FLUID BACKGROUND ENGINE
+   ========================================================================== */
+.ocean-fluid-bg {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100% !important; 
-    height: 100% !important;
-    z-index: 1; 
-    
-    --gradient-color-1: #ffffff;
-    --gradient-color-2: #f0f4f8;
-    --gradient-color-3: #e0f2fe;
-    --gradient-color-4: #dbeafe;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Places it safely behind text layers */
+    background-color: #ffffff; /* Base background */
+    overflow: hidden;
 }
+
+/* Creating the moving ocean current spheres */
+.ocean-fluid-bg::before,
+.ocean-fluid-bg::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px); /* Blurs the edges completely to create a smooth liquid look */
+    opacity: 0.65;
+    mix-blend-mode: multiply;
+    animation: flowCurrents 25s infinite alternate ease-in-out;
+}
+
+/* Current 1: Soft Seafoam Sky Blue */
+.ocean-fluid-bg::before {
+    width: 80vw;
+    height: 80vh;
+    background-color: #e0f2fe;
+    top: -20%;
+    left: -20%;
+}
+
+/* Current 2: Pale Misty Blue */
+.ocean-fluid-bg::after {
+    width: 75vw;
+    height: 75vh;
+    background-color: #dbeafe;
+    bottom: -15%;
+    right: -15%;
+    animation-delay: -10s; /* Offsets the animation cycle so they blend dynamically */
+}
+
+/* The fluid smooth movement path mechanics */
+@keyframes flowCurrents {
+    0% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+    33% {
+        transform: translate(8%, 12%) scale(1.15) rotate(120deg);
+    }
+    66% {
+        transform: translate(-5%, 8%) scale(0.9) rotate(240deg);
+    }
+    100% {
+        transform: translate(0, 0) scale(1) rotate(360deg);
+    }
+}
+
 
 
 
