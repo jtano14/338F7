@@ -252,14 +252,37 @@ h2 {
     padding: calc(60px + 76px) 0 40px;
     overflow: hidden;
     
-    /* FIXED: Swapped solid white color code for transparent to let Vanta shine through */
-    background: transparent !important;
-    background-color: transparent !important;
+    /* 
+       RESTORED ARCHITECTURE: Forces a solid white background paint canvas on load.
+       This gives your navy text high contrast and high readability instantly!
+    */
+    background: #ffffff !important;
+    background-color: var(--white) !important;
     
     z-index: 1;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/* ==========================================================================
+   HERO SCENERY BACKGROUND IMAGE CONFIGURATIONS
+   ========================================================================== */
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important; 
+    height: 100% !important;
+    object-fit: cover;
+    
+    /* Adjust this visibility setting (0.12) to keep your building graphic subtle and clean */
+    opacity: 0.12; 
+    
+    z-index: 1;
+    pointer-events: none;
+    transform: scale(1.05);
+    transition: transform 0.1s ease-out;
 }
 
 /* --- Content Width Restorations (STOPS THE SIDE-BY-SIDE COLUMN BUG) --- */
