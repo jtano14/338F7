@@ -262,11 +262,11 @@ function animate() {
    ========================================================================== */
 document.addEventListener("DOMContentLoaded", () => {
     generatePerfectArrowMap();
-        // NEW: Safe initialization for the slow and smooth ocean wave background
-    setTimeout(() => {
+    
+   // NEW: Bulletproof window listener that waits until all HTML elements are 100% loaded
+    window.addEventListener("load", () => {
         const canvasCheck = document.getElementById("gradient-canvas");
         
-        // Only run if the canvas is fully built and ready in the browser memory
         if (canvasCheck) {
             const oceanWaves = new Gradient();
             
@@ -277,7 +277,8 @@ document.addEventListener("DOMContentLoaded", () => {
             // Start the WebGL wave graphics rendering
             oceanWaves.initGradient("#gradient-canvas");
         }
-    }, 100); // Waits a tiny fraction of a second for perfect timing execution
+    });
+
 
    
     const sequenceLayout = [
