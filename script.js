@@ -279,8 +279,33 @@ document.addEventListener("DOMContentLoaded", () => {
                 targetElement.classList.add('is-visible');
             }, item.delay);
         }
-    });
+    }); //
 
+
+/* ==========================================================================
+   NEW VANTA SYSTEM ENGINE: Completely independent and secure at the bottom
+   ========================================================================== */
+window.addEventListener("load", () => {
+    if (typeof VANTA !== "undefined") {
+        VANTA.CLOUDS({
+            el: "#vanta-ocean-bg", 
+            mouseControls: false,  
+            touchControls: false,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            
+            /* CUSTOM PALETTE CONFIGURATION */
+            backgroundColor: 0xffffff, 
+            skyColor: 0xe0f2fe,        
+            cloudColor: 0x90e0ff,      
+            
+            speed: 0.50                
+        });
+    }
+});
+
+   
 /* SCROLL TRANSITIONS */
 
 let scrollTicking = false;
