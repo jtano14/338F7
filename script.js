@@ -296,9 +296,7 @@ function initializeVantaClouds() {
             touchControls: true,
             gyroControls: false,
             minHeight: 200.00,
-            minWidth: 200.00,
-            
-            /* BRIGHT WHITES THEME: High contrast baseline for dark text palettes */
+            minWidth: 200.00,            
             backgroundColor: 0xffffff,    // Pure White background
             skyColor: 0xf0f5fa,           // Ultra-light sky blue tint
             cloudColor: 0xffffff,         // Pure White fluffy cloud bodies
@@ -306,7 +304,6 @@ function initializeVantaClouds() {
             sunColor: 0xfffcf5,           // Very subtle pale warm light
             sunGlareColor: 0xffffff,      // Blended white glare
             sunlightColor: 0xffffff,      // Pure white light casting
-            
             speed: 0.40                   // Kept gentle so it isn't distracting
         });
     }
