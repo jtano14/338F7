@@ -299,18 +299,17 @@ function initializeVantaClouds() {
                 minHeight: 200.00,
                 minWidth: 200.00,
                 
-                /* MATCHED VANTA CUSTOMIZER PALETTE ENGINE */
-                backgroundColor: 0xffffff,    // Pure white bottom base floor
-                skyColor: 0x68b8d7,           // Vibrant, crisp day sky-blue
-                cloudColor: 0xadc1de,         // Cool sky-blue cloud bodies (Crucial for 3D mapping!)
-                cloudShadowColor: 0x183550,   // Deep corporate navy blue cloud accents for heavy shape form
+                backgroundColor: 0xffffff,    
+                skyColor: 0x68b8d7,           // Vibrant day sky-blue
                 
-                /* SUN ENGINE: Adds structural highlights to outline the moving edges */
-                sunColor: 0xff9919,           // Bright gold sun body
-                sunGlareColor: 0xff6633,      // Vibrant amber sun flare
-                sunlightColor: 0xff9933,      // Warm golden sunshine illumination
+                /* HEAVY DEFINITION CONTRAST ENGINE */
+                cloudColor: 0x7692b8,         // FIXED: Darker denim-blue cloud bodies for solid structure
+                cloudShadowColor: 0x112233,   // FIXED: Very dark slate charcoal for sharp, deep shadow form
                 
-                speed: 1.20                   // Set to 1 as requested to see movement immediately
+                sunColor: 0xff9919,           
+                sunGlareColor: 0xff6633,      
+                sunlightColor: 0xff9933,      
+                speed: 1.00                   
             });
             console.log("3. Vanta Canvas injected and initialized successfully!");
         }, 100);
@@ -318,6 +317,7 @@ function initializeVantaClouds() {
 }
 
 document.addEventListener("DOMContentLoaded", initializeVantaClouds);
+
 
 
 
