@@ -280,15 +280,15 @@ function initializeVantaClouds() {
                 minHeight: 200.00,
                 minWidth: 200.00,
                 
-                backgroundColor: 0xffffff,    // Pure white bottom foundation backdrop
-                skyColor: 0x68b8d7,           // Vibrant daylight sky blue
-                cloudColor: 0x183550,         // Multi-dimensional denim blue cloud bodies
-                cloudShadowColor: 0x112233,   // Rich, deep slate charcoal shadow definitions
+                backgroundColor: 0x0b2240,    // Pure white bottom foundation backdrop
+                skyColor: 0x0b2240,           // Vibrant daylight sky blue
+                cloudColor: 0xff9919,         // Multi-dimensional denim blue cloud bodies
+                cloudShadowColor: 0x001122,   // Rich, deep slate charcoal shadow definitions
                 
-                sunColor: 0xff9919,           // Warm golden sunlight highlights
-                sunGlareColor: 0xff6633,      
-                sunlightColor: 0xff9933,      
-                speed: 1.10                   // Balanced, active gliding motion rate
+                sunColor: 0xffffff,           // Warm golden sunlight highlights
+                sunGlareColor: 0xffcc00,      
+                sunlightColor: 0xffffff,      
+                speed: 1.50                   // Balanced, active gliding motion rate
             });
             console.log("3. Vanta Canvas injected and initialized successfully!");
         }, 100);
