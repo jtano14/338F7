@@ -510,7 +510,7 @@ main > section:not(.hero-section) {
 .about-section {
     position: relative !important;
     z-index: 15 !important; /* Raised layer sits over the sticky hero background */
-    background-color: var(--light-bg) !important;
+    background-color: #f8f9fa !important;
     box-shadow: 0 -20px 40px rgba(11, 34, 64, 0.08) !important; /* Beautiful soft depth shadow */
 }
 
@@ -597,7 +597,7 @@ main > section:not(.hero-section) {
 .services-section {
     position: relative !important;
     z-index: 15 !important;
-    background-color: var(--white) !important;
+    background-color: #ffffff !important;
 }
 
 .services-grid {
