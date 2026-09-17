@@ -386,9 +386,10 @@ main > section:not(.hero-section) {
     transform: translate(-50%, -50%) !important; 
     width: 160px !important; 
     height: auto;
-    z-index: 2;
+    z-index: 10 !important; /* Forces it to stay safely on top of the canvas */
     transition: opacity 0.2s ease-in-out;
     pointer-events: none;
+    opacity: 1 !important; /* Make sure it defaults to visible */
 }
 
 #bubbleCanvas {
@@ -1493,4 +1494,39 @@ main > section:not(.hero-section) {
     .sector-card-line {
         width: 100% !important;
     }
+}
+
+/* ==========================================================================
+   16. CRITICAL VANTA VIEWPORT EXPOSURE FIXES
+   ========================================================================== */
+
+main, 
+.scroll-stack-wrapper,
+.hero-section {
+    background: transparent !important;
+    background-color: transparent !important;
+    position: relative;
+}
+
+#vanta-ocean-bg {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: -10 !important; /* Locks it way at the bottom plane */
+    pointer-events: none !important;
+}
+
+.about-section {
+    position: relative !important;
+    z-index: 15 !important; /* Lifts it up over the scrolling cloud floor */
+    background-color: #f8f9fa !important; /* Gives the about us section its solid backdrop */
+    box-shadow: 0 -20px 40px rgba(11, 34, 64, 0.08) !important;
+}
+
+.services-section {
+    position: relative !important;
+    z-index: 15 !important;
+    background-color: #ffffff !important; /* Keeps subsequent content panels solid white */
 }
