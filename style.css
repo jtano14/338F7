@@ -265,7 +265,7 @@ h2 {
     width: 100vw !important;
     height: 100vh !important;
     pointer-events: none !important;
-    background-color: #ffffff !important;
+    background-color: transparent !important;
     z-index: -10 !important; 
 }
 
