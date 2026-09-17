@@ -714,8 +714,14 @@
     </dialog>
 
     <!-- ==========================================================================
-         CORE SCRIPT CONNECTION (PLACED ONCE AT BOTTOM TO PREVENT RENDER BLOCK)
+         GLOBAL SCRIPTS INITIALIZATION SUBSYSTEM
          ========================================================================== -->
+    <!-- 1. Load Core Three.js Dependency Engine -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+
+    <!-- 2. Load Core Vanta Cloud Backdrop Extension Pack -->
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.clouds.min.js"></script>
+     
     <script src="script.js"></script>
 
 </body>
