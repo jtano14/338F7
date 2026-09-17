@@ -27,7 +27,7 @@ html {
 body {
     margin: 0;
     color: var(--text-dark);
-    background: var(--white);
+    background: transparent !important;
     font-family: var(--font-family);
     font-size: 16px;
     line-height: 1.7;
@@ -267,10 +267,6 @@ h2 {
     pointer-events: none !important;
     background-color: transparent !important;
     z-index: -10 !important; 
-}
-
-body {
-    background: var(--white);
 }
 
 #vanta-ocean-bg canvas, 
