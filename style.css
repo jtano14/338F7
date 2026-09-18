@@ -221,7 +221,7 @@ h2 {
 
 .navbar.scrolled {
     background-color: rgba(255, 255, 255, 0.97); 
-    border-bottom: 1px solid #edf0f2; 
+    border-bottom: none;
 }
 
 .nav-container {
