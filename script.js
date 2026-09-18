@@ -181,12 +181,12 @@ function generatePerfectArrowMap() {
   tCtx.beginPath();
   
   const centerX = width / 2;
-  const centerY = height / 2 - 60; 
+  const centerY = height / 2 + 10; 
   
-  tCtx.moveTo(centerX - 85, centerY + 10);
-  tCtx.quadraticCurveTo(centerX - 10, centerY - 60, centerX + 95, centerY - 70);
-  tCtx.quadraticCurveTo(centerX + 35, centerY + 15, centerX - 30, centerY + 105);
-  tCtx.quadraticCurveTo(centerX - 10, centerY + 20, centerX + 40, centerY - 25);
+  tCtx.moveTo(centerX - 75, centerY + 10);
+  tCtx.quadraticCurveTo(centerX, centerY - 60, centerX + 105, centerY - 70);
+  tCtx.quadraticCurveTo(centerX + 45, centerY + 15, centerX - 20, centerY + 105);
+  tCtx.quadraticCurveTo(centerX, centerY + 20, centerX + 50, centerY - 25);
   
   tCtx.closePath();
   tCtx.fill();
