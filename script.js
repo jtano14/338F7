@@ -361,3 +361,12 @@ window.addEventListener('resize', updateScrollEffects);
 // Initial immediate system drawing call upon final timeline load
 updateScrollEffects();
 
+window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+}, { passive: true });
+
