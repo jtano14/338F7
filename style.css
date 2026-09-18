@@ -22,7 +22,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-snap-type: y mandatory; /* Keeps full-screen panel alignment active */
+    scroll-snap-type: y mandatory; 
     background-color: #ffffff; 
 }
 
@@ -34,23 +34,29 @@ html {
 .leadership-section,
 .sectors-section,
 .contact-section {
-    position: relative !important; /* Changed from sticky to relative */
+    position: relative !important; /* Forces normal sequential row stacking order */
     height: 100vh !important;
     min-height: 100vh !important;
     max-height: 100vh !important;
     width: 100vw !important;
-    scroll-snap-align: start; /* Snaps accurately to active section margins */
+    scroll-snap-align: start; 
     scroll-snap-stop: always;
     overflow: hidden !important;
     box-sizing: border-box;
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-between !important;
-    /* Clear safe area so fixed headers never overlap your page titles */
-    padding: 96px 0 24px 0 !important; 
+    padding: 100px 0 24px 0 !important; /* Perfect uniform margin clearance below nav */
     will-change: transform, opacity;
-    box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.05);
 }
+
+.hero-section       { background: transparent !important; z-index: 1; }
+.about-section      { background-color: var(--light-bg) !important; z-index: 2; }
+.services-section   { background-color: var(--white) !important; z-index: 3; }
+.framework-section  { background-color: var(--white) !important; z-index: 4; } 
+.leadership-section { background-color: var(--white) !important; z-index: 5; }
+.sectors-section    { background-color: var(--light-bg) !important; z-index: 6; }
+.contact-section    { background-color: var(--white) !important; z-index: 7; }
 
 body {
     margin: 0;
