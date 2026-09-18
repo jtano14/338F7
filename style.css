@@ -33,6 +33,7 @@ position: relative !important;
     min-height: 100vh !important;
     max-height: 100vh !important;
     width: 100vw !important;
+    scroll-snap-align: start;
     z-index: 1;
 }
 
