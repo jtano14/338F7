@@ -352,13 +352,19 @@ h2 {
     z-index: 2 !important; 
 }
 
-main, 
+main {
+    position: relative !important;
+    width: 100% !important;
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
 .scroll-stack-wrapper {
     position: relative !important;
     width: 100% !important;
     background: transparent !important;
     background-color: transparent !important;
-    z-index: 2 !important;
+    margin-top: 100vh !important;
 }
 
 .hero-content.container {
