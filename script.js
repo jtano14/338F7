@@ -211,8 +211,8 @@ canvas.addEventListener('mouseleave', () => {
 
 canvas.addEventListener('mousemove', (e) => {
   const rect = canvas.getBoundingClientRect();
-  mouse.x = (e.clientX - rect.left) * (canvas.width / rect.width);
-  mouse.y = (e.clientY - rect.top) * (canvas.height / rect.height);
+  mouse.x = (e.clientX - rect.left) * (width / rect.width);
+  mouse.y = (e.clientY - rect.top) * (height / rect.height);
 });
 
 function animate() {
