@@ -24,6 +24,7 @@ html {
     scroll-behavior: smooth;
     scroll-snap-type: y proximity;
     background-color: #ffffff; 
+    scroll-padding-top: 80px;
 }
 
 /* Restores natural layout order to prevent sections from clumping on page load */
@@ -55,7 +56,7 @@ html {
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-between !important;
-    padding: 140px 0 24px 0 !important;
+    padding: 100px 0 24px 0 !important;
     will-change: transform, opacity;
 }
 
