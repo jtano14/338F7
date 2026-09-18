@@ -135,14 +135,14 @@ class FluidParticle {
     const dy = this.y - mouseY;
     const distance = Math.sqrt(dx * dx + dy * dy);
     
-    const pushRadius = 55; // Wide interactive displacement explosion threshold
+    const pushRadius = 55; 
     if (distance < pushRadius) {
       const angle = Math.atan2(dy, dx);
       const force = (pushRadius - distance) / pushRadius;
       const speed = force * (Math.random() * 26 + 14); 
       this.vx = Math.cos(angle) * speed;
       this.vy = Math.sin(angle) * speed;
-      this.returnDelay = Math.random() * 55 + 45; // Fluid particle float duration
+      this.returnDelay = Math.random() * 55 + 45; 
     }
     
     if (this.returnDelay > 0) {
@@ -170,7 +170,6 @@ class FluidParticle {
   }
 }
 
-// Generates hidden blueprint map targeting the exact arrow path geometry
 function generatePerfectArrowMap() {
   const tempCanvas = document.createElement('canvas');
   tempCanvas.width = width;
@@ -240,10 +239,8 @@ function animate() {
    5. GLOBAL SUBSYSTEM INITIALIZATION (TIMELINES & TRANSITIONS)
    ========================================================================== */
 document.addEventListener("DOMContentLoaded", () => {
-    // Fire the custom logo particle engine mapping algorithm
     generatePerfectArrowMap();
            
-    // Sequential fade-in timing array for initial typography blocks
     const sequenceLayout = [
         { id: 'seq-1', delay: 150 },  
         { id: 'seq-2', delay: 350 },  
@@ -270,7 +267,6 @@ function initializeVantaClouds() {
     const targetBg = document.querySelector("#vanta-ocean-bg");
     
     if (typeof VANTA !== "undefined" && targetBg) {
-        // Delays initialization by 100ms to allow parent layout metrics to draw completely
         setTimeout(() => {
            VANTA.CLOUDS({
                el: "#vanta-ocean-bg", 
@@ -279,13 +275,10 @@ function initializeVantaClouds() {
                gyroControls: false,
                minHeight: 200.00,
                minWidth: 200.00,
-                
-               // --- YOUR ORIGINAL PALETTE CONFIGURATION ---
-               backgroundColor: 0xffffff,    // Pure white bottom foundation backdrop
-               skyColor: 0x5e8de3,           // Soft daylight sky blue
-               cloudColor: 0xbac1de,         // Multi-dimensional light denim clouds
-               cloudShadowColor: 0x283f59,   // Muted dark slate shadow definitions
-                
+               backgroundColor: 0xffffff,    
+               skyColor: 0x5e8de3,           
+               cloudColor: 0xbac1de,         
+               cloudShadowColor: 0x283f59,   
                sunColor: 0xff9919,           
                sunGlareColor: 0xfc815c,      
                sunlightColor: 0xff9933,      
@@ -298,6 +291,8 @@ function initializeVantaClouds() {
 
 document.addEventListener("DOMContentLoaded", initializeVantaClouds);
 
+document.addEventListener("DOMContentLoaded", initializeVantaClouds);
+
 /* ==========================================================================
    7. INTERACTIVE SCROLL PARALLAX ENGINE & SLOWER TEXT FADE LOOPS
    ========================================================================== */
@@ -305,30 +300,25 @@ let scrollTicking = false;
 
 function updateScrollEffects() {
     const heroContent = document.querySelector('.hero-content.container');
-    const sections = document.querySelectorAll('main > section:not(.hero-section)');
+    const sections = document.querySelectorAll('main > section:not(.hero-section):not(.framework-scroll-section)');
     const scrollPosition = window.scrollY;
     const windowHeight = window.innerHeight;
 
-    /* A. COMPACT CONTROLLER: Gradual text fading anchor calculations */
     if (heroContent) {
-        // Multiplier stretches the fade envelope path, letting text dim slowly
         let fadeThreshold = windowHeight * 1.2; 
         let newOpacity = 1 - (scrollPosition / fadeThreshold);
         
         if (newOpacity >= 0) {
             heroContent.style.opacity = newOpacity;
-            // Keeps the translation acceleration smooth and compact
             heroContent.style.transform = `translateY(${scrollPosition * 0.18}px)`;
         } else {
             heroContent.style.opacity = 0;
         }
     }
 
-    /* B. SHEET SHEET OVERLAP MECHANICS: Calculates section layering properties */
     sections.forEach(section => {
         const rect = section.getBoundingClientRect();
 
-        // Checks if the block panel is entering the active monitor workspace view
         if (rect.top < 0 && rect.bottom > 0) {
             if (rect.bottom < 500) {
                 let opacity = rect.bottom / 500;
@@ -338,7 +328,7 @@ function updateScrollEffects() {
                 section.style.opacity = "1";
             }
         } else if (rect.bottom <= 0) {
-            section.style.opacity = "0.25"; // Softens sections exiting view
+            section.style.opacity = "0.25"; 
         } else {
             section.style.opacity = "1";
         }
@@ -347,7 +337,6 @@ function updateScrollEffects() {
     scrollTicking = false;
 }
 
-// Window scroll event listener running passive flags for high rendering framerates
 window.addEventListener('scroll', () => {
     if (!scrollTicking) {
         window.requestAnimationFrame(updateScrollEffects);
@@ -355,10 +344,7 @@ window.addEventListener('scroll', () => {
     }
 }, { passive: true });
 
-// Layout sizing adaptation refresh loops
 window.addEventListener('resize', updateScrollEffects);
-
-// Initial immediate system drawing call upon final timeline load
 updateScrollEffects();
 
 window.addEventListener('scroll', () => {
@@ -370,3 +356,33 @@ window.addEventListener('scroll', () => {
     }
 }, { passive: true });
 
+/* ==========================================================================
+   8. NEW ADDITION: HORIZONTAL FRAMEWORK SCROLL TRANSFORMATION DRIVER ENGINE
+   ========================================================================== */
+function driveHorizontalFrameworkSlider() {
+    const scrollSection = document.querySelector('.framework-scroll-section');
+    const sliderTrack = document.querySelector('.horizontal-slider-track');
+    
+    if (!scrollSection || !sliderTrack) return;
+
+    const sectionTop = scrollSection.offsetTop;
+    const sectionHeight = scrollSection.offsetHeight;
+    const viewportHeight = window.innerHeight;
+    
+    const totalScrollableDistance = sectionHeight - viewportHeight;
+    const currentScrollPosition = window.pageYOffset - sectionTop;
+
+    if (currentScrollPosition >= 0 && currentScrollPosition <= totalScrollableDistance) {
+        const percentageScrolled = currentScrollPosition / totalScrollableDistance;
+        
+        // Measure track width to slide everything sequentially across the viewport frame
+        const trackWidth = sliderTrack.scrollWidth;
+        const totalTranslationNeeded = trackWidth; 
+        
+        const translateAmount = percentageScrolled * totalTranslationNeeded;
+        
+        sliderTrack.style.transform = `translateX(-${translateAmount}px)`;
+    }
+}
+
+window.addEventListener('scroll', driveHorizontalFrameworkSlider, { passive: true });
