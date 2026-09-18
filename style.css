@@ -22,6 +22,45 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    background-color: #000000; 
+}
+
+main > section,
+.hero-section,
+.about-section,
+.service-section,
+.services-section,
+.framework-scroll-section,
+.leadership-section,
+.sectors-section,
+.contact-section {
+    position: sticky !important;
+    top: 0 !important;
+    height: 100vh !important;
+    min-height: 100vh !important;
+    max-height: 100vh !important;
+    width: 100vw !important;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    overflow: hidden;
+    box-sizing: border-box;
+    will-change: transform, opacity;
+    box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.hero-section             { z-index: 1 !important; }
+.about-section            { z-index: 2 !important; }
+.services-section         { z-index: 3 !important; }
+.leadership-section       { z-index: 5 !important; }
+.sectors-section          { z-index: 6 !important; }
+.contact-section          { z-index: 7 !important; }
+
+.framework-scroll-section { 
+    position: relative !important; 
+    height: 300vh !important; 
+    max-height: none !important;
+    z-index: 4 !important; 
 }
 
 body {
