@@ -305,12 +305,14 @@ function updateScrollEffects() {
     const windowHeight = window.innerHeight;
 
     if (heroContent) {
-        let fadeThreshold = windowHeight * 1.2; 
+        // SLOWER FADE: Increased multiplier from 1.2 to 2.2 for smoother transition
+        let fadeThreshold = windowHeight * 2.2;
         let newOpacity = 1 - (scrollPosition / fadeThreshold);
         
         if (newOpacity >= 0) {
             heroContent.style.opacity = newOpacity;
-            heroContent.style.transform = `translateY(${scrollPosition * 0.18}px)`;
+            // GENTLER PARALLAX: Reduced from 0.18 to 0.08 for slower drift
+            heroContent.style.transform = `translateY(${scrollPosition * 0.08}px)`;
         } else {
             heroContent.style.opacity = 0;
         }
