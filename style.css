@@ -30,14 +30,15 @@ html {
 main > section,
 .hero-section,
 .about-section,
-.services-section,
+.framework-section, /* Updated class handle */
 .leadership-section,
 .sectors-section,
 .contact-section {
     position: sticky !important;
     top: 0 !important;
-    min-height: 100vh !important; /* Allow panel sheet containers to stretch organically if text bounds overflow */
     height: 100vh !important;
+    min-height: 100vh !important;
+    max-height: 100vh !important;
     width: 100vw !important;
     scroll-snap-align: start;
     scroll-snap-stop: always;
@@ -45,19 +46,20 @@ main > section,
     box-sizing: border-box;
     display: flex !important;
     flex-direction: column !important;
-    justify-content: center !important; /* Keeps your text perfectly centered in frame */
-    padding: clamp(40px, 6vh, 80px) 0 !important; /* Compress standard padding parameters safely */
+    justify-content: center !important;
+    padding: clamp(30px, 4vh, 60px) 0 !important;
     will-change: transform, opacity;
     box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.15);
 }
 
-/* THE EXACT STEP-BY-STEP STACK DECK LAYER HIERARCHY */
 .hero-section             { z-index: 1 !important; }
 .about-section            { z-index: 2 !important; }
 .services-section         { z-index: 3 !important; }
-.leadership-section       { z-index: 5 !important; position: sticky !important; top: 0; height: 100vh !important; }
-.sectors-section          { z-index: 6 !important; position: sticky !important; top: 0; height: 100vh !important; }
-.contact-section          { z-index: 7 !important; position: sticky !important; top: 0; height: 100vh !important; }
+.framework-section        { z-index: 4 !important; } /* Clean, direct sticky index assignment */
+.leadership-section       { z-index: 5 !important; }
+.sectors-section          { z-index: 6 !important; }
+.contact-section          { z-index: 7 !important; }
+
 
 .framework-scroll-section { 
     position: relative !important; 
