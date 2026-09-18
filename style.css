@@ -36,14 +36,17 @@ main > section,
 .contact-section {
     position: sticky !important;
     top: 0 !important;
+    min-height: 100vh !important; /* Allow panel sheet containers to stretch organically if text bounds overflow */
     height: 100vh !important;
-    min-height: 100vh !important;
-    max-height: 100vh !important;
     width: 100vw !important;
     scroll-snap-align: start;
     scroll-snap-stop: always;
     overflow: hidden;
     box-sizing: border-box;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important; /* Keeps your text perfectly centered in frame */
+    padding: clamp(40px, 6vh, 80px) 0 !important; /* Compress standard padding parameters safely */
     will-change: transform, opacity;
     box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.15);
 }
@@ -52,14 +55,13 @@ main > section,
 .hero-section             { z-index: 1 !important; }
 .about-section            { z-index: 2 !important; }
 .services-section         { z-index: 3 !important; }
-.leadership-section       { z-index: 5 !important; }
-.sectors-section          { z-index: 6 !important; }
-.contact-section          { z-index: 7 !important; }
+.leadership-section       { z-index: 5 !important; position: sticky !important; top: 0; height: 100vh !important; }
+.sectors-section          { z-index: 6 !important; position: sticky !important; top: 0; height: 100vh !important; }
+.contact-section          { z-index: 7 !important; position: sticky !important; top: 0; height: 100vh !important; }
 
-/* The horizontal scroll section breaks out to allow its runway scrolling duration */
 .framework-scroll-section { 
     position: relative !important; 
-    height: 300vh !important; 
+    height: 400vh !important; 
     max-height: none !important;
     z-index: 4 !important; 
 }
@@ -729,10 +731,10 @@ main,
    ========================================================================== */
 .framework-scroll-section {
     position: relative !important;
-    height: 400vh !important; /* Increased height to give you a slower, smoother scroll feel */
+    height: 400vh !important; /* Retain this height to offer a relaxed scroll timeline duration */
     max-height: none !important;
     z-index: 15 !important;
-    background-color: var(--white) !important; /* Prevents the service section from leaking through background */
+    background-color: var(--white) !important;
     color: var(--text-dark) !important;
     scroll-snap-align: start;
     scroll-snap-stop: always;
@@ -747,7 +749,7 @@ main,
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-between !important;
-    padding: clamp(10px, 2vh, 25px) 0 !important; /* Tight padding prevents 100% view cutoffs */
+    padding: clamp(8px, 1.8vh, 20px) 0 !important; /* Compact dynamic tracking margins */
     box-sizing: border-box !important;
     background-color: var(--white) !important;
 }
@@ -757,34 +759,40 @@ main,
     text-align: center !important;
 }
 
+.framework-content h2 {
+    font-size: clamp(1.6rem, 2.5vw, 2.2rem) !important; /* Slightly shrunk header scale for viewport safety */
+    margin-bottom: 4px !important;
+}
+
 .framework-intro {
-    max-width: 680px;
-    margin: 0 auto 4px;
+    max-width: 620px;
+    margin: 0 auto 2px;
     color: var(--text-muted);
-    font-size: 0.9rem;
+    font-size: 0.85rem !important;
+    line-height: 1.4;
 }
 
 .horizontal-slider-container {
     width: 100% !important;
     overflow: hidden !important;
-    margin: 5px 0 !important;
+    margin: 4px 0 !important;
 }
 
 .horizontal-slider-track {
     display: flex !important;
-    gap: 20px !important;
-    padding-left: 100vw; /* Pushes the track completely off screen to the right to start from side */
-    padding-right: 10%;
+    gap: 32px !important; /* Clear spacing between individual cards */
+    padding-left: 85vw;  /* Pushes card 01 just off the right edge to cleanly arrive on scroll start */
+    padding-right: 25vw; /* Grants room for card 07 to fully arrive on screen layout clear */
     width: max-content !important;
     will-change: transform;
-    transition: transform 0.1s cubic-bezier(0.16, 1, 0.3, 1); /* Smoother card motion transition */
+    transition: transform 0.08s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Compact Card Box Scaling to ensure perfect fit without clipping */
+/* Optimized Card Box Scaling to ensure perfect fit without text or field clipping */
 .flip-card-node {
     background-color: transparent;
-    width: 240px !important;  
-    height: 170px !important; /* Decreased height to eliminate 100% screen frame overflow */
+    width: 250px !important;  
+    height: 155px !important; /* Reduced card footprint height allows table beneath to breathe */
     perspective: 1000px;
 }
 
@@ -792,7 +800,7 @@ main,
     position: relative;
     width: 100%;
     height: 100%;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     transform-style: preserve-3d;
 }
 
@@ -805,8 +813,8 @@ main,
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    border-radius: 6px;
-    padding: 16px;
+    border-radius: 4px;
+    padding: 14px;
     border: 1px solid var(--border-color);
     display: flex !important;
     flex-direction: column !important;
@@ -815,20 +823,22 @@ main,
 .flip-card-front {
     background-color: var(--white);
     justify-content: space-between !important;
+    box-shadow: 0 4px 12px rgba(11, 34, 64, 0.02);
 }
 
 .flip-card-front h3 {
     margin: 4px 0 0 !important;
     text-align: left !important;
-    font-size: 0.95rem !important;
+    font-size: 0.88rem !important;
     color: var(--primary-color);
     line-height: 1.3;
+    font-weight: 700;
 }
 
 .pillar-id {
-    font-size: 1.6rem !important;
+    font-size: 1.5rem !important;
     font-weight: 700;
-    color: rgba(0, 119, 182, 0.15); 
+    color: rgba(0, 119, 182, 0.18); 
 }
 
 .flip-card-back {
@@ -840,51 +850,55 @@ main,
 
 .flip-card-back h3 {
     color: var(--white) !important;
-    font-size: 0.9rem !important;
-    margin-bottom: 4px !important;
+    font-size: 0.85rem !important;
+    margin-bottom: 2px !important;
 }
 
 .flip-card-back p {
-    color: rgba(255, 255, 255, 0.85) !important;
-    font-size: 0.74rem !important;
-    line-height: 1.4 !important;
+    color: rgba(255, 255, 255, 0.88) !important;
+    font-size: 0.72rem !important;
+    line-height: 1.35 !important;
     margin: 0 !important;
 }
 
 /* Anchored Bottom Footers Configurations */
 .service-packages-fixed-bottom {
     border-top: 1px solid var(--border-color);
-    padding-top: 10px !important;
+    padding-top: 12px !important;
     width: 100%;
 }
 
 .service-packages-fixed-bottom h3 {
-    font-size: 1.2rem !important;
+    font-size: 1.15rem !important;
     color: var(--primary-color);
-    margin-bottom: 8px !important;
+    margin-bottom: 6px !important;
+    text-align: center;
 }
 
 .service-packages-fixed-bottom .service-packages-grid {
     display: grid !important;
     grid-template-columns: repeat(3, 1fr) !important;
-    gap: 20px !important;
+    gap: 16px !important;
 }
 
 .service-packages-fixed-bottom .package-card {
     background: var(--white);
     border: 1px solid var(--border-color);
-    padding: 12px 16px !important;
-    border-radius: 6px;
+    padding: 10px 14px !important;
+    border-radius: 4px;
 }
 
 .service-packages-fixed-bottom .package-card h4 {
-    font-size: 1rem !important;
+    font-size: 0.95rem !important;
     margin: 2px 0 !important;
+    color: var(--primary-color);
 }
 
 .service-packages-fixed-bottom .package-card p {
-    font-size: 0.76rem !important;
+    font-size: 0.74rem !important;
     line-height: 1.35 !important;
+    margin: 0;
+    color: var(--text-muted);
 }
 
 /* ==========================================================================
