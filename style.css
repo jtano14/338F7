@@ -1083,3 +1083,14 @@ main,
     html { scroll-behavior: auto; }
     .btn, .service-card, .sector-card { transition: none !important; }
 }
+
+/* ==========================================================================
+   16. CRITICAL VANTA VIEWPORT EXPOSURE FIXES
+   ========================================================================== */
+main, 
+.scroll-stack-wrapper {
+    background: transparent !important;
+    background-color: transparent !important;
+    position: relative;
+    width: 100%;
+}
