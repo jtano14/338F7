@@ -27,7 +27,6 @@ html {
 }
 
 /* Restores natural layout order to prevent sections from clumping on page load */
-main > section,
 .hero-section,
 .about-section,
 .services-section,
@@ -35,8 +34,7 @@ main > section,
 .leadership-section,
 .sectors-section,
 .contact-section {
-    position: sticky !important;  /* Forces normal sequential row stacking order */
-    top: 0 !important;
+    position: relative !important; /* Changed to relative to clear all sticky overlaps */
     height: 100vh !important;
     min-height: 100vh !important;
     max-height: 100vh !important;
@@ -50,17 +48,15 @@ main > section,
     justify-content: space-between !important;
     padding: 100px 0 24px 0 !important; 
     will-change: transform, opacity;
-    box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.12); /* Drop shadow marks the card edge separating screens */
 }
 
-.hero-section             { background: transparent !important; z-index: 1 !important; }
-.about-section            { background-color: var(--light-bg) !important; z-index: 2 !important; }
-.services-section         { background-color: var(--white) !important; z-index: 3 !important; }
-.framework-section,
-.framework-scroll-section { background-color: var(--white) !important; z-index: 4 !important; } 
-.leadership-section       { background-color: var(--white) !important; z-index: 5 !important; }
-.sectors-section          { background-color: var(--light-bg) !important; z-index: 6 !important; }
-.contact-section          { background-color: var(--white) !important; z-index: 7 !important; }
+.hero-section       { background: transparent !important; }
+.about-section      { background-color: var(--light-bg) !important; }
+.services-section   { background-color: var(--white) !important; }
+.framework-section  { background-color: var(--white) !important; } 
+.leadership-section { background-color: var(--white) !important; }
+.sectors-section    { background-color: var(--light-bg) !important; }
+.contact-section    { background-color: var(--white) !important; }
 
 
 body {
