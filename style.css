@@ -1745,3 +1745,79 @@ main,
 .brand-container.is-bursting .sharp-logo-layer {
     filter: drop-shadow(0 0 8px rgba(11, 44, 102, 0.15));
 }
+
+/* ==========================================================================
+   19. STACKING CARDS EFFECTS (SECTION LAYER OVERLAP ARCHITECTURE)
+   ========================================================================== */
+
+/* 1. Make the HTML container act as a smooth track */
+html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    background-color: #000000; /* Dark baseline so no white flash occurs during changes */
+}
+
+/* 2. Configure every section to act as a stacking card plane */
+main > section,
+.hero-section,
+.about-section,
+.services-section,
+.framework-scroll-section {
+    position: sticky !important; /* Pins the section to the top viewport frame when reached */
+    top: 0 !important;
+    height: 100vh !important;
+    min-height: 100vh !important;
+    max-height: 100vh !important;
+    width: 100vw !important;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    overflow: hidden;
+    box-sizing: border-box;
+    
+    /* Smooth 3D layering depth optimization */
+    will-change: transform, opacity;
+    box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.15); /* Adds a shadow edge so you see the card slide over */
+}
+
+/* 3. Define the explicit stacking deck levels (Z-Index Hierarchy) */
+/* The hero is the bottom floor, each subsequent page lifts up higher */
+.hero-section {
+    z-index: 1 !important;
+}
+
+.about-section {
+    z-index: 2 !important;
+}
+
+.services-section {
+    z-index: 3 !important;
+}
+
+/* Note: Since the horizontal framework loop needs extra scroll distance, 
+   we let its sticky internal wrapper do the locking while the parent passes through */
+.framework-scroll-section {
+    position: relative !important; /* Temporarily unsticks parent to allow its internal x-axis loop to run */
+    height: 300vh !important; 
+    max-height: none !important;
+    z-index: 4 !important;
+}
+
+.framework-scroll-section .sticky-view-window {
+    position: sticky !important;
+    top: 0 !important;
+    height: 100vh !important;
+    width: 100vw !important;
+}
+
+/* Next sections after framework should continue stacking higher */
+#leadership, .leadership-section {
+    z-index: 5 !important;
+}
+
+#sectors, .sectors-section {
+    z-index: 6 !important;
+}
+
+#contact, .contact-section {
+    z-index: 7 !important;
+}
