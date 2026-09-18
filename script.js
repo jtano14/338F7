@@ -357,7 +357,7 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 /* ==========================================================================
-   8. NEW ADDITION: HORIZONTAL FRAMEWORK SCROLL TRANSFORMATION DRIVER ENGINE
+   8. HORIZONTAL FRAMEWORK SCROLL TRANSFORMATION DRIVER ENGINE
    ========================================================================== */
 function driveHorizontalFrameworkSlider() {
     const scrollSection = document.querySelector('.framework-scroll-section');
@@ -375,10 +375,11 @@ function driveHorizontalFrameworkSlider() {
     if (currentScrollPosition >= 0 && currentScrollPosition <= totalScrollableDistance) {
         const percentageScrolled = currentScrollPosition / totalScrollableDistance;
         
-        // Measure track width to slide everything sequentially across the viewport frame
+        // Calculate the translation range based precisely on track overflow properties
         const trackWidth = sliderTrack.scrollWidth;
-        const totalTranslationNeeded = trackWidth; 
         
+        // This math scales perfectly to pull all 7 cards across the display viewport window
+        const totalTranslationNeeded = trackWidth - (window.innerWidth * 0.15); 
         const translateAmount = percentageScrolled * totalTranslationNeeded;
         
         sliderTrack.style.transform = `translateX(-${translateAmount}px)`;
@@ -386,3 +387,4 @@ function driveHorizontalFrameworkSlider() {
 }
 
 window.addEventListener('scroll', driveHorizontalFrameworkSlider, { passive: true });
+
