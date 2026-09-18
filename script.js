@@ -272,24 +272,25 @@ function initializeVantaClouds() {
     if (typeof VANTA !== "undefined" && targetBg) {
         // Delays initialization by 100ms to allow parent layout metrics to draw completely
         setTimeout(() => {
-            VANTA.CLOUDS({
-                el: "#vanta-ocean-bg", 
-                mouseControls: true, 
-                touchControls: true, 
-                gyroControls: false,
-                minHeight: 200.00,
-                minWidth: 200.00,
+           VANTA.CLOUDS({
+               el: "#vanta-ocean-bg", 
+               mouseControls: true, 
+               touchControls: true, 
+               gyroControls: false,
+               minHeight: 200.00,
+               minWidth: 200.00,
                 
-                backgroundColor: 0x0b2240,    // Pure white bottom foundation backdrop
-                skyColor: 0x0b2240,           // Vibrant daylight sky blue
-                cloudColor: 0xff9919,         // Multi-dimensional denim blue cloud bodies
-                cloudShadowColor: 0x001122,   // Rich, deep slate charcoal shadow definitions
+               // --- YOUR ORIGINAL PALETTE CONFIGURATION ---
+               backgroundColor: 0xffffff,    // Pure white bottom foundation backdrop
+               skyColor: 0x5e8de3,           // Soft daylight sky blue
+               cloudColor: 0xbac1de,         // Multi-dimensional light denim clouds
+               cloudShadowColor: 0x283f59,   // Muted dark slate shadow definitions
                 
-                sunColor: 0xffffff,           // Warm golden sunlight highlights
-                sunGlareColor: 0xffcc00,      
-                sunlightColor: 0xffffff,      
-                speed: 1.50                   // Balanced, active gliding motion rate
-            });
+               sunColor: 0xff9919,           
+               sunGlareColor: 0xfc815c,      
+               sunlightColor: 0xff9933,      
+               speed: 1.50                   
+           });
             console.log("3. Vanta Canvas injected and initialized successfully!");
         }, 100);
     }
