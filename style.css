@@ -22,11 +22,11 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-snap-type: y mandatory;
-    background-color: #000000; 
+    scroll-snap-type: y mandatory; /* Keeps full-screen panel alignment active */
+    background-color: #ffffff; 
 }
 
-/* Force every major layout container to behave like a slide-up card layer */
+/* Restores natural layout order to prevent sections from clumping on page load */
 .hero-section,
 .about-section,
 .services-section,
@@ -34,44 +34,28 @@ html {
 .leadership-section,
 .sectors-section,
 .contact-section {
-    position: sticky !important;
-    top: 0 !important;
+    position: relative !important; /* Changed from sticky to relative */
     height: 100vh !important;
     min-height: 100vh !important;
     max-height: 100vh !important;
     width: 100vw !important;
-    scroll-snap-align: start;
+    scroll-snap-align: start; /* Snaps accurately to active section margins */
     scroll-snap-stop: always;
     overflow: hidden !important;
     box-sizing: border-box;
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-between !important;
+    /* Clear safe area so fixed headers never overlap your page titles */
     padding: 96px 0 24px 0 !important; 
     will-change: transform, opacity;
-    box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.15);
-}
-
-.hero-section             { z-index: 1 !important; }
-.about-section            { z-index: 2 !important; }
-.services-section         { z-index: 3 !important; }
-.framework-section        { z-index: 4 !important; } 
-.leadership-section       { z-index: 5 !important; }
-.sectors-section          { z-index: 6 !important; }
-.contact-section          { z-index: 7 !important; }
-
-
-.framework-scroll-section { 
-    position: relative !important; 
-    height: 400vh !important; 
-    max-height: none !important;
-    z-index: 4 !important; 
+    box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.05);
 }
 
 body {
     margin: 0;
     color: var(--text-dark);
-    background: transparent !important;
+    background: #ffffff !important; /* Forces flat solid white foundation background */
     font-family: var(--font-family);
     font-size: 16px;
     line-height: 1.7;
