@@ -27,10 +27,10 @@ html {
 }
 
 /* Force every major layout container to behave like a slide-up card layer */
-main > section,
 .hero-section,
 .about-section,
-.framework-section, /* Updated class handle */
+.services-section,
+.framework-section,
 .leadership-section,
 .sectors-section,
 .contact-section {
@@ -42,12 +42,12 @@ main > section,
     width: 100vw !important;
     scroll-snap-align: start;
     scroll-snap-stop: always;
-    overflow: hidden;
+    overflow: hidden !important;
     box-sizing: border-box;
     display: flex !important;
     flex-direction: column !important;
-    justify-content: center !important;
-    padding: clamp(30px, 4vh, 60px) 0 !important;
+    justify-content: space-between !important;
+    padding: 96px 0 24px 0 !important; 
     will-change: transform, opacity;
     box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.15);
 }
@@ -55,7 +55,7 @@ main > section,
 .hero-section             { z-index: 1 !important; }
 .about-section            { z-index: 2 !important; }
 .services-section         { z-index: 3 !important; }
-.framework-section        { z-index: 4 !important; } /* Clean, direct sticky index assignment */
+.framework-section        { z-index: 4 !important; } 
 .leadership-section       { z-index: 5 !important; }
 .sectors-section          { z-index: 6 !important; }
 .contact-section          { z-index: 7 !important; }
@@ -729,14 +729,10 @@ main,
 }
 
 /* ==========================================================================
-   7. THE FLUX7 FRAMEWORK & SERVICE PACKAGES UNIFIED SYSTEM
+   7. THE FLUX7 FRAMEWORK & SERVICE PACKAGES UNIFIED SYSTEM (AUTOMATED MARQUEE)
    ========================================================================== */
 .framework-section {
     background-color: var(--white) !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    padding: clamp(10px, 2vh, 30px) 0 !important; /* Compresses margins to fit 100% monitor scales */
 }
 
 .framework-unified-container {
@@ -744,71 +740,76 @@ main,
     flex-direction: column !important;
     justify-content: space-between !important;
     height: 100% !important;
-    gap: clamp(8px, 1.5vh, 20px) !important;
+    width: 100% !important;
 }
 
 .framework-content-header {
     text-align: center !important;
     width: 100% !important;
+    padding: 0 20px;
 }
 
 .framework-content-header h2 {
-    font-size: clamp(1.4rem, 2.2vw, 1.8rem) !important;
-    margin-bottom: 2px !important;
+    font-size: clamp(1.5rem, 2.5vw, 2rem) !important;
+    margin-bottom: 4px !important;
 }
 
 .framework-intro {
     max-width: 650px;
     margin: 0 auto;
     color: var(--text-muted);
-    font-size: 0.8rem !important;
+    font-size: 0.85rem !important;
     line-height: 1.4;
 }
 
-/* 7-Card Matrix Layout Grid: Clean layout structure preventing overflow */
-.framework-pillars-matrix-grid {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: center !important;
-    align-items: center !important;
-    gap: clamp(8px, 1vw, 16px) !important;
+/* --- Automated Infinite Carousel Window Track --- */
+.horizontal-slider-container {
     width: 100% !important;
-    overflow-x: visible !important;
+    overflow: hidden !important; 
+    position: relative;
+    padding: 10px 0 !important;
+    /* Create a soft fade effect on left/right borders so cards blend into screen edges */
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 8%, rgba(255,255,255,0) 92%, rgba(255,255,255,1) 100%);
 }
 
-/* Highly Optimized Compact 3D Card Formats */
-.flip-card-node {
-    background-color: transparent;
-    width: 150px !important;   /* Narrow width ensures all 7 fit in one straight line row */
-    height: 140px !important;  /* Shrunk height clears valuable vertical page real estate */
-    perspective: 1000px;
-    opacity: 0;
-    transform: translateX(40px); /* Pre-positions cards to slide in from right to left */
-    animation: smoothSlideInCard 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.horizontal-slider-track {
+    display: flex !important;
+    gap: 28px !important;
+    width: max-content !important;
+    will-change: transform;
+    /* Infinite loop animation moving from left to right */
+    animation: continuousMarqueeLoop 35s linear infinite !important;
 }
 
-/* CSS Keyframes controlling your automatic side load-in animation */
-@keyframes smoothSlideInCard {
-    to {
-        opacity: 1;
+/* Pause the automated drift if a client hovers over a box to read the back side */
+.horizontal-slider-container:hover .horizontal-slider-track {
+    animation-play-state: paused !important;
+}
+
+@keyframes continuousMarqueeLoop {
+    0% {
         transform: translateX(0);
+    }
+    100% {
+        /* Translates precisely by half the width of the cloned track nodes */
+        transform: translateX(-50%); 
     }
 }
 
-/* Sequential Animation Delay Pipeline Structure */
-.animation-delay-1 { animation-delay: 0.1s; }
-.animation-delay-2 { animation-delay: 0.2s; }
-.animation-delay-3 { animation-delay: 0.3s; }
-.animation-delay-4 { animation-delay: 0.4s; }
-.animation-delay-5 { animation-delay: 0.5s; }
-.animation-delay-6 { animation-delay: 0.6s; }
-.animation-delay-7 { animation-delay: 0.7s; }
+/* --- Expanded, Legible 3D Card Scaling --- */
+.flip-card-node {
+    background-color: transparent;
+    width: 260px !important;   /* Expanded width for enhanced text presentation space */
+    height: 160px !important;  /* Balanced box balance height */
+    perspective: 1000px;
+    flex-shrink: 0 !important;
+}
 
 .flip-card-inner {
     position: relative;
     width: 100%;
     height: 100%;
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     transform-style: preserve-3d;
 }
 
@@ -821,8 +822,8 @@ main,
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    border-radius: 4px;
-    padding: 10px;
+    border-radius: 6px;
+    padding: 16px;
     border: 1px solid var(--border-color);
     display: flex !important;
     flex-direction: column !important;
@@ -831,22 +832,22 @@ main,
 .flip-card-front {
     background-color: var(--white);
     justify-content: space-between !important;
-    box-shadow: 0 4px 10px rgba(11, 34, 64, 0.02);
+    box-shadow: 0 4px 15px rgba(11, 34, 64, 0.03);
 }
 
 .flip-card-front h3 {
     margin: 4px 0 0 !important;
     text-align: left !important;
-    font-size: 0.72rem !important; /* Shrunk typography for precise legibility inside compact boxes */
+    font-size: 0.9rem !important; 
     color: var(--primary-color);
-    line-height: 1.2;
+    line-height: 1.3;
     font-weight: 700;
 }
 
 .pillar-id {
-    font-size: 1.2rem !important;
+    font-size: 1.4rem !important;
     font-weight: 700;
-    color: rgba(0, 119, 182, 0.18); 
+    color: rgba(0, 119, 182, 0.2); 
 }
 
 .flip-card-back {
@@ -858,28 +859,28 @@ main,
 
 .flip-card-back h3 {
     color: var(--white) !important;
-    font-size: 0.7rem !important;
-    margin-bottom: 2px !important;
+    font-size: 0.85rem !important;
+    margin-bottom: 4px !important;
 }
 
 .flip-card-back p {
     color: rgba(255, 255, 255, 0.88) !important;
-    font-size: 0.65rem !important;
-    line-height: 1.3 !important;
+    font-size: 0.74rem !important;
+    line-height: 1.35 !important;
     margin: 0 !important;
 }
 
-/* Stationary Bottom Service Packages Footer Setup */
+/* --- Fixed Bottom Service Packages Row --- */
 .service-packages-fixed-bottom {
     border-top: 1px solid var(--border-color);
-    padding-top: clamp(8px, 1.5vh, 16px) !important;
+    padding-top: 10px !important;
     width: 100%;
 }
 
 .service-packages-fixed-bottom h3 {
-    font-size: 1.1rem !important;
+    font-size: 1.15rem !important;
     color: var(--primary-color);
-    margin-bottom: clamp(6px, 1vh, 12px) !important;
+    margin-bottom: 8px !important;
     text-align: center;
     font-weight: 700;
 }
@@ -887,14 +888,14 @@ main,
 .service-packages-fixed-bottom .service-packages-grid {
     display: grid !important;
     grid-template-columns: repeat(3, 1fr) !important;
-    gap: clamp(12px, 2vw, 24px) !important;
-    align-items: stretch !important;
+    gap: 20px !important;
+    padding: 0 20px;
 }
 
 .service-packages-fixed-bottom .package-card {
     background: var(--light-bg);
     border: 1px solid var(--border-color);
-    padding: clamp(10px, 1.8vh, 18px) !important;
+    padding: 12px 16px !important;
     border-radius: 4px;
     display: flex !important;
     flex-direction: column !important;
@@ -902,13 +903,13 @@ main,
 
 .service-packages-fixed-bottom .package-card h4 {
     font-size: 0.95rem !important;
-    margin: 2px 0 6px !important;
+    margin: 2px 0 4px !important;
     color: var(--primary-color);
     font-weight: 700;
 }
 
 .service-packages-fixed-bottom .package-card p {
-    font-size: 0.72rem !important;
+    font-size: 0.74rem !important;
     line-height: 1.35 !important;
     margin: 0;
     color: var(--text-muted);
@@ -917,7 +918,7 @@ main,
 .service-packages-fixed-bottom .package-card-featured {
     border: 2px solid var(--accent-blue) !important;
     background: var(--white) !important;
-    box-shadow: 0 10px 25px rgba(0, 119, 182, 0.06) !important;
+    box-shadow: 0 10px 25px rgba(0, 119, 182, 0.05) !important;
 }
 
 /* ==========================================================================
