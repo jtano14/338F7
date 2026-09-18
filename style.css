@@ -28,12 +28,13 @@ html {
 
 /* Restores natural layout order to prevent sections from clumping on page load */
 .hero-section {
-position: relative !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
     height: 100vh !important;
     min-height: 100vh !important;
     max-height: 100vh !important;
     width: 100vw !important;
-    scroll-snap-align: start;
     z-index: 1;
 }
 
@@ -49,6 +50,7 @@ position: relative !important;
     max-height: 100vh !important;
     width: 100vw !important;
     scroll-snap-align: start;
+    scroll-snap-stop: always;
     overflow: hidden !important;
     display: flex !important;
     flex-direction: column !important;
