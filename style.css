@@ -48,7 +48,6 @@ position: relative !important;
     max-height: 100vh !important;
     width: 100vw !important;
     scroll-snap-align: start;
-    scroll-snap-stop: always;
     overflow: hidden !important;
     display: flex !important;
     flex-direction: column !important;
