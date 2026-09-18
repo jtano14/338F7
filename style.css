@@ -514,70 +514,72 @@ main > section:not(.hero-section) {
 }
 
 /* ==========================================================================
-   5. ABOUT US SECTION
+   5. ABOUT US SECTION & CORPORATE OVERVIEW ARCHITECTURE
    ========================================================================== */
 .about-section {
     position: relative !important;
-    z-index: 15 !important; /* Raised layer sits over the sticky hero background */
-    background-color: #f8f9fa !important;
-    box-shadow: 0 -20px 40px rgba(11, 34, 64, 0.08) !important; /* Beautiful soft depth shadow */
+    z-index: 15 !important;
+    background-color: var(--light-bg) !important;
+    padding: clamp(60px, 8vh, 100px) 0; /* Compact padding to fit one view */
 }
 
-.about-content blockquote {
-    margin: 28px 0;
-    padding-left: 20px;
+.about-container {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+/* Master Grid split directly 50/50 down the center to match PDF layout */
+.about-main-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 56px;
+    align-items: center;
+}
+
+.about-content h2 {
+    font-size: clamp(2rem, 3.2vw, 2.6rem);
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.about-lead {
+    font-size: 1.05rem;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+/* Promise Block styling with the left accent border from the PDF */
+.about-promise-tray {
+    margin: 24px 0;
+    padding-left: 18px;
     border-left: 3px solid var(--accent-blue);
-    color: var(--primary-color);
-    font-size: 1.08rem;
+}
+
+.promise-label {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 700;
+    color: var(--accent-blue);
+    margin-bottom: 4px;
+}
+
+.promise-text {
+    margin: 0;
+    font-size: 1.05rem;
     font-style: italic;
+    color: var(--primary-color);
+    font-weight: 600;
 }
 
-.about-image-wrapper {
-    position: relative;
-    padding: 20px;
-}
-
-.image-corner-frame {
-    position: relative;
-}
-
-.image-corner-frame::before,
-.image-corner-frame::after {
-    content: '';
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    border: 4px solid var(--accent-blue);
-    z-index: 1;
-    pointer-events: none;
-}
-
-.image-corner-frame::before {
-    top: -12px;
-    right: -12px;
-    border-bottom: none;
-    border-left: none;
-}
-
-.image-corner-frame::after {
-    bottom: -12px;
-    left: -12px;
-    border-top: none;
-    border-right: none;
-}
-
-.image-corner-frame img {
-    width: 100%;
-    border-radius: 2px;
-    box-shadow: 0 10px 30px rgba(11, 34, 64, 0.05);
-}
-
+/* Minimalist Counters Row Setup */
 .stats-row {
     display: flex;
-    gap: 40px;
-    margin-top: 34px;
+    gap: 36px;
+    margin-top: 28px;
+    padding-top: 20px;
     border-top: 1px solid var(--border-color);
-    padding-top: 24px;
 }
 
 .stat-item {
@@ -589,15 +591,98 @@ main > section:not(.hero-section) {
     color: var(--accent-blue);
     font-size: 2.2rem;
     font-weight: 700;
-    line-height: 1.1;
+    line-height: 1;
 }
 
 .stat-label {
     color: var(--text-muted);
-    font-size: 0.75rem;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-top: 6px;
+}
+
+/* Decorative Outer Image Crop Frame */
+.image-corner-frame {
+    position: relative;
+    width: 100%;
+}
+
+.image-corner-frame img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 15px 35px rgba(11, 34, 64, 0.06);
+}
+
+/* --- Corporate Data Panel Layout (Matches Reference Theme) --- */
+.corporate-profile-panel {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 32px 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.corporate-profile-panel h3 {
+    font-size: 1.35rem;
+    color: var(--primary-color);
+    margin-bottom: 24px;
+    font-weight: 700;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 8px;
+}
+
+.profile-matrix-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 64px;
+    row-gap: 20px;
+}
+
+.matrix-item {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #f1f4f6;
+    padding-bottom: 10px;
+}
+
+.matrix-item.dynamic-span-wide {
+    grid-column: span 2;
+}
+
+.matrix-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+}
+
+.matrix-value {
+    font-size: 0.98rem;
     font-weight: 600;
-    letter-spacing: 0.1em;
-    margin-top: 4px;
+    color: var(--primary-color);
+}
+
+/* --- Mobile / Tablet Adaptations --- */
+@media (max-width: 900px) {
+    .about-main-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .about-image-wrapper {
+        order: -1; /* Keeps image above content on narrow views */
+    }
+    .profile-matrix-grid {
+        grid-template-columns: 1fr;
+    }
+    .matrix-item.dynamic-span-wide {
+        grid-column: span 1;
+    }
 }
 
 /* ==========================================================================
@@ -1459,9 +1544,35 @@ main > section:not(.hero-section) {
 }
 
 /* ==========================================================================
-   14. MOBILE SPECIFIC HERO OVERLAP TIMINGS
+   14. GLOBAL RESPONSIVE MEDIA QUERIES (TABLET & MOBILE ADAPTATIONS)
    ========================================================================== */
+
+/* --- TABLET DEVIATIONS (900px and below) --- */
+@media (max-width: 900px) {
+    /* About Us Main Twin-Grid Structural Collapse */
+    .about-main-grid {
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
+    }
+    
+    /* Pulls boardroom imagery upward on narrow tablet monitors */
+    .about-image-wrapper {
+        order: -1 !important; 
+    }
+    
+    /* Flattens the Company Data grid into a single structured stack */
+    .profile-matrix-grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .matrix-item.dynamic-span-wide {
+        grid-column: span 1 !important;
+    }
+}
+
+/* --- MOBILE COMPACT SCREENS (768px and below) --- */
 @media (max-width: 768px) {
+    /* Keeps your existing hero overlap spacing untouched */
     .hero-section {
         min-height: calc(100vh - 64px) !important;
         padding: 80px 20px 40px !important;
