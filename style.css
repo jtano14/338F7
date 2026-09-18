@@ -724,6 +724,9 @@ main,
    ========================================================================== */
 .framework-section {
     background-color: var(--white) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
 }
 
 .framework-unified-container {
@@ -737,30 +740,25 @@ main,
 .framework-content-header {
     text-align: center !important;
     width: 100% !important;
-    padding: 0 20px;
 }
 
 .framework-content-header h2 {
-    font-size: clamp(1.5rem, 2.5vw, 2rem) !important;
-    margin-bottom: 4px !important;
+    font-size: clamp(1.4rem, 2.2vw, 1.8rem) !important;
+    margin-bottom: 2px !important;
 }
 
 .framework-intro {
     max-width: 650px;
     margin: 0 auto;
     color: var(--text-muted);
-    font-size: 0.85rem !important;
-    line-height: 1.4;
+    font-size: 0.82rem !important;
 }
 
-/* --- Automated Infinite Carousel Window Track --- */
 .horizontal-slider-container {
     width: 100% !important;
-    overflow: hidden !important; 
+    overflow: hidden !important;
     position: relative;
-    padding: 10px 0 !important;
-    /* Create a soft fade effect on left/right borders so cards blend into screen edges */
-    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 8%, rgba(255,255,255,0) 92%, rgba(255,255,255,1) 100%);
+    padding: 12px 0 !important;
 }
 
 .horizontal-slider-track {
@@ -768,30 +766,22 @@ main,
     gap: 28px !important;
     width: max-content !important;
     will-change: transform;
-    /* Infinite loop animation moving from left to right */
-    animation: continuousMarqueeLoop 35s linear infinite !important;
+    animation: continuousMarqueeLoop 30s linear infinite !important;
 }
 
-/* Pause the automated drift if a client hovers over a box to read the back side */
 .horizontal-slider-container:hover .horizontal-slider-track {
     animation-play-state: paused !important;
 }
 
 @keyframes continuousMarqueeLoop {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        /* Translates precisely by half the width of the cloned track nodes */
-        transform: translateX(-50%); 
-    }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
-/* --- Expanded, Legible 3D Card Scaling --- */
 .flip-card-node {
     background-color: transparent;
-    width: 260px !important;   /* Expanded width for enhanced text presentation space */
-    height: 160px !important;  /* Balanced box balance height */
+    width: 250px !important;
+    height: 150px !important;
     perspective: 1000px;
     flex-shrink: 0 !important;
 }
@@ -800,7 +790,7 @@ main,
     position: relative;
     width: 100%;
     height: 100%;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.5s ease;
     transform-style: preserve-3d;
 }
 
@@ -814,7 +804,7 @@ main,
     height: 100%;
     backface-visibility: hidden;
     border-radius: 6px;
-    padding: 16px;
+    padding: 14px;
     border: 1px solid var(--border-color);
     display: flex !important;
     flex-direction: column !important;
@@ -823,22 +813,19 @@ main,
 .flip-card-front {
     background-color: var(--white);
     justify-content: space-between !important;
-    box-shadow: 0 4px 15px rgba(11, 34, 64, 0.03);
 }
 
 .flip-card-front h3 {
     margin: 4px 0 0 !important;
-    text-align: left !important;
-    font-size: 0.9rem !important; 
+    font-size: 0.85rem !important;
     color: var(--primary-color);
-    line-height: 1.3;
     font-weight: 700;
 }
 
 .pillar-id {
-    font-size: 1.4rem !important;
+    font-size: 1.3rem !important;
     font-weight: 700;
-    color: rgba(0, 119, 182, 0.2); 
+    color: rgba(0, 119, 182, 0.2);
 }
 
 .flip-card-back {
@@ -848,20 +835,11 @@ main,
     justify-content: center !important;
 }
 
-.flip-card-back h3 {
-    color: var(--white) !important;
-    font-size: 0.85rem !important;
-    margin-bottom: 4px !important;
-}
-
 .flip-card-back p {
-    color: rgba(255, 255, 255, 0.88) !important;
-    font-size: 0.74rem !important;
-    line-height: 1.35 !important;
+    font-size: 0.7rem !important;
     margin: 0 !important;
 }
 
-/* --- Fixed Bottom Service Packages Row --- */
 .service-packages-fixed-bottom {
     border-top: 1px solid var(--border-color);
     padding-top: 10px !important;
@@ -869,47 +847,23 @@ main,
 }
 
 .service-packages-fixed-bottom h3 {
-    font-size: 1.15rem !important;
+    font-size: 1.1rem !important;
     color: var(--primary-color);
-    margin-bottom: 8px !important;
+    margin-bottom: 6px !important;
     text-align: center;
-    font-weight: 700;
 }
 
 .service-packages-fixed-bottom .service-packages-grid {
     display: grid !important;
     grid-template-columns: repeat(3, 1fr) !important;
     gap: 20px !important;
-    padding: 0 20px;
 }
 
 .service-packages-fixed-bottom .package-card {
     background: var(--light-bg);
     border: 1px solid var(--border-color);
-    padding: 12px 16px !important;
+    padding: 10px 14px !important;
     border-radius: 4px;
-    display: flex !important;
-    flex-direction: column !important;
-}
-
-.service-packages-fixed-bottom .package-card h4 {
-    font-size: 0.95rem !important;
-    margin: 2px 0 4px !important;
-    color: var(--primary-color);
-    font-weight: 700;
-}
-
-.service-packages-fixed-bottom .package-card p {
-    font-size: 0.74rem !important;
-    line-height: 1.35 !important;
-    margin: 0;
-    color: var(--text-muted);
-}
-
-.service-packages-fixed-bottom .package-card-featured {
-    border: 2px solid var(--accent-blue) !important;
-    background: var(--white) !important;
-    box-shadow: 0 10px 25px rgba(0, 119, 182, 0.05) !important;
 }
 
 /* ==========================================================================
@@ -917,36 +871,32 @@ main,
    ========================================================================== */
 .leadership-section {
     background-color: var(--white) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
 }
 
-.leadership-heading {
-    display: grid;
-    grid-template-columns: 240px 1fr;
-    gap: 40px;
-    margin-bottom: 56px;
-    align-items: start;
-}
-
-.leadership-intro {
-    max-width: 680px;
-    font-size: 1.05rem;
-    color: var(--text-muted);
+.leadership-container {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    height: 100% !important;
 }
 
 .leadership-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 32px !important;
+    align-items: center !important;
 }
 
-.leader-card {
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    background-color: var(--white);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
+.leader-card img {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 6px !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
 }
+
 
 /* ==========================================================================
    9. INDUSTRIES & SECTORS WE SERVE
