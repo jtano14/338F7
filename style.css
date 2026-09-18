@@ -55,7 +55,7 @@ html {
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-between !important;
-    padding: 100px 0 24px 0 !important;
+    padding: 140px 0 24px 0 !important;
     will-change: transform, opacity;
 }
 
