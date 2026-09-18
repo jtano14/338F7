@@ -27,7 +27,7 @@ html {
 }
 
 /* Restores natural layout order to prevent sections from clumping on page load */
-.hero-section,
+.hero-section {
 position: relative !important;
     height: 100vh !important;
     min-height: 100vh !important;
@@ -356,7 +356,6 @@ main,
     width: 100% !important;
     background: transparent !important;
     background-color: transparent !important;
-    z-index: 2 !important;
 }
 
 .hero-content.container {
