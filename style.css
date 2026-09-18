@@ -1536,3 +1536,17 @@ main,
     z-index: 15 !important;
     background-color: #ffffff !important; /* Keeps subsequent content panels solid white */
 }
+
+.brand-container + [href^="#"],
+.brand-container + div,
+[class*="scroll-arrow"], 
+[class*="scroll-down"],
+.brand-container::after {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    margin: 20px auto 0 !important;
+    text-align: center !important;
+}
