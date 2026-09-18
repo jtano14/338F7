@@ -1592,3 +1592,45 @@ main,
     transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     pointer-events: none;
 }
+
+/* ==========================================================================
+   18. ADVANCED PARTICLE MASKING ENGAGEMENT RULE
+   ========================================================================== */
+.logo-wrapper {
+    position: relative !important;
+    width: 160px !important;  
+    height: 120px !important; 
+    margin: 0 auto !important;
+}
+
+/* Ensure the canvas sits completely perfectly overlayed right on top of the image */
+#bubbleCanvas {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important; 
+    z-index: 12 !important; /* Raised higher than the static image layer */
+    background: transparent;
+    pointer-events: auto;
+    width: 600px !important; 
+    height: 450px !important;
+    /* This rule magically blends the particle colors with the silhouette below it */
+    mix-blend-mode: source-atop; 
+}
+
+.sharp-logo-layer {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important; 
+    width: 135px !important; 
+    height: auto !important;
+    z-index: 10 !important; /* Sits right beneath the canvas interactive dots */
+    pointer-events: none;
+    transition: filter 0.3s ease;
+}
+
+/* When particles fly away, give the underlying static image a soft interactive glow */
+.brand-container.is-bursting .sharp-logo-layer {
+    filter: drop-shadow(0 0 8px rgba(11, 44, 102, 0.15));
+}
