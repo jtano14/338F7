@@ -28,36 +28,41 @@ html {
 
 /* Restores natural layout order to prevent sections from clumping on page load */
 .hero-section,
+position: relative !important;
+    height: 100vh !important;
+    min-height: 100vh !important;
+    max-height: 100vh !important;
+    width: 100vw !important;
+    z-index: 1;
+}
+
 .about-section,
 .services-section,
 .framework-section,
 .leadership-section,
 .sectors-section,
 .contact-section {
-    position: relative !important; /* Changed to relative to clear all sticky overlaps */
+    position: relative !important;
     height: 100vh !important;
     min-height: 100vh !important;
     max-height: 100vh !important;
     width: 100vw !important;
-    scroll-snap-align: start; 
+    scroll-snap-align: start;
     scroll-snap-stop: always;
     overflow: hidden !important;
-    box-sizing: border-box;
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-between !important;
-    padding: 100px 0 24px 0 !important; 
+    padding: 100px 0 24px 0 !important;
     will-change: transform, opacity;
 }
 
-.hero-section       { background: transparent !important; }
-.about-section      { background-color: var(--light-bg) !important; }
-.services-section   { background-color: var(--white) !important; }
-.framework-section  { background-color: var(--white) !important; } 
-.leadership-section { background-color: var(--white) !important; }
-.sectors-section    { background-color: var(--light-bg) !important; }
-.contact-section    { background-color: var(--white) !important; }
-
+.about-section { z-index: 2; background-color: var(--light-bg) !important; }
+.services-section { z-index: 3; background-color: var(--white) !important; }
+.framework-section { z-index: 4; background-color: var(--white) !important; }
+.leadership-section { z-index: 5; background-color: var(--white) !important; }
+.sectors-section { z-index: 6; background-color: var(--light-bg) !important; }
+.contact-section { z-index: 7; background-color: var(--white) !important; }
 
 body {
     margin: 0;
