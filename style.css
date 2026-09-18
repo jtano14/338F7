@@ -27,6 +27,7 @@ html {
 }
 
 /* Restores natural layout order to prevent sections from clumping on page load */
+main > section,
 .hero-section,
 .about-section,
 .services-section,
@@ -34,7 +35,8 @@ html {
 .leadership-section,
 .sectors-section,
 .contact-section {
-    position: relative !important; /* Forces normal sequential row stacking order */
+    position: sticky !important;  /* Forces normal sequential row stacking order */
+    top: 0 !important;
     height: 100vh !important;
     min-height: 100vh !important;
     max-height: 100vh !important;
@@ -46,22 +48,25 @@ html {
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-between !important;
-    padding: 100px 0 24px 0 !important; /* Perfect uniform margin clearance below nav */
+    padding: 100px 0 24px 0 !important; 
     will-change: transform, opacity;
+    box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.12); /* Drop shadow marks the card edge separating screens */
 }
 
-.hero-section       { background: transparent !important; z-index: 1; }
-.about-section      { background-color: var(--light-bg) !important; z-index: 2; }
-.services-section   { background-color: var(--white) !important; z-index: 3; }
-.framework-section  { background-color: var(--white) !important; z-index: 4; } 
-.leadership-section { background-color: var(--white) !important; z-index: 5; }
-.sectors-section    { background-color: var(--light-bg) !important; z-index: 6; }
-.contact-section    { background-color: var(--white) !important; z-index: 7; }
+.hero-section             { background: transparent !important; z-index: 1 !important; }
+.about-section            { background-color: var(--light-bg) !important; z-index: 2 !important; }
+.services-section         { background-color: var(--white) !important; z-index: 3 !important; }
+.framework-section,
+.framework-scroll-section { background-color: var(--white) !important; z-index: 4 !important; } 
+.leadership-section       { background-color: var(--white) !important; z-index: 5 !important; }
+.sectors-section          { background-color: var(--light-bg) !important; z-index: 6 !important; }
+.contact-section          { background-color: var(--white) !important; z-index: 7 !important; }
+
 
 body {
     margin: 0;
     color: var(--text-dark);
-    background: #ffffff !important; /* Forces flat solid white foundation background */
+    background: #ffffff !important;
     font-family: var(--font-family);
     font-size: 16px;
     line-height: 1.7;
