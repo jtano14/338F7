@@ -411,10 +411,12 @@ main > section:not(.hero-section) {
     max-width: none !important;
 }
 
+/* Deleted Tempto keep flux arrow image visible for smoother transition
 .brand-container.is-bursting .sharp-logo-layer {
     opacity: 0 !important;
     visibility: hidden;
 }
+*/
 
 /* ==========================================================================
    4B. HERO TYPOGRAPHY, BRAND LABELS & CTAs (CONTINUED)
@@ -1549,4 +1551,44 @@ main,
     gap: 8px !important;
     margin: 20px auto 0 !important;
     text-align: center !important;
+}
+
+/* ==========================================================================
+   17. PERFECT LOGO CANVAS LAYERED COORDINATION MATRIX
+   ========================================================================== */
+.logo-wrapper {
+    position: relative !important;
+    width: 160px !important;  
+    height: 120px !important; 
+    margin: 0 auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Force the canvas bounding box to lock directly dead-center behind the image */
+#bubbleCanvas {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important; 
+    z-index: 1;
+    background: transparent;
+    pointer-events: auto;
+    width: 600px !important; /* Slightly widened interaction bounds */
+    height: 450px !important;
+    max-width: none !important;
+}
+
+/* Force your solid static logo image to stay dead-center on top of the canvas */
+.sharp-logo-layer {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important; 
+    width: 140px !important; 
+    height: auto !important;
+    z-index: 10 !important; 
+    transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
 }
