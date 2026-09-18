@@ -911,6 +911,36 @@ main,
     box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
 }
 
+/* Added Leadershup Card Text Density */
+.leader-info {
+    padding: 20px 0;
+    text-align: center;
+}
+
+.leader-regions {
+    display: block;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent-blue);
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.leader-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent-blue);
+    margin: 8px 0 !important;
+}
+
+.leader-description {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+    margin-top: 10px !important;
+}
+
 
 /* ==========================================================================
    9. INDUSTRIES & SECTORS WE SERVE
