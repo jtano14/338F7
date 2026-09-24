@@ -337,13 +337,13 @@ function updateScrollEffects() {
     });
 
     // SECTION FADE OVERLAY - FADE OUT BACKGROUND SECTIONS
-    const allSections = document.querySelectorAll('.about-section, .services-section, .framework-section, .leadership-section, .sectors-section, .contact-section');
+   const allSections = document.querySelectorAll('.about-section, .services-section, .framework-section, .leadership-section, .sectors-section, .contact-section');
     
-    allSections.forEach((section, index) => {
+    allSections.forEach((section) => {
         const rect = section.getBoundingClientRect();
         
-        // If section is scrolled above viewport (in background), add fade
-        if (rect.top < 0) {
+        // If section is above viewport (scrolled past), add fade class
+        if (rect.bottom < 0) {
             section.classList.add('faded');
         } else {
             section.classList.remove('faded');
