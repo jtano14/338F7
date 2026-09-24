@@ -958,24 +958,29 @@ main {
     grid-column: 2 !important;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 16px;
 }
 
 .image-corner-frame {
     position: relative;
     width: 100%;
+    margin-bottom: 12px;
 }
 
 .image-corner-frame img {
     width: 100%;
     height: auto;
+    max-height: 280px;
     object-fit: cover;
-    border-radius: 8px;
-    box-shadow: 0 8px 24px rgba(11, 34, 64, 0.12);
-    border: 2px solid var(--accent-blue);
+    border-radius: 0px;
+    box-shadow: 
+        /* Top-right corner */
+        inset -8px -8px 0px -4px var(--accent-blue),
+        /* Bottom-left corner */
+        inset 8px 8px 0px -4px var(--accent-blue);
 }
 
-/* Company Overview: Right column only */
+* Company Overview: Reduce padding and gaps */
 .corporate-profile-panel {
     grid-column: 2 !important;
     background-color: transparent !important;
@@ -986,10 +991,10 @@ main {
 }
 
 .corporate-profile-panel h3 {
-    font-size: 1.1rem !important;
-    margin-bottom: 12px !important;
+    font-size: 0.95rem !important;
+    margin-bottom: 10px !important;
     border-bottom: 1px solid var(--border-color);
-    padding-bottom: 8px !important;
+    padding-bottom: 6px !important;
     color: var(--primary-color);
     font-weight: 700 !important;
 }
@@ -997,14 +1002,14 @@ main {
 .profile-matrix-grid {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
-    gap: 16px !important;
+    gap: 12px !important;
 }
 
 .matrix-item {
     display: flex;
     flex-direction: column;
     border-bottom: 1px solid var(--border-color);
-    padding-bottom: 12px;
+    padding-bottom: 10px;
 }
 
 .matrix-item.dynamic-span-wide {
@@ -1012,16 +1017,16 @@ main {
 }
 
 .matrix-label {
-    font-size: 0.65rem;
+    font-size: 0.6rem;
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 0.08em;
     color: var(--text-muted);
-    margin-bottom: 4px;
+    margin-bottom: 3px;
 }
 
 .matrix-value {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 600;
     color: var(--primary-color);
 }
