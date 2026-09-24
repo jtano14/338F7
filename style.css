@@ -48,9 +48,9 @@ html {
     top: 0 !important;
     height: 100vh !important;
     min-height: 100vh !important;
-    max-height: 100vh !important;
+    max-height: none !important;
     width: 100vw !important;
-    overflow: hidden !important;
+    overflow: visable !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: flex-start !important;
