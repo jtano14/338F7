@@ -929,34 +929,33 @@ main {
     box-shadow: 0 -20px 40px rgba(11, 34, 64, 0.08) !important;
 }
 
-/* 2-COLUMN LAYOUT: Content Left, Image+Overview Right */
+/* Main 2-column container */
 .about-container {
     display: grid !important;
     grid-template-columns: 1fr 1.1fr !important;
     gap: 32px !important;
     align-items: flex-start !important;
-    height: 100%;
 }
 
-/* LEFT COLUMN: Main content grid */
+/* about-main-grid spans full width but is 2-column internally */
 .about-main-grid {
-    grid-column: 1 !important;
+    grid-column: 1 / -1 !important;
     display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 16px !important;
-    align-items: flex-start !important;
+    grid-template-columns: 1fr 1.1fr !important;
+    gap: 32px !important;
 }
 
+/* LEFT: Content */
 .about-content {
+    grid-column: 1 !important;
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
 
-/* RIGHT COLUMN: Image */
+/* RIGHT: Image */
 .about-image-wrapper {
     grid-column: 2 !important;
-    grid-row: 1 !important;
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -976,10 +975,9 @@ main {
     border: 2px solid var(--accent-blue);
 }
 
-/* Company Overview: Right column, below image */
+/* Company Overview: Right column only */
 .corporate-profile-panel {
     grid-column: 2 !important;
-    grid-row: 2 !important;
     background-color: transparent !important;
     border: none !important;
     box-shadow: none !important;
