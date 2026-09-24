@@ -922,40 +922,36 @@ main {
    ========================================================================== */
 .about-section {
     background-color: var(--light-bg) !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    padding: 40px 0 !important;
-    box-shadow: 0 -20px 40px rgba(11, 34, 64, 0.08) !important;
-}
-
-/* 2-Column Layout Container */
-.about-container {
     display: grid !important;
     grid-template-columns: 1fr 1.1fr !important;
-    gap: 32px !important;
+    gap: 60px !important;
+    padding: 100px 80px !important;
+    box-shadow: 0 -20px 40px rgba(11, 34, 64, 0.08) !important;
     align-items: flex-start !important;
+    justify-items: start !important;
 }
 
-/* Use display: contents to let children become grid items */
+.about-container {
+    display: contents;
+}
+
 .about-main-grid {
     display: contents;
 }
 
-/* LEFT COLUMN: Content */
 .about-content {
     grid-column: 1 !important;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    align-items: flex-start !important;
 }
 
-/* RIGHT COLUMN: Image */
 .about-image-wrapper {
     grid-column: 2 !important;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 24px !important;
 }
 
 .image-corner-frame {
