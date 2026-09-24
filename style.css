@@ -44,19 +44,18 @@ html {
 .leadership-section,
 .sectors-section,
 .contact-section {
-    position: relative !important;
+    position: sticky !important;
+    top: 0 !important;
     height: 100vh !important;
     min-height: 100vh !important;
     max-height: 100vh !important;
     width: 100vw !important;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
     overflow: hidden !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: flex-start !important;
     gap: 24px !important;
-    padding: 76px 0 24px 0 !important;
+    padding: 120px 0 24px 0 !important;
     margin: 0 !important;
     will-change: transform, opacity;
 }
