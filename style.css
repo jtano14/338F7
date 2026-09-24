@@ -929,7 +929,7 @@ main {
     box-shadow: 0 -20px 40px rgba(11, 34, 64, 0.08) !important;
 }
 
-/* Main 2-column container */
+/* 2-Column Layout Container */
 .about-container {
     display: grid !important;
     grid-template-columns: 1fr 1.1fr !important;
@@ -937,15 +937,12 @@ main {
     align-items: flex-start !important;
 }
 
-/* about-main-grid spans full width but is 2-column internally */
+/* Use display: contents to let children become grid items */
 .about-main-grid {
-    grid-column: 1 / -1 !important;
-    display: grid !important;
-    grid-template-columns: 1fr 1.1fr !important;
-    gap: 32px !important;
+    display: contents;
 }
 
-/* LEFT: Content */
+/* LEFT COLUMN: Content */
 .about-content {
     grid-column: 1 !important;
     display: flex;
@@ -953,7 +950,7 @@ main {
     gap: 12px;
 }
 
-/* RIGHT: Image */
+/* RIGHT COLUMN: Image */
 .about-image-wrapper {
     grid-column: 2 !important;
     display: flex;
@@ -964,23 +961,21 @@ main {
 .image-corner-frame {
     position: relative;
     width: 100%;
-    margin-bottom: 12px;
 }
 
 .image-corner-frame img {
     width: 100%;
     height: auto;
-    max-height: 280px;
+    max-height: 240px;
     object-fit: cover;
-    border-radius: 0px;
+    border-radius: 6px;
     box-shadow: 
-        /* Top-right corner */
-        inset -8px -8px 0px -4px var(--accent-blue),
-        /* Bottom-left corner */
-        inset 8px 8px 0px -4px var(--accent-blue);
+        inset -12px -12px 0px -6px var(--accent-blue),
+        inset 12px 12px 0px -6px var(--accent-blue),
+        0 4px 12px rgba(11, 34, 64, 0.08);
 }
 
-* Company Overview: Reduce padding and gaps */
+/* RIGHT COLUMN: Company Overview below image */
 .corporate-profile-panel {
     grid-column: 2 !important;
     background-color: transparent !important;
@@ -991,7 +986,7 @@ main {
 }
 
 .corporate-profile-panel h3 {
-    font-size: 0.95rem !important;
+    font-size: 1rem !important;
     margin-bottom: 10px !important;
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 6px !important;
