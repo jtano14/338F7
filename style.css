@@ -67,6 +67,228 @@ html {
 .sectors-section { z-index: 6; background-color: var(--light-bg) !important; }
 .contact-section { z-index: 7; background-color: var(--white) !important; }
 
+/* ========================================================================== */
+/* SECTION-SPECIFIC SIZING TO FIT 100VH */
+/* ========================================================================== */
+
+/* ABOUT SECTION */
+.about-section .section-tag {
+    font-size: 0.7rem !important;
+    margin-bottom: 8px !important;
+}
+
+.about-section h2 {
+    font-size: 1.8rem !important;
+    margin-bottom: 12px !important;
+}
+
+.about-section p {
+    font-size: 0.9rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 8px !important;
+}
+
+.about-section .image-corner-frame img {
+    max-height: 280px !important;
+    object-fit: cover !important;
+}
+
+.about-section .corporate-profile-panel {
+    padding: 12px 20px !important;
+    margin-top: 8px !important;
+}
+
+.about-section .corporate-profile-panel h3 {
+    font-size: 1rem !important;
+    margin-bottom: 8px !important;
+}
+
+.about-section .matrix-value {
+    font-size: 0.85rem !important;
+}
+
+/* SERVICES SECTION */
+.services-section .section-tag {
+    font-size: 0.7rem !important;
+    margin-bottom: 6px !important;
+}
+
+.services-section h2 {
+    font-size: 1.8rem !important;
+    margin-bottom: 12px !important;
+}
+
+.services-section p {
+    font-size: 0.9rem !important;
+    line-height: 1.4 !important;
+}
+
+.services-section .services-grid {
+    gap: 16px !important;
+    margin-top: 24px !important;
+}
+
+.services-section .service-card {
+    padding: 24px !important;
+}
+
+.services-section .service-card h3 {
+    font-size: 1.1rem !important;
+    margin-bottom: 8px !important;
+}
+
+.services-section .service-card p {
+    font-size: 0.85rem !important;
+}
+
+/* FRAMEWORK SECTION */
+.framework-section .section-tag {
+    font-size: 0.7rem !important;
+    margin-bottom: 6px !important;
+}
+
+.framework-section h2 {
+    font-size: 1.8rem !important;
+    margin-bottom: 12px !important;
+}
+
+.framework-section .framework-intro {
+    font-size: 0.8rem !important;
+    margin-bottom: 12px !important;
+}
+
+.framework-section .horizontal-slider-container {
+    padding: 8px 0 !important;
+}
+
+.framework-section .flip-card-node {
+    width: 220px !important;
+    height: 130px !important;
+}
+
+.framework-section .flip-card-front h3 {
+    font-size: 0.75rem !important;
+}
+
+.framework-section .service-packages-fixed-bottom {
+    padding-top: 8px !important;
+}
+
+.framework-section .service-packages-fixed-bottom h3 {
+    font-size: 0.95rem !important;
+    margin-bottom: 6px !important;
+}
+
+.framework-section .package-card {
+    padding: 8px 12px !important;
+}
+
+/* LEADERSHIP SECTION */
+.leadership-section .section-tag {
+    font-size: 0.7rem !important;
+    margin-bottom: 6px !important;
+}
+
+.leadership-section h2 {
+    font-size: 1.8rem !important;
+    margin-bottom: 8px !important;
+}
+
+.leadership-section .leadership-intro {
+    font-size: 0.85rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 12px !important;
+}
+
+.leadership-section .leadership-grid {
+    gap: 16px !important;
+}
+
+.leadership-section .leader-card img {
+    max-height: 220px !important;
+    object-fit: cover !important;
+}
+
+.leadership-section .leader-info {
+    padding: 12px 0 !important;
+}
+
+.leadership-section .leader-title {
+    font-size: 0.8rem !important;
+}
+
+.leadership-section .leader-description {
+    font-size: 0.75rem !important;
+    margin-top: 6px !important;
+}
+
+/* SECTORS SECTION */
+.sectors-section .section-tag {
+    font-size: 0.7rem !important;
+    margin-bottom: 6px !important;
+}
+
+.sectors-section h2 {
+    font-size: 1.8rem !important;
+    margin-bottom: 8px !important;
+}
+
+.sectors-section .sectors-intro {
+    font-size: 0.85rem !important;
+    margin-bottom: 12px !important;
+}
+
+.sectors-section .sectors-grid {
+    gap: 12px !important;
+}
+
+.sectors-section .sector-card {
+    padding: 16px !important;
+}
+
+.sectors-section .sector-card h3 {
+    font-size: 1rem !important;
+    margin-bottom: 6px !important;
+}
+
+.sectors-section .sector-card p {
+    font-size: 0.8rem !important;
+}
+
+/* CONTACT SECTION */
+.contact-section .section-tag {
+    font-size: 0.7rem !important;
+    margin-bottom: 6px !important;
+}
+
+.contact-section h2 {
+    font-size: 1.8rem !important;
+    margin-bottom: 8px !important;
+}
+
+.contact-section .contact-intro {
+    font-size: 0.85rem !important;
+    margin-bottom: 12px !important;
+}
+
+.contact-section .contact-panel {
+    padding: 32px !important;
+}
+
+.contact-section .contact-form-grid {
+    gap: 16px !important;
+}
+
+.contact-section .form-group label {
+    font-size: 0.9rem !important;
+}
+
+.contact-section input,
+.contact-section select,
+.contact-section textarea {
+    font-size: 0.9rem !important;
+}
+
 body {
     margin: 0;
     color: var(--text-dark);
