@@ -966,16 +966,24 @@ main {
 .image-corner-frame img {
     width: 100%;
     height: auto;
-    max-height: 240px;
+    max-height: 200px;
     object-fit: cover;
     border-radius: 6px;
     box-shadow: 
-        inset -12px -12px 0px -6px var(--accent-blue),
-        inset 12px 12px 0px -6px var(--accent-blue),
+        inset -10px -10px 0px -5px var(--accent-blue),
+        inset 10px 10px 0px -5px var(--accent-blue),
         0 4px 12px rgba(11, 34, 64, 0.08);
 }
 
-/* RIGHT COLUMN: Company Overview below image */
+/* RIGHT COLUMN: Image + Company Overview spacing */
+.about-image-wrapper {
+    grid-column: 2 !important;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Company Overview: Make it more prominent */
 .corporate-profile-panel {
     grid-column: 2 !important;
     background-color: transparent !important;
@@ -986,10 +994,10 @@ main {
 }
 
 .corporate-profile-panel h3 {
-    font-size: 1rem !important;
-    margin-bottom: 10px !important;
+    font-size: 1.05rem !important;
+    margin-bottom: 14px !important;
     border-bottom: 1px solid var(--border-color);
-    padding-bottom: 6px !important;
+    padding-bottom: 8px !important;
     color: var(--primary-color);
     font-weight: 700 !important;
 }
@@ -997,14 +1005,14 @@ main {
 .profile-matrix-grid {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
-    gap: 12px !important;
+    gap: 16px !important;
 }
 
 .matrix-item {
     display: flex;
     flex-direction: column;
     border-bottom: 1px solid var(--border-color);
-    padding-bottom: 10px;
+    padding-bottom: 12px;
 }
 
 .matrix-item.dynamic-span-wide {
@@ -1012,16 +1020,16 @@ main {
 }
 
 .matrix-label {
-    font-size: 0.6rem;
+    font-size: 0.62rem;
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 0.08em;
     color: var(--text-muted);
-    margin-bottom: 3px;
+    margin-bottom: 4px;
 }
 
 .matrix-value {
-    font-size: 0.85rem;
+    font-size: 0.88rem;
     font-weight: 600;
     color: var(--primary-color);
 }
