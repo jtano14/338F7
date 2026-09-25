@@ -460,14 +460,12 @@ h2 {
 .sectors-section,
 .contact-section {
     position: relative !important;
-    height: auto !important;
-    min-height: auto !important;
-    max-height: none !important;
     width: 100% !important;
     overflow: visible !important;
     display: block !important;
-    padding: 80px 0 !important;
+    padding: 80px 40px !important;
     margin: 0 !important;
+    min-height: 100vh !important;
 }
 
 .about-section { background-color: var(--light-bg) !important; }
@@ -486,6 +484,8 @@ h2 {
     gap: 60px !important;
     align-items: flex-start !important;
     justify-items: start !important;
+    min-height: 100vh !important;
+    padding: 100px 80px !important;
 }
 
 .about-container {
@@ -498,16 +498,20 @@ h2 {
 
 .about-content {
     grid-column: 1 !important;
+    grid-row: 1 !important;
     display: flex !important;
     flex-direction: column !important;
     gap: 16px !important;
+    justify-content: flex-start !important;
 }
 
 .about-image-wrapper {
     grid-column: 2 !important;
+    grid-row: 1 !important;
     display: flex !important;
     flex-direction: column !important;
     gap: 24px !important;
+    justify-content: flex-start !important;
 }
 
 .image-corner-frame {
@@ -529,10 +533,11 @@ h2 {
 
 .corporate-profile-panel {
     grid-column: 2 !important;
+    grid-row: 2 !important;
     background-color: transparent !important;
     border: none !important;
     box-shadow: none !important;
-    padding: 0 !important;
+    padding: 24px 0 0 0 !important;
     margin: 0 !important;
 }
 
