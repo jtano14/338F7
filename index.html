@@ -209,63 +209,85 @@
             <!-- ==========================================================================
                  5. OUR SERVICES SECTION
                  ========================================================================== -->
-            <section class="services-section" id="services" aria-labelledby="services-heading">
+            <section class="services-section" id="services">
                 <div class="container">
                     
-                    <div class="center-text">
-                        <span class="section-tag">Our Promise</span>
-                        <h2 id="services-heading">Two Directions, One Seamless Strategy</h2>
-                        <p class="max-width-small">Accelerate value. Reduce risk. Deliver seamless global flow.</p>
+                    <!-- TOP & MIDDLE SECTION: Centered Headers and Description -->
+                    <div class="center-text" style="margin-bottom: 48px;">
+                        <p class="section-tag">Our Promise</p>
+                        <h2>Two Directions, One Seamless Strategy</h2>
+                        <p class="framework-intro" style="max-width: 680px; margin: 0 auto; color: var(--text-muted);">
+                            Accelerate value. Reduce risk. Deliver seamless global flow.
+                        </p>
                     </div>
-
+            
+                    <!-- BOTTOM SECTION: 2-Column Hover Flip Service Cards -->
                     <div class="services-grid">
                         
-                        <!-- Panel A: Inbound Market Services -->
-                        <div class="service-card" data-service-card>
-                            <div class="service-card-header">
-                                <div class="card-icon" aria-hidden="true">&Target;</div>
-                                <h3>Into Japan &amp; Asia</h3>
-                                <button class="service-toggle" data-service-toggle aria-label="Expand service details list" aria-expanded="false">
-                                    <span aria-hidden="true">&plus;</span>
-                                </button>
-                            </div>
-                            <p>For global companies entering Japan, India, Singapore, Brunei, and GCC markets.</p>
-                            <div class="service-card-details" data-service-details aria-hidden="true" style="display: none;">
-                                <h4>Our core capabilities include:</h4>
-                                <ul>
-                                    <li>Strategic market entry &amp; JV/M&amp;A partner matching</li>
-                                    <li>Network introductions &amp; deal facilitation</li>
-                                    <li>Organizational design &amp; cultural alignment</li>
-                                    <li>Regulatory deep dive &amp; compliance mapping</li>
-                                    <li>Supply chain regional localization</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- Panel B: Outbound Market Expansion -->
-                        <div class="service-card" data-service-card>
-                            <div class="service-card-header">
-                                <div class="card-icon" aria-hidden="true">&CircleDot;</div>
-                                <h3>Going Global</h3>
-                                <button class="service-toggle" data-service-toggle aria-label="Expand service details list" aria-expanded="false">
-                                    <span aria-hidden="true">&plus;</span>
-                                </button>
-                            </div>
-                            <p>For regional companies scaling out to international target markets.</p>
-                            <div class="service-card-details" data-service-details aria-hidden="true" style="display: none;">
-                                <h4>Our core capabilities include:</h4>
-                                <ul>
-                                    <li>Global expansion strategy &amp; operational roadmap</li>
-                                    <li>Cross-border partnership facilitation</li>
-                                    <li>Cross-regional technology &amp; system integration</li>
-                                    <li>Risk, asset finance &amp; compliance management</li>
-                                    <li>Leadership immersion &amp; cultural synergy workshops</li>
-                                </ul>
+                        <!-- LEFT CARD: Into Japan & Asia -->
+                        <div class="flip-card-node">
+                            <div class="flip-card-inner">
+                                <!-- Front Side -->
+                                <div class="flip-card-front service-card">
+                                    <div class="service-card-header">
+                                        <div class="card-icon">
+                                            <!-- Fixed: Replaced broken &Target; with a clean SVG Target Icon -->
+                                            <svg xmlns="http://w3.org" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-blue);">
+                                                <circle cx="12" cy="12" r="10"></circle>
+                                                <circle cx="12" cy="12" r="6"></circle>
+                                                <circle cx="12" cy="12" r="2"></circle>
+                                            </svg>
+                                        </div>
+                                        <h3>Into Japan & Asia</h3>
+                                    </div>
+                                    <p style="color: var(--text-muted); font-size: 0.95rem; margin: 0;">
+                                        For global companies entering Japan, India, Singapore, Brunei, and GCC markets.
+                                    </p>
+                                </div>
+                                <!-- Back Side (Primary Color background, White text) -->
+                                <div class="flip-card-back">
+                                    <h3>Our Core Capabilities</h3>
+                                    <p>• Strategic market entry & JV/M&A partner matching</p>
+                                    <p>• Network introductions & deal facilitation</p>
+                                    <p>• Organizational design & cultural alignment</p>
+                                    <p>• Regulatory deep dive & compliance mapping</p>
+                                </p>
+                                </div>
                             </div>
                         </div>
-
+            
+                        <!-- RIGHT CARD: Going Global -->
+                        <div class="flip-card-node">
+                            <div class="flip-card-inner">
+                                <!-- Front Side -->
+                                <div class="flip-card-front service-card">
+                                    <div class="service-card-header">
+                                        <div class="card-icon">
+                                            <!-- Clean matching SVG Globe/Compass Icon -->
+                                            <svg xmlns="http://w3.org" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-blue);">
+                                                <circle cx="12" cy="12" r="10"></circle>
+                                                <line x1="2" y1="12" x2="22" y2="12"></line>
+                                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                                            </svg>
+                                        </div>
+                                        <h3>Going Global</h3>
+                                    </div>
+                                    <p style="color: var(--text-muted); font-size: 0.95rem; margin: 0;">
+                                        For regional companies scaling out to international target markets.
+                                    </p>
+                                </div>
+                                <!-- Back Side (Primary Color background, White text) -->
+                                <div class="flip-card-back">
+                                    <h3>Our Core Capabilities</h3>
+                                    <p>• Global expansion strategy & operational roadmap</p>
+                                    <p>• Cross-border partnership facilitation</p>
+                                    <p>• Cross-regional technology & system integration</p>
+                                    <p>• Risk, asset finance & compliance management</p>
+                                </div>
+                            </div>
+                        </div>
+            
                     </div>
-
                 </div>
             </section>
 
