@@ -1122,47 +1122,105 @@ main { position: relative; width: 100%; }
 
 
 /* SECTORS */
+/* ==========================================================================
+   SECTORS SECTION - BALANCE & SPACING REFACTOR
+   ========================================================================== */
+.sectors-section {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important; /* Centers the entire block vertically in the viewport */
+    padding: 80px 40px !important;
+}
+
+.sectors-section .container {
+    width: min(100% - 40px, var(--container-width));
+    margin: 0 auto;
+}
+
+/* Adds breathing room below the main section headers */
+.sectors-section h2 {
+    margin-bottom: 16px !important;
+}
+
+/* Creates a generous, balanced gap between the intro text and the cards */
+.sectors-section p.center-text,
+.sectors-section .framework-intro,
+.sectors-section p {
+    margin-bottom: 56px !important; 
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Cards Layout Grid Grid */
 .sectors-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
-    margin-top: 32px;
+    gap: 24px; /* Slightly increased gap for better breathing room between columns */
+    margin-top: 0; /* Handled via the description margin above */
+    width: 100%;
 }
 
 .sector-card {
     background-color: var(--white);
     border: 1px solid var(--border-color);
-    border-radius: 4px;
-    padding: 28px;
+    border-radius: 6px; /* Slightly smoother rounded look */
+    padding: 32px 24px; /* More balanced padding box */
     display: flex;
     flex-direction: column;
+    height: 100%;
     transition: var(--transition-smooth);
 }
 
 .sector-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(11, 34, 64, 0.08);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(11, 34, 64, 0.06);
 }
 
 .sector-icon {
-    margin-bottom: 16px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
 }
 
-.sector-icon svg {
+/* Styling for fallback black boxes/shapes or inline icons */
+.sector-icon svg,
+.sector-icon div,
+.sector-icon span {
     width: 32px;
     height: 32px;
     color: var(--accent-blue);
 }
 
 .sector-card h3 {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-top: 0;
     margin-bottom: 12px;
+    color: var(--primary-color);
 }
 
 .sector-card p {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
+    line-height: 1.5;
     color: var(--text-muted);
+    margin: 0 !important; /* Prevents text from pushing card boundaries layout-wise */
 }
+
+/* Responsive breakpoint scaling */
+@media (max-width: 1024px) {
+    .sectors-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sectors-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
+
 
 /* CONTACT */
 .contact-panel {
