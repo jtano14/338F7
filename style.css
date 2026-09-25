@@ -402,6 +402,7 @@ main { position: relative; width: 100%; }
     display: flex;
     flex-direction: column;
     gap: 16px;
+    padding-bottom: 24px; /* Gently pushes Row 3 lower to match right column depth */
 }
 
 .about-row-desc-left h2 {
@@ -420,6 +421,9 @@ main { position: relative; width: 100%; }
 .image-corner-frame {
     position: relative;
     width: 100%;
+    /* Creates padding room so the decorative accent lines don't get cropped */
+    padding: 12px; 
+    box-sizing: border-box;
 }
 
 .image-corner-frame img {
@@ -429,6 +433,36 @@ main { position: relative; width: 100%; }
     object-fit: cover;
     border-radius: 6px;
     box-shadow: 0 8px 24px rgba(11, 34, 64, 0.05);
+}
+
+/* TOP-RIGHT DECORATIVE ACCENT CORNER */
+.image-corner-frame::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    border-top: 3px solid var(--accent-blue);
+    border-right: 3px solid var(--accent-blue);
+    border-top-right-radius: 4px;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* BOTTOM-LEFT DECORATIVE ACCENT CORNER */
+.image-corner-frame::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    border-bottom: 3px solid var(--accent-blue);
+    border-left: 3px solid var(--accent-blue);
+    border-bottom-left-radius: 4px;
+    pointer-events: none;
+    z-index: 2;
 }
 
 /* ROW 3 LEFT: Promise box and numbers locked on line with profile matrix */
