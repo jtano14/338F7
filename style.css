@@ -1494,7 +1494,7 @@ main { position: relative; width: 100%; }
 }
 
 .footer-logo img { 
-    max-height: 75px !important; /* Matches the header logo size perfectly */
+    max-height: 150px !important; /* Bumped up to 200% size so it feels strong and authoritative */
     width: auto;
     display: block;
     filter: brightness(0) invert(1) !important; /* Keeps the logo pure white */
