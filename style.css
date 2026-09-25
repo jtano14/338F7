@@ -22,8 +22,8 @@
 html {
     scroll-behavior: smooth;
     background-color: #ffffff;
-    /* MAGIC ENHANCEMENT: Activates vertical snapping across the page */
-    scroll-snap-type: y mandatory; 
+    /* Changed to proximity to allow smooth organic transitions between short blocks */
+    scroll-snap-type: y proximity; 
 }
 
 body {
@@ -34,7 +34,6 @@ body {
     font-size: 16px;
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
-    /* EXTRA PROTECTION: Locks viewport baseline scaling */
     height: 100vh;
     overflow-y: scroll;
 }
@@ -51,10 +50,21 @@ section,
 .sectors-section,
 .contact-section,
 .main-footer {
-    /* Pulls the top border of each page cleanly into the window view line */
+    position: relative;
+    /* 1. Anchors the page block cleanly */
     scroll-snap-align: start !important;
-    /* Prevents users from accidentally skipping full sections when spinning the scroll wheel */
+    /* 2. CRITICAL FIX: Forces the browser momentum engine to physically STOP 
+          at this section boundary, even if the user scrolls very fast! */
     scroll-snap-stop: always !important; 
+    
+    /* 3. Adds slight structural hardware separation */
+    transform: translateZ(0); 
+    backface-visibility: hidden;
+}
+
+/* Specific buffer fix for your 'About' layout wrapper if it is shorter than 100vh */
+.about-section {
+    min-height: 100vh !important; /* Guarantees a full viewport landing pad so it cannot be skipped */
 }
 
 img { display: block; max-width: 100%; height: auto; }
