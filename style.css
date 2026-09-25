@@ -729,7 +729,7 @@ main { position: relative; width: 100%; }
 
 /* FRAMEWORK */
 /* ==========================================================================
-   FINAL PLATINUM BLUEPRINT - ALIGNED TEXT LINES & SLENDER LOWER DECKS
+   FINAL PRODUCTION BLUEPRINT - FIXED FLIPS & BALANCED VERTICAL MARGINS
    ========================================================================== */
 
 .framework-section {
@@ -795,15 +795,15 @@ main { position: relative; width: 100%; }
 
 .horizontal-slider-track {
     display: flex;
-    gap: 24px; /* Matches the new JavaScript layout spacing */
+    gap: 24px; 
     width: max-content;
     transform-style: preserve-3d !important;
 }
 
-/* FLIP NODES RATIO REDESIGN */
+/* FLIP NODES DESIGN */
 .flip-card-node {
-    width: 195px;  /* FIXED: Shrunk card width to force Card 7 into a balanced two-row structure */
-    height: 155px; /* FIXED: Increased height to give texts full bounding box safety space */
+    width: 195px;  
+    height: 155px; 
     perspective: 1000px !important;
     flex-shrink: 0;
 }
@@ -814,6 +814,10 @@ main { position: relative; width: 100%; }
     height: 100%;
     transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
     transform-style: preserve-3d !important;
+}
+
+.flip-card-node:hover .flip-card-inner {
+    transform: rotateY(180deg) !important;
 }
 
 .flip-card-front, .flip-card-back {
@@ -853,15 +857,24 @@ main { position: relative; width: 100%; }
     text-align: left;
 }
 
-/* FIXED: Re-aligned text to start cleanly from the top edge, matching front alignment placement */
+/* FIXED: Correct back container styling layout properties */
 .flip-card-back {
     background-color: var(--primary-color) !important;
     color: var(--white) !important;
     transform: rotateY(180deg) !important;
-    justify-content: flex-start !important; /* Forces top alignment */
+    justify-content: flex-start !important; 
     align-items: flex-start !important;
-    gap: 8px !important;
     text-align: left;
+}
+
+/* FIXED: Wrapper targets content to absolute top safely without breaking transforms */
+.back-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+    height: 100%;
+    justify-content: flex-start;
 }
 
 .flip-card-back h3 {
@@ -877,7 +890,6 @@ main { position: relative; width: 100%; }
 .flip-card-back p {
     font-size: 0.74rem !important; 
     margin: 0 !important;
-    margin-bottom: auto !important; /* FIXED: Pushes text block to the absolute top of container */
     line-height: 1.4;
     color: rgba(255, 255, 255, 0.88) !important;
     white-space: normal !important;
@@ -886,7 +898,8 @@ main { position: relative; width: 100%; }
 /* LOWER COMPONENT DOCKING */
 .service-packages-fixed-bottom {
     border-top: 1px solid var(--border-color);
-    padding-top: 12px;
+    padding-top: 24px; /* FIXED: Increased padding gap below the line */
+    margin-top: 10px !important; /* FIXED: Added extra margin space above header text */
     width: 100%;
 }
 
@@ -894,19 +907,18 @@ main { position: relative; width: 100%; }
     font-size: 0.95rem;
     color: var(--primary-color);
     margin-top: 0;
-    margin-bottom: 12px;
+    margin-bottom: 16px; /* Expanded space between title and grid */
     text-align: center;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
 
-/* FIXED: Restrained grid maximum width to make columns more elegant, slender, and tall */
 .service-packages-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    max-width: 920px; /* Limits horizontal stretch to fill the bottom viewport area */
+    max-width: 920px; 
     margin: 0 auto;
 }
 
@@ -914,7 +926,7 @@ main { position: relative; width: 100%; }
     position: relative;
     background: var(--light-bg);
     border: 1px solid var(--border-color);
-    padding: 18px 20px; /* Expanded inner vertical padding padding */
+    padding: 18px 20px; 
     border-radius: 8px;
     transition: var(--transition-smooth);
 }
