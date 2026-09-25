@@ -383,8 +383,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (track && container && prevBtn && nextBtn) {
         let cards = Array.from(track.children);
-        const cardWidth = 215; // Matches the updated narrower card layout width
-        const gap = 20;        // Matches the updated gap spacing rule
+        const cardWidth = 195; // Matches the updated narrower card layout width
+        const gap = 24;        // Matches the updated gap spacing rule
         const stepShift = cardWidth + gap;
 
         // Initialize: Clone cards on both ends to establish seamless tracking lines
