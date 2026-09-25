@@ -136,7 +136,11 @@ h2 {
 }
 
 .logo-area { display: inline-flex; align-items: center; }
-.site-logo { max-height: 65px; width: auto; }
+.site-logo { 
+    max-height: 75px !important; /* Increased from 65px to look prominent and premium */
+    width: auto;
+    display: block;
+}
 
 .nav-links {
     display: flex;
@@ -1490,10 +1494,10 @@ main { position: relative; width: 100%; }
 }
 
 .footer-logo img { 
-    max-height: 42px; 
+    max-height: 75px !important; /* Matches the header logo size perfectly */
     width: auto;
-    /* This magic filter turns any dark logo completely white instantly! */
-    filter: brightness(0) invert(1) !important; 
+    display: block;
+    filter: brightness(0) invert(1) !important; /* Keeps the logo pure white */
 }
 
 .footer-tagline {
