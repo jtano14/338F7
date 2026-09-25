@@ -728,6 +728,10 @@ main { position: relative; width: 100%; }
 
 
 /* FRAMEWORK */
+/* ==========================================================================
+   FINAL PLATINUM BLUEPRINT - ALIGNED TEXT LINES & SLENDER LOWER DECKS
+   ========================================================================== */
+
 .framework-section {
     position: sticky !important;
     top: 76px !important;
@@ -748,7 +752,7 @@ main { position: relative; width: 100%; }
     display: flex !important;
     flex-direction: column !important;
     justify-content: flex-start !important; 
-    gap: 16px !important; /* FIXED: Adds a little more padding space above slider row */
+    gap: 16px !important; 
     height: 100% !important;
     width: 100%;
     max-width: var(--container-width);
@@ -773,7 +777,7 @@ main { position: relative; width: 100%; }
     text-align: center;
 }
 
-/* CAROUSEL CONTAINER POSITIONING */
+/* CAROUSEL FRAME ACCENTS */
 .framework-slider-outer {
     position: relative;
     display: flex;
@@ -786,48 +790,20 @@ main { position: relative; width: 100%; }
 .horizontal-slider-container {
     width: 100%;
     overflow: hidden;
-    padding: 10px 0; /* Expanded padding zone to accommodate taller boxes */
+    padding: 12px 0; 
 }
 
 .horizontal-slider-track {
     display: flex;
-    gap: 20px; /* Locked loop shift step calculation gap array value */
+    gap: 24px; /* Matches the new JavaScript layout spacing */
     width: max-content;
     transform-style: preserve-3d !important;
 }
 
-/* NAVIGATION CONTROLS */
-.slider-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: var(--white);
-    border: 1px solid var(--border-color);
-    color: var(--primary-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
-    transition: var(--transition-fast);
-}
-
-.slider-arrow:hover {
-    background-color: var(--primary-color);
-    color: var(--white);
-    border-color: var(--primary-color);
-}
-
-.arrow-left { left: 0; }
-.arrow-right { right: 0; }
-
-/* REBALANCED FLIP CARDS WITH TYPOGRAPHY FIXES */
+/* FLIP NODES RATIO REDESIGN */
 .flip-card-node {
-    width: 215px;  /* Narrower card width forces multi-line alignment sync */
-    height: 150px; /* Increased height to give texts full bounding box safety space */
+    width: 195px;  /* FIXED: Shrunk card width to force Card 7 into a balanced two-row structure */
+    height: 155px; /* FIXED: Increased height to give texts full bounding box safety space */
     perspective: 1000px !important;
     flex-shrink: 0;
 }
@@ -840,10 +816,6 @@ main { position: relative; width: 100%; }
     transform-style: preserve-3d !important;
 }
 
-.flip-card-node:hover .flip-card-inner {
-    transform: rotateY(180deg) !important;
-}
-
 .flip-card-front, .flip-card-back {
     position: absolute;
     top: 0;
@@ -852,7 +824,7 @@ main { position: relative; width: 100%; }
     height: 100%;
     backface-visibility: hidden !important;
     border-radius: 6px;
-    padding: 16px 14px; /* Balanced card workspace metrics */
+    padding: 16px 14px; 
     display: flex !important;
     flex-direction: column !important;
     border: 1px solid var(--border-color);
@@ -869,7 +841,7 @@ main { position: relative; width: 100%; }
     font-size: 0.88rem;
     color: var(--primary-color);
     font-weight: 700;
-    line-height: 1.35;
+    line-height: 1.4;
     text-align: left;
 }
 
@@ -881,18 +853,17 @@ main { position: relative; width: 100%; }
     text-align: left;
 }
 
-/* FIXED: Flipped text starts from the absolute top, perfectly aligned with the front number placement */
+/* FIXED: Re-aligned text to start cleanly from the top edge, matching front alignment placement */
 .flip-card-back {
     background-color: var(--primary-color) !important;
     color: var(--white) !important;
     transform: rotateY(180deg) !important;
-    justify-content: flex-start !important; 
+    justify-content: flex-start !important; /* Forces top alignment */
     align-items: flex-start !important;
-    gap: 6px !important;
+    gap: 8px !important;
     text-align: left;
 }
 
-/* FIXED: Title headers are locked onto a single clean row block */
 .flip-card-back h3 {
     margin: 0 !important;
     font-size: 0.82rem !important; 
@@ -904,14 +875,15 @@ main { position: relative; width: 100%; }
 }
 
 .flip-card-back p {
-    font-size: 0.76rem !important; 
+    font-size: 0.74rem !important; 
     margin: 0 !important;
-    line-height: 1.35;
+    margin-bottom: auto !important; /* FIXED: Pushes text block to the absolute top of container */
+    line-height: 1.4;
     color: rgba(255, 255, 255, 0.88) !important;
     white-space: normal !important;
 }
 
-/* REFRESHED LOWER SERVICE PACKAGES COMPONENT */
+/* LOWER COMPONENT DOCKING */
 .service-packages-fixed-bottom {
     border-top: 1px solid var(--border-color);
     padding-top: 12px;
@@ -929,17 +901,20 @@ main { position: relative; width: 100%; }
     letter-spacing: 0.05em;
 }
 
+/* FIXED: Restrained grid maximum width to make columns more elegant, slender, and tall */
 .service-packages-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
+    gap: 20px;
+    max-width: 920px; /* Limits horizontal stretch to fill the bottom viewport area */
+    margin: 0 auto;
 }
 
 .package-card {
     position: relative;
     background: var(--light-bg);
     border: 1px solid var(--border-color);
-    padding: 14px 16px; 
+    padding: 18px 20px; /* Expanded inner vertical padding padding */
     border-radius: 8px;
     transition: var(--transition-smooth);
 }
@@ -955,8 +930,8 @@ main { position: relative; width: 100%; }
 }
 
 .package-card h4 {
-    margin: 0 0 4px 0;
-    font-size: 1.1rem;
+    margin: 0 0 6px 0;
+    font-size: 1.15rem;
     color: var(--primary-color);
     font-weight: 700;
 }
@@ -964,7 +939,7 @@ main { position: relative; width: 100%; }
 .package-card p {
     font-size: 0.8rem; 
     margin: 0;
-    line-height: 1.4;
+    line-height: 1.45;
     color: var(--text-dark);
 }
 
@@ -994,6 +969,35 @@ main { position: relative; width: 100%; }
     padding: 3px 8px;
     border-radius: 20px;
 }
+
+/* INTERACTIVE DIRECTIONS CONTROLS BUTTONS */
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+    transition: var(--transition-fast);
+}
+
+.slider-arrow:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-color: var(--primary-color);
+}
+
+.arrow-left { left: 0; }
+.arrow-right { right: 0; }
+
 
 /* LEADERSHIP */
 .leadership-grid {
