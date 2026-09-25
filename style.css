@@ -1128,7 +1128,7 @@ main { position: relative; width: 100%; }
 .sectors-section {
     display: flex !important;
     flex-direction: column !important;
-    justify-content: center !important; /* Centers the entire block vertically in the viewport */
+    justify-content: center !important; /* Pulls the entire block downward into the vertical center */
     padding: 80px 40px !important;
 }
 
@@ -1137,37 +1137,42 @@ main { position: relative; width: 100%; }
     margin: 0 auto;
 }
 
-/* Adds breathing room below the main section headers */
-.sectors-section h2 {
-    margin-bottom: 16px !important;
+/* Header Container Spacing */
+.sectors-heading {
+    width: 100%;
 }
 
-/* Creates a generous, balanced gap between the intro text and the cards */
-.sectors-section p.center-text,
-.sectors-section .framework-intro,
-.sectors-section p {
-    margin-bottom: 56px !important; 
+/* Adds breathing room below your "Specialized Knowledge" header */
+.sectors-heading h2 {
+    margin-bottom: 16px !important;
+    margin-top: 0 !important;
+}
+
+/* Creates a generous, balanced gap under the paragraph to separate it from the cards */
+.sectors-intro {
+    margin: 0 auto 56px auto !important; /* Centers block horizontally and creates a 56px bottom separator */
     font-size: 0.95rem;
     line-height: 1.6;
+    color: var(--text-muted);
 }
 
-/* Cards Layout Grid Grid */
+/* Sectors Layout Columns Grid */
 .sectors-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 24px; /* Slightly increased gap for better breathing room between columns */
-    margin-top: 0; /* Handled via the description margin above */
+    gap: 24px; /* Increased slightly to create cleaner separation between cards */
     width: 100%;
 }
 
 .sector-card {
     background-color: var(--white);
     border: 1px solid var(--border-color);
-    border-radius: 6px; /* Slightly smoother rounded look */
-    padding: 32px 24px; /* More balanced padding box */
+    border-radius: 6px; 
+    padding: 32px 24px; /* Balanced box internal spacing */
     display: flex;
     flex-direction: column;
     height: 100%;
+    position: relative;
     transition: var(--transition-smooth);
 }
 
@@ -1182,13 +1187,16 @@ main { position: relative; width: 100%; }
     align-items: center;
 }
 
-/* Styling for fallback black boxes/shapes or inline icons */
-.sector-icon svg,
-.sector-icon div,
-.sector-icon span {
+/* Ensures SVG vector elements scale cleanly */
+.sector-icon svg {
     width: 32px;
     height: 32px;
     color: var(--accent-blue);
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
 
 .sector-card h3 {
@@ -1203,10 +1211,15 @@ main { position: relative; width: 100%; }
     font-size: 0.88rem;
     line-height: 1.5;
     color: var(--text-muted);
-    margin: 0 !important; /* Prevents text from pushing card boundaries layout-wise */
+    margin: 0 !important; /* Prevents text bounds from breaking card alignments */
 }
 
-/* Responsive breakpoint scaling */
+/* Fallback protection for the accent lines inside cards if present */
+.sector-card-line {
+    display: none; /* Keeps layout completely clean and text-focused */
+}
+
+/* Responsive screen size scale adjustments */
 @media (max-width: 1024px) {
     .sectors-grid {
         grid-template-columns: repeat(3, 1fr);
@@ -1220,6 +1233,7 @@ main { position: relative; width: 100%; }
         gap: 16px;
     }
 }
+
 
 
 /* CONTACT */
