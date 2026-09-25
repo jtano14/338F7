@@ -857,24 +857,25 @@ main { position: relative; width: 100%; }
     text-align: left;
 }
 
-/* FIXED: Correct back container styling layout properties */
+/* FIXED: Explicit top alignment override for the flipped back state */
 .flip-card-back {
     background-color: var(--primary-color) !important;
     color: var(--white) !important;
     transform: rotateY(180deg) !important;
-    justify-content: flex-start !important; 
+    justify-content: flex-start !important; /* Forces layout to start from absolute top */
     align-items: flex-start !important;
     text-align: left;
 }
 
-/* FIXED: Wrapper targets content to absolute top safely without breaking transforms */
+/* FIXED: Locks wrapper contents tightly to top plane without stretching inner content margins */
 .back-content-wrapper {
     display: flex;
     flex-direction: column;
     gap: 6px;
     width: 100%;
-    height: 100%;
-    justify-content: flex-start;
+    height: auto !important; /* Prevents container from stretching vertically */
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
 }
 
 .flip-card-back h3 {
@@ -885,6 +886,7 @@ main { position: relative; width: 100%; }
     width: 100%;
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     padding-bottom: 4px !important;
+    text-align: left;
 }
 
 .flip-card-back p {
@@ -893,13 +895,14 @@ main { position: relative; width: 100%; }
     line-height: 1.4;
     color: rgba(255, 255, 255, 0.88) !important;
     white-space: normal !important;
+    text-align: left;
 }
 
 /* LOWER COMPONENT DOCKING */
 .service-packages-fixed-bottom {
     border-top: 1px solid var(--border-color);
-    padding-top: 24px; /* FIXED: Increased padding gap below the line */
-    margin-top: 10px !important; /* FIXED: Added extra margin space above header text */
+    padding-top: 24px; 
+    margin-top: 10px !important; 
     width: 100%;
 }
 
@@ -907,18 +910,19 @@ main { position: relative; width: 100%; }
     font-size: 0.95rem;
     color: var(--primary-color);
     margin-top: 0;
-    margin-bottom: 16px; /* Expanded space between title and grid */
+    margin-bottom: 16px; 
     text-align: center;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
 
+/* FIXED: Narrowed max-width and compressed grid gap to create slender, elegant columns */
 .service-packages-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    max-width: 920px; 
+    gap: 14px; /* Shrunk from 20px to bring cards closer together */
+    max-width: 840px; /* Reduced from 920px to make the individual boxes thinner */
     margin: 0 auto;
 }
 
@@ -982,7 +986,7 @@ main { position: relative; width: 100%; }
     border-radius: 20px;
 }
 
-/* INTERACTIVE DIRECTIONS CONTROLS BUTTONS */
+/* DIRECTIONS CONTROLS BUTTONS */
 .slider-arrow {
     position: absolute;
     top: 50%;
@@ -1009,6 +1013,7 @@ main { position: relative; width: 100%; }
 
 .arrow-left { left: 0; }
 .arrow-right { right: 0; }
+
 
 
 /* LEADERSHIP */
