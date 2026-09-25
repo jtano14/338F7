@@ -1125,11 +1125,18 @@ main { position: relative; width: 100%; }
 /* ==========================================================================
    SECTORS SECTION - BALANCE & SPACING REFACTOR
    ========================================================================== */
+
 .sectors-section {
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important; /* Pulls the entire block downward into the vertical center */
-    padding: 80px 40px !important;
+    position: sticky !important;
+    top: 76px !important;
+    height: 100vh !important;
+    min-height: 100vh !important;
+    max-height: 100vh !important;
+    width: 100vw !important;
+    overflow: hidden !important;
+    /* Changed from centering flex loops to fixed top alignment to lock header heights */
+    display: block !important; 
+    padding: 100px 40px 40px 40px !important; /* Fixed 100px top matches other pages */
 }
 
 .sectors-section .container {
@@ -1137,41 +1144,43 @@ main { position: relative; width: 100%; }
     margin: 0 auto;
 }
 
-/* Header Container Spacing */
-.sectors-heading {
-    width: 100%;
+/* 1. Spacing above/below the blue Section Tag */
+.sectors-heading .section-tag {
+    margin-bottom: 16px !important; /* Pushes title away from tag */
 }
 
-/* Adds breathing room below your "Specialized Knowledge" header */
+/* 2. Spacing between Main Title and Description */
 .sectors-heading h2 {
-    margin-bottom: 16px !important;
     margin-top: 0 !important;
+    margin-bottom: 24px !important; /* Generous gap before description paragraph */
 }
 
-/* Creates a generous, balanced gap under the paragraph to separate it from the cards */
+/* 3. Spacing between Description and Cards */
 .sectors-intro {
-    margin: 0 auto 56px auto !important; /* Centers block horizontally and creates a 56px bottom separator */
+    margin: 0 auto 64px auto !important; /* Massive 64px wedge to isolate text from cards */
     font-size: 0.95rem;
     line-height: 1.6;
     color: var(--text-muted);
 }
 
-/* Sectors Layout Columns Grid */
+/* 4. Grid Container Setup */
 .sectors-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 24px; /* Increased slightly to create cleaner separation between cards */
+    gap: 28px; /* Increased column separation space */
     width: 100%;
 }
 
+/* 5. Thinner and Taller Box Configuration */
 .sector-card {
     background-color: var(--white);
     border: 1px solid var(--border-color);
     border-radius: 6px; 
-    padding: 32px 24px; /* Balanced box internal spacing */
+    padding: 40px 20px; /* Thinner horizontal spacing (20px), generous vertical breathing room (40px) */
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: auto;
+    min-height: 280px; /* Forces boxes to expand vertically to look elegant and elongated */
     position: relative;
     transition: var(--transition-smooth);
 }
@@ -1182,12 +1191,11 @@ main { position: relative; width: 100%; }
 }
 
 .sector-icon {
-    margin-bottom: 20px;
+    margin-bottom: 24px; /* More space below icon graphic */
     display: flex;
     align-items: center;
 }
 
-/* Ensures SVG vector elements scale cleanly */
 .sector-icon svg {
     width: 32px;
     height: 32px;
@@ -1203,36 +1211,46 @@ main { position: relative; width: 100%; }
     font-size: 1.2rem;
     font-weight: 700;
     margin-top: 0;
-    margin-bottom: 12px;
+    margin-bottom: 14px; /* Distinct separation below country names */
     color: var(--primary-color);
 }
 
 .sector-card p {
-    font-size: 0.88rem;
-    line-height: 1.5;
+    font-size: 0.85rem; /* Shrunk text slightly to make card feel lighter and taller */
+    line-height: 1.6;
     color: var(--text-muted);
-    margin: 0 !important; /* Prevents text bounds from breaking card alignments */
+    margin: 0 !important;
 }
 
-/* Fallback protection for the accent lines inside cards if present */
 .sector-card-line {
-    display: none; /* Keeps layout completely clean and text-focused */
+    display: none; 
 }
 
-/* Responsive screen size scale adjustments */
-@media (max-width: 1024px) {
+/* Responsive breakdowns */
+@media (max-width: 1100px) {
     .sectors-grid {
-        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+    }
+    .sector-card {
+        padding: 32px 16px;
+    }
+}
+
+@media (max-width: 900px) {
+    .sectors-section {
+        height: auto !important;
+        min-height: auto !important;
+        max-height: none !important;
+        position: relative !important;
+        top: 0 !important;
+        padding: 60px 20px !important;
+    }
+    .sectors-grid {
+        grid-template-columns: 1fr;
         gap: 20px;
     }
 }
 
-@media (max-width: 768px) {
-    .sectors-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-}
 
 
 
