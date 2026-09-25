@@ -375,50 +375,45 @@ main { position: relative; width: 100%; }
     width: 100vw !important;
     overflow-y: auto !important;
     background-color: var(--light-bg) !important;
-    /* REDUCED TOP PADDING: Shifts "ABOUT FLUX7" up toward the navbar */
-    padding: 45px 0 80px 0 !important;
+    padding: 60px 0 80px 0 !important;
     margin: 0 !important;
 }
 
-.about-container {
+/* Master grid creating 2 unequal columns and 3 distinct rows */
+.about-grid-container {
     display: grid !important;
     grid-template-columns: 1.2fr 1fr !important;
-    gap: 60px !important;
+    grid-template-rows: auto auto auto !important;
+    row-gap: 40px !important; /* Visual spacing between Row 1, Row 2, and Row 3 */
+    column-gap: 60px !important;
     align-items: flex-start !important;
 }
 
-/* Left Side Column Configuration */
-.about-content-col {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+/* ROW 1: Header takes up full row or left side slot */
+.about-row-header {
+    grid-column: 1 / span 2 !important;
+    grid-row: 1 !important;
 }
 
-/* Shifts tag closer to top bounds */
-.unique-top-tag {
-    margin-bottom: 8px !important;
-}
-
-/* HEADING ALIGNMENT: Zero top margin matches header perfectly with image top border */
-.about-content-col h2 {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-    line-height: 1.15;
-}
-
-/* DETAILS SUB-STACK: Margins push text details exactly line-for-line with overview panel */
-.about-details-stack {
+/* ROW 2 LEFT: Description & text headers */
+.about-row-desc-left {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
     display: flex;
     flex-direction: column;
     gap: 16px;
-    margin-top: 60px; /* Aligns the start of this sub-stack with "Company Overview" */
 }
 
-/* Right Side sidebar column */
-.about-sidebar-col {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+.about-row-desc-left h2 {
+    margin-top: 0 !important;
+    margin-bottom: 8px !important;
+    line-height: 1.2;
+}
+
+/* ROW 2 RIGHT: Boardroom image matches description height */
+.about-row-image-right {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
     width: 100%;
 }
 
@@ -430,10 +425,79 @@ main { position: relative; width: 100%; }
 .image-corner-frame img {
     width: 100%;
     height: auto;
-    max-height: 290px;
+    max-height: 280px;
     object-fit: cover;
     border-radius: 6px;
     box-shadow: 0 8px 24px rgba(11, 34, 64, 0.05);
+}
+
+/* ROW 3 LEFT: Promise box and numbers locked on line with profile matrix */
+.about-row-stats-left {
+    grid-column: 1 !important;
+    grid-row: 3 !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; /* Fills row depth completely */
+}
+
+.about-promise-tray {
+    margin: 0 0 24px 0;
+    padding-left: 14px;
+    border-left: 3px solid var(--accent-blue);
+}
+
+.promise-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 700;
+    color: var(--accent-blue);
+    margin-bottom: 4px;
+}
+
+.promise-text {
+    margin: 0;
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--primary-color);
+}
+
+.stats-row {
+    display: flex;
+    gap: 40px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+    margin-top: auto;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.stat-number {
+    color: var(--accent-blue);
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.stat-label {
+    color: var(--text-muted);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-top: 6px;
+}
+
+/* ROW 3 RIGHT: Company overview panel */
+.about-row-overview-right {
+    grid-column: 2 !important;
+    grid-row: 3 !important;
+    width: 100%;
 }
 
 .corporate-profile-panel {
@@ -483,59 +547,7 @@ main { position: relative; width: 100%; }
     color: var(--primary-color);
 }
 
-.about-promise-tray {
-    margin: 8px 0;
-    padding-left: 14px;
-    border-left: 3px solid var(--accent-blue);
-}
-
-.promise-label {
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-weight: 700;
-    color: var(--accent-blue);
-    margin-bottom: 4px;
-}
-
-.promise-text {
-    margin: 0;
-    font-size: 1rem;
-    font-style: italic;
-    color: var(--primary-color);
-}
-
-.stats-row {
-    display: flex;
-    gap: 40px;
-    margin-top: auto; /* Dynamically grounds stats row to fill remaining card space */
-    padding-top: 16px;
-    border-top: 1px solid var(--border-color);
-}
-
-.stat-item {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.stat-number {
-    color: var(--accent-blue);
-    font-size: 2.2rem;
-    font-weight: 700;
-    line-height: 1;
-}
-
-.stat-label {
-    color: var(--text-muted);
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    margin-top: 6px;
-}
-
-/* RESPONSIVE LAYOUT CONSTRAINTS */
+/* RESPONSIVE STACKING FOR MOBILE SCREEN SIZES */
 @media (max-width: 900px) {
     .about-section {
         height: auto !important;
@@ -545,12 +557,30 @@ main { position: relative; width: 100%; }
         top: 0 !important;
         padding: 60px 0 !important;
     }
-    .about-container {
+    .about-grid-container {
         grid-template-columns: 1fr !important;
-        gap: 40px !important;
+        grid-template-rows: auto !important;
+        row-gap: 32px !important;
     }
-    .about-details-stack {
-        margin-top: 24px;
+    .about-row-header {
+        grid-column: 1 !important;
+        grid-row: 1 !important;
+    }
+    .about-row-desc-left {
+        grid-column: 1 !important;
+        grid-row: 2 !important;
+    }
+    .about-row-image-right {
+        grid-column: 1 !important;
+        grid-row: 3 !important;
+    }
+    .about-row-stats-left {
+        grid-column: 1 !important;
+        grid-row: 4 !important;
+    }
+    .about-row-overview-right {
+        grid-column: 1 !important;
+        grid-row: 5 !important;
     }
 }
 
