@@ -374,49 +374,48 @@ main { position: relative; width: 100%; }
     overflow: hidden !important;
     z-index: 2;
     background-color: var(--light-bg) !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    padding: 0 !important;
-    margin: 0 !important;
-}
-
-.about-container {
-    width: min(100% - 80px, 1180px) !important;
-    display: flex !important;
-    flex-direction: row !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1.1fr !important;
     gap: 60px !important;
     align-items: flex-start !important;
-    justify-content: space-between !important;
+    justify-items: start !important;
+    padding: 100px 80px !important;
+    margin: 0 !important;
+    max-width: 100vw !important;
 }
-
+ 
+/* Flatten the wrapper structure */
+.about-container {
+    display: contents;
+}
+ 
 .about-main-grid {
-    flex: 0 0 45% !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 16px !important;
-    padding-top: 40px !important;
+    display: contents;
 }
-
+ 
+/* LEFT COLUMN - 45% */
 .about-content {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
     display: flex !important;
     flex-direction: column !important;
     gap: 16px !important;
 }
-
+ 
+/* RIGHT COLUMN TOP - Image */
 .about-image-wrapper {
-    flex: 0 0 55% !important;
+    grid-column: 2 !important;
+    grid-row: 1 !important;
     display: flex !important;
     flex-direction: column !important;
     gap: 24px !important;
-    padding-top: 40px !important;
 }
-
+ 
 .image-corner-frame {
     position: relative;
     width: 100%;
 }
-
+ 
 .image-corner-frame img {
     width: 100%;
     height: auto;
@@ -428,15 +427,18 @@ main { position: relative; width: 100%; }
         inset 10px 10px 0px -5px var(--accent-blue),
         0 4px 12px rgba(11, 34, 64, 0.08);
 }
-
+ 
+/* RIGHT COLUMN BOTTOM - Company Overview */
 .corporate-profile-panel {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
     background-color: transparent;
     border: none;
     box-shadow: none;
     padding: 0;
     margin: 0;
 }
-
+ 
 .corporate-profile-panel h3 {
     font-size: 1.05rem;
     margin-bottom: 14px;
@@ -445,24 +447,24 @@ main { position: relative; width: 100%; }
     color: var(--primary-color);
     font-weight: 700;
 }
-
+ 
 .profile-matrix-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 16px;
 }
-
+ 
 .matrix-item {
     display: flex;
     flex-direction: column;
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 12px;
 }
-
+ 
 .matrix-item.dynamic-span-wide {
     grid-column: span 2;
 }
-
+ 
 .matrix-label {
     font-size: 0.62rem;
     text-transform: uppercase;
@@ -471,19 +473,19 @@ main { position: relative; width: 100%; }
     color: var(--text-muted);
     margin-bottom: 4px;
 }
-
+ 
 .matrix-value {
     font-size: 0.88rem;
     font-weight: 600;
     color: var(--primary-color);
 }
-
+ 
 .about-promise-tray {
     margin: 16px 0;
     padding-left: 14px;
     border-left: 3px solid var(--accent-blue);
 }
-
+ 
 .promise-label {
     font-size: 0.68rem;
     text-transform: uppercase;
@@ -492,7 +494,7 @@ main { position: relative; width: 100%; }
     color: var(--accent-blue);
     margin-bottom: 4px;
 }
-
+ 
 .promise-text {
     margin: 0;
     font-size: 1rem;
@@ -500,7 +502,7 @@ main { position: relative; width: 100%; }
     color: var(--primary-color);
     font-weight: 400;
 }
-
+ 
 .stats-row {
     display: flex;
     gap: 32px;
@@ -508,21 +510,21 @@ main { position: relative; width: 100%; }
     padding-top: 16px;
     border-top: 1px solid var(--border-color);
 }
-
+ 
 .stat-item {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
 }
-
+ 
 .stat-number {
     color: var(--accent-blue);
     font-size: 2rem;
     font-weight: 700;
     line-height: 1;
 }
-
+ 
 .stat-label {
     color: var(--text-muted);
     font-size: 0.7rem;
@@ -531,20 +533,25 @@ main { position: relative; width: 100%; }
     letter-spacing: 0.05em;
     margin-top: 4px;
 }
-
+ 
 /* RESPONSIVE */
 @media (max-width: 900px) {
-    .about-container {
-        flex-direction: column;
+    .about-section {
+        grid-template-columns: 1fr;
         gap: 40px;
+        padding: 60px 20px;
     }
-    .about-main-grid {
-        flex: 1;
-        order: 2;
+    .about-content {
+        grid-column: 1;
+        grid-row: 1;
     }
     .about-image-wrapper {
-        flex: 1;
-        order: 1;
+        grid-column: 1;
+        grid-row: 2;
+    }
+    .corporate-profile-panel {
+        grid-column: 1;
+        grid-row: 3;
     }
 }
 
