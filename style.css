@@ -1508,7 +1508,7 @@ main { position: relative; width: 100%; }
 
 /* Forcing a large, premium pixel scale directly on the image */
 .footer-logo img { 
-    height: 140px !important; /* Restores the large, impactful size you liked! */
+    height: 250px !important; /* Restores the large, impactful size you liked! */
     width: auto !important;   /* Guarantees the logo shape will never distort */
     display: block;
     filter: brightness(0) invert(1) !important; /* Keeps the logo stark, crisp white */
