@@ -363,19 +363,31 @@ main { position: relative; width: 100%; }
 .contact-section { z-index: 7; background-color: var(--white) !important; }
 
 /* ABOUT SECTION - 2 COLUMN LAYOUT */
+
 .about-section {
+    position: sticky !important;
+    top: 76px !important;
+    height: 100vh !important;
+    min-height: 100vh !important;
+    max-height: 100vh !important;
+    width: 100vw !important;
+    overflow: hidden !important;
+    z-index: 2;
+    background-color: var(--light-bg) !important;
     display: flex !important;
-    flex-direction: row !important;
-    align-items: flex-start !important;
-    gap: 60px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
 .about-container {
+    width: min(100% - 80px, 1180px) !important;
     display: flex !important;
     flex-direction: row !important;
     gap: 60px !important;
-    width: 100% !important;
     align-items: flex-start !important;
+    justify-content: space-between !important;
 }
 
 .about-main-grid {
@@ -383,6 +395,7 @@ main { position: relative; width: 100%; }
     display: flex !important;
     flex-direction: column !important;
     gap: 16px !important;
+    padding-top: 40px !important;
 }
 
 .about-content {
@@ -396,6 +409,7 @@ main { position: relative; width: 100%; }
     display: flex !important;
     flex-direction: column !important;
     gap: 24px !important;
+    padding-top: 40px !important;
 }
 
 .image-corner-frame {
@@ -484,6 +498,7 @@ main { position: relative; width: 100%; }
     font-size: 1rem;
     font-style: italic;
     color: var(--primary-color);
+    font-weight: 400;
 }
 
 .stats-row {
@@ -505,6 +520,7 @@ main { position: relative; width: 100%; }
     color: var(--accent-blue);
     font-size: 2rem;
     font-weight: 700;
+    line-height: 1;
 }
 
 .stat-label {
@@ -514,6 +530,22 @@ main { position: relative; width: 100%; }
     font-weight: 700;
     letter-spacing: 0.05em;
     margin-top: 4px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .about-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+    .about-main-grid {
+        flex: 1;
+        order: 2;
+    }
+    .about-image-wrapper {
+        flex: 1;
+        order: 1;
+    }
 }
 
 /* SERVICES */
