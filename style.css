@@ -437,13 +437,14 @@ main { position: relative; width: 100%; }
     grid-row: 3 !important;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 100%; /* Fills row depth completely */
+    justify-content: flex-start; 
+    gap: 36px;
+    height: 100%;
 }
 
 .about-promise-tray {
-    margin: 0 0 24px 0;
-    padding-left: 14px;
+    margin: 0;
+    padding-left: 16px;
     border-left: 3px solid var(--accent-blue);
 }
 
@@ -453,33 +454,37 @@ main { position: relative; width: 100%; }
     letter-spacing: 0.12em;
     font-weight: 700;
     color: var(--accent-blue);
-    margin-bottom: 4px;
+    margin-bottom: 6px;
 }
 
 .promise-text {
     margin: 0;
-    font-size: 1rem;
+    font-size: 1.15rem; 
     font-style: italic;
     color: var(--primary-color);
+    line-height: 1.5;
 }
 
 .stats-row {
-    display: flex;
-    gap: 40px;
-    padding-top: 16px;
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 20px;
+    padding-top: 24px;
     border-top: 1px solid var(--border-color);
-    margin-top: auto;
+    width: 100%;
 }
 
 .stat-item {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center; /* Centers number directly above text */
+    text-align: center;  /* Ensures multiline labels stay balanced */
 }
+
 
 .stat-number {
     color: var(--accent-blue);
-    font-size: 2.2rem;
+    font-size: 2.3rem; /* Slightly enhanced sizing scale */
     font-weight: 700;
     line-height: 1;
 }
@@ -490,7 +495,7 @@ main { position: relative; width: 100%; }
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 0.05em;
-    margin-top: 6px;
+    margin-top: 8px;
 }
 
 /* ROW 3 RIGHT: Company overview panel */
