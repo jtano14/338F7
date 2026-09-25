@@ -1,6 +1,7 @@
 /* ==========================================================================
    1. GLOBAL SYSTEM DESIGN, VARIABLES & SNAP CARDS DECK
    ========================================================================== */
+
 :root {
     --primary-color: #0b2240;
     --accent-blue: #0077b6;
@@ -16,14 +17,12 @@
     --transition-fast: all 0.2s ease;
 }
 
-* {
-    box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 html {
     scroll-behavior: smooth;
     scroll-snap-type: y proximity;
-    background-color: #ffffff; 
+    background-color: #ffffff;
 }
 
 body {
@@ -36,27 +35,10 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-button, input, textarea, select {
-    font: inherit;
-    color: inherit;
-    background: none;
-    border: none;
-}
-
-button {
-    cursor: pointer;
-}
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+button, input, textarea, select { font: inherit; color: inherit; background: none; border: none; }
+button { cursor: pointer; }
 
 .container {
     width: min(100% - 40px, var(--container-width));
@@ -65,17 +47,12 @@ button {
 
 .max-width-small {
     max-width: var(--small-container-width);
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
 }
 
-.center-text {
-    text-align: center;
-}
+.center-text { text-align: center; }
 
-section {
-    padding: clamp(60px, 8vh, 100px) 0;
-}
+section { padding: clamp(60px, 8vh, 100px) 0; }
 
 .section-tag {
     margin-bottom: 14px;
@@ -86,24 +63,15 @@ section {
     text-transform: uppercase;
 }
 
-h1, h2, h3, h4, p {
-    margin-top: 0;
-}
-
-h1, h2, h3 {
-    color: var(--primary-color);
-    line-height: 1.2;
-}
-
+h1, h2, h3, h4, p { margin-top: 0; }
+h1, h2, h3 { color: var(--primary-color); line-height: 1.2; }
 h2 {
     margin-bottom: 24px;
     font-size: clamp(2rem, 4vw, 3rem);
     letter-spacing: -0.02em;
 }
 
-/* ==========================================================================
-   BUTTONS - BASE STYLES
-   ========================================================================== */
+/* BUTTONS */
 .btn {
     display: inline-block;
     border: 1px solid transparent;
@@ -115,14 +83,8 @@ h2 {
     transition: var(--transition-smooth);
 }
 
-.btn:hover {
-    transform: translateY(-2px);
-}
-
-.btn:focus-visible {
-    outline: 3px solid var(--accent-blue);
-    outline-offset: 2px;
-}
+.btn:hover { transform: translateY(-2px); }
+.btn:focus-visible { outline: 3px solid var(--accent-blue); outline-offset: 2px; }
 
 .btn-primary {
     color: var(--white);
@@ -151,17 +113,10 @@ h2 {
     transform: translateY(-2px);
 }
 
-.full-width {
-    width: 100%;
-}
+.full-width { width: 100%; }
 
-/* ==========================================================================
-   2. SITE HEADER & NAVIGATION
-   ========================================================================== */
-.site-header {
-    position: relative;
-    z-index: 100;
-}
+/* NAVBAR */
+.site-header { position: relative; z-index: 100; }
 
 .navbar {
     position: fixed;
@@ -188,16 +143,8 @@ h2 {
     margin: 0 auto;
 }
 
-.logo-area {
-    display: inline-flex;
-    align-items: center;
-}
-
-.site-logo {
-    max-height: 65px;
-    width: auto;
-    object-fit: contain;
-}
+.logo-area { display: inline-flex; align-items: center; }
+.site-logo { max-height: 65px; width: auto; object-fit: contain; }
 
 .nav-links {
     display: flex;
@@ -214,9 +161,7 @@ h2 {
 }
 
 .nav-links a:hover,
-.nav-links a:focus-visible {
-    color: var(--accent-blue);
-}
+.nav-links a:focus-visible { color: var(--accent-blue); }
 
 .nav-links .lang-switch {
     margin-left: 8px;
@@ -227,9 +172,7 @@ h2 {
     color: var(--accent-blue);
 }
 
-.nav-links .lang-switch:hover {
-    background-color: var(--border-color);
-}
+.nav-links .lang-switch:hover { background-color: var(--border-color); }
 
 .nav-toggle {
     display: none;
@@ -250,9 +193,7 @@ h2 {
     transition: var(--transition-fast);
 }
 
-/* ==========================================================================
-   3. HERO SECTION
-   ========================================================================== */
+/* HERO SECTION */
 .hero-section {
     position: fixed !important;
     top: 0 !important;
@@ -293,7 +234,6 @@ h2 {
 .hero-vertical-text {
     position: fixed !important;
     right: 4% !important;
-    left: auto !important;
     top: 50% !important;
     transform: translateY(-50%) !important;
     writing-mode: vertical-rl;
@@ -399,9 +339,7 @@ h2 {
     z-index: 3;
 }
 
-/* ==========================================================================
-   4. LOGO INTERACTIVE CANVAS
-   ========================================================================== */
+/* LOGO CANVAS */
 .logo-wrapper {
     position: relative !important;
     width: 160px !important;
@@ -442,15 +380,13 @@ h2 {
     filter: drop-shadow(0 0 8px rgba(11, 44, 102, 0.15));
 }
 
-/* ==========================================================================
-   5. SCROLL STACK - ALL SECTIONS ABOVE HERO
-   ========================================================================== */
+/* SCROLL STACK WRAPPER & SECTIONS */
 .scroll-stack-wrapper {
-    position: relative !important;
-    width: 100% !important;
-    background: transparent !important;
-    background-color: transparent !important;
-    margin-top: 100vh !important;
+    position: relative;
+    width: 100%;
+    background: transparent;
+    margin-top: 100vh;
+    z-index: 10;
 }
 
 .about-section,
@@ -459,59 +395,49 @@ h2 {
 .leadership-section,
 .sectors-section,
 .contact-section {
-    position: relative !important;
-    width: 100% !important;
-    overflow: visible !important;
-    display: block !important;
-    padding: 80px 40px !important;
-    margin: 0 !important;
-    min-height: 100vh !important;
+    position: relative;
+    width: 100%;
+    display: block;
+    padding: 80px 40px;
+    margin: 0;
+    min-height: 100vh;
+    z-index: 10;
 }
 
-.about-section { background-color: var(--light-bg) !important; }
-.services-section { background-color: var(--white) !important; }
-.framework-section { background-color: var(--white) !important; }
-.leadership-section { background-color: var(--white) !important; }
-.sectors-section { background-color: var(--light-bg) !important; }
-.contact-section { background-color: var(--white) !important; }
+.about-section { background-color: var(--light-bg); }
+.services-section { background-color: var(--white); }
+.framework-section { background-color: var(--white); }
+.leadership-section { background-color: var(--white); }
+.sectors-section { background-color: var(--light-bg); }
+.contact-section { background-color: var(--white); }
 
-/* ==========================================================================
-   6. ABOUT SECTION - 2 COLUMN LAYOUT
-   ========================================================================== */
+/* ABOUT SECTION */
 .about-section {
-    display: grid !important;
-    grid-template-columns: 1fr 1.1fr !important;
-    gap: 60px !important;
-    align-items: flex-start !important;
-    justify-items: start !important;
-    min-height: 100vh !important;
-    padding: 100px 80px !important;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 60px;
+    align-items: flex-start;
+    justify-items: start;
+    padding: 100px 80px;
 }
 
-.about-container {
-    display: contents;
-}
-
-.about-main-grid {
-    display: contents;
-}
+.about-container { display: contents; }
+.about-main-grid { display: contents; }
 
 .about-content {
-    grid-column: 1 !important;
-    grid-row: 1 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 16px !important;
-    justify-content: flex-start !important;
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
 .about-image-wrapper {
-    grid-column: 2 !important;
-    grid-row: 1 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 24px !important;
-    justify-content: flex-start !important;
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }
 
 .image-corner-frame {
@@ -532,28 +458,28 @@ h2 {
 }
 
 .corporate-profile-panel {
-    grid-column: 2 !important;
-    grid-row: 2 !important;
-    background-color: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    padding: 24px 0 0 0 !important;
-    margin: 0 !important;
+    grid-column: 2;
+    grid-row: 2;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 24px 0 0 0;
+    margin: 0;
 }
 
 .corporate-profile-panel h3 {
-    font-size: 1.05rem !important;
-    margin-bottom: 14px !important;
+    font-size: 1.05rem;
+    margin-bottom: 14px;
     border-bottom: 1px solid var(--border-color);
-    padding-bottom: 8px !important;
+    padding-bottom: 8px;
     color: var(--primary-color);
-    font-weight: 700 !important;
+    font-weight: 700;
 }
 
 .profile-matrix-grid {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 16px !important;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
 }
 
 .matrix-item {
@@ -564,7 +490,7 @@ h2 {
 }
 
 .matrix-item.dynamic-span-wide {
-    grid-column: span 2 !important;
+    grid-column: span 2;
 }
 
 .matrix-label {
@@ -636,9 +562,7 @@ h2 {
     margin-top: 4px;
 }
 
-/* ==========================================================================
-   7. SERVICES SECTION
-   ========================================================================== */
+/* SERVICES */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -667,9 +591,7 @@ h2 {
     margin-bottom: 16px;
 }
 
-.card-icon {
-    font-size: 1.8rem;
-}
+.card-icon { font-size: 1.8rem; }
 
 .service-toggle {
     background: none;
@@ -686,25 +608,22 @@ h2 {
     transition: max-height 0.3s ease, opacity 0.3s ease;
 }
 
-/* ==========================================================================
-   8. FRAMEWORK SECTION
-   ========================================================================== */
+/* FRAMEWORK */
 .framework-section {
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: space-between !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .framework-unified-container {
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: space-between !important;
-    height: 100% !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
 }
 
 .framework-content-header {
-    text-align: center !important;
-    width: 100% !important;
+    text-align: center;
 }
 
 .framework-intro {
@@ -715,23 +634,23 @@ h2 {
 }
 
 .horizontal-slider-container {
-    width: 100% !important;
-    overflow: hidden !important;
+    width: 100%;
+    overflow: hidden;
     position: relative;
-    padding: 12px 0 !important;
-    margin: 24px 0 !important;
+    padding: 12px 0;
+    margin: 24px 0;
 }
 
 .horizontal-slider-track {
-    display: flex !important;
-    gap: 28px !important;
-    width: max-content !important;
+    display: flex;
+    gap: 28px;
+    width: max-content;
     will-change: transform;
-    animation: continuousMarqueeLoop 30s linear infinite !important;
+    animation: continuousMarqueeLoop 30s linear infinite;
 }
 
 .horizontal-slider-container:hover .horizontal-slider-track {
-    animation-play-state: paused !important;
+    animation-play-state: paused;
 }
 
 @keyframes continuousMarqueeLoop {
@@ -741,10 +660,10 @@ h2 {
 
 .flip-card-node {
     background-color: transparent;
-    width: 250px !important;
-    height: 150px !important;
+    width: 250px;
+    height: 150px;
     perspective: 1000px;
-    flex-shrink: 0 !important;
+    flex-shrink: 0;
 }
 
 .flip-card-inner {
@@ -767,24 +686,24 @@ h2 {
     border-radius: 6px;
     padding: 14px;
     border: 1px solid var(--border-color);
-    display: flex !important;
-    flex-direction: column !important;
+    display: flex;
+    flex-direction: column;
 }
 
 .flip-card-front {
     background-color: var(--white);
-    justify-content: space-between !important;
+    justify-content: space-between;
 }
 
 .flip-card-front h3 {
-    margin: 4px 0 0 !important;
-    font-size: 0.85rem !important;
+    margin: 4px 0 0 0;
+    font-size: 0.85rem;
     color: var(--primary-color);
     font-weight: 700;
 }
 
 .pillar-id {
-    font-size: 1.3rem !important;
+    font-size: 1.3rem;
     font-weight: 700;
     color: rgba(0, 119, 182, 0.2);
 }
@@ -793,71 +712,69 @@ h2 {
     background-color: var(--primary-color);
     color: var(--white);
     transform: rotateY(180deg);
-    justify-content: center !important;
+    justify-content: center;
 }
 
 .flip-card-back h3 {
-    margin: 0 0 8px 0 !important;
+    margin: 0 0 8px 0;
     font-size: 0.9rem;
 }
 
 .flip-card-back p {
-    font-size: 0.75rem !important;
-    margin: 0 !important;
+    font-size: 0.75rem;
+    margin: 0;
 }
 
 .service-packages-fixed-bottom {
     border-top: 1px solid var(--border-color);
-    padding-top: 16px !important;
+    padding-top: 16px;
     width: 100%;
 }
 
 .service-packages-fixed-bottom h3 {
     font-size: 1.1rem;
     color: var(--primary-color);
-    margin-bottom: 12px !important;
+    margin-bottom: 12px;
     text-align: center;
 }
 
 .service-packages-grid {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 20px !important;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 }
 
 .package-card {
     background: var(--light-bg);
     border: 1px solid var(--border-color);
-    padding: 16px !important;
+    padding: 16px;
     border-radius: 4px;
 }
 
 .package-card h4 {
-    margin: 8px 0 !important;
+    margin: 8px 0;
     font-size: 0.95rem;
 }
 
 .package-card p {
     font-size: 0.85rem;
-    margin: 0 !important;
+    margin: 0;
 }
 
-/* ==========================================================================
-   9. LEADERSHIP SECTION
-   ========================================================================== */
+/* LEADERSHIP */
 .leadership-grid {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 32px !important;
-    margin-top: 42px !important;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 42px;
 }
 
 .leader-card img {
-    width: 100% !important;
-    height: auto !important;
-    border-radius: 6px !important;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
-    margin-bottom: 16px !important;
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-bottom: 16px;
 }
 
 .leader-info {
@@ -875,7 +792,7 @@ h2 {
 }
 
 .leader-card h3 {
-    margin: 8px 0 !important;
+    margin: 8px 0;
     font-size: 1.1rem;
 }
 
@@ -883,19 +800,17 @@ h2 {
     font-size: 0.9rem;
     font-weight: 600;
     color: var(--accent-blue);
-    margin: 8px 0 !important;
+    margin: 8px 0;
 }
 
 .leader-description {
     font-size: 0.9rem;
     line-height: 1.5;
     color: var(--text-muted);
-    margin: 12px 0 !important;
+    margin: 12px 0;
 }
 
-/* ==========================================================================
-   10. SECTORS SECTION
-   ========================================================================== */
+/* SECTORS */
 .sectors-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -932,7 +847,7 @@ h2 {
 
 .sector-card h3 {
     font-size: 1.1rem;
-    margin-bottom: 12px !important;
+    margin-bottom: 12px;
 }
 
 .sector-card p {
@@ -940,9 +855,7 @@ h2 {
     color: var(--text-muted);
 }
 
-/* ==========================================================================
-   11. CONTACT SECTION
-   ========================================================================== */
+/* CONTACT */
 .contact-panel {
     background-color: var(--light-bg);
     border: 1px solid var(--border-color);
@@ -1004,11 +917,9 @@ h2 {
     align-items: center;
 }
 
-/* ==========================================================================
-   12. MAIN SITE FOOTER
-   ========================================================================== */
+/* FOOTER */
 .main-footer {
-    background-color: var(--primary-color) !important;
+    background-color: var(--primary-color);
     color: rgba(255, 255, 255, 0.75);
     padding: 80px 0 40px;
     position: relative;
@@ -1023,13 +934,8 @@ h2 {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.footer-logo {
-    margin-bottom: 12px;
-}
-
-.footer-logo img {
-    max-height: 40px;
-}
+.footer-logo { margin-bottom: 12px; }
+.footer-logo img { max-height: 40px; }
 
 .footer-tagline {
     color: rgba(255, 255, 255, 0.7);
@@ -1057,7 +963,7 @@ h2 {
 .footer-offices-column h2 {
     font-size: 1rem;
     color: var(--white);
-    margin-bottom: 16px !important;
+    margin-bottom: 16px;
 }
 
 .footer-links,
@@ -1106,16 +1012,14 @@ h2 {
     color: var(--accent-blue);
 }
 
-/* ==========================================================================
-   13. OFFICE MODAL POPUPS
-   ========================================================================== */
+/* OFFICE DIALOGS */
 .office-dialog {
     border: none;
     border-radius: 6px;
     padding: 40px;
     max-width: 520px;
     width: calc(100% - 32px);
-    background-color: var(--white) !important;
+    background-color: var(--white);
     box-shadow: 0 20px 50px rgba(11, 34, 64, 0.15);
 }
 
@@ -1133,9 +1037,7 @@ h2 {
     color: var(--primary-color);
 }
 
-/* ==========================================================================
-   14. RESPONSIVE MEDIA QUERIES
-   ========================================================================== */
+/* RESPONSIVE */
 @media (max-width: 1024px) {
     .sectors-grid {
         grid-template-columns: repeat(3, 1fr);
@@ -1171,15 +1073,16 @@ h2 {
         display: flex;
     }
     .about-section {
-        grid-template-columns: 1fr !important;
-        gap: 40px !important;
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 60px 20px;
     }
     .about-image-wrapper {
-        grid-column: 1 !important;
+        grid-column: 1;
         order: -1;
     }
     .corporate-profile-panel {
-        grid-column: 1 !important;
+        grid-column: 1;
     }
     .services-grid {
         grid-template-columns: 1fr;
@@ -1203,22 +1106,16 @@ h2 {
     .form-group-wide {
         grid-column: 1;
     }
-    .about-section {
-        padding: 60px 20px !important;
-    }
     .service-packages-grid {
-        grid-template-columns: 1fr !important;
+        grid-template-columns: 1fr;
     }
 }
 
-/* ==========================================================================
-   15. ACCESSIBILITY - REDUCED MOTION
-   ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
     }
     .btn, .service-card, .sector-card {
-        transition: none !important;
+        transition: none;
     }
 }
