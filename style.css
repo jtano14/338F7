@@ -22,7 +22,6 @@
 html {
     scroll-behavior: smooth;
     background-color: #ffffff;
-    /* Removed the CSS scroll-snap engine to prevent sticky positioning glitches */
 }
 
 body {
@@ -34,6 +33,7 @@ body {
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
 }
+
 
 
 img { display: block; max-width: 100%; height: auto; }
