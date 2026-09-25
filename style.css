@@ -1487,10 +1487,19 @@ main { position: relative; width: 100%; }
     gap: 64px;
     padding-bottom: 48px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    align-items: flex-start; /* 1. Forces the logo top to align horizontally with Quick Links and Our Offices headers */
+}
+
+.footer-brand-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
 }
 
 .footer-logo { 
-    margin-bottom: 16px; 
+    margin-bottom: 8px !important; /* 3. Tightened spacing immediately below your large logo */
+    display: block;
 }
 
 .footer-logo img { 
@@ -1501,16 +1510,16 @@ main { position: relative; width: 100%; }
 }
 
 .footer-tagline {
-    color: rgba(255, 255, 255, 0.85); /* Boosted font contrast ratio */
+    color: rgba(255, 255, 255, 0.85); 
     font-size: 0.95rem;
-    margin: 8px 0 20px 0;
+    margin: 0 0 16px 0 !important; /* 4. Pulled tagline up tight and set a clean 16px gap underneath */
     line-height: 1.6;
 }
 
 .footer-contact {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px; /* 5. Snaps the email and phone rows close together */
 }
 
 .footer-contact a {
