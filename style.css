@@ -1019,53 +1019,89 @@ main { position: relative; width: 100%; }
 
 
 /* LEADERSHIP */
+/* ==========================================================================
+   6. LEADERSHIP SECTION - REBALANCED DESIGN
+   ========================================================================== */
 .leadership-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-    margin-top: 42px;
+    gap: 40px;
+    margin-top: 48px;
+    align-items: flex-start;
 }
 
-.leader-card img {
+.leader-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Image Wrapper: Makes photos smaller and strips out border artifacts */
+.leader-photo-wrapper {
+    width: 100%;
+    max-width: 220px; /* Controls and reduces the photo footprint size */
+    margin: 0 auto 20px auto;
+    position: relative;
+}
+
+.leader-photo-wrapper img {
     width: 100%;
     height: auto;
-    border-radius: 6px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    margin-bottom: 16px;
+    border-radius: 0; /* Removes forced corner modifications */
+    box-shadow: none; /* Strips the white edge/glow artifact lines completely */
+    filter: none;     /* Disables overlay blending masks */
 }
 
-.leader-info {
-    text-align: center;
+/* Text Block Content Layout: Elevates the content cluster upward */
+.leader-text-content {
+    margin-top: 0;
+    padding: 0 10px;
+    width: 100%;
 }
 
 .leader-regions {
     display: block;
-    font-size: 0.68rem;
+    font-size: 0.72rem;
     text-transform: uppercase;
     letter-spacing: 0.12em;
     color: var(--accent-blue);
     font-weight: 700;
-    margin-bottom: 8px;
+    margin-bottom: 6px; /* Tighter spacing underneath region flag */
 }
 
-.leader-card h3 {
-    margin: 8px 0;
-    font-size: 1.1rem;
+.leader-name {
+    margin: 0 0 4px 0 !important; /* Shrunk padding margin to lift titles upward */
+    font-size: 1.25rem;
+    color: var(--primary-color);
+    font-weight: 700;
 }
 
 .leader-title {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     font-weight: 600;
-    color: var(--accent-blue);
-    margin: 8px 0;
+    color: var(--text-muted);
+    margin-bottom: 12px;
 }
 
 .leader-description {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     line-height: 1.5;
-    color: var(--text-muted);
-    margin: 12px 0;
+    color: var(--text-dark);
+    margin: 0; /* Prevents text from being pushed down toward the section fold */
 }
+
+/* Responsive breakpoint scaling */
+@media (max-width: 900px) {
+    .leadership-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+    .leader-photo-wrapper {
+        max-width: 200px;
+    }
+}
+
 
 /* SECTORS */
 .sectors-grid {
