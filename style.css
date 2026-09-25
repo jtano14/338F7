@@ -736,7 +736,6 @@ main { position: relative; width: 100%; }
     max-height: 100vh !important;
     width: 100vw !important;
     overflow: hidden !important;
-    /* FIXED: Lowered top spacing to 85px to elevate the starting line across sections */
     padding: 85px 40px 15px 40px !important; 
     margin: 0 !important;
     background-color: var(--white) !important;
@@ -748,9 +747,8 @@ main { position: relative; width: 100%; }
 .framework-unified-container {
     display: flex !important;
     flex-direction: column !important;
-    /* FIXED: Forces strict compact flow, eliminating massive floating vertical gaps */
     justify-content: flex-start !important; 
-    gap: 12px !important; /* Controlled layout row distribution spacing */
+    gap: 16px !important; /* FIXED: Adds a little more padding space above slider row */
     height: 100% !important;
     width: 100%;
     max-width: var(--container-width);
@@ -775,27 +773,26 @@ main { position: relative; width: 100%; }
     text-align: center;
 }
 
-/* INTERACTIVE SLIDER MODULE DESIGNS */
+/* CAROUSEL CONTAINER POSITIONING */
 .framework-slider-outer {
     position: relative;
     display: flex;
     align-items: center;
     width: 100%;
-    margin: 4px auto !important; /* Pulled structural spaces together tight */
+    margin: 0 auto !important; 
     padding: 0 50px;
 }
 
 .horizontal-slider-container {
     width: 100%;
     overflow: hidden;
-    padding: 6px 0;
+    padding: 10px 0; /* Expanded padding zone to accommodate taller boxes */
 }
 
 .horizontal-slider-track {
     display: flex;
-    gap: 20px;
+    gap: 20px; /* Locked loop shift step calculation gap array value */
     width: max-content;
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     transform-style: preserve-3d !important;
 }
 
@@ -829,8 +826,8 @@ main { position: relative; width: 100%; }
 
 /* REBALANCED FLIP CARDS WITH TYPOGRAPHY FIXES */
 .flip-card-node {
-    width: 235px;
-    height: 130px; /* Locked profile height to shield the bottom service deck */
+    width: 215px;  /* Narrower card width forces multi-line alignment sync */
+    height: 150px; /* Increased height to give texts full bounding box safety space */
     perspective: 1000px !important;
     flex-shrink: 0;
 }
@@ -855,16 +852,16 @@ main { position: relative; width: 100%; }
     height: 100%;
     backface-visibility: hidden !important;
     border-radius: 6px;
-    padding: 14px;
-    display: flex;
-    flex-direction: column;
+    padding: 16px 14px; /* Balanced card workspace metrics */
+    display: flex !important;
+    flex-direction: column !important;
     border: 1px solid var(--border-color);
     box-shadow: 0 4px 10px rgba(11, 34, 64, 0.02);
 }
 
 .flip-card-front {
     background-color: var(--white);
-    justify-content: space-between;
+    justify-content: space-between !important;
 }
 
 .flip-card-front h3 {
@@ -872,7 +869,8 @@ main { position: relative; width: 100%; }
     font-size: 0.88rem;
     color: var(--primary-color);
     font-weight: 700;
-    line-height: 1.3;
+    line-height: 1.35;
+    text-align: left;
 }
 
 .pillar-id {
@@ -880,33 +878,36 @@ main { position: relative; width: 100%; }
     font-weight: 700;
     color: rgba(0, 119, 182, 0.22);
     line-height: 1;
+    text-align: left;
 }
 
+/* FIXED: Flipped text starts from the absolute top, perfectly aligned with the front number placement */
 .flip-card-back {
     background-color: var(--primary-color) !important;
     color: var(--white) !important;
     transform: rotateY(180deg) !important;
-    justify-content: flex-start !important; /* Starts text directly from the top */
+    justify-content: flex-start !important; 
     align-items: flex-start !important;
-    gap: 6px;
+    gap: 6px !important;
     text-align: left;
 }
 
+/* FIXED: Title headers are locked onto a single clean row block */
 .flip-card-back h3 {
-    margin: 0;
-    font-size: 0.85rem !important; /* Keeps text compact and on a single line */
+    margin: 0 !important;
+    font-size: 0.82rem !important; 
     font-weight: 700;
     color: var(--white) !important;
     width: 100%;
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-    padding-bottom: 4px;
+    padding-bottom: 4px !important;
 }
 
 .flip-card-back p {
-    font-size: 0.74rem !important; /* Scaled down slightly to guarantee it never drops off */
-    margin: 0;
+    font-size: 0.76rem !important; 
+    margin: 0 !important;
     line-height: 1.35;
-    color: rgba(255, 255, 255, 0.85) !important;
+    color: rgba(255, 255, 255, 0.88) !important;
     white-space: normal !important;
 }
 
@@ -938,7 +939,7 @@ main { position: relative; width: 100%; }
     position: relative;
     background: var(--light-bg);
     border: 1px solid var(--border-color);
-    padding: 14px 16px; /* Optimized box padding lines */
+    padding: 14px 16px; 
     border-radius: 8px;
     transition: var(--transition-smooth);
 }
@@ -961,7 +962,7 @@ main { position: relative; width: 100%; }
 }
 
 .package-card p {
-    font-size: 0.8rem; /* Tightened text scaling slightly to fit comfortably */
+    font-size: 0.8rem; 
     margin: 0;
     line-height: 1.4;
     color: var(--text-dark);
