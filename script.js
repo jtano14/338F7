@@ -373,7 +373,7 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 /* ==========================================================================
-   8. SLIDER CONTROL LOGIC
+   8. SLIDER CONTROL LOGIC - INFINITE LOOP CAROUSEL ENGINE
    ========================================================================== */
 document.addEventListener("DOMContentLoaded", () => {
     const track = document.getElementById("frameworkSliderTrack");
@@ -382,33 +382,69 @@ document.addEventListener("DOMContentLoaded", () => {
     const nextBtn = document.getElementById("frameworkNext");
 
     if (track && container && prevBtn && nextBtn) {
-        let currentTranslateX = 0;
+        let cards = Array.from(track.children);
+        const cardWidth = 215; // Matches the updated narrower card layout width
+        const gap = 20;        // Matches the updated gap spacing rule
+        const stepShift = cardWidth + gap;
+
+        // Initialize: Clone cards on both ends to establish seamless tracking lines
+        const clonesCount = cards.length;
         
-        // Configuration: Distance to slide on click (width of card + gap spacing)
-        const stepShiftDistance = 255; 
+        // Append clones to the back
+        cards.forEach(card => {
+            const clone = card.cloneNode(true);
+            track.appendChild(clone);
+        });
+        // Prepend clones to the front
+        cards.slice().reverse().forEach(card => {
+            const clone = card.cloneNode(true);
+            track.insertBefore(clone, track.firstChild);
+        });
 
-        // Sliding Right Function
+        // Reposition initial container matrix track to mask the front clones smoothly
+        let currentIndex = clonesCount;
+        let isTransitioning = false;
+
+        const updatePosition = (animate = true) => {
+            if (!animate) {
+                track.style.transition = "none";
+            } else {
+                track.style.transition = "transform 0.45s cubic-bezier(0.16, 1, 0.3, 1)";
+            }
+            const offset = -(currentIndex * stepShift);
+            track.style.transform = `translateX(${offset}px)`;
+        };
+
+        // Instant background jump reset helper to trick the eye during infinite looping
+        track.addEventListener("transitionend", () => {
+            isTransitioning = false;
+            if (currentIndex >= clonesCount * 2) {
+                currentIndex = clonesCount;
+                updatePosition(false);
+            } else if (currentIndex < clonesCount) {
+                currentIndex = clonesCount * 2 - 1;
+                updatePosition(false);
+            }
+        });
+
+        // Next Slide Transition Trigger
         nextBtn.addEventListener("click", () => {
-            const maxScrollWidth = track.scrollWidth - container.clientWidth;
-            currentTranslateX -= stepShiftDistance;
-            
-            // Boundary safety guard
-            if (Math.abs(currentTranslateX) > maxScrollWidth) {
-                currentTranslateX = -maxScrollWidth; 
-            }
-            track.style.transform = `translateX(${currentTranslateX}px)`;
+            if (isTransitioning) return;
+            isTransitioning = true;
+            currentIndex++;
+            updatePosition(true);
         });
 
-        // Sliding Left Function
+        // Previous Slide Transition Trigger
         prevBtn.addEventListener("click", () => {
-            currentTranslateX += stepShiftDistance;
-            
-            // Boundary safety guard
-            if (currentTranslateX > 0) {
-                currentTranslateX = 0; 
-            }
-            track.style.transform = `translateX(${currentTranslateX}px)`;
+            if (isTransitioning) return;
+            isTransitioning = true;
+            currentIndex--;
+            updatePosition(true);
         });
+
+        // Set initial starting coordinates safely
+        updatePosition(false);
     }
 });
 
