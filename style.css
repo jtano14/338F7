@@ -835,12 +835,12 @@ main { position: relative; width: 100%; }
     box-shadow: 0 4px 10px rgba(11, 34, 64, 0.02);
 }
 
-.flip-card-front {
+.framework-section .flip-card-front {
     background-color: var(--white);
     justify-content: space-between !important;
 }
 
-.flip-card-front h3 {
+.framework-section .flip-card-front h3 {
     margin: 0;
     font-size: 0.88rem;
     color: var(--primary-color);
@@ -858,21 +858,17 @@ main { position: relative; width: 100%; }
 }
 
 /* FIXED: Explicit top alignment override for the flipped back state */
-.flip-card-back {
+.framework-section .flip-card-back {
     background-color: var(--primary-color) !important;
     color: var(--white) !important;
     transform: rotateY(180deg) !important;
-    
-    /* FIXED: This forces the container layout to align items from the absolute top edge */
     justify-content: flex-start !important; 
     align-items: flex-start !important;
-    
-    /* Added generous padding space to give the text proper breathing room */
     padding: 16px 14px !important;
     text-align: left !important;
 }
 /* FIXED: Locks wrapper contents tightly to top plane without stretching inner content margins */
-.back-content-wrapper {
+.framework-section .back-content-wrapper {
     display: flex !important;
     flex-direction: column !important;
     gap: 6px !important;
@@ -880,10 +876,10 @@ main { position: relative; width: 100%; }
     height: auto !important; 
     justify-content: flex-start !important;
     align-items: flex-start !important;
-    margin: 0 !important; /* Strips any inherited centering margins completely */
+    margin: 0 !important; 
 }
 
-.flip-card-back h3 {
+.framework-section .flip-card-back h3 {
     margin: 0 !important;
     font-size: 0.82rem !important; 
     font-weight: 700;
@@ -894,7 +890,7 @@ main { position: relative; width: 100%; }
     text-align: left;
 }
 
-.flip-card-back p {
+.framework-section .flip-card-back p {
     font-size: 0.74rem !important; 
     margin: 0 !important;
     line-height: 1.4;
