@@ -1022,76 +1022,94 @@ main { position: relative; width: 100%; }
 /* ==========================================================================
    6. LEADERSHIP SECTION - REBALANCED DESIGN
    ========================================================================== */
+
+.leadership-section .container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+}
+
+/* Forces the intro paragraph below the main header to align left */
+.leader-section-intro {
+    max-width: 720px;
+    margin: 0 0 48px 0;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    text-align: left;
+}
+
+/* Forces the 3 columns to align side-by-side horizontally */
 .leadership-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 40px;
-    margin-top: 48px;
     align-items: flex-start;
 }
 
 .leader-card {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start; /* Aligns all internal card elements to the left */
+    text-align: left;        /* Left-aligns multi-line text blocks */
 }
 
-/* Image Wrapper: Makes photos smaller and strips out border artifacts */
+/* Image Wrapper: Makes photos smaller and cleanly strips edge lines */
 .leader-photo-wrapper {
     width: 100%;
-    max-width: 220px; /* Controls and reduces the photo footprint size */
-    margin: 0 auto 20px auto;
+    max-width: 220px; /* Limits photo size to fit nicely side-by-side */
+    margin: 0 0 20px 0;
     position: relative;
 }
 
 .leader-photo-wrapper img {
     width: 100%;
     height: auto;
-    border-radius: 0; /* Removes forced corner modifications */
-    box-shadow: none; /* Strips the white edge/glow artifact lines completely */
-    filter: none;     /* Disables overlay blending masks */
+    border-radius: 0; 
+    box-shadow: none; 
+    filter: none;     
 }
 
-/* Text Block Content Layout: Elevates the content cluster upward */
+/* Text Content Wrapper */
 .leader-text-content {
-    margin-top: 0;
-    padding: 0 10px;
+    display: flex;
+    flex-direction: column; /* Stacks text items in a precise vertical column */
+    align-items: flex-start;
     width: 100%;
+}
+
+/* Text Layout Structure Order: Name -> Title -> Markets -> Description */
+.leader-name {
+    font-size: 1.25rem;
+    color: var(--primary-color);
+    font-weight: 700;
+    margin: 0 0 6px 0 !important; /* Shrunk spacing underneath name */
+}
+
+.leader-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 6px;
 }
 
 .leader-regions {
     display: block;
     font-size: 0.72rem;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.08em;
     color: var(--accent-blue);
     font-weight: 700;
-    margin-bottom: 6px; /* Tighter spacing underneath region flag */
-}
-
-.leader-name {
-    margin: 0 0 4px 0 !important; /* Shrunk padding margin to lift titles upward */
-    font-size: 1.25rem;
-    color: var(--primary-color);
-    font-weight: 700;
-}
-
-.leader-title {
-    font-size: 0.88rem;
-    font-weight: 600;
-    color: var(--text-muted);
-    margin-bottom: 12px;
+    margin-bottom: 14px; /* Leaves room above description paragraph */
 }
 
 .leader-description {
     font-size: 0.88rem;
     line-height: 1.5;
-    color: var(--text-dark);
-    margin: 0; /* Prevents text from being pushed down toward the section fold */
+    color: var(--text-muted);
+    margin: 0; 
 }
 
-/* Responsive breakpoint scaling */
+/* Mobile responsive layout collapse */
 @media (max-width: 900px) {
     .leadership-grid {
         grid-template-columns: 1fr;
