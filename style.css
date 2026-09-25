@@ -713,10 +713,11 @@ main { position: relative; width: 100%; }
 
 .flip-card-back p {
     color: rgba(255, 255, 255, 0.95) !important;
-    font-size: 1.12rem !important; /* Enhanced for crisp bullet list readability */
+    font-size: 0.92rem !important; /* Scaled down perfectly to keep bullets on one line */
     margin-top: 0;
-    margin-bottom: 10px;
-    line-height: 1.5;
+    margin-bottom: 8px;
+    line-height: 1.4;
+    white-space: nowrap; /* Prevents text wrapping entirely for ultra-clean lines */
 }
 
 /* 4. Responsive Breakpoint */
