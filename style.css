@@ -733,10 +733,11 @@ main { position: relative; width: 100%; }
     top: 76px !important;
     height: 100vh !important;
     min-height: 100vh !important;
+    max-height: 100vh !important;
     width: 100vw !important;
     overflow: hidden !important;
-    /* FIXED: Uniform top padding matching your website's global view alignment */
-    padding: 110px 40px 40px 40px !important; 
+    /* FIXED: Lowered top spacing to 85px to elevate the starting line across sections */
+    padding: 85px 40px 15px 40px !important; 
     margin: 0 !important;
     background-color: var(--white) !important;
     display: flex !important;
@@ -747,8 +748,9 @@ main { position: relative; width: 100%; }
 .framework-unified-container {
     display: flex !important;
     flex-direction: column !important;
-    /* FIXED: Automatically distributes empty vertical space across all 4 Areas */
-    justify-content: space-between !important; 
+    /* FIXED: Forces strict compact flow, eliminating massive floating vertical gaps */
+    justify-content: flex-start !important; 
+    gap: 12px !important; /* Controlled layout row distribution spacing */
     height: 100% !important;
     width: 100%;
     max-width: var(--container-width);
@@ -761,16 +763,15 @@ main { position: relative; width: 100%; }
 
 .framework-content-header h2 {
     margin-top: 0 !important;
-    margin-bottom: 12px !important;
-    /* Uses global h2 size settings to guarantee uniform cross-section views */
+    margin-bottom: 6px !important;
 }
 
 .framework-intro {
     max-width: 720px;
     margin: 0 auto !important;
     color: var(--text-muted);
-    font-size: 0.95rem;
-    line-height: 1.6;
+    font-size: 0.92rem;
+    line-height: 1.4;
     text-align: center;
 }
 
@@ -780,26 +781,22 @@ main { position: relative; width: 100%; }
     display: flex;
     align-items: center;
     width: 100%;
-    margin: 0 auto !important; 
+    margin: 4px auto !important; /* Pulled structural spaces together tight */
     padding: 0 50px;
 }
 
 .horizontal-slider-container {
     width: 100%;
     overflow: hidden;
-    padding: 10px 0;
+    padding: 6px 0;
 }
 
 .horizontal-slider-track {
     display: flex;
-    gap: 24px;
+    gap: 20px;
     width: max-content;
     transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    transform-style: preserve-3d !important; /* Vital for 3D card depth mechanics */
-}
-
-.horizontal-slider-track .flip-card-node:hover .flip-card-inner {
-    transform: rotateY(180deg) !important;
+    transform-style: preserve-3d !important;
 }
 
 /* NAVIGATION CONTROLS */
@@ -807,8 +804,8 @@ main { position: relative; width: 100%; }
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background-color: var(--white);
     border: 1px solid var(--border-color);
@@ -817,7 +814,7 @@ main { position: relative; width: 100%; }
     align-items: center;
     justify-content: center;
     z-index: 10;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
     transition: var(--transition-fast);
 }
 
@@ -832,8 +829,8 @@ main { position: relative; width: 100%; }
 
 /* REBALANCED FLIP CARDS WITH TYPOGRAPHY FIXES */
 .flip-card-node {
-    width: 250px;
-    height: 155px; /* Rebalanced dimensions to provide ample description workspace */
+    width: 235px;
+    height: 130px; /* Locked profile height to shield the bottom service deck */
     perspective: 1000px !important;
     flex-shrink: 0;
 }
@@ -842,7 +839,7 @@ main { position: relative; width: 100%; }
     position: relative;
     width: 100%;
     height: 100%;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
     transform-style: preserve-3d !important;
 }
 
@@ -856,13 +853,13 @@ main { position: relative; width: 100%; }
     left: 0;
     width: 100%;
     height: 100%;
-    backface-visibility: hidden !important; /* Prevents mirror elements leaking */
-    border-radius: 8px;
-    padding: 20px;
+    backface-visibility: hidden !important;
+    border-radius: 6px;
+    padding: 14px;
     display: flex;
     flex-direction: column;
     border: 1px solid var(--border-color);
-    box-shadow: 0 4px 12px rgba(11, 34, 64, 0.02);
+    box-shadow: 0 4px 10px rgba(11, 34, 64, 0.02);
 }
 
 .flip-card-front {
@@ -872,59 +869,59 @@ main { position: relative; width: 100%; }
 
 .flip-card-front h3 {
     margin: 0;
-    font-size: 1rem;
+    font-size: 0.88rem;
     color: var(--primary-color);
     font-weight: 700;
-    line-height: 1.4;
-    text-align: left;
+    line-height: 1.3;
 }
 
 .pillar-id {
-    font-size: 1.6rem;
+    font-size: 1.3rem;
     font-weight: 700;
     color: rgba(0, 119, 182, 0.22);
     line-height: 1;
-    text-align: left;
 }
 
 .flip-card-back {
     background-color: var(--primary-color) !important;
     color: var(--white) !important;
     transform: rotateY(180deg) !important;
-    justify-content: flex-start;
-    gap: 8px;
+    justify-content: flex-start !important; /* Starts text directly from the top */
+    align-items: flex-start !important;
+    gap: 6px;
     text-align: left;
 }
 
 .flip-card-back h3 {
     margin: 0;
-    font-size: 0.95rem;
-    color: var(--white) !important;
+    font-size: 0.85rem !important; /* Keeps text compact and on a single line */
     font-weight: 700;
+    color: var(--white) !important;
+    width: 100%;
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-    padding-bottom: 6px;
+    padding-bottom: 4px;
 }
 
 .flip-card-back p {
-    font-size: 0.8rem;
+    font-size: 0.74rem !important; /* Scaled down slightly to guarantee it never drops off */
     margin: 0;
-    line-height: 1.4;
+    line-height: 1.35;
     color: rgba(255, 255, 255, 0.85) !important;
-    white-space: normal !important; /* Enables natural multi-line auto wrapping */
+    white-space: normal !important;
 }
 
 /* REFRESHED LOWER SERVICE PACKAGES COMPONENT */
 .service-packages-fixed-bottom {
     border-top: 1px solid var(--border-color);
-    padding-top: 24px;
+    padding-top: 12px;
     width: 100%;
 }
 
 .service-packages-fixed-bottom h3 {
-    font-size: 1.1rem;
+    font-size: 0.95rem;
     color: var(--primary-color);
     margin-top: 0;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
     text-align: center;
     font-weight: 700;
     text-transform: uppercase;
@@ -934,48 +931,46 @@ main { position: relative; width: 100%; }
 .service-packages-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: 16px;
 }
 
 .package-card {
     position: relative;
     background: var(--light-bg);
     border: 1px solid var(--border-color);
-    padding: 24px;
+    padding: 14px 16px; /* Optimized box padding lines */
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.01);
     transition: var(--transition-smooth);
 }
 
 .package-tag {
     display: block;
-    font-size: 0.68rem;
+    font-size: 0.65rem;
     font-weight: 700;
     text-transform: uppercase;
     color: var(--text-muted);
     letter-spacing: 0.05em;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
 }
 
 .package-card h4 {
-    margin: 0 0 8px 0;
-    font-size: 1.2rem;
+    margin: 0 0 4px 0;
+    font-size: 1.1rem;
     color: var(--primary-color);
     font-weight: 700;
 }
 
 .package-card p {
-    font-size: 0.88rem;
+    font-size: 0.8rem; /* Tightened text scaling slightly to fit comfortably */
     margin: 0;
-    line-height: 1.5;
+    line-height: 1.4;
     color: var(--text-dark);
 }
 
-/* Featured Premium Highlight Badge */
 .package-card.premium-tier {
     background: var(--white);
     border: 2px solid #bfdbfe;
-    box-shadow: 0 10px 25px rgba(0, 119, 182, 0.06);
+    box-shadow: 0 6px 16px rgba(0, 119, 182, 0.04);
 }
 
 .package-card.premium-tier .package-tag {
@@ -984,18 +979,18 @@ main { position: relative; width: 100%; }
 
 .badge-wrapper {
     position: absolute;
-    top: -12px;
-    right: 20px;
+    top: -10px;
+    right: 16px;
 }
 
 .premium-badge {
     background-color: var(--accent-blue);
     color: var(--white);
-    font-size: 0.62rem;
+    font-size: 0.58rem;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    padding: 4px 12px;
+    padding: 3px 8px;
     border-radius: 20px;
 }
 
