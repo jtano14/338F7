@@ -637,7 +637,7 @@ main { position: relative; width: 100%; }
 
 .services-grid .flip-card-node {
     width: 100%;
-    height: 320px; /* Enhanced slightly to comfortably fit larger font contents */
+    height: 340px; /* Stepped up slightly to breathe with larger text scales */
     perspective: 1000px;
 }
 
@@ -650,14 +650,15 @@ main { position: relative; width: 100%; }
     background: var(--white);
     border: 1px solid var(--border-color);
     border-top: 4px solid var(--accent-blue);
-    padding: 40px 32px;
+    padding: 32px;
     border-radius: 6px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Vertically centers content */
-    align-items: center;     /* Horizontally centers content */
-    text-align: center;      /* Centers multi-line text */
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important; /* Forces layout grouping to middle vertically */
+    align-items: center !important;     /* Centers all children horizontally */
+    text-align: center !important;      /* Centers individual multi-line text splits */
     height: 100%;
+    gap: 16px; /* Perfect tight layout spacing between icon, title, and description */
     box-shadow: 0 4px 12px rgba(11, 34, 64, 0.02);
 }
 
@@ -666,29 +667,30 @@ main { position: relative; width: 100%; }
     flex-direction: column;
     align-items: center;
     gap: 12px;
-    margin-bottom: 16px;
+    margin: 0 !important; 
 }
 
 .service-card-header h3 {
     margin: 0;
-    font-size: 1.4rem; /* Step up front title size */
+    font-size: 1.65rem !important; /* Noticeably stepped up title scaling */
     color: var(--primary-color);
     font-weight: 700;
+    letter-spacing: -0.01em;
 }
 
 .service-front-desc {
     color: var(--text-muted);
-    font-size: 1.05rem; /* Matches readability sizing */
+    font-size: 1.15rem !important; /* Stepped up reading size scale */
     line-height: 1.6;
-    margin: 0;
-    max-width: 340px; /* Keeps text paragraphs beautifully bound */
+    margin: 0 !important;
+    max-width: 360px; /* Keeps line length beautifully readable */
 }
 
 /* 3. BACK FACE: Matched Typography & Polish */
 .flip-card-back {
     background-color: var(--primary-color) !important;
     color: var(--white) !important;
-    padding: 40px 32px !important;
+    padding: 40px 36px !important;
     border-radius: 6px;
     display: flex;
     flex-direction: column;
@@ -701,19 +703,19 @@ main { position: relative; width: 100%; }
 .flip-card-back h3 {
     color: var(--white) !important;
     margin-top: 0;
-    margin-bottom: 18px;
-    font-size: 1.4rem; /* Perfectly matches front heading size */
+    margin-bottom: 20px;
+    font-size: 1.65rem !important; /* Perfectly matches front heading sizes */
     font-weight: 700;
     width: 100%;
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-    padding-bottom: 10px;
+    padding-bottom: 12px;
 }
 
 .flip-card-back p {
     color: rgba(255, 255, 255, 0.95) !important;
-    font-size: 1.02rem; /* Matches size readability scale with front */
+    font-size: 1.12rem !important; /* Enhanced for crisp bullet list readability */
     margin-top: 0;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     line-height: 1.5;
 }
 
@@ -724,7 +726,7 @@ main { position: relative; width: 100%; }
     }
     .services-grid .flip-card-node {
         height: auto;
-        min-height: 320px;
+        min-height: 340px;
     }
 }
 
