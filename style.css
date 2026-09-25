@@ -1492,6 +1492,8 @@ main { position: relative; width: 100%; }
 .footer-logo img { 
     max-height: 42px; 
     width: auto;
+    /* This magic filter turns any dark logo completely white instantly! */
+    filter: brightness(0) invert(1) !important; 
 }
 
 .footer-tagline {
