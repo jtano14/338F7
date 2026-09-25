@@ -448,5 +448,59 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+/* ==========================================================================
+   SMART WEB INTERACTION - SMOOTH AUTO-SCROLL SNAP ENGINE
+   ========================================================================== */
+document.addEventListener("DOMContentLoaded", () => {
+    const structuralSections = document.querySelectorAll(
+        "section, .hero-section, .about-section, .services-section, .framework-section, .leadership-section, .sectors-section, .contact-section, .main-footer"
+    );
+
+    let movementTimeout;
+    let currentlyActiveIndex = 0;
+
+    // Track which section is in full view
+    const viewObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                const visibleIndex = Array.from(structuralSections).indexOf(entry.target);
+                if (visibleIndex !== -1) {
+                    currentlyActiveIndex = visibleIndex;
+                }
+            }
+        });
+    }, { threshold: 0.2, rootMargin: "-10% 0px -10% 0px" });
+
+    structuralSections.forEach(targetSection => viewObserver.observe(targetSection));
+
+    // Listen for subtle scroll events to finish the transition smoothly
+    window.addEventListener("scroll", () => {
+        clearTimeout(movementTimeout);
+        
+        // Waits for 150ms after user finishes scrolling to snap perfectly into position
+        movementTimeout = setTimeout(() => {
+            const scrollLocation = window.scrollY;
+            let closestDistance = Infinity;
+            let targetDestinationSection = structuralSections[currentlyActiveIndex];
+
+            // Measure distances to ensure accurate section landing
+            structuralSections.forEach((sectionBlock) => {
+                const distanceDelta = Math.abs(sectionBlock.offsetTop - scrollLocation);
+                if (distanceDelta < closestDistance) {
+                    closestDistance = distanceDelta;
+                    targetDestinationSection = sectionBlock;
+                }
+            });
+
+            // Smoothly move the viewport window to center the target element perfectly
+            if (targetDestinationSection) {
+                targetDestinationSection.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            }
+        }, 150);
+    }, { passive: true });
+});
 
 
