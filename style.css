@@ -1502,17 +1502,15 @@ main { position: relative; width: 100%; }
 
 /* Fixed container block prevents layout shifts */
 .footer-logo { 
-    margin-bottom: 24px !important; /* Balanced gap between logo base and tagline */
+    margin-bottom: 18px !important; /* Clean space before tagline text */
     display: block;
-    height: 110px; /* Constrains the box height */
 }
 
-
 .footer-logo img { 
-    max-height: 100% !important; /* Scales image fluidly within the 110px boundary */
-    width: auto;
+    height: 90px !important; /* Direct, stable size that matches your design nicely */
+    width: auto !important;  /* Protects the logo's original shapes and proportions */
     display: block;
-    filter: brightness(0) invert(1) !important; /* Keeps the logo pure white */
+    filter: brightness(0) invert(1) !important; /* Keeps the logo crisp white */
 }
 
 .footer-tagline {
