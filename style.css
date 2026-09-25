@@ -693,6 +693,7 @@ main { position: relative; width: 100%; }
     align-items: flex-start;
     text-align: left;
     box-shadow: 0 12px 32px rgba(11, 34, 64, 0.18);
+    transform: rotateY(180deg) !important;
 }
 
 .flip-card-back h3 {
@@ -861,7 +862,7 @@ main { position: relative; width: 100%; }
 .framework-section .flip-card-back {
     background-color: var(--primary-color) !important;
     color: var(--white) !important;
-    transform: rotateY(180deg) !important;
+    transform: rotateY(180deg) !important; /* Kept here to maintain 3D rotation engine path rules */
     justify-content: flex-start !important; 
     align-items: flex-start !important;
     padding: 16px 14px !important;
