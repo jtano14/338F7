@@ -1432,12 +1432,49 @@ main { position: relative; width: 100%; }
 
 
 /* FOOTER */
+/* ==========================================================================
+   10. MAIN FOOTER WITH BACKGROUND IMAGE & GRADIENT TRANSITION
+   ========================================================================== */
 .main-footer {
-    background-color: var(--primary-color);
-    color: rgba(255, 255, 255, 0.75);
-    padding: 80px 0 40px;
     position: relative;
     z-index: 20;
+    width: 100%;
+    margin-top: 0; /* Keeps structural binding continuous from contact block */
+    padding: 120px 0 40px 0; /* Expanded top space leaves room for the fade loop */
+    
+    /* 1. Sets your city buildings image as the background baseline */
+    background-image: url('assets/images/image_c.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+}
+
+/* 2. Dual overlay engine: Smoothly transitions from pure white into a high-contrast dark mask */
+.main-footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Fades from a solid white background into a deep, high-contrast dark overlay so text is easy to read */
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 1.0) 0%,     /* Matches your contact form background perfectly */
+        rgba(11, 34, 64, 0.94) 18%,      /* Smoothly blends into your dark theme color */
+        rgba(7, 22, 41, 0.97) 100%       /* Deep contrast at the very bottom */
+    );
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* 3. Forces all footer text items to sit cleanly on top of our new background overlays */
+.main-footer .container {
+    position: relative;
+    z-index: 2;
+    width: min(100% - 40px, var(--container-width));
+    margin: 0 auto;
 }
 
 .footer-main {
@@ -1445,36 +1482,50 @@ main { position: relative; width: 100%; }
     grid-template-columns: 2fr 1fr 1fr;
     gap: 64px;
     padding-bottom: 48px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.footer-logo { margin-bottom: 12px; }
-.footer-logo img { max-height: 40px; }
+.footer-logo { 
+    margin-bottom: 16px; 
+}
+
+.footer-logo img { 
+    max-height: 42px; 
+    width: auto;
+}
+
 .footer-tagline {
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.85); /* Boosted font contrast ratio */
     font-size: 0.95rem;
-    margin: 8px 0 16px;
+    margin: 8px 0 20px 0;
+    line-height: 1.6;
 }
 
 .footer-contact {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
 }
 
 .footer-contact a {
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.75);
     font-size: 0.9rem;
     transition: var(--transition-fast);
 }
 
-.footer-contact a:hover { color: var(--accent-blue); }
+.footer-contact a:hover { 
+    color: var(--accent-blue); 
+}
 
 .footer-links-column h2,
 .footer-offices-column h2 {
-    font-size: 1rem;
+    font-size: 1.05rem;
+    font-weight: 700;
     color: var(--white);
-    margin-bottom: 16px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .footer-links,
@@ -1486,16 +1537,23 @@ main { position: relative; width: 100%; }
 
 .footer-links a,
 .office-link {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.92rem;
     transition: var(--transition-fast);
+    text-decoration: none;
 }
 
 .footer-links a:hover,
-.office-link:hover { color: var(--accent-blue); }
+.office-link:hover { 
+    color: var(--accent-blue); 
+    padding-left: 2px; /* Subtle movement indicator on hover links */
+}
 
 .office-link {
     text-align: left;
+    background: none;
+    border: none;
+    padding: 0;
     cursor: pointer;
 }
 
@@ -1503,8 +1561,9 @@ main { position: relative; width: 100%; }
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 24px;
+    padding-top: 28px;
     font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .footer-legal {
@@ -1513,11 +1572,29 @@ main { position: relative; width: 100%; }
 }
 
 .footer-legal a {
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.6);
     transition: var(--transition-fast);
 }
 
-.footer-legal a:hover { color: var(--accent-blue); }
+.footer-legal a:hover { 
+    color: var(--accent-blue); 
+}
+
+/* Responsive collapse limits */
+@media (max-width: 900px) {
+    .footer-main {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .main-footer {
+        padding: 100px 0 32px 0;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+    }
+}
 
 /* OFFICE DIALOGS */
 .office-dialog {
