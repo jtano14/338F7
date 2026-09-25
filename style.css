@@ -1502,21 +1502,22 @@ main { position: relative; width: 100%; }
 
 /* Fixed container block prevents layout shifts */
 .footer-logo { 
-    margin-bottom: 18px !important; /* Clean space before tagline text */
+    margin-bottom: 12px !important; /* Tight spacing pulls your tagline up closer to the logo */
     display: block;
 }
 
+/* Forcing a large, premium pixel scale directly on the image */
 .footer-logo img { 
-    height: 90px !important; /* Direct, stable size that matches your design nicely */
-    width: auto !important;  /* Protects the logo's original shapes and proportions */
+    height: 140px !important; /* Restores the large, impactful size you liked! */
+    width: auto !important;   /* Guarantees the logo shape will never distort */
     display: block;
-    filter: brightness(0) invert(1) !important; /* Keeps the logo crisp white */
+    filter: brightness(0) invert(1) !important; /* Keeps the logo stark, crisp white */
 }
 
 .footer-tagline {
     color: rgba(255, 255, 255, 0.85); 
     font-size: 0.95rem;
-    margin: 0 0 20px 0 !important; /* Snaps tight below logo and creates room for email/phone */
+    margin: 0 0 16px 0 !important; /* Snaps tight below your large logo mark */
     line-height: 1.6;
     text-align: left;
 }
@@ -1524,7 +1525,7 @@ main { position: relative; width: 100%; }
 .footer-contact {
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Neatly stacks email and phone values */
+    gap: 8px; /* Tightly groups email and phone directly under tagline */
     text-align: left;
 }
 
