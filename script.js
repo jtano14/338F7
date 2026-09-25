@@ -372,5 +372,45 @@ window.addEventListener('scroll', () => {
     }
 }, { passive: true });
 
+/* ==========================================================================
+   8. SLIDER CONTROL LOGIC
+   ========================================================================== */
+document.addEventListener("DOMContentLoaded", () => {
+    const track = document.getElementById("frameworkSliderTrack");
+    const container = document.getElementById("frameworkSliderContainer");
+    const prevBtn = document.getElementById("frameworkPrev");
+    const nextBtn = document.getElementById("frameworkNext");
+
+    if (track && container && prevBtn && nextBtn) {
+        let currentTranslateX = 0;
+        
+        // Configuration: Distance to slide on click (width of card + gap spacing)
+        const stepShiftDistance = 255; 
+
+        // Sliding Right Function
+        nextBtn.addEventListener("click", () => {
+            const maxScrollWidth = track.scrollWidth - container.clientWidth;
+            currentTranslateX -= stepShiftDistance;
+            
+            // Boundary safety guard
+            if (Math.abs(currentTranslateX) > maxScrollWidth) {
+                currentTranslateX = -maxScrollWidth; 
+            }
+            track.style.transform = `translateX(${currentTranslateX}px)`;
+        });
+
+        // Sliding Left Function
+        prevBtn.addEventListener("click", () => {
+            currentTranslateX += stepShiftDistance;
+            
+            // Boundary safety guard
+            if (currentTranslateX > 0) {
+                currentTranslateX = 0; 
+            }
+            track.style.transform = `translateX(${currentTranslateX}px)`;
+        });
+    }
+});
+
 
 
