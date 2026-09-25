@@ -862,20 +862,25 @@ main { position: relative; width: 100%; }
     background-color: var(--primary-color) !important;
     color: var(--white) !important;
     transform: rotateY(180deg) !important;
-    justify-content: flex-start !important; /* Forces layout to start from absolute top */
+    
+    /* FIXED: This forces the container layout to align items from the absolute top edge */
+    justify-content: flex-start !important; 
     align-items: flex-start !important;
-    text-align: left;
+    
+    /* Added generous padding space to give the text proper breathing room */
+    padding: 16px 14px !important;
+    text-align: left !important;
 }
-
 /* FIXED: Locks wrapper contents tightly to top plane without stretching inner content margins */
 .back-content-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    width: 100%;
-    height: auto !important; /* Prevents container from stretching vertically */
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+    width: 100% !important;
+    height: auto !important; 
     justify-content: flex-start !important;
     align-items: flex-start !important;
+    margin: 0 !important; /* Strips any inherited centering margins completely */
 }
 
 .flip-card-back h3 {
