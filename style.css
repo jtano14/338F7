@@ -1489,9 +1489,10 @@ main { position: relative; width: 100%; }
     gap: 64px;
     padding-bottom: 48px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-    align-items: flex-start; /* 1. Forces the logo top to align horizontally with Quick Links and Our Offices headers */
+    align-items: flex-start; /* Aligns the tops of all 3 columns horizontally */
 }
 
+/* Container for the logo and brand credentials */
 .footer-brand-column {
     display: flex;
     flex-direction: column;
@@ -1499,13 +1500,16 @@ main { position: relative; width: 100%; }
     justify-content: flex-start;
 }
 
+/* Fixed container block prevents layout shifts */
 .footer-logo { 
-    margin-bottom: 8px !important; /* 3. Tightened spacing immediately below your large logo */
+    margin-bottom: 24px !important; /* Balanced gap between logo base and tagline */
     display: block;
+    height: 110px; /* Constrains the box height */
 }
 
+
 .footer-logo img { 
-    max-height: 250px !important; /* Bumped up to 200% size so it feels strong and authoritative */
+    max-height: 100% !important; /* Scales image fluidly within the 110px boundary */
     width: auto;
     display: block;
     filter: brightness(0) invert(1) !important; /* Keeps the logo pure white */
@@ -1514,19 +1518,22 @@ main { position: relative; width: 100%; }
 .footer-tagline {
     color: rgba(255, 255, 255, 0.85); 
     font-size: 0.95rem;
-    margin: 0 0 16px 0 !important; /* 4. Pulled tagline up tight and set a clean 16px gap underneath */
+    margin: 0 0 20px 0 !important; /* Snaps tight below logo and creates room for email/phone */
     line-height: 1.6;
+    text-align: left;
 }
 
 .footer-contact {
     display: flex;
     flex-direction: column;
-    gap: 8px; /* 5. Snaps the email and phone rows close together */
+    gap: 10px; /* Neatly stacks email and phone values */
+    text-align: left;
 }
 
 .footer-contact a {
     color: rgba(255, 255, 255, 0.75);
     font-size: 0.9rem;
+    text-decoration: none;
     transition: var(--transition-fast);
 }
 
