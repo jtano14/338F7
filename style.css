@@ -1461,9 +1461,9 @@ main { position: relative; width: 100%; }
     /* Fades from a solid white background into a deep, high-contrast dark overlay so text is easy to read */
     background: linear-gradient(
         to bottom,
-        rgba(255, 255, 255, 1.0) 0%,     /* Matches your contact form background perfectly */
-        rgba(11, 34, 64, 0.94) 18%,      /* Smoothly blends into your dark theme color */
-        rgba(7, 22, 41, 0.97) 100%       /* Deep contrast at the very bottom */
+        rgba(255, 255, 255, 1.0) 0%,     
+        rgba(11, 34, 64, 0.94) 10%,      /* Shrunk from 18% to bring buildings into view higher up */
+        rgba(7, 22, 41, 0.97) 100%       
     );
     z-index: 1;
     pointer-events: none;
