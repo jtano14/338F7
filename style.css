@@ -373,13 +373,13 @@ main { position: relative; width: 100%; }
     min-height: 100vh !important;
     max-height: 100vh !important;
     width: 100vw !important;
-    overflow-y: auto !important; /* Prevents text cutoff on smaller window dimensions */
+    overflow-y: auto !important;
     background-color: var(--light-bg) !important;
-    padding: 80px 0 !important;
+    /* REDUCED TOP PADDING: Shifts "ABOUT FLUX7" up toward the navbar */
+    padding: 45px 0 80px 0 !important;
     margin: 0 !important;
 }
 
-/* Flex/Grid container handling horizontal centering */
 .about-container {
     display: grid !important;
     grid-template-columns: 1.2fr 1fr !important;
@@ -387,19 +387,38 @@ main { position: relative; width: 100%; }
     align-items: flex-start !important;
 }
 
-/* Left side text block configuration */
+/* Left Side Column Configuration */
 .about-content-col {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    padding-top: 10px; /* Align perfectly line-for-line with the right column image */
+    height: 100%;
 }
 
-/* Right side cohesive card column */
+/* Shifts tag closer to top bounds */
+.unique-top-tag {
+    margin-bottom: 8px !important;
+}
+
+/* HEADING ALIGNMENT: Zero top margin matches header perfectly with image top border */
+.about-content-col h2 {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    line-height: 1.15;
+}
+
+/* DETAILS SUB-STACK: Margins push text details exactly line-for-line with overview panel */
+.about-details-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 60px; /* Aligns the start of this sub-stack with "Company Overview" */
+}
+
+/* Right Side sidebar column */
 .about-sidebar-col {
     display: flex;
     flex-direction: column;
-    gap: 28px;
+    gap: 24px;
     width: 100%;
 }
 
@@ -411,13 +430,12 @@ main { position: relative; width: 100%; }
 .image-corner-frame img {
     width: 100%;
     height: auto;
-    max-height: 320px; /* Increased back to match target aspect ratio */
+    max-height: 290px;
     object-fit: cover;
     border-radius: 6px;
-    box-shadow: 0 8px 24px rgba(11, 34, 64, 0.06);
+    box-shadow: 0 8px 24px rgba(11, 34, 64, 0.05);
 }
 
-/* Company Overview panel spacing adjustments */
 .corporate-profile-panel {
     background-color: transparent;
     width: 100%;
@@ -425,6 +443,7 @@ main { position: relative; width: 100%; }
 
 .corporate-profile-panel h3 {
     font-size: 1.1rem;
+    margin-top: 0;
     margin-bottom: 16px;
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 8px;
@@ -465,7 +484,7 @@ main { position: relative; width: 100%; }
 }
 
 .about-promise-tray {
-    margin: 16px 0;
+    margin: 8px 0;
     padding-left: 14px;
     border-left: 3px solid var(--accent-blue);
 }
@@ -489,8 +508,8 @@ main { position: relative; width: 100%; }
 .stats-row {
     display: flex;
     gap: 40px;
-    margin-top: 16px;
-    padding-top: 24px;
+    margin-top: auto; /* Dynamically grounds stats row to fill remaining card space */
+    padding-top: 16px;
     border-top: 1px solid var(--border-color);
 }
 
@@ -516,7 +535,7 @@ main { position: relative; width: 100%; }
     margin-top: 6px;
 }
 
-/* RESPONSIVE TABLET & MOBILE VIEWPORT FIX */
+/* RESPONSIVE LAYOUT CONSTRAINTS */
 @media (max-width: 900px) {
     .about-section {
         height: auto !important;
@@ -530,7 +549,11 @@ main { position: relative; width: 100%; }
         grid-template-columns: 1fr !important;
         gap: 40px !important;
     }
+    .about-details-stack {
+        margin-top: 24px;
+    }
 }
+
 /* SERVICES */
 .services-grid {
     display: grid;
