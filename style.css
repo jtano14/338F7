@@ -402,7 +402,7 @@ main { position: relative; width: 100%; }
     display: flex;
     flex-direction: column;
     gap: 16px;
-    padding-bottom: 24px; /* Gently pushes Row 3 lower to match right column depth */
+    padding-bottom: 0 !important; /* Completely removed the middle row gap separation */
 }
 
 .about-row-desc-left h2 {
@@ -430,7 +430,7 @@ main { position: relative; width: 100%; }
     width: 100%;
     height: auto;
     max-height: 280px;
-    object-fit: cover;
+    object-fit: contain; 
     border-radius: 6px;
     box-shadow: 0 8px 24px rgba(11, 34, 64, 0.05);
 }
@@ -471,8 +471,9 @@ main { position: relative; width: 100%; }
     grid-row: 3 !important;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; 
-    gap: 36px;
+    justify-content: center; 
+    padding: 12px 0 8px 0; 
+    gap: 28px;
     height: 100%;
 }
 
