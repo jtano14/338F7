@@ -623,35 +623,21 @@ main { position: relative; width: 100%; }
 }
 
 /* SERVICES */
+.services-narrow-container {
+    max-width: 960px !important; 
+    margin: 0 auto;
+}
+
 .services-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
+    gap: 36px;
     margin-top: 42px;
-}
-
-.service-card {
-    background: var(--white);
-    border: 1px solid var(--border-color);
-    border-top: 4px solid var(--accent-blue);
-    padding: 40px;
-    border-radius: 4px;
-}
-
-.service-card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 16px;
-}
-
-.card-icon { 
-    font-size: 1.8rem; 
 }
 
 .services-grid .flip-card-node {
     width: 100%;
-    height: 280px; /* Fixed height so front and back faces stay identical during flip */
+    height: 320px; /* Enhanced slightly to comfortably fit larger font contents */
     perspective: 1000px;
 }
 
@@ -659,41 +645,86 @@ main { position: relative; width: 100%; }
     transform: rotateY(180deg);
 }
 
+/* 2. FRONT FACE: Completely Centered Flexbox Alignment */
+.service-card {
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    border-top: 4px solid var(--accent-blue);
+    padding: 40px 32px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically centers content */
+    align-items: center;     /* Horizontally centers content */
+    text-align: center;      /* Centers multi-line text */
+    height: 100%;
+    box-shadow: 0 4px 12px rgba(11, 34, 64, 0.02);
+}
+
+.service-card-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.service-card-header h3 {
+    margin: 0;
+    font-size: 1.4rem; /* Step up front title size */
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.service-front-desc {
+    color: var(--text-muted);
+    font-size: 1.05rem; /* Matches readability sizing */
+    line-height: 1.6;
+    margin: 0;
+    max-width: 340px; /* Keeps text paragraphs beautifully bound */
+}
+
+/* 3. BACK FACE: Matched Typography & Polish */
 .flip-card-back {
     background-color: var(--primary-color) !important;
     color: var(--white) !important;
-    padding: 32px !important;
-    border-radius: 4px;
+    padding: 40px 32px !important;
+    border-radius: 6px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     text-align: left;
-    box-shadow: 0 12px 30px rgba(11, 34, 64, 0.15);
+    box-shadow: 0 12px 32px rgba(11, 34, 64, 0.18);
 }
 
 .flip-card-back h3 {
     color: var(--white) !important;
     margin-top: 0;
-    margin-bottom: 16px;
-    font-size: 1.2rem;
+    margin-bottom: 18px;
+    font-size: 1.4rem; /* Perfectly matches front heading size */
+    font-weight: 700;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    padding-bottom: 10px;
 }
 
 .flip-card-back p {
-    color: rgba(255, 255, 255, 0.9) !important;
-    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.95) !important;
+    font-size: 1.02rem; /* Matches size readability scale with front */
+    margin-top: 0;
     margin-bottom: 8px;
     line-height: 1.5;
 }
 
-/* Responsive adjustment for small screens */
+/* 4. Responsive Breakpoint */
 @media (max-width: 900px) {
     .services-grid {
         grid-template-columns: 1fr;
     }
     .services-grid .flip-card-node {
         height: auto;
-        min-height: 280px; /* Lets cards stretch if long text stacks on mobile */
+        min-height: 320px;
     }
 }
 
