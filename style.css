@@ -1266,8 +1266,7 @@ main { position: relative; width: 100%; }
     width: 100vw !important;
     overflow: hidden !important;
     display: block !important;
-    /* Fixed 100px padding locks this header line with Sectors and previous sections */
-    padding: 100px 40px 20px 40px !important; 
+    padding: 100px 40px 20px 40px !important; /* Fixed 100px padding locks this header line with previous sections */
     background-color: var(--white) !important;
 }
 
@@ -1276,26 +1275,34 @@ main { position: relative; width: 100%; }
     margin: 0 auto;
 }
 
-/* Header Typography Setup */
-.contact-section .section-tag {
-    margin-bottom: 12px !important;
+/* Header Container Spacing */
+.contact-heading {
+    width: 100%;
+    text-align: left; /* Explicitly forces left alignment */
 }
 
-.contact-section h2 {
+.contact-heading .section-tag {
+    margin-bottom: 12px !important;
+    display: block;
+}
+
+.contact-heading h2 {
     margin-top: 0 !important;
     margin-bottom: 16px !important;
     max-width: 720px;
     line-height: 1.2;
+    text-align: left;
 }
 
-.contact-section p {
-    margin: 0 0 36px 0 !important; /* Balanced gap between description line and form rows */
+.contact-intro {
+    margin: 0 0 36px 0 !important; /* Forces left distribution line gap */
     font-size: 0.95rem;
     line-height: 1.5;
     color: var(--text-muted);
+    text-align: left;
 }
 
-/* Contact Container Panel: Clean, transparent baseline matching Image 2 */
+/* Contact Container Panel */
 .contact-panel {
     background-color: transparent !important;
     border: none !important;
@@ -1308,7 +1315,7 @@ main { position: relative; width: 100%; }
 .contact-form-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px 24px; /* Compressed 20px row gap keeps things from cutting off */
+    gap: 20px 24px; /* Tight vertical layout row footprint */
     margin-top: 0;
     width: 100%;
 }
@@ -1318,7 +1325,6 @@ main { position: relative; width: 100%; }
     flex-direction: column;
 }
 
-/* Labels: Subtle uppercase clean styling */
 .form-group label {
     font-size: 0.72rem;
     font-weight: 700;
@@ -1326,9 +1332,10 @@ main { position: relative; width: 100%; }
     letter-spacing: 0.08em;
     margin-bottom: 8px;
     color: var(--text-muted);
+    text-align: left;
 }
 
-/* Input Fields: Crisp white boxes with elegant borders matching Image 2 */
+/* Input Fields Style Reset matching Image 2 */
 .form-group input,
 .form-group select,
 .form-group textarea {
@@ -1341,9 +1348,9 @@ main { position: relative; width: 100%; }
     color: var(--text-dark);
     width: 100%;
     transition: var(--transition-fast);
+    box-sizing: border-box;
 }
 
-/* Focus Highlights */
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
@@ -1352,10 +1359,9 @@ main { position: relative; width: 100%; }
     box-shadow: 0 0 0 3px rgba(0, 119, 182, 0.08);
 }
 
-/* Custom dropdown arrow spacing */
 .form-group select {
     cursor: pointer;
-    appearance: none; /* Strips browser defaults */
+    appearance: none;
     background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://w3.org' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%236c757d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 14px center;
@@ -1363,19 +1369,17 @@ main { position: relative; width: 100%; }
     padding-right: 40px;
 }
 
-/* Wide row assignments */
 .form-group-wide {
     grid-column: span 3;
 }
 
-/* Textarea height compression to ensure safe vertical scaling */
 .form-group textarea {
     resize: none;
-    min-height: 80px; /* Kept tight to prevent pushing the submit button off screen */
+    min-height: 80px;
     max-height: 80px;
 }
 
-/* Submit Action Button Block Area */
+/* Button Container Adjustment Layout */
 .contact-form-submit {
     margin-top: 24px;
     display: flex;
@@ -1383,7 +1387,6 @@ main { position: relative; width: 100%; }
     width: 100%;
 }
 
-/* CTA Button Styling matching Image 2 */
 .contact-form-submit .btn-primary {
     background-color: #0b2240 !important;
     border-color: #0b2240 !important;
@@ -1407,7 +1410,7 @@ main { position: relative; width: 100%; }
     box-shadow: 0 8px 20px rgba(0, 119, 182, 0.2);
 }
 
-/* Responsive Scaling Viewports */
+/* Responsive updates for mobile sizes */
 @media (max-width: 900px) {
     .contact-section {
         height: auto !important;
@@ -1425,6 +1428,7 @@ main { position: relative; width: 100%; }
         grid-column: 1;
     }
 }
+
 
 
 /* FOOTER */
