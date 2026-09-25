@@ -22,8 +22,7 @@
 html {
     scroll-behavior: smooth;
     background-color: #ffffff;
-    /* Changed to proximity to allow smooth organic transitions between short blocks */
-    scroll-snap-type: y proximity; 
+    /* Removed the CSS scroll-snap engine to prevent sticky positioning glitches */
 }
 
 body {
@@ -34,38 +33,8 @@ body {
     font-size: 16px;
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
-    height: 100vh;
-    overflow-y: scroll;
 }
 
-/* ==========================================================================
-   SECTION SNAP ALIGNMENT REFACTOR
-   ========================================================================== */
-section, 
-.hero-section,
-.about-section,
-.services-section,
-.framework-section,
-.leadership-section,
-.sectors-section,
-.contact-section,
-.main-footer {
-    position: relative;
-    /* 1. Anchors the page block cleanly */
-    scroll-snap-align: start !important;
-    /* 2. CRITICAL FIX: Forces the browser momentum engine to physically STOP 
-          at this section boundary, even if the user scrolls very fast! */
-    scroll-snap-stop: always !important; 
-    
-    /* 3. Adds slight structural hardware separation */
-    transform: translateZ(0); 
-    backface-visibility: hidden;
-}
-
-/* Specific buffer fix for your 'About' layout wrapper if it is shorter than 100vh */
-.about-section {
-    min-height: 100vh !important; /* Guarantees a full viewport landing pad so it cannot be skipped */
-}
 
 img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; text-decoration: none; }
