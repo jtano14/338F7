@@ -636,12 +636,6 @@ main { position: relative; width: 100%; }
     border-top: 4px solid var(--accent-blue);
     padding: 40px;
     border-radius: 4px;
-    transition: var(--transition-smooth);
-}
-
-.service-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(11, 34, 64, 0.06);
 }
 
 .service-card-header {
@@ -651,22 +645,58 @@ main { position: relative; width: 100%; }
     margin-bottom: 16px;
 }
 
-.card-icon { font-size: 1.8rem; }
-
-.service-toggle {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: var(--accent-blue);
-    cursor: pointer;
+.card-icon { 
+    font-size: 1.8rem; 
 }
 
-.service-card-details {
-    overflow: hidden;
-    max-height: 0;
-    opacity: 0;
-    transition: max-height 0.3s ease, opacity 0.3s ease;
+.services-grid .flip-card-node {
+    width: 100%;
+    height: 280px; /* Fixed height so front and back faces stay identical during flip */
+    perspective: 1000px;
 }
+
+.services-grid .flip-card-node:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-back {
+    background-color: var(--primary-color) !important;
+    color: var(--white) !important;
+    padding: 32px !important;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    box-shadow: 0 12px 30px rgba(11, 34, 64, 0.15);
+}
+
+.flip-card-back h3 {
+    color: var(--white) !important;
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 1.2rem;
+}
+
+.flip-card-back p {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 0.88rem;
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+/* Responsive adjustment for small screens */
+@media (max-width: 900px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    .services-grid .flip-card-node {
+        height: auto;
+        min-height: 280px; /* Lets cards stretch if long text stacks on mobile */
+    }
+}
+
 
 /* FRAMEWORK */
 .framework-unified-container {
