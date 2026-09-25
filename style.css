@@ -421,26 +421,24 @@ main { position: relative; width: 100%; }
 .image-corner-frame {
     position: relative;
     width: 100%;
-    /* Creates padding room so the decorative accent lines don't get cropped */
-    padding: 12px; 
-    box-sizing: border-box;
 }
 
 .image-corner-frame img {
     width: 100%;
     height: auto;
     max-height: 280px;
-    object-fit: contain; 
+    object-fit: cover; /* Restored back to native crop style */
     border-radius: 6px;
     box-shadow: 0 8px 24px rgba(11, 34, 64, 0.05);
+    display: block;
 }
 
 /* TOP-RIGHT DECORATIVE ACCENT CORNER */
 .image-corner-frame::before {
     content: "";
     position: absolute;
-    top: 0;
-    right: 0;
+    top: -6px;      /* Slightly offset outward for an elegant frame overlay gap */
+    right: -6px;
     width: 24px;
     height: 24px;
     border-top: 3px solid var(--accent-blue);
@@ -454,8 +452,8 @@ main { position: relative; width: 100%; }
 .image-corner-frame::after {
     content: "";
     position: absolute;
-    bottom: 0;
-    left: 0;
+    bottom: -6px;   /* Slightly offset outward for an elegant frame overlay gap */
+    left: -6px;
     width: 24px;
     height: 24px;
     border-bottom: 3px solid var(--accent-blue);
