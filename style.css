@@ -1514,22 +1514,27 @@ main { position: relative; width: 100%; }
 .footer-brand-column {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    /* Strongly enforces all children elements snap to the far left edge */
+    align-items: flex-start !important;
     justify-content: flex-start;
 }
 
 /* Fixed container block prevents layout shifts */
 .footer-logo { 
-    margin-bottom: 12px !important; /* Tight spacing pulls your tagline up closer to the logo */
+    margin-bottom: 12px !important; 
     display: block;
+    width: 100%; /* Spans full width so the image handles the internal placement */
 }
 
-/* Forcing a large, premium pixel scale directly on the image */
 .footer-logo img { 
-    height: 250px !important; /* Restores the large, impactful size you liked! */
-    width: auto !important;   /* Guarantees the logo shape will never distort */
+    height: 250px !important; 
+    width: auto !important;   
     display: block;
-    filter: brightness(0) invert(1) !important; /* Keeps the logo stark, crisp white */
+    filter: brightness(0) invert(1) !important; 
+    
+    /* FIX: Force left alignment and pull the logo left to eliminate asset whitespace whitespace */
+    margin-left: -32px !important; 
+    margin-right: auto !important;
 }
 
 .footer-tagline {
