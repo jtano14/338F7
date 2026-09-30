@@ -342,7 +342,6 @@ main { position: relative; width: 100%; }
 .about-section,
 .services-section,
 .framework-section,
-.leadership-section,
 .sectors-section,
 .contact-section {
     position: sticky !important;
@@ -359,7 +358,6 @@ main { position: relative; width: 100%; }
 .about-section { z-index: 2; background-color: var(--light-bg) !important; }
 .services-section { z-index: 3; background-color: var(--white) !important; }
 .framework-section { z-index: 4; background-color: var(--white) !important; }
-.leadership-section { z-index: 5; background-color: var(--white) !important; }
 .sectors-section { z-index: 6; background-color: var(--light-bg) !important; }
 .contact-section { z-index: 7; background-color: var(--white) !important; }
 
@@ -1028,16 +1026,38 @@ main { position: relative; width: 100%; }
 /* ==========================================================================
    6. LEADERSHIP SECTION - REBALANCED DESIGN
    ========================================================================== */
+.leadership-section {
+    position: sticky !important;
+    top: 76px !important;
+    height: 100vh !important;
+    min-height: 100vh !important;
+    max-height: 100vh !important;
+    width: 100vw !important;
+    overflow: hidden !important;
+    /* Reduced top padding to 65px and bottom to 10px to give content breathing room */
+    padding: 65px 80px 10px 80px !important;
+    margin: 0 !important;
+    background-color: var(--white) !important;
+    z-index: 5; /* Keeps your original stacking order layer intact */
+    
+    /* Center the internal container box cleanly inside the 100vh space */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
 
+/* Shifting the core data up slightly away from the bottom viewport boundary */
 .leadership-section .container {
     max-width: var(--container-width);
     margin: 0 auto;
+    width: 100%;
+    transform: translateY(-30px); /* Adjusts the whole block upward */
 }
 
-/* Forces the intro paragraph below the main header to align left */
+/* Rebalanced paragraph margin spacing */
 .leader-section-intro {
     max-width: 720px;
-    margin: 0 0 48px 0;
+    margin: 0 0 32px 0; /* Reduced from 48px to nudge profiles closer to headers */
     color: var(--text-muted);
     font-size: 0.95rem;
     line-height: 1.6;
