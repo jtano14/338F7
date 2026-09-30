@@ -3,126 +3,663 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flux 7 | グローバル戦略・アドバイザリー</title>
-    <!-- Linking back to the main folder's style sheet -->
-    <link rel="stylesheet" href="../style.css">
+    <title>FLUX7 | グローバル変革・アジアGCC市場参入アドバイザリー</title>
+    <!-- Include your exact same head stylesheets here so the design matches perfectly -->
+    <link rel="stylesheet" href="../style.css"> <!-- Adjust path to root CSS if needed -->
 </head>
 <body>
 
-    <!-- ナビゲーションバー -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo-area" id="animated-logo-container">
-                <span class="logo-text">FLUX 7</span>
+    <!-- ==========================================================================
+       1. SITE HEADER & NAVIGATION
+       ========================================================================== -->
+    <header class="site-header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo-area">
+                    <a href="index.html">
+                        <img src="../assets/images/logo.png" alt="FLUX7" class="site-logo">
+                    </a>
+                </div>
+                <div class="nav-links">
+                    <a href="#about">会社概要</a>
+                    <a href="#services">サービス</a>
+                    <a href="#framework">フレームワーク</a>
+                    <a href="#leadership">役員紹介</a>
+                    <a href="#sectors">対象分野</a>
+                    <a href="#contact">お問い合わせ</a>
+                    <!-- Clicking this links back to the main root English index.html -->
+                    <a href="../index.html" class="lang-switch">EN English</a>
+                </div>
+                <button class="nav-toggle" aria-label="メニュー開閉" aria-expanded="false">
+                    <span class="hamburger"></span>
+                </button>
             </div>
-            <div class="nav-links">
-                <a href="#about">会社概要</a>
-                <a href="#pillars">コアバリュー</a>
-                <a href="#team">役員紹介</a>
-                <a href="#sectors">分野</a>
-                <!-- Switch back to English -->
-                <a href="../index.html" class="lang-switch">EN</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- セクション 1: ヒーローヘッダー -->
-    <header class="hero-section">
-        <div class="container center-text">
-            <p class="hero-subtitle">グローバル戦略・アドバイザリーコンサルティング</p>
-            <h1 class="hero-title">日本・インド・シンガポール・ブルネイ・GCCと世界を繋ぐ</h1>
-            <p class="hero-desc">複雑化するグローバルな規制フレームワークに対応し、シームレスなクロスボーダー展開を支援する、最適なアドバイザリーソリューションを提供します。</p>
-            <div class="hero-buttons">
-                <a href="#contact" class="btn btn-primary">お問い合わせ</a>
-                <a href="#about" class="btn btn-secondary">サービスを見る</a>
-            </div>
-        </div>
+        </nav>
     </header>
 
-    <!-- セクション 2: 会社概要 -->
-    <section id="about" class="about-section">
-        <div class="container grid-2">
-            <div class="about-content">
-                <p class="section-tag">ABOUT FLUX 7</p>
-                <h2>変化する世界市場の流れをマスターする</h2>
-                <p>激変するグローバル市場において企業の海外展開をナビゲートします。各地域の異なる規制や市場環境に合わせた戦略を同期させ、国境を越えた資産や機能の最適な配置を実現します。</p>
-                <blockquote>「急速に変化する市場で勝つためには、次にパワーバランスがどこへ傾くかを正確に予見する必要があります」</blockquote>
-                <div class="stats-row">
-                    <div class="stat-item"><strong>15+</strong><p>海外主要都市</p></div>
-                    <div class="stat-item"><strong>$2B+</strong><p>総取引実績</p></div>
-                    <div class="stat-item"><strong>7</strong><p>中核となる柱</p></div>
+    <main>
+        <!-- ==========================================================================
+           2. HERO SECTION (INTERACTIVE CANVAS & VANTA)
+           ========================================================================== -->
+        <section class="hero-section" id="vanta-ocean-bg">
+            <div class="hero-vertical-text">GLOBAL TRANSITION</div>
+            <div class="hero-content container">
+                <div class="brand-container">
+                    <div class="logo-wrapper">
+                        <canvas id="bubbleCanvas"></canvas>
+                        <img src="../assets/images/sharp-logo.png" alt="FLUX7" class="sharp-logo-layer">
+                    </div>
+                    <h1 class="logo-text">FLUX 7</h1>
+                    <p class="logo-tagline">Flow · Link · Unite · X-pand.</p>
+                    <span class="hero-subtitle section-tag">グローバル変革 | アジア・GCC市場マスタリー</span>
+                    <h2 class="hero-desc">米国・インド・シンガポール・ブルネイ・GCCと世界を繋ぐ架け橋</h2>
+                    <p class="hero-subdesc">FLUX7は、複雑化するグローバル展開やクロスボーダー提携をナビゲートします。対象市場へ進出する多国籍企業、および世界へスケールする地域企業へ現地に根差した専門知識を提供します。</p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">対話を始める</a>
+                        <a href="#framework" class="btn btn-secondary">フレームワークを見る</a>
+                    </div>
                 </div>
             </div>
-            <div class="about-image-wrapper">
-                <div class="placeholder-img-fallback"></div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- セクション 3: 戦略方向性 -->
-    <section class="strategy-section">
-        <div class="container">
-            <p class="section-tag center-text">STRATEGIC PATHWAYS</p>
-            <h2 class="center-text">二つの方向性、一つのシームレスな戦略</h2>
-            <div class="grid-2 gap-2">
-                <div class="strategy-card">
-                    <div class="card-icon">↗</div>
-                    <h3>インバウンドソリューション</h3>
-                    <p>アジア市場へ進出する企業向けに、現地の法規制クリアランス、法人設立、およびローカライズされた市場参入設計を円滑に行います。</p>
+        <div class="scroll-stack-wrapper">
+            <!-- ==========================================================================
+               3. ABOUT US SECTION (MODERN 2-COLUMN GRID)
+               ========================================================================== -->
+            <section class="about-section" id="about">
+                <div class="container about-grid-container">
+                    <div class="about-row-header">
+                        <span class="section-tag">ABOUT FLUX7</span>
+                        <h2>変化する世界市場の流れをマスターする</h2>
+                    </div>
+                    
+                    <div class="about-row-desc-left">
+                        <p>激変するグローバル市場において企業の海外展開をナビゲートします。各地域の異なる規制や市場環境に合わせた戦略を同期させ、国境を越えた資産や機能の最適な配置を実現します。</p>
+                    </div>
+                    
+                    <div class="about-row-image-right">
+                        <div class="image-corner-frame">
+                            <img src="../assets/images/boardroom.jpg" alt="FLUX7 役員アライメント">
+                        </div>
+                    </div>
+                    
+                    <div class="about-row-stats-left">
+                        <div class="about-promise-tray">
+                            <div class="promise-label">私たちの約束</div>
+                            <p class="promise-text">価値を加速させ、リスクを低減し、シームレスな世界的フローを実現する。</p>
+                        </div>
+                        <div class="stats-row">
+                            <div class="stat-item">
+                                <span class="stat-number">5+</span>
+                                <span class="stat-label">展開国</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">5</span>
+                                <span class="stat-label">地域拠点</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">7</span>
+                                <span class="stat-label">構築柱</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-row-overview-right">
+                        <div class="corporate-profile-panel">
+                            <h3>会社概要</h3>
+                            <div class="profile-matrix-grid">
+                                <div class="matrix-item">
+                                    <span class="matrix-label">本社所在地</span>
+                                    <span class="matrix-value">兵庫県尼崎市</span>
+                                </div>
+                                <div class="matrix-item">
+                                    <span class="matrix-label">設立</span>
+                                    <span class="matrix-value">2026年</span>
+                                </div>
+                                <div class="matrix-item">
+                                    <span class="matrix-label">代表取締役</span>
+                                    <span class="matrix-value">堀川 清満</span>
+                                </div>
+                                <div class="matrix-item">
+                                    <span class="matrix-label">資本金</span>
+                                    <span class="matrix-value">¥1,000,000</span>
+                                </div>
+                                <div class="matrix-item dynamic-span-wide">
+                                    <span class="matrix-label">事業内容</span>
+                                    <span class="matrix-value">経営コンサルティング、ビジネスソリューション、貿易業</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="strategy-card">
-                    <div class="card-icon">↙</div>
-                    <h3>アウトバウンド展開</h3>
-                    <p>地域の大手企業やコンゴロマリットを、欧米の主要資本市場や規制管轄区域へとスムーズに直結させます。</p>
-                </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <!-- セクション 4: コアバリュー（7つの柱） -->
-    <section id="pillars" class="pillars-section">
-        <div class="container">
-            <p class="section-tag center-text">METHODOLOGY</p>
-            <h2 class="center-text">グローバルマスタリーの7つの柱</h2>
-            <div class="pillars-accordion">
-                <div class="accordion-item"><span class="num">1</span> 企業戦略とアライメントの最適化</div>
-                <div class="accordion-item"><span class="num">2</span> 規制適応のためのフレームワーク構築</div>
-                <div class="accordion-item"><span class="num">3</span> 国境を越えた資本配分の最適化</div>
-                <div class="accordion-item"><span class="num">4</span> 複数管轄地域にまたがる組織構造の設計</div>
-                <div class="accordion-item"><span class="num">5</span> 高度なテクノロジーシステムの導入支援</div>
-                <div class="accordion-item"><span class="num">6</span> リスクおよびセキュリティ管理の徹底</div>
-                <div class="accordion-item"><span class="num">7</span> グローバル資産の再編成と統合</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- セクション 5: お問い合わせ -->
-    <section id="contact" class="contact-section">
-        <div class="container max-width-small">
-            <h2 class="center-text">国境を越えた次のビジネス機会を共に創出しましょう</h2>
-            <p class="center-text">各地域の拠点に所属する専門のアドバイザリーチームが、お客様のビジネスのグローバル展開をサポートいたします。</p>
-            <form class="contact-form">
-                <div class="form-group">
-                    <input type="text" placeholder="お名前" required>
+            <!-- ==========================================================================
+               4. OUR SERVICES SECTION (FLIP CARDS)
+               ========================================================================== -->
+            <section class="services-section" id="services">
+                <div class="container services-narrow-container">
+                    <span class="section-tag">OUR PROMISE</span>
+                    <h2>二つの方向性、一つのシームレスな戦略</h2>
+                    <p class="leader-section-intro">価値を加速させ、リスクを低減し、シームレスな世界的フローを実現します。</p>
+                    
+                    <div class="services-grid">
+                        <!-- Card 1: Inbound -->
+                        <div class="flip-card-node">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front service-card">
+                                    <div class="service-card-header">
+                                        <h3>インバウンド展開</h3>
+                                    </div>
+                                    <p class="service-front-desc">日本およびアジア市場へ参入するグローバル企業向けソリューション</p>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h3>中核コア機能</h3>
+                                    <p>• 戦略的市場参入＆JV/M&Aパートナーマッチング</p>
+                                    <p>• ネットワーク紹介＆案件組成の促進</p>
+                                    <p>• 組織設計＆文化的アライメント</p>
+                                    <p>• 規制ディープダイブ＆コンプライアンスマッピング</p>
+                                    <p>• サプライチェーンの地域ローカライズ</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Card 2: Outbound -->
+                        <div class="flip-card-node">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front service-card">
+                                    <div class="service-card-header">
+                                        <h3>アウトバウンド展開</h3>
+                                    </div>
+                                    <p class="service-front-desc">国際的なターゲット市場へスケールアップする地域企業向けソリューション</p>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h3>中核コア機能</h3>
+                                    <p>• グローバル拡大戦略＆運用のロードマップ策定</p>
+                                    <p>• クロスボーダー提携の円滑化</p>
+                                    <p>• 地域間テクノロジー＆システム統合</p>
+                                    <p>• リスク、アセットファイナンス＆コンプライアンス管理</p>
+                                    <p>• リーダーシップ・イマージョン＆文化的シナジーワークショップ</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <input type="email" placeholder="メールアドレス" required>
-                </div>
-                <div class="form-group">
-                    <textarea rows="4" placeholder="グローバル展開における課題やご相談内容をご記入ください。" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary full-width">問い合わせを送信する</button>
-            </form>
-        </div>
-    </section>
+            </section>
 
-    <footer class="main-footer">
-        <div class="container center-text">
-            <p>&copy; 2026 Flux 7 Strategy Group. All rights reserved.</p>
-        </div>
-    </footer>
+            <!-- ==========================================================================
+               5. METHODOLOGY & FLUX7 FRAMEWORK SECTION (SLIDER TRACK)
+               ========================================================================== -->
+            <section class="framework-section" id="framework">
+                <div class="framework-unified-container">
+                    <div class="framework-content-header">
+                        <span class="section-tag">METHODOLOGY</span>
+                        <h2>グローバルマスタリーの7つの柱</h2>
+                        <p class="framework-intro">独自に開発されたメソドロジーにより、初期の市場参入から企業のオペレーション統合にいたるまで、グローバル変革のすべての次元を網羅します。</p>
+                    </div>
+                    
+                    <div class="framework-slider-outer">
+                        <button class="slider-arrow arrow-left" id="frameworkPrev" aria-label="前のスライド">&#10094;</button>
+                        
+                        <div class="horizontal-slider-container" id="frameworkSliderContainer">
+                            <div class="horizontal-slider-track" id="frameworkSliderTrack">
+                                
+                                <!-- Pillar 01 -->
+                                <div class="flip-card-node">
+                                    <div class="flip-card-inner">
+                                        <div class="flip-card-front">
+                                            <span class="pillar-id">01</span>
+                                            <h3>企業戦略とアライメントの最適化</h3>
+                                        </div>
+                                        <div class="flip-card-back">
+                                            <div class="back-content-wrapper">
+                                                <h3>01 | 戦略プランニング</h3>
+                                                <p>企業の優先事項と国際的な成長目標をシームレスに同期させます。</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Pillar 02 -->
+                                <div class="flip-card-node">
+                                    <div class="flip-card-inner">
+                                        <div class="flip-card-front">
+                                            <span class="pillar-id">02</span>
+                                            <h3>規制適応のためのフレームワーク構築</h3>
+                                        </div>
+                                        <div class="flip-card-back">
+                                            <div class="back-content-wrapper">
+                                                <h3>02 | 法務コンプライアンス</h3>
+                                                <p>グローバル規模での構造的な法的要件および政策管理を統括します。</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Pillar 03 -->
+                                <div class="flip-card-node">
+                                    <div class="flip-card-inner">
+                                        <div class="flip-card-front">
+                                            <span class="pillar-id">03</span>
+                                            <h3>国境を越えた資本配分の最適化</h3>
+                                        </div>
+                                        <div class="flip-card-back">
+                                            <div class="back-content-wrapper">
+                                                <h3>03 | 資本マネジメント</h3>
+                                                <p>デジタル境界を越えて財務資産の配分を安全に構造化します。</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Pillar 04 -->
+                                <div class="flip-card-node">
+                                    <div class="flip-card-inner">
+                                        <div class="flip-card-front">
+                                            <span class="pillar-id">04</span>
+                                            <h3>複数管轄地域にまたがる組織構造設計</h3>
+                                        </div>
+                                        <div class="flip-card-back">
+                                            <div class="back-content-wrapper">
+                                                <h3>04 | ビジネスアーキテクチャ</h3>
+                                                <p>世界中の法域に適合した高度に安全な企業エンティティ構造を設計します。</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Pillar 05 -->
+                                <div class="flip-card-node">
+                                    <div class="flip-card-inner">
+                                        <div class="flip-card-front">
+                                            <span class="pillar-id">05</span>
+                                            <h3>高度なテクノロジーシステムの導入支援</h3>
+                                        </div>
+                                        <div class="flip-card-back">
+                                            <div class="back-content-wrapper">
+                                                <h3>05 | システムインフラ</h3>
+                                                <p>コミュニケーションを加速させる最先端のエンタープライズソフトウェアネットワークを展開します。</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Pillar 06 -->
+                                <div class="flip-card-node">
+                                    <div class="flip-card-inner">
+                                        <div class="flip-card-front">
+                                            <span class="pillar-id">06</span>
+                                            <h3>リスクおよびセキュリティ管理の徹底</h3>
+                                        </div>
+                                        <div class="flip-card-back">
+                                            <div class="back-content-wrapper">
+                                                <h3>06 | リスク ＆ セキュリティ</h3>
+                                                <p>クロスボーダー運用における潜在的な脆弱性や重大なリスクを緩和します。</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Pillar 07 -->
+                                <div class="flip-card-node">
+                                    <div class="flip-card-inner">
+                                        <div class="flip-card-front">
+                                            <span class="pillar-id">07</span>
+                                            <h3>グローバル資産の再編成と統合</h3>
+                                        </div>
+                                        <div class="flip-card-back">
+                                            <div class="back-content-wrapper">
+                                                <h3>07 | 資産の再編成</h3>
+                                                <p>変革フェーズにおいて、中核となる企業資産を動的に再配置・統合します。</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        
+                        <button class="slider-arrow arrow-right" id="frameworkNext" aria-label="次のスライド">&#10095;</button>
+                    </div>
 
-    <!-- Links back to the main script folder -->
-    <script src="../script.js"></script>
+                    <!-- Service Package Tier Cards Block -->
+                    <div class="service-packages-fixed-bottom">
+                        <h3>提供プログラム・パッケージ</h3>
+                        <div class="service-packages-grid">
+                            <div class="package-card">
+                                <span class="package-tag">基礎フェーズ ・ 柱 1-3</span>
+                                <h4>Flux Entry</h4>
+                                <p>初期段階の参入企業向け。市場参入ロードマップの策定、組織設計、サプライチェーンのローカライズを提供します。</p>
+                            </div>
+                            <div class="package-card premium-tier">
+                                <div class="badge-wrapper"><span class="premium-badge">推奨</span></div>
+                                <span class="package-tag">統合フェーズ ・ 柱 3-6</span>
+                                <h4>Flux Accelerate</h4>
+                                <p>拡大期の運用向け。異文化トレーニング、コンプライアンス監査、統合テックプラットフォーム構築、リスク緩和を提供します。</p>
+                            </div>
+                            <div class="package-card">
+                                <span class="package-tag">フルプログラム ・ 全 7 柱</span>
+                                <h4>Flux7 Complete</h4>
+                                <p>包括的なエンドツーエンドの変革。カスタムフレームワークの実装、エグゼクティブコーチング、四半期ごとのヘルスチェック、長期アドバイザリーを提供します。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+                       <!-- ==========================================================================
+               6. LEADERSHIP SECTION (EXECUTIVE PORTRAITS)
+               ========================================================================== -->
+            <section class="leadership-section" id="leadership">
+                <div class="container">
+                    <span class="section-tag">OUR LEADERSHIP</span>
+                    <h2>地域のエキスパートによるナビゲーション</h2>
+                    <p class="leader-section-intro">私たちのエグゼクティブチームは、アジアおよびGCC市場におけるクロスボーダー戦略、オペレーション、および文化統合のループを統括してきた、数十年の経験を有しています。</p>
+                    
+                    <div class="leadership-grid">
+                        <!-- Leader Card 1: Horikawa -->
+                        <div class="leader-card">
+                            <div class="leader-photo-wrapper">
+                                <img src="../assets/images/leader1.png" alt="堀川 清満">
+                            </div>
+                            <div class="leader-text-content">
+                                <h3 class="leader-name">堀川 清満</h3>
+                                <span class="leader-title">代表取締役 兼 会長</span>
+                                <span class="leader-regions">日本、ASEAN地域</span>
+                                <p class="leader-description">グローバル企業戦略、複雑な市場拡張、およびクロスボーダーアドバイザリー運用の豊富な実績を有します。</p>
+                            </div>
+                        </div>
+
+                        <!-- Leader Card 2: Tano -->
+                        <div class="leader-card">
+                            <div class="leader-photo-wrapper">
+                                <img src="../assets/images/leader2.png" alt="ジェフリー マサオ タノ">
+                            </div>
+                            <div class="leader-text-content">
+                                <h3 class="leader-name">ジェフリー マサオ タノ</h3>
+                                <span class="leader-title">専務取締役 兼 CEO</span>
+                                <span class="leader-regions">日本、ASEAN地域</span>
+                                <p class="leader-description">複数市場にまたがる国際提携、事業開発インフラの構築、および地域成長フレームワークを専門としています。</p>
+                            </div>
+                        </div>
+
+                        <!-- Leader Card 3: Shah -->
+                        <div class="leader-card">
+                            <div class="leader-photo-wrapper">
+                                <img src="../assets/images/leader3.png" alt="チェタン シャー">
+                            </div>
+                            <div class="leader-text-content">
+                                <h3 class="leader-name">チェタン シャー</h3>
+                                <span class="leader-title">専務取締役</span>
+                                <span class="leader-regions">インド、シンガポール、ブルネイ、GCC地域</span>
+                                <p class="leader-description">現地市場のインサイト、資産構成、および複数管轄地域にまたがる執行ループをもって、機関投資家や企業をサポートします。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+                        <!-- ==========================================================================
+               7. SECTORS SECTION (REGIONAL FOOTPRINT)
+               ========================================================================== -->
+            <section class="sectors-section" id="sectors">
+                <div class="container">
+                    <div class="sectors-heading">
+                        <span class="section-tag">DEEP FOOTPRINT</span>
+                        <h2>主要セクターにおける深い知見</h2>
+                        <p class="sectors-intro">各地域のオフィスは、重要な業界チャネルにわたり、専門的な貿易インサイトと長年にわたる強固なネットワークを提供します。</p>
+                    </div>
+                    
+                    <div class="sectors-grid">
+                        <!-- Sector Card 1: Japan -->
+                        <div class="sector-card">
+                            <div class="sector-icon">
+                                <svg viewBox="0 0 24 24"><path d="M2 20h20M5 17V11M9 17V4M13 17V7M17 17V13"/></svg>
+                            </div>
+                            <h3>日本</h3>
+                            <p>テクノロジーチャネル、精密製造業、および系列（ケイレツ）ネットワークへのアクセスファシリテーション。</p>
+                            <div class="sector-card-line"></div>
+                        </div>
+
+                        <!-- Sector Card 2: India -->
+                        <div class="sector-card">
+                            <div class="sector-icon">
+                                <svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                            </div>
+                            <h3>インド</h3>
+                            <p>エネルギーネットワーク、金属・レアアース素材、高度人材プール、およびスケーラブルな運用開発。</p>
+                            <div class="sector-card-line"></div>
+                        </div>
+
+                        <!-- Sector Card 3: Singapore -->
+                        <div class="sector-card">
+                            <div class="sector-icon">
+                                <svg viewBox="0 0 24 24"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM12 6v6l4 2"/></svg>
+                            </div>
+                            <h3>シンガポール</h3>
+                            <p>金融アーキテクチャ、インターモーダル複合輸送ロジスティクス、および統合された中央ASEANハブ配信アクセス。</p>
+                            <div class="sector-card-line"></div>
+                        </div>
+
+                        <!-- Sector Card 4: Brunei -->
+                        <div class="sector-card">
+                            <div class="sector-icon">
+                                <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                            </div>
+                            <h3>ブルネイ</h3>
+                            <p>ダウンストリーム（川下）加工、製造クラスタ、および専門化された地域ゲートウェイ貿易チャネルの最適化。</p>
+                            <div class="sector-card-line"></div>
+                        </div>
+
+                        <!-- Sector Card 5: GCC -->
+                        <div class="sector-card">
+                            <div class="sector-icon">
+                                <svg viewBox="0 0 24 24"><path d="M3 21h18M19 21V10l-7-7-7 7v11M9 21V14h6v7"/></svg>
+                            </div>
+                            <h3>GCC</h3>
+                            <p>地域パートナーシップ、機関投資家セットアップ、インフラプロジェクト、および市場拡大実行戦略。</p>
+                            <div class="sector-card-line"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+                        <!-- ==========================================================================
+               8. CONTACT US SECTION (INTERACTIVE LEAD GRID FORM)
+               ========================================================================== -->
+            <section class="contact-section" id="contact">
+                <div class="container">
+                    <div class="contact-heading">
+                        <span class="section-tag">CONNECT WITH US</span>
+                        <h2>国境を越えた次のビジネス機会を共に創出しましょう</h2>
+                        <p class="contact-intro">お客様のビジネスのグローバル展開や展望についてお聞かせください。最適な道筋をご案内いたします。</p>
+                    </div>
+                    
+                    <div class="contact-panel">
+                        <form action="#" class="contact-form-grid">
+                            
+                            <!-- Dropdown 1: Profile Classification -->
+                            <div class="form-group">
+                                <label for="iam">私は...</label>
+                                <select id="iam" required>
+                                    <option value="" disabled selected>選択してください</option>
+                                    <option value="multinational">多国籍企業</option>
+                                    <option value="regional">海外展開を目指す地域企業</option>
+                                    <option value="pe-vc">PE（プライベート・エクイティ） / VC 投資家</option>
+                                    <option value="gov">政府・公共機関</option>
+                                    <option value="other">その他の専門組織構造</option>
+                                </select>
+                            </div>
+                            
+                            <!-- Dropdown 2: Intent Scope -->
+                            <div class="form-group">
+                                <label for="lookingto">目的は...</label>
+                                <select id="lookingto" required>
+                                    <option value="" disabled selected>選択してください</option>
+                                    <option value="enter">新しい地域市場への参入</option>
+                                    <option value="logistics">国際ロジスティクス拠点の拡張</option>
+                                    <option value="jv">クロスボーダー合弁（JV）提携の構築</option>
+                                    <option value="restructure">国際運用の再編成・リストラクチャリング</option>
+                                    <option value="advisory">総合的な戦略アドバイザリーの相談</option>
+                                </select>
+                            </div>
+                            
+                            <!-- Dropdown 3: Timeframe Macro Window -->
+                            <div class="form-group">
+                                <label for="timeline">希望タイムライン...</label>
+                                <select id="timeline" required>
+                                    <option value="" disabled selected>選択してください</option>
+                                    <option value="immediate">今すぐ / アクティブなサイクル内</option>
+                                    <option value="1-3">1〜3ヶ月以内のタイムライン</option>
+                                    <option value="3-6">3〜6ヶ月以内の計画ホライズン</option>
+                                    <option value="6-12">6〜12ヶ月のマクロウィンドウ</option>
+                                    <option value="scoping">現在はまだ要件調査・情報収集段階</option>
+                                </select>
+                            </div>
+                            
+                            <!-- Input Fields Block -->
+                            <div class="form-group">
+                                <label for="fullname">お名前（フルネーム）</label>
+                                <input type="text" id="fullname" required placeholder="山田 太郎">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">メールアドレス</label>
+                                <input type="email" id="email" required placeholder="name@company.com">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="company">企業・団体名</label>
+                                <input type="text" id="company" required placeholder="株式会社〇〇">
+                            </div>
+                            
+                            <!-- Textarea Input Frame -->
+                            <div class="form-group form-group-wide">
+                                <label for="details">詳細内容・メッセージ</label>
+                                <textarea id="details" placeholder="プロジェクトの概要やご相談内容をご記入ください..."></textarea>
+                            </div>
+                            
+                            <!-- Submit Button Engine -->
+                            <div class="contact-form-submit form-group-wide">
+                                <button type="submit" class="btn btn-primary">
+                                    対話を開始する <span class="btn-arrow">&rarr;</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+                        <!-- ==========================================================================
+               9. MAIN FOOTER (BRAND CORNER UNISON BLOCK)
+               ========================================================================== -->
+            <footer class="main-footer">
+                <div class="container">
+                    <div class="footer-main">
+                        
+                        <div class="footer-brand-column">
+                            <a href="#hero" class="footer-logo">
+                                <img src="../assets/images/logo.png" alt="FLUX7">
+                            </a>
+                            <p class="footer-tagline">Mastering the flow of global change.</p>
+                            <div class="footer-contact">
+                                <a href="mailto:info@flux7.com">info@flux7.com</a>
+                                <a href="tel:+1234567890">+1 234 567 890</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Middle Column: Quick Links Map -->
+                        <div class="footer-links-column">
+                            <h2>クイックリンク</h2>
+                            <div class="footer-links">
+                                <a href="#about">会社概要</a>
+                                <a href="#services">サービス</a>
+                                <a href="#framework">フレームワーク</a>
+                                <a href="#leadership">役員紹介</a>
+                                <a href="#sectors">対象分野</a>
+                                <a href="#contact">お問い合わせ</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Right Column: Interactive Regional Portals -->
+                        <div class="footer-offices-column">
+                            <h2>拠点オフィス</h2>
+                            <div class="footer-offices">
+                                <button class="office-link" data-office-dialog="dialog-tokyo">東京、日本</button>
+                                <button class="office-link" data-office-dialog="dialog-mumbai">ムンバイ、インド</button>
+                                <button class="office-link" data-office-dialog="dialog-singapore">シンガポール</button>
+                                <button class="office-link" data-office-dialog="dialog-brunei">バンダルスリブガワン、ブルネイ</button>
+                                <button class="office-link" data-office-dialog="dialog-dubai">ドバイ、GCC</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Bottom Branding Credits Bar -->
+                    <div class="footer-bottom">
+                        <p>&copy; 2026 FLUX7 Co., Ltd. All rights reserved.</p>
+                        <div class="footer-legal">
+                            <a href="#">プライバシーポリシー</a>
+                            <a href="#">利用規約</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+        </div> <!-- /.scroll-stack-wrapper ENDS HERE -->
+    </main>
+
+    <!-- ==========================================================================
+       10. OFFICE REGIONAL DIALOG MODALS
+       ========================================================================== -->
+    <dialog id="dialog-tokyo" class="office-dialog">
+        <button class="dialog-close" data-dialog-close>&times;</button>
+        <h2>東京、日本</h2>
+        <p>[確定した東京オフィスの住所をここに記載してください]</p>
+        <p>[確定した電話番号]</p>
+        <p><a href="mailto:tokyo@flux7.com">tokyo@flux7.com</a></p>
+        <div class="map-placeholder">オフィス地域追跡レーダーマップ読込中...</div>
+    </dialog>
+
+    <dialog id="dialog-mumbai" class="office-dialog">
+        <button class="dialog-close" data-dialog-close>&times;</button>
+        <h2>ムンバイ、インド</h2>
+        <p>[確定したムンバイオフィスの住所をここに記載してください]</p>
+        <p>[確定した電話番号]</p>
+        <p><a href="mailto:mumbai@flux7.com">mumbai@flux7.com</a></p>
+        <div class="map-placeholder">オフィス地域追跡レーダーマップ読込中...</div>
+    </dialog>
+
+    <dialog id="dialog-singapore" class="office-dialog">
+        <button class="dialog-close" data-dialog-close>&times;</button>
+        <h2>シンガポール</h2>
+        <p>[確定したシンガポールオフィスの住所をここに記載してください]</p>
+        <p>[確定した電話番号]</p>
+        <p><a href="mailto:singapore@flux7.com">singapore@flux7.com</a></p>
+        <div class="map-placeholder">オフィス地域追跡レーダーマップ読込中...</div>
+    </dialog>
+
+    <dialog id="dialog-brunei" class="office-dialog">
+        <button class="dialog-close" data-dialog-close>&times;</button>
+        <h2>バンダルスリブガワン、ブルネイ</h2>
+        <p>[確定したブルネイオフィスの住所をここに記載してください]</p>
+        <p>[確定した電話番号]</p>
+        <p><a href="mailto:brunei@flux7.com">brunei@flux7.com</a></p>
+        <div class="map-placeholder">オフィス地域追跡レーダーマップ読込中...</div>
+    </dialog>
+
+    <dialog id="dialog-dubai" class="office-dialog">
+        <button class="dialog-close" data-dialog-close>&times;</button>
+        <h2>ドバイ、GCC</h2>
+        <p>[確定したGCCオフィスの住所をここに記載してください]</p>
+        <p>[確定した電話番号]</p>
+        <p><a href="mailto:dubai@flux7.com">dubai@flux7.com</a></p>
+        <div class="map-placeholder">オフィス地域追跡レーダーマップ読込中...</div>
+    </dialog>
+
+    <!-- Global Layout Engine Dependencies (Three.js and Vanta) -->
+    <script src="https://cloudflare.com"></script>
+    <script src="https://jsdelivr.net"></script>
+    <script src="../assets/js/main.js"></script> <!-- Ensure this matches your script name -->
 </body>
 </html>
+
