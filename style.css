@@ -1507,7 +1507,9 @@ main { position: relative; width: 100%; }
     gap: 64px;
     padding-bottom: 48px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-    align-items: flex-start; /* Forces QUICK LINKS and OUR OFFICES to share the exact same top horizontal line */
+    
+    /* FIX: This brings Quick Links and Our Offices DOWN to align with the logo! */
+    align-items: center !important; 
 }
 
 /* Container for the logo and brand credentials */
@@ -1516,29 +1518,26 @@ main { position: relative; width: 100%; }
     flex-direction: column;
     align-items: flex-start !important;
     justify-content: flex-start;
-    position: relative; /* Acts as the coordinate anchor for the floating logo */
-    
-    /* FIX: This acts as the visual vertical/horizontal guide to keep everything level */
-    padding-top: 260px !important; /* Pushes text down exactly enough to clear your 250px logo beautifully */
+    position: relative;
+    padding-top: 0 !important; /* Clears any previous padding experiments */
 }
 
 
 /* Fixed container block prevents layout shifts */
 .footer-logo { 
-    position: absolute !important;
-    top: 0 !important;   /* Locks the top edge of the logo flush with the top orange line */
-    left: 0 !important;  /* Snaps it to the far left grid wall */
-    margin: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 12px !important; /* Elegant gap above your tagline text */
     display: block;
+    position: relative !important; /* Restores logo back to standard layout flow */
 }
 
 .footer-logo img { 
-    height: 250px !important; /* Kept exactly at your preferred 250px scale! */
+    height: 250px !important; /* Maintained exactly at 250px */
     width: auto !important;   
     display: block;
     filter: brightness(0) invert(1) !important; 
     
-    /* FINE-TUNING WORK: Pulls the logo slightly left to align the stem of 'F' with the 'M' below it */
+    /* HORIZONTAL ALIGNMENT FIX: Pulls the logo left so 'F' matches 'M' below it */
     margin-left: -32px !important; 
     margin-right: auto !important;
 }
