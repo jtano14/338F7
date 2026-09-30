@@ -1034,16 +1034,14 @@ main { position: relative; width: 100%; }
     max-height: 100vh !important;
     width: 100vw !important;
     overflow: hidden !important;
-    /* Reduced top padding to 65px and bottom to 10px to give content breathing room */
-    padding: 65px 80px 10px 80px !important;
+    /* Rebalanced padding: gives the top room and completely removes the heavy bottom gap */
+    padding: 80px 80px 20px 80px !important;
     margin: 0 !important;
     background-color: var(--white) !important;
-    z-index: 5; /* Keeps your original stacking order layer intact */
+    z-index: 5;
     
-    /* Center the internal container box cleanly inside the 100vh space */
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
+    /* Using a standard block flow instead of flex centering to lock the layout alignment */
+    display: block !important;
 }
 
 /* Shifting the core data up slightly away from the bottom viewport boundary */
@@ -1051,13 +1049,12 @@ main { position: relative; width: 100%; }
     max-width: var(--container-width);
     margin: 0 auto;
     width: 100%;
-    transform: translateY(-30px); /* Adjusts the whole block upward */
 }
 
-/* Rebalanced paragraph margin spacing */
+/* 2. Rebalance paragraph margin spacing to pull the grid upward naturally */
 .leader-section-intro {
     max-width: 720px;
-    margin: 0 0 32px 0; /* Reduced from 48px to nudge profiles closer to headers */
+    margin: 0 0 40px 0; /* Shrunk spacing pulls the entire layout grid up together */
     color: var(--text-muted);
     font-size: 0.95rem;
     line-height: 1.6;
@@ -1084,25 +1081,35 @@ main { position: relative; width: 100%; }
     max-width: 220px; 
     margin: 0 0 20px 0;
     position: relative;
-    /* Force the square ratio frame to maintain proportions perfectly */
+    
+    /* Force the outer frame container to be a perfect mathematical square */
     aspect-ratio: 1 / 1 !important; 
+    
+    /* Clean modern rounded corners on the square edge */
+    border-radius: 8px !important; 
+    
+    /* This fills in the blank background corners of your circular images! */
+    background-color: #f4f6f9 !important; 
+    
+    /* Centers your circular image perfectly inside the new square frame canvas */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
     overflow: hidden;
+    
+    /* Adds a sleek shadow to give the new square card depth */
+    box-shadow: inset 0 0 0 1px rgba(11, 34, 64, 0.05), 0 4px 12px rgba(11, 34, 64, 0.04);
 }
 
 .leader-photo-wrapper img {
-    width: 100%;
-    height: 100%;
-    /* Object-fit ensures the faces don't stretch or distort inside the square */
-    object-fit: cover !important; 
-    
-    /* MODIFICATION: Change from circle (50%) to square with clean premium corners */
-    border-radius: 6px !important; 
-    
-    /* Adds a very subtle blend to keep the layout feeling high-end */
-    box-shadow: 0 4px 12px rgba(11, 34, 64, 0.04); 
+    /* Scale the photo down slightly so it floats elegantly within the square container */
+    width: 90% !important;
+    height: 90% !important;
+    object-fit: contain !important; 
+    border-radius: 0 !important; 
+    box-shadow: none !important;
     filter: none;     
 }
-
 /* Text Content Wrapper */
 .leader-text-content {
     display: flex;
