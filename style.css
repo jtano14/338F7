@@ -1507,40 +1507,47 @@ main { position: relative; width: 100%; }
     gap: 64px;
     padding-bottom: 48px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-    align-items: flex-start; /* Aligns the tops of all 3 columns horizontally */
+    align-items: flex-start; /* Forces QUICK LINKS and OUR OFFICES to share the exact same top horizontal line */
 }
 
 /* Container for the logo and brand credentials */
 .footer-brand-column {
     display: flex;
     flex-direction: column;
-    /* Strongly enforces all children elements snap to the far left edge */
     align-items: flex-start !important;
     justify-content: flex-start;
+    position: relative; /* Acts as the coordinate anchor for the floating logo */
+    
+    /* FIX: This acts as the visual vertical/horizontal guide to keep everything level */
+    padding-top: 260px !important; /* Pushes text down exactly enough to clear your 250px logo beautifully */
 }
+
 
 /* Fixed container block prevents layout shifts */
 .footer-logo { 
-    margin-bottom: 12px !important; 
+    position: absolute !important;
+    top: 0 !important;   /* Locks the top edge of the logo flush with the top orange line */
+    left: 0 !important;  /* Snaps it to the far left grid wall */
+    margin: 0 !important;
     display: block;
-    width: 100%; /* Spans full width so the image handles the internal placement */
 }
 
 .footer-logo img { 
-    height: 250px !important; 
+    height: 250px !important; /* Kept exactly at your preferred 250px scale! */
     width: auto !important;   
     display: block;
     filter: brightness(0) invert(1) !important; 
     
-    /* FIX: Force left alignment and pull the logo left to eliminate asset whitespace whitespace */
+    /* FINE-TUNING WORK: Pulls the logo slightly left to align the stem of 'F' with the 'M' below it */
     margin-left: -32px !important; 
     margin-right: auto !important;
 }
 
+/* 5. Left-aligned tagline block */
 .footer-tagline {
     color: rgba(255, 255, 255, 0.85); 
     font-size: 0.95rem;
-    margin: 0 0 16px 0 !important; /* Snaps tight below your large logo mark */
+    margin: 0 0 16px 0 !important; 
     line-height: 1.6;
     text-align: left;
 }
