@@ -1079,19 +1079,27 @@ main { position: relative; width: 100%; }
     text-align: left;        /* Left-aligns multi-line text blocks */
 }
 
-/* Image Wrapper: Makes photos smaller and cleanly strips edge lines */
 .leader-photo-wrapper {
     width: 100%;
-    max-width: 220px; /* Limits photo size to fit nicely side-by-side */
+    max-width: 220px; 
     margin: 0 0 20px 0;
     position: relative;
+    /* Force the square ratio frame to maintain proportions perfectly */
+    aspect-ratio: 1 / 1 !important; 
+    overflow: hidden;
 }
 
 .leader-photo-wrapper img {
     width: 100%;
-    height: auto;
-    border-radius: 0; 
-    box-shadow: none; 
+    height: 100%;
+    /* Object-fit ensures the faces don't stretch or distort inside the square */
+    object-fit: cover !important; 
+    
+    /* MODIFICATION: Change from circle (50%) to square with clean premium corners */
+    border-radius: 6px !important; 
+    
+    /* Adds a very subtle blend to keep the layout feeling high-end */
+    box-shadow: 0 4px 12px rgba(11, 34, 64, 0.04); 
     filter: none;     
 }
 
