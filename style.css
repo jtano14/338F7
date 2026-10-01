@@ -196,25 +196,28 @@ button { cursor: pointer; }
 }
 /* FIX: Turn on flex distribution and size the responsive menu button wrapper */
 .nav-toggle { 
-    display: none; /* Stays hidden on wide desktop screens */
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 21px;
-    background: transparent;
-    cursor: pointer;
-    border: none;
-    padding: 0;
-    z-index: 1100;
+    display: none; 
+    flex-direction: column !important;
+    justify-content: space-between !important; /* Forces equal space between the three bars */
+    align-items: center !important;
+    width: 28px !important;    /* Clean width proportion */
+    height: 18px !important;   /* Comfortable vertical height window */
+    background: transparent !important;
+    cursor: pointer !important;
+    border: none !important;
+    padding: 0 !important;
+    z-index: 1100 !important;
 }
 /* FIX: Draw the three distinct menu lines */
 .nav-toggle span {
-    display: block;
-    width: 100%;
-    height: 3px;
-    background-color: var(--primary-color); /* Deep blue color matching your text theme */
-    border-radius: 2px;
-    transition: all 0.3s ease;
+    display: block !important;
+    width: 100% !important;
+    height: 2px !important;    /* CHANGED: Thinner, cleaner professional profile line layout */
+    background-color: #0b2240 !important; /* Deep brand navy color matching your text theme */
+    border-radius: 4px !important;
+    transition: all 0.3s ease !important;
+    line-height: 0 !important; /* CHANGED: Completely breaks the vertical text squeeze */
+    margin: 0 !important;      /* Clears any competing paragraph margins */
 }
 
 /* ==========================================================================
