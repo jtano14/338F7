@@ -1027,3 +1027,49 @@ main { position: relative; width: 100%; }
     .contact-form-grid, .service-packages-grid { grid-template-columns: 1fr !important; }
     .form-group-wide { grid-column: 1 !important; }
 }
+
+/* ==========================================================================
+   JAPANESE VIEW SPECIFIC LAYOUT ALIGNMENTS (html[lang="ja"])
+   ========================================================================== */
+/* Fix 1 & 2: Re-balance rows matrix container tracks and tighten gap structures */
+html[lang="ja"] .about-grid-container {
+    grid-template-rows: auto 1fr auto !important; /* Forces layout tracks to scale content dynamically */
+    row-gap: 24px !important;    /* Compressed from 36px to bring lower layers up safely */
+    column-gap: 48px !important;  /* Perfect side-by-side breathing window grid */
+    align-items: start !important;
+}
+/* Eliminate empty overhead margins to snug description text close to header lines */
+html[lang="ja"] .about-row-desc-left p {
+    margin-top: 0 !important;
+    margin-bottom: 24px !important; /* Uniform gap before your Company Overview box begins */
+}
+/* Force both left panel items and right image layers to start at the exact same vertical baseline height */
+html[lang="ja"] .about-row-desc-left {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+html[lang="ja"] .about-row-image-right {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    grid-row: 2 !important; /* Perfect side-by-side pinning baseline check */
+}
+html[lang="ja"] .image-corner-frame img {
+    max-height: 320px !important; /* Slightly increased to perfectly match company information profile height */
+}
+/* Fix 3: Pull up the bottom section plane tracks so stats clear viewport thresholds cleanly */
+html[lang="ja"] .about-row-stats-left {
+    grid-row: 3 !important;
+    margin-top: 0 !important;
+    padding-top: 20px !important; /* Reduced vertical footprint bulk lines */
+    gap: 16px !important;        /* Tightens space between your tagline text and the 3 counters */
+}
+html[lang="ja"] .about-promise-tray {
+    margin-bottom: 8px !important; /* Snugs the counter cards closer to your promise box line */
+}
+html[lang="ja"] .stats-row {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+html[lang="ja"] .stat-number {
+    font-size: 2.1rem !important; /* Slightly scaled to lock data content cleanly into viewport baselines */
+}
