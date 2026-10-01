@@ -113,10 +113,101 @@
         gap: 24px !important; 
     }
     .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+
+    /* 5. MOBILE ACCORDION STYLING PARAMETERS (THE 7 PILLARS REFACTOR) */
+    .framework-mobile-accordion {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 16px !important;
+    }
+    .accordion-item {
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        background-color: var(--white);
+        overflow: hidden;
+        transition: border-color 0.3s ease;
+    }
+    .accordion-trigger {
+        width: 100%;
+        padding: 14px 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: none;
+        border: none;
+        text-align: left;
+        cursor: pointer;
+    }
+    .accordion-title {
+        font-family: var(--font-body) !important;
+        font-weight: 700;
+        color: var(--primary-color);
+        font-size: 0.92rem;
+    }
+    .accordion-id {
+        color: var(--accent-blue);
+        font-weight: 700;
+        margin-right: 6px;
+    }
+    .accordion-arrow {
+        color: var(--accent-blue);
+        font-size: 1.2rem;
+        font-weight: 600;
+        line-height: 1;
+        transition: transform 0.3s ease;
+    }
+    .accordion-panel {
+        max-height: 0;
+        overflow: hidden;
+        background-color: var(--light-bg);
+        transition: max-height 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        padding: 0 16px;
+    }
+    .accordion-panel p {
+        padding: 12px 0;
+        margin: 0;
+        font-size: 0.85rem;
+        line-height: 1.5;
+        color: var(--text-dark);
+    }
+
+    /* 6. HORIZONTAL RECTANGLE STRIPS STYLING (THE SECTORS REFACTOR) */
+    .mobile-horizontal-strip {
+        display: flex !important;
+        flex-direction: row !important; /* Forces side-by-side icon and text alignment */
+        align-items: center !important;
+        justify-content: flex-start !important;
+        min-height: auto !important;
+        width: 100% !important;
+        padding: 16px 20px !important; /* Converts deep box to elegant rectangle strip */
+        gap: 20px !important;
+        text-align: left !important;
+    }
+    .mobile-horizontal-strip .sector-icon {
+        margin-bottom: 0 !important; /* Removes vertical overhead grid drops */
+        flex-shrink: 0;
+    }
+    .sector-strip-text {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+    .mobile-horizontal-strip h3 {
+        font-family: var(--font-body) !important;
+        font-size: 1.05rem !important;
+        margin-bottom: 0 !important; /* Snugs content tight inside the rectangle */
+        color: var(--primary-color);
+    }
+    .mobile-horizontal-strip p {
+        margin: 0 !important;
+        font-size: 0.82rem !important;
+        line-height: 1.4 !important;
+    }
 }
 
 @media (max-width: 768px) {
     .contact-form-grid, .service-packages-grid { grid-template-columns: 1fr !important; }
     .form-group-wide { grid-column: 1 !important; }
 }
-
