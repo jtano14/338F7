@@ -868,21 +868,24 @@ main { position: relative; width: 100%; }
 }
 .contact-heading { 
     width: 100%; 
-    text-align: left; 
+    max-width: 960px;          /* Matches the compact width bounding box of your form panel */
+    margin: 0 auto !important; /* Forces the entire heading box to align symmetrically in the center */
+    text-align: left;          /* Keeps individual text lines cleanly left-aligned inside the centered box */
 }
 .contact-heading .section-tag { margin-bottom: 8px !important; }
 /* Force clean lines on your section heading */
 .contact-heading h2 { 
-    font-family: var(--font-body) !important; /* Converts text strings to clean lines */
+    font-family: var(--font-body) !important;
     font-size: clamp(1.8rem, 3.2vw, 2.4rem) !important;
     font-weight: 700 !important;
     max-width: 720px; 
-    line-height: 1.2; 
+    line-height: 1.25; 
     margin: 4px 0 10px 0 !important;
     color: var(--primary-color);
 }
 .contact-intro { 
-    margin: 0 0 24px 0 !important; /* Tightens gap under heading block lines */
+    max-width: 720px;
+    margin: 0 0 24px 0 !important; /* Tightened vertical gap before your dropdown field selectors */
     font-size: 0.95rem; 
     line-height: 1.5; 
     color: var(--text-muted); 
