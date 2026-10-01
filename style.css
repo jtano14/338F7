@@ -891,7 +891,13 @@ main { position: relative; width: 100%; }
 .footer-main { display: grid !important; grid-template-columns: 2fr 1fr 1fr; gap: 64px; padding-bottom: 48px; border-bottom: 1px solid rgba(255, 255, 255, 0.12); align-items: flex-start !important; }
 .footer-links-column, .footer-offices-column, .footer-brand-column { margin-top: 0 !important; padding-top: 0 !important; display: flex; flex-direction: column; justify-content: flex-start; }
 .footer-links-column h2, .footer-offices-column h2, .footer-logo { margin-top: 0 !important; padding-top: 0 !important; line-height: 1.2 !important; }
-.footer-logo img { height: 300px !important; width: auto !important; display: block; filter: brightness(0) invert(1) !important; margin-left: 0px !important; margin-right: auto !important; }
+.footer-logo img { 
+   height: 300px !important; 
+   width: auto !important; 
+   display: block; filter: brightness(0) invert(1) !important; 
+   margin-left: -100px !important; 
+   margin-right: auto !important; 
+}
 .footer-tagline { color: rgba(255, 255, 255, 0.85); font-size: 0.95rem; margin: 0 0 16px 0 !important; line-height: 1.6; }
 .footer-contact { display: flex; flex-direction: column; gap: 8px; }
 .footer-contact a { color: rgba(255, 255, 255, 0.75); font-size: 0.9rem; }
