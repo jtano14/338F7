@@ -45,12 +45,8 @@ p, select, input, textarea, button, span, option, li, a {
     line-height: 1.7 !important;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading) !important;
-    font-weight: 600; 
-    letter-spacing: -0.01em; 
-    line-height: 1.25 !important;
-    color: var(--primary-color);
+h1, h2, h3, h4, h5, h6, .logo-text, .promise-text {
+    font-family: var(--font-body) !important; /* Changed from serif to clean sans-serif */
 }
 
 h2 {
@@ -60,12 +56,14 @@ h2 {
 }
 
 .logo-text {
-    font-family: var(--font-heading) !important;
-    font-weight: 600;
-    display: inline-block !important;
-    white-space: nowrap !important; 
-    width: 100% !important;
-    text-align: center;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 700 !important; /* Thicker bold weight for clean lines */
+    letter-spacing: 0.15em !important; /* Uniform letter spacing */
+    text-indent: 0.15em !important;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    gap: 12px; /* Keeps the '7' perfectly leveled on the same line */
 }
 
 .section-tag {
@@ -261,12 +259,39 @@ button { cursor: pointer; }
     text-indent: clamp(4px, 0.8vw, 8px);
     margin: 4px 0 0 0;
 }
+
+
 .brand-container .hero-subtitle.section-tag {
-    color: var(--accent-blue) !important;
-    font-size: 1.1rem;
-    margin-top: 24px !important;
-    margin-bottom: 0 !important;
+    font-size: 1.25rem !important; /* Increased size to match Image 2 */
+    letter-spacing: 0.18em !important;
+    font-weight: 700 !important;
 }
+.hero-content h2 {
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem) !important;
+    font-weight: 700 !important;
+    line-height: 1.4 !important;
+    margin: 24px auto !important;
+    max-width: 900px;
+}
+.hero-content .connector-text {
+    display: block;
+    font-size: 1.4rem !important; /* Larger than default text, smaller than countries */
+    font-weight: 500;
+    color: var(--text-dark);
+    margin: 8px 0;
+}
+.scroll-down-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-top: 40px;
+}
+.scroll-down-wrapper svg,
+.scroll-down-wrapper i {
+    display: block !important; /* Forces arrow onto its own line below the text */
+}
+
 .brand-container .hero-desc {
     max-width: 680px !important;
     margin: 12px auto 24px !important;
