@@ -788,18 +788,59 @@ main { position: relative; width: 100%; }
 .sector-card p { font-size: 0.85rem; line-height: 1.6; color: var(--text-muted); }
 
 /* ==========================================================================
-   13. CONTACT SECTION LAYOUT
+   13. CONTACT SECTION LAYOUT (CLEANED, CENTERED & COMPACTED)
    ========================================================================== */
-.contact-heading { width: 100%; }
-.contact-heading .section-tag { margin-bottom: 12px !important; }
-.contact-heading h2 { max-width: 720px; line-height: 1.2; }
-.contact-intro { margin: 0 0 36px 0 !important; font-size: 0.95rem; line-height: 1.5; color: var(--text-muted); }
-.contact-panel { width: 100%; }
-.contact-form-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px 24px; width: 100%; }
+/* Fix 1: Pull content upward by adjusting section vertical padding layout tracks */
+.contact-section {
+    padding: 36px 0 10px 0 !important; /* Shifting vertical padding to lift elements */
+}
+/* Fix 2: Limit structural widths to center panels and collapse widespread lines */
+.contact-panel { 
+    width: 100%; 
+    max-width: 960px; /* Clamps horizontal layout stretching cleanly */
+    margin: 0 auto !important; /* Forces perfect layout centering on desktop monitors */
+}
+.contact-heading { 
+    width: 100%; 
+    text-align: left; 
+}
+.contact-heading .section-tag { margin-bottom: 8px !important; }
+/* Force clean lines on your section heading */
+.contact-heading h2 { 
+    font-family: var(--font-body) !important; /* Converts text strings to clean lines */
+    font-size: clamp(1.8rem, 3.2vw, 2.4rem) !important;
+    font-weight: 700 !important;
+    max-width: 720px; 
+    line-height: 1.2; 
+    margin: 4px 0 10px 0 !important;
+    color: var(--primary-color);
+}
+.contact-intro { 
+    margin: 0 0 24px 0 !important; /* Tightens gap under heading block lines */
+    font-size: 0.95rem; 
+    line-height: 1.5; 
+    color: var(--text-muted); 
+}
+/* Fix 3: Compression tracking on internal form element rows */
+.contact-form-grid { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 16px 20px; /* Slightly compacted grid gaps to save viewport room */
+    width: 100%; 
+}
 .form-group { display: flex; flex-direction: column; }
-.form-group label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; color: var(--text-muted); }
+.form-group label { 
+    font-family: var(--font-body) !important;
+    font-size: 0.7rem; 
+    font-weight: 700; 
+    text-transform: uppercase; 
+    letter-spacing: 0.08em; 
+    margin-bottom: 6px; /* Pulls text labels snugger to bounding boxes */
+    color: var(--text-muted); 
+}
 .form-group input, .form-group select, .form-group textarea {
-    padding: 12px 14px; background-color: var(--white) !important; border: 1px solid var(--border-color) !important;
+    padding: 10px 12px; /* Compacts inside padding lines to reduce vertical bulk */
+    background-color: var(--white) !important; border: 1px solid var(--border-color) !important;
     border-radius: 4px; font-size: 0.9rem; color: var(--text-dark); width: 100%; transition: var(--transition-fast);
 }
 .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
@@ -811,11 +852,23 @@ main { position: relative; width: 100%; }
     background-repeat: no-repeat; background-position: right 14px center; background-size: 16px; padding-right: 40px;
 }
 .form-group-wide { grid-column: span 3; }
-.form-group textarea { resize: none; min-height: 80px; max-height: 80px; }
-.contact-form-submit { margin-top: 24px; display: flex; justify-content: flex-start; width: 100%; }
+/* Trimming down messaging field heights */
+.form-group textarea { 
+    resize: none; 
+    min-height: 70px; /* Trimmed from 80px to pull the submit button up */
+    max-height: 70px; 
+}
+
+.contact-form-submit { 
+    margin-top: 20px; /* Snugs submit alignment track below fields */
+    display: flex; 
+    justify-content: flex-start; 
+    width: 100%; 
+}
 .contact-form-submit .btn-primary {
     background-color: #0b2240 !important; border-color: #0b2240 !important; color: var(--white) !important;
-    padding: 14px 32px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+    padding: 12px 28px; /* Slightly compacted padding values */
+    font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
     border-radius: 4px; display: inline-flex; align-items: center; gap: 10px;
 }
 .contact-form-submit .btn-primary:hover {
