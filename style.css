@@ -1046,10 +1046,26 @@ main { position: relative; width: 100%; }
 @media (max-width: 900px) {
     .nav-toggle { display: block; }
     .nav-links {
-        position: absolute; top: 76px; left: 20px; right: 20px; display: none; flex-direction: column;
-        padding: 16px 24px; border: 1px solid var(--border-color); border-radius: 4px; background-color: var(--white); box-shadow: 0 10px 25px rgba(11, 34, 64, 0.05);
-    }
-    .nav-links.is-open { display: flex; }
+        position: absolute; 
+        top: 76px; 
+        left: 20px; 
+        right: 20px; 
+        display: none; 
+        flex-direction: column;
+        padding: 16px 24px; 
+        border: 1px solid var(--border-color); 
+        border-radius: 4px; 
+        background-color: var(--white); 
+        box-shadow: 0 10px 25px rgba(11, 34, 64, 0.05);
+        overflow: hidden !important;
+        max-height: 0;
+}
+    
+    .nav-links.is-open { 
+    /* Removed display: flex; to stop the layout from snapping open instantly */
+    max-height: 380px !important; 
+    opacity: 1 !important;
+}
     .about-section, .framework-section, .leadership-section, .sectors-section, .contact-section { height: auto !important; min-height: auto !important; max-height: none !important; position: relative !important; top: 0 !important; padding: 60px 20px !important; }
     .about-grid-container { grid-template-columns: 1fr !important; row-gap: 32px !important; }
     .about-row-header { grid-column: 1 !important; grid-row: 1 !important; }
