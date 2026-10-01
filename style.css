@@ -597,6 +597,16 @@ main { position: relative; width: 100%; }
     height: 100%;
     backface-visibility: hidden !important; /* Hides hidden side completely across the flip transition */
     border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(11, 34, 64, 0.02);
+    transition: box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease !important;
+}
+.services-grid .flip-card-node:hover .flip-card-front,
+.services-grid .flip-card-node:hover .flip-card-back {
+    border-color: #0077b6 !important; /* Turns the card borders accent blue on hover */
+    /* Layered neon shadow bloom effect matching your Framework section */
+    box-shadow: 0 0 10px rgba(0, 119, 182, 0.35), 
+                0 0 20px rgba(0, 119, 182, 0.20), 
+                0 8px 32px rgba(0, 119, 182, 0.15) !important;
 }
 .service-card {
     background: var(--white); border: 1px solid var(--border-color); border-top: 4px solid var(--accent-blue); padding: 32px;
