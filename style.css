@@ -77,6 +77,11 @@ h2 {
     display: block;
 }
 
+.hero-global-transition-tag {
+    font-size: 1.1rem !important; 
+    font-weight: 700 !important;
+}
+
 .promise-text, em {
     font-family: var(--font-heading) !important;
     font-style: italic !important;
