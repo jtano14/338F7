@@ -540,9 +540,6 @@ main { position: relative; width: 100%; }
 /* ==========================================================================
    9. SERVICES SECTION LAYOUT
    ========================================================================== */
-/* ==========================================================================
-   9. SERVICES SECTION LAYOUT (FIXED OVERLAP & 3D FLIP)
-   ========================================================================== */
 .services-narrow-container { max-width: 960px !important; margin: 0 auto; }
 .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 36px; margin-top: 42px; }
 /* Fix 1: Establish clear heights and 3D environment scales */
@@ -598,43 +595,97 @@ main { position: relative; width: 100%; }
 /* ==========================================================================
    10. METHODOLOGY FLUX7 FRAMEWORK LAYOUT
    ========================================================================== */
+.framework-section {
+    padding: 32px 0 16px 0 !important; /* Compacts vertical space to shift layout up */
+}
+
 .framework-unified-container {
     display: flex !important; flex-direction: column !important; justify-content: flex-start !important; 
-    gap: 16px !important; height: 100% !important; width: 100%; max-width: var(--container-width);
+    gap: 12px !important; /* Tightens space between header, cards, and packages */
+    height: 100% !important; width: 100%; max-width: var(--container-width);
 }
 .framework-content-header { text-align: center !important; width: 100%; }
+.framework-content-header h2 { margin: 4px 0 10px 0 !important; }
 .framework-intro { max-width: 720px; margin: 0 auto !important; color: var(--text-muted); font-size: 0.92rem; line-height: 1.4; }
-.framework-slider-outer { position: relative; display: flex; align-items: center; width: 100%; padding: 0 50px; }
+.framework-slider-outer { position: relative; display: flex; align-items: center; width: 100%; padding: 0 50px; margin-top: 8px !important; }
 .horizontal-slider-container { width: 100%; overflow: hidden; padding: 12px 0; }
 .horizontal-slider-track { display: flex; gap: 24px; width: max-content; transform-style: preserve-3d !important; }
-.framework-section .flip-card-node { width: 195px; height: 155px; flex-shrink: 0; }
-.framework-section .flip-card-front { background-color: var(--white); justify-content: space-between !important; }
-.framework-section .flip-card-front h3 { font-size: 0.88rem; font-weight: 700; line-height: 1.4; }
-.pillar-id { font-size: 1.3rem; font-weight: 700; color: rgba(0, 119, 182, 0.22); line-height: 1; }
+/* Fix 2: Set dimensional boundaries and hover spin rules for the 7 framework nodes */
+.framework-section .flip-card-node { 
+    width: 195px; 
+    height: 160px; /* Gives the text description comfortable room */
+    flex-shrink: 0; 
+    perspective: 1000px; /* Establishes the 3D depth track */
+}
+/* Set up dynamic rotation on the inner layout layer */
+.framework-section .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d !important;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+/* Spin card on hover axis */
+.framework-section .flip-card-node:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+/* Fix 3: Stacking mechanism—lock front and back faces flat on top of each other */
+.framework-section .flip-card-front,
 .framework-section .flip-card-back {
-    background-color: var(--primary-color) !important; color: var(--white) !important; transform: rotateY(180deg) !important;
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden !important; /* Hides reverse sides during the animation transition */
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+/* Front Card Layout Settings */
+.framework-section .flip-card-front { 
+    background-color: var(--white); 
+    padding: 16px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important; 
+    align-items: flex-start !important;
+    text-align: left !important;
+    z-index: 2;
+}
+.framework-section .flip-card-front h3 { font-size: 0.88rem; font-weight: 700; line-height: 1.4; margin: 0 !important; color: var(--primary-color); }
+.pillar-id { font-size: 1.3rem; font-weight: 700; color: rgba(0, 119, 182, 0.22); line-height: 1; margin: 0 !important; }
+/* Fix 4: Set the reverse face behind the front card and enable auto-wrapping */
+.framework-section .flip-card-back {
+    background-color: var(--primary-color) !important; color: var(--white) !important; 
+    transform: rotateY(180deg) !important; /* Default hidden rotation alignment */
     justify-content: flex-start !important; align-items: flex-start !important; padding: 16px 14px !important;
+    display: flex !important; flex-direction: column !important;
+    z-index: 1;
 }
 .framework-section .back-content-wrapper {
     display: flex !important; flex-direction: column !important; gap: 6px !important; width: 100% !important; justify-content: flex-start !important;
+    align-items: flex-start !important; text-align: left !important;
 }
-.framework-section .flip-card-back h3 { font-size: 0.82rem !important; font-weight: 700; border-bottom: 1px solid rgba(255, 255, 255, 0.15); padding-bottom: 4px !important; }
-.framework-section .flip-card-back p { font-size: 0.74rem !important; color: rgba(255, 255, 255, 0.88) !important; white-space: normal !important; }
-.service-packages-fixed-bottom { border-top: 1px solid var(--border-color); padding-top: 24px; margin-top: 10px !important; width: 100%; }
-.service-packages-fixed-bottom h3 { font-size: 0.95rem; text-align: center; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+.framework-section .flip-card-back h3 { font-size: 0.82rem !important; font-weight: 700; color: var(--white) !important; border-bottom: 1px solid rgba(255, 255, 255, 0.15); padding-bottom: 4px !important; margin: 0 !important; width: 100%; }
+.framework-section .flip-card-back p { font-size: 0.74rem !important; color: rgba(255, 255, 255, 0.88) !important; white-space: normal !important; margin: 0 !important; line-height: 1.35 !important; }
+/* Fix 5: Compact the Service Packages layout to open up bottom screen room */
+.service-packages-fixed-bottom { border-top: 1px solid var(--border-color); padding-top: 16px; margin-top: 8px !important; width: 100%; }
+.service-packages-fixed-bottom h3 { font-size: 0.95rem; text-align: center; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 12px 0 !important; color: var(--primary-color); }
 .service-packages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; max-width: 840px; margin: 0 auto; }
-.package-card { position: relative; background: var(--light-bg); border: 1px solid var(--border-color); padding: 18px 20px; border-radius: 8px; }
+.package-card { position: relative; background: var(--light-bg); border: 1px solid var(--border-color); padding: 14px 18px; border-radius: 8px; }
 .package-tag { display: block; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.05em; margin-bottom: 4px; }
-.package-card h4 { margin: 0 0 6px 0; font-size: 1.15rem; font-weight: 700; }
-.package-card p { font-size: 0.8rem; line-height: 1.45; }
+.package-card h4 { margin: 0 0 4px 0; font-size: 1.1rem; font-weight: 700; color: var(--primary-color); }
+.package-card p { font-size: 0.78rem; line-height: 1.4; margin: 0 !important; color: var(--text-dark); }
 .package-card.premium-tier { background: var(--white); border: 2px solid #bfdbfe; box-shadow: 0 6px 16px rgba(0, 119, 182, 0.04); }
 .package-card.premium-tier .package-tag { color: var(--accent-blue); }
 .badge-wrapper { position: absolute; top: -10px; right: 16px; }
 .premium-badge { background-color: var(--accent-blue); color: var(--white); font-size: 0.58rem; font-weight: 800; text-transform: uppercase; padding: 3px 8px; border-radius: 20px; }
+/* Slider Navigation Arrows */
 .slider-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; background-color: var(--white); border: 1px solid var(--border-color); color: var(--primary-color); display: flex; align-items: center; justify-content: center; z-index: 10; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04); transition: var(--transition-fast); }
 .slider-arrow:hover { background-color: var(--primary-color); color: var(--white); border-color: var(--primary-color); }
 .arrow-left { left: 0; }
 .arrow-right { right: 0; }
+
 
 /* ==========================================================================
    11. LEADERSHIP SECTION LAYOUT
