@@ -33,17 +33,17 @@ body, p, select, input, textarea, button {
 /* 2. Apply the premium editorial serif font to all headings */
 h1, h2, h3, h4, h5, h6, .logo-text {
     font-family: var(--font-heading) !important;
-    font-weight: 600; /* Gives it that elegant, medium-heavy structural weight */
-    letter-spacing: -0.01em; /* Tights up large text to make it look premium */
+    font-weight: 600; 
+    letter-spacing: -0.01em; 
 }
 
 /* 3. Replicate the elegant, spaced-out small tags (e.g., ABOUT FLUX7, OUR PROMISE) */
-.section-tag, .promise-label, .matrix-label, .package-tag {
+.section-tag, .promise-label, .matrix-label, .package-tag, .stat-label {
     font-family: var(--font-body) !important;
-    font-weight: 500 !important;
-    text-transform: uppercase !important; /* Forces uppercase style natively */
-    letter-spacing: 0.18em !important;   /* Spreads letters wide just like the screenshot! */
-    font-size: 0.75rem !important;        /* Small, crisp aesthetic footprint */
+    font-weight: 600 !important; /* Slightly thicker weight to look neat and punchy */
+    text-transform: uppercase !important; 
+    letter-spacing: 0.16em !important;   
+    font-size: 0.75rem !important;        
 }
 
 /* 4. Make italic quotes look stunning */
@@ -53,6 +53,11 @@ h1, h2, h3, h4, h5, h6, .logo-text {
     font-size: 1.25rem;
 }
 
+/* 5. Ensure your statistic numbers (5+, 5, 7) use the clean original curves */
+.stat-number {
+    font-family: var(--font-body) !important;
+    font-weight: 700 !important;
+}
 
 * { box-sizing: border-box; }
 
