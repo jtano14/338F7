@@ -1610,7 +1610,7 @@ main { position: relative; width: 100%; }
     filter: brightness(0) invert(1) !important; 
     
     /* HORIZONTAL ALIGNMENT FIX: Pulls the logo left so 'F' matches 'M' below it */
-    margin-left: -55px !important; 
+    margin-left: 0px !important; 
     margin-right: auto !important;
 }
 
