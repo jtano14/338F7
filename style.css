@@ -58,8 +58,8 @@ h2 {
 .logo-text {
     font-size: clamp(32px, 5vw, 52px);
     font-weight: 700 !important; /* Thicker bold weight for clean lines */
-    letter-spacing: 0.15em !important; /* Uniform letter spacing */
-    text-indent: 0.15em !important;
+    letter-spacing: 0.3em !important; /* Uniform letter spacing */
+    text-indent: 0.3em !important;
     display: flex !important;
     justify-content: center;
     align-items: center;
