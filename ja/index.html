@@ -711,37 +711,39 @@
          ========================================================================== -->
     
     <!-- 1. Load Three.js 3D Web Rendering Engine from a reliable public CDN endpoint -->
-    <script src="https://cloudflare.com" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+
 
     <!-- 2. Load the specific Vanta Waves Animation script from a reliable public CDN endpoint -->
-    <script src="https://cloudflare.com" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.clouds.min.js"></script>
+    
     <!-- 3. Explicit Inline Subfolder Vanta Driver Engine Initialization Loop -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             // Check to ensure script libraries are successfully compiled by the browser engine
-            if (typeof VANTA !== "undefined" && VANTA.WAVES) {
-                VANTA.WAVES({
+            if (typeof VANTA !== "undefined" && VANTA.CLOUDS) {
+                VANTA.CLOUDS({
                     el: "#vanta-ocean-bg",
                     mouseControls: true,
                     touchControls: true,
                     gyroControls: false,
                     minHeight: 200.00,
                     minWidth: 200.00,
-                    scale: 1.00,
-                    scaleMobile: 1.00,
-                    color: 0x0b2240,       /* Deep corporate brand navy blue hex code signature */
-                    shininess: 30.00,
-                    waveHeight: 15.00,
-                    waveSpeed: 0.60,
-                    zoom: 0.85
+                    backgroundColor: 0xffffff, /* Syncs cleanly with your light theme profile */
+                    skyColor: 0xbfdbfe,
+                    cloudColor: 0xadcbe3,
+                    cloudShadowColor: 0x1e3a8a,
+                    sunColor: 0xffffff,
+                    sunGlowColor: 0x3b82f6,
+                    sunlightColor: 0x3b82f6,
+                    speed: 1.00
                 });
-            } else {
-                console.error("Vanta CDN asset engines failed to fetch relative to subfolder structures.");
+                console.log("Vanta Cloud Background synchronized and running successfully!");
             }
         });
     </script>
 
-    <!-- 4. Load your main application interaction engine code layer -->
-    <script src="../assets/js/app.js"></script>
+     <!-- 4. Load your main application interaction script file linked to the parent folder -->
+    <script src="../script.js"></script>
 </body>
+</html>
