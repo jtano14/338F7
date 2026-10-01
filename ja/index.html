@@ -108,76 +108,80 @@
 
         <!-- Dynamic Stacking Layer Workspace Container Entry Point -->
         <div class="scroll-stack-wrapper">
-            <!-- ==========================================================================
-               3. ABOUT US SECTION (MODERN 2-COLUMN GRID)
-               ========================================================================== -->
             <section class="about-section" id="about">
-                <div class="container about-grid-container">
-                    <div class="about-row-header">
-                        <span class="section-tag">ABOUT FLUX7</span>
-                        <h2>変化する世界市場の流れをマスターする</h2>
+    <div class="container about-grid-container">
+        
+        <!-- ROW 1: FULL WIDTH SECTION HEADER TAG & TITLE -->
+        <div class="about-row-header">
+            <span class="section-tag">ABOUT FLUX7</span>
+            <h2>変化する世界市場の流れをマスターする</h2>
+        </div>
+        
+        <!-- ROW 2: LEFT COLUMN - TEXT INTRODUCTION + COMPANY OVERVIEW PANEL -->
+        <div class="about-row-desc-left">
+            <p>激変するグローバル市場において企業の海外展開をナビゲートします。各地域の異なる規制や市場環境に合わせた戦略を同期させ、国境を越えた資産や機能の最適な配置を実現します。</p>
+            
+            <!-- MOVED HERE: Company Overview Panel sits prominently inside the left column below the intro paragraph -->
+            <div class="corporate-profile-panel" style="margin-top: 36px;">
+                <h3>会社概要</h3>
+                <div class="profile-matrix-grid">
+                    <div class="matrix-item">
+                        <span class="matrix-label">本社所在地</span>
+                        <span class="matrix-value">兵庫県尼崎市</span>
                     </div>
-                    
-                    <div class="about-row-desc-left">
-                        <p>激変するグローバル市場において企業の海外展開をナビゲートします。各地域の異なる規制や市場環境に合わせた戦略を同期させ、国境を越えた資産や機能の最適な配置を実現します。</p>
+                    <div class="matrix-item">
+                        <span class="matrix-label">設立</span>
+                        <span class="matrix-value">2026年</span>
                     </div>
-                    
-                    <div class="about-row-image-right">
-                        <div class="image-corner-frame">
-                            <img src="../assets/images/about-boardroom.jpg" alt="FLUX7 役員アライメント">
-                        </div>
+                    <div class="matrix-item">
+                        <span class="matrix-label">代表取締役</span>
+                        <span class="matrix-value">堀川 清満</span>
                     </div>
-                    
-                    <div class="about-row-stats-left">
-                        <div class="about-promise-tray">
-                            <div class="promise-label">私たちの約束</div>
-                            <p class="promise-text">価値を加速させ、リスクを低減し、シームレスな世界的フローを実現する。</p>
-                        </div>
-                        <div class="stats-row">
-                            <div class="stat-item">
-                                <span class="stat-number">5+</span>
-                                <span class="stat-label">展開国</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">5</span>
-                                <span class="stat-label">地域拠点</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">7</span>
-                                <span class="stat-label">構築柱</span>
-                            </div>
-                        </div>
+                    <div class="matrix-item">
+                        <span class="matrix-label">資本金</span>
+                        <span class="matrix-value">¥1,000,000</span>
                     </div>
-                    
-                    <div class="about-row-overview-right">
-                        <div class="corporate-profile-panel">
-                            <h3>会社概要</h3>
-                            <div class="profile-matrix-grid">
-                                <div class="matrix-item">
-                                    <span class="matrix-label">本社所在地</span>
-                                    <span class="matrix-value">兵庫県尼崎市</span>
-                                </div>
-                                <div class="matrix-item">
-                                    <span class="matrix-label">設立</span>
-                                    <span class="matrix-value">2026年</span>
-                                </div>
-                                <div class="matrix-item">
-                                    <span class="matrix-label">代表取締役</span>
-                                    <span class="matrix-value">堀川 清満</span>
-                                </div>
-                                <div class="matrix-item">
-                                    <span class="matrix-label">資本金</span>
-                                    <span class="matrix-value">¥1,000,000</span>
-                                </div>
-                                <div class="matrix-item dynamic-span-wide">
-                                    <span class="matrix-label">事業内容</span>
-                                    <span class="matrix-value">経営コンサルティング、ビジネスソリューション、貿易業</span>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="matrix-item dynamic-span-wide">
+                        <span class="matrix-label">事業内容</span>
+                        <span class="matrix-value" style="font-size: 1.05rem; font-weight: 700; color: var(--primary-color);">経営コンサルティング、ビジネスソリューション、貿易業</span>
                     </div>
                 </div>
-            </section>
+            </div>
+        </div>
+        
+        <!-- ROW 2: RIGHT COLUMN - BOARDROOM IMAGE LAYER -->
+        <!-- MOVED HERE: The image grid track is reassigned to row 2 right to align smoothly alongside your company profile -->
+        <div class="about-row-image-right" style="grid-row: 2 !important;">
+            <div class="image-corner-frame">
+                <img src="../assets/images/about-boardroom.jpg" alt="FLUX7 役員アライメント">
+            </div>
+        </div>
+        
+        <!-- ROW 3: FULL WIDTH FOOTPRINT - OUR PROMISE & STATS ROW COLLAPSED TO THE BOTTOM -->
+        <!-- MOVED HERE: Stretched across both grid columns to fill horizontal viewport gaps cleanly -->
+        <div class="about-row-stats-left" style="grid-column: 1 / span 2 !important; grid-row: 3 !important; border-top: 1px solid var(--border-color); padding-top: 32px !important; margin-top: 12px;">
+            <div class="about-promise-tray" style="margin-bottom: 24px;">
+                <div class="promise-label">私たちの約束</div>
+                <p class="promise-text" style="font-size: 1.2rem !important; line-height: 1.5;">価値を加速させ、リスクを低減し、シームレスな世界的フローを実現する。</p>
+            </div>
+            <div class="stats-row">
+                <div class="stat-item">
+                    <span class="stat-number">5+</span>
+                    <span class="stat-label">展開国</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">地域拠点</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">7</span>
+                    <span class="stat-label">構築柱</span>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</section>
 
             <!-- ==========================================================================
                4. OUR SERVICES SECTION (FLIP CARDS)
