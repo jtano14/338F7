@@ -47,141 +47,149 @@
     </header>
 
     <main>
+            <!-- ==========================================================================
+         2. HERO SECTION (INTERACTIVE CANVAS & VANTA)
+         ========================================================================== -->
+    <section class="hero-section" id="hero" aria-labelledby="hero-title">
+        
+        <!-- Standalone background canvas layer element -->
+        <div id="vanta-ocean-bg"></div>
+
+        <!-- Vertical Right Border Sub-Watermark Text -->
+        <div class="hero-vertical-text" aria-hidden="true">GLOBAL BUSINESS</div>
+
+        <div class="hero-content container">
+            <div class="brand-container" id="seq-1">
+                
+                <!-- Interactive Brand Core Graphics Canvas Box -->
+                <div class="logo-wrapper">
+                    <img src="../assets/images/image_b.png" alt="FLUX7 Graphic Asset" class="sharp-logo-layer" aria-hidden="true">
+                    <canvas id="bubbleCanvas"></canvas>
+                </div>
+
+                <!-- Main Corporate Sans-Serif Wordmark -->
+                <h1 class="logo-text" id="hero-title">FLUX 7</h1>
+                <p class="logo-tagline">FLOW &middot; LINK &middot; UNITE &middot; X-PAND.</p>
+                <span class="hero-subtitle section-tag hero-global-transition-tag">グローバル変革 | アジア・GCC市場マスタリー</span>
+
+            </div>
+
+            <!-- ==========================================================================
+                 3B. HEADLINE ENGINE & CALL TO ACTION LINK PLATFORMS
+                 ========================================================================== -->
+            <div class="stacked-headline hero-headline-sans" id="seq-2">
+                 <span class="headline-prefix hero-connector"></span>
+                 <h2 class="market-line">米国・インド・シンガポール· ブルネイ・GCC</h2>
+                 <span class="headline-suffix hero-connector">と世界を繋ぐ架け橋として。</span>
+            </div>
+
+            <p class="hero-desc" id="seq-3">
+                FLUX7は、複雑化するグローバル展開やクロスボーダー提携をナビゲートします。対象市場へ進出する多国籍企業、および世界へスケールする地域企業へ現地に根差した専門知識を提供します。
+            </p>
+
+            <div class="hero-buttons" id="seq-4">
+                <a href="#contact" class="btn btn-primary">対話を始める</a>
+                <a href="#framework" class="btn btn-secondary">フレームワークを見る</a>
+            </div>
+
+            <!-- Realigned Scroll Arrow Container to position the SVG under the text -->
+            <div class="scroll-down-container" id="seq-5">
+                <a href="#about" class="scroll-down-link" aria-label="About Usセクションへスクロール">
+                    <span class="scroll-down-text">Scroll Down</span>
+                    <svg class="scroll-down-icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </a>
+            </div>
+
+        </div>
+    </section> <!-- This cleanly closes your Hero section completely -->
+
+    <!-- ==========================================================================
+         SCROLL STACK SHEET CONTAINER (Content that slides over the fixed hero clouds)
+         ========================================================================== -->
+    <div class="scroll-stack-wrapper">
+
         <!-- ==========================================================================
-           2. HERO SECTION (INTERACTIVE CANVAS & VANTA)
-           ========================================================================== -->
-        <section class="hero-section" id="hero" aria-labelledby="hero-title">
-            
-            <!-- FIXED: Separated into a standalone background canvas layer element -->
-            <div id="vanta-ocean-bg"></div>
-
-            <!-- Vertical Right Border Sub-Watermark Text -->
-            <div class="hero-vertical-text" aria-hidden="true">GLOBAL BUSINESS</div>
-
-            <div class="hero-content container">
-                <div class="brand-container" id="seq-1">
+             3. ABOUT US SECTION (REARRANGED & COMPACT BALANCED CORPORATE VIEW)
+             ========================================================================== -->
+        <section class="about-section" id="about">
+            <!-- Scoped wrapper container that limits overall width and centers text fields -->
+            <div class="container" style="max-width: 960px; margin: 0 auto; padding-top: 24px;">
+                
+                <!-- TOP HEADER SUB-BLOCK (Closes the gap between title and description completely) -->
+                <div class="about-row-header" style="margin-bottom: 8px; width: 100%;">
+                    <span class="section-tag" style="margin-bottom: 4px; display: block;">ABOUT FLUX7</span>
+                    <h2 style="font-family: var(--font-body) !important; font-size: clamp(2rem, 3.5vw, 2.4rem) !important; font-weight: 700; margin: 0 0 6px 0 !important; color: var(--primary-color); line-height: 1.25;">変化する世界市場の流れをマスターする</h2>
+                    <!-- FIXED: Moved directly under the header line with zero gap -->
+                    <p style="margin: 0 0 32px 0 !important; font-size: 0.95rem; line-height: 1.6; color: var(--text-dark); max-width: 100%;">
+                        激変するグローバル市場において企業の海外展開をナビゲートします。各地域の異なる規制や市場環境に合わせた戦略を同期させ、国境を越えた資産や機能の最適な配置を実現します。
+                    </p>
+                </div>
+                
+                <!-- MIDDLE ROW MODULE (Forces Company Profile and Boardroom Image side-by-side at the same height) -->
+                <div class="about-middle-split" style="display: flex !important; gap: 48px !important; align-items: flex-start !important; width: 100%; margin-bottom: 32px;">
                     
-                    <!-- Interactive Brand Core Graphics Canvas Box -->
-                    <div class="logo-wrapper">
-                        <img src="../assets/images/image_b.png" alt="FLUX7 Graphic Asset" class="sharp-logo-layer" aria-hidden="true">
-                        <canvas id="bubbleCanvas"></canvas>
+                    <!-- Left: Trust-Building Corporate Matrix Panel -->
+                    <div class="corporate-profile-panel" style="flex: 1.2; margin: 0 !important; padding: 0 !important;">
+                        <h3 style="font-family: var(--font-body) !important; font-size: 1.2rem !important; font-weight: 700; color: var(--primary-color); margin: 0 0 16px 0 !important;">会社概要</h3>
+                        <div class="profile-matrix-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px 14px;">
+                            <div class="matrix-item" style="display: flex; flex-direction: column; border-bottom: 1px solid var(--border-color); padding-bottom: 6px;">
+                                <span class="matrix-label" style="font-size: 0.68rem; text-transform: uppercase; font-weight: 700; color: var(--text-muted); margin-bottom: 2px;">本社所在地</span>
+                                <span class="matrix-value" style="font-size: 0.9rem; font-weight: 600; color: var(--primary-color);">兵庫県尼崎市</span>
+                            </div>
+                            <div class="matrix-item" style="display: flex; flex-direction: column; border-bottom: 1px solid var(--border-color); padding-bottom: 6px;">
+                                <span class="matrix-label" style="font-size: 0.68rem; text-transform: uppercase; font-weight: 700; color: var(--text-muted); margin-bottom: 2px;">設立</span>
+                                <span class="matrix-value" style="font-size: 0.9rem; font-weight: 600; color: var(--primary-color);">2026年</span>
+                            </div>
+                            <div class="matrix-item" style="display: flex; flex-direction: column; border-bottom: 1px solid var(--border-color); padding-bottom: 6px;">
+                                <span class="matrix-label" style="font-size: 0.68rem; text-transform: uppercase; font-weight: 700; color: var(--text-muted); margin-bottom: 2px;">代表取締役</span>
+                                <span class="matrix-value" style="font-size: 0.9rem; font-weight: 600; color: var(--primary-color);">堀川 清満</span>
+                            </div>
+                            <div class="matrix-item" style="display: flex; flex-direction: column; border-bottom: 1px solid var(--border-color); padding-bottom: 6px;">
+                                <span class="matrix-label" style="font-size: 0.68rem; text-transform: uppercase; font-weight: 700; color: var(--text-muted); margin-bottom: 2px;">資本金</span>
+                                <span class="matrix-value" style="font-size: 0.9rem; font-weight: 600; color: var(--primary-color);">¥1,000,000</span>
+                            </div>
+                            <div class="matrix-item dynamic-span-wide" style="grid-column: span 2; display: flex; flex-direction: column; border-bottom: 1px solid var(--border-color); padding-bottom: 6px;">
+                                <span class="matrix-label" style="font-size: 0.68rem; text-transform: uppercase; font-weight: 700; color: var(--text-muted); margin-bottom: 2px;">事業内容</span>
+                                <span class="matrix-value" style="font-size: 0.92rem; font-weight: 600; color: var(--primary-color);">経営コンサルティング、ビジネスソリューション、貿易業</span>
+                            </div>
+                        </div>
                     </div>
-
-                    <!-- Main Corporate Sans-Serif Wordmark -->
-                    <h1 class="logo-text" id="hero-title">FLUX 7</h1>
-                    <p class="logo-tagline">FLOW &middot; LINK &middot; UNITE &middot; X-PAND.</p>
-                    <span class="hero-subtitle section-tag hero-global-transition-tag">グローバル変革 | アジア・GCC市場マスタリー</span>
-
+                    
+                    <!-- Right: Boardroom Corporate Image Asset (Perfectly aligned with Company Profile) -->
+                    <div class="about-row-image-right" style="flex: 1; margin: 0 !important; padding: 0 !important; width: 100%;">
+                        <div class="image-corner-frame" style="position: relative; width: 100%;">
+                            <img src="../assets/images/about-boardroom.jpg" alt="FLUX7 役員アライメント" style="width: 100%; height: auto; max-height: 250px; object-fit: cover; border-radius: 8px !important; box-shadow: 0 10px 25px rgba(11, 34, 64, 0.06) !important;">
+                        </div>
+                    </div>
                 </div>
-
-                <!-- ==========================================================================
-                     3B. HEADLINE ENGINE & CALL TO ACTION LINK PLATFORMS
-                     ========================================================================== -->
-                <!-- FIXED: Updated with target layout classes to close spacing gaps and apply crisp text lines -->
-                <div class="stacked-headline hero-headline-sans" id="seq-2">
-                     <span class="headline-prefix hero-connector"></span>
-                     <h2 class="market-line">米国・インド・シンガポール· ブルネイ・GCC</h2>
-                     <span class="headline-suffix hero-connector">と世界を繋ぐ架け橋として。</span>
+                
+                                <!-- LOWER FOOTPRINT ROW (Our Promise line and your 3 numerical stats counters pulled up cleanly) -->
+                <div class="about-row-stats-left" style="width: 100%; border-top: 1px solid var(--border-color); padding-top: 24px !important; margin-top: 0 !important;">
+                    <div class="about-promise-tray" style="margin-bottom: 16px; padding-left: 14px; border-left: 3px solid var(--accent-blue);">
+                        <div class="promise-label" style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700; color: var(--accent-blue); margin-bottom: 4px;">私たちの約束</div>
+                        <p class="promise-text" style="font-family: var(--font-body) !important; font-style: italic !important; font-size: 1.15rem !important; font-weight: 500; color: var(--primary-color); margin: 0 !important;">価値を加速させ、リスクを低減し、シームレスな世界的フローを実現する。</p>
+                    </div>
+                    
+                    <div class="stats-row" style="display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 16px; width: 100%;">
+                        <div class="stat-item" style="display: flex; flex-direction: column; align-items: flex-start; text-align: left;">
+                            <span class="stat-number" style="color: var(--accent-blue); font-size: 2.2rem !important; font-weight: 700 !important; line-height: 1;">5+</span>
+                            <span class="stat-label" style="color: var(--text-muted); font-size: 0.72rem !important; text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em; margin-top: 4px;">展開国</span>
+                        </div>
+                        <div class="stat-item" style="display: flex; flex-direction: column; align-items: flex-start; text-align: left;">
+                            <span class="stat-number" style="color: var(--accent-blue); font-size: 2.2rem !important; font-weight: 700 !important; line-height: 1;">5</span>
+                            <span class="stat-label" style="color: var(--text-muted); font-size: 0.72rem !important; text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em; margin-top: 4px;">地域拠点</span>
+                        </div>
+                        <div class="stat-item" style="display: flex; flex-direction: column; align-items: flex-start; text-align: left;">
+                            <span class="stat-number" style="color: var(--accent-blue); font-size: 2.2rem !important; font-weight: 700 !important; line-height: 1;">7</span>
+                            <span class="stat-label" style="color: var(--text-muted); font-size: 0.72rem !important; text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em; margin-top: 4px;">構築柱</span>
+                        </div>
+                    </div>
                 </div>
-
-                <p class="hero-desc" id="seq-3">
-                    FLUX7は、複雑化するグローバル展開やクロスボーダー提携をナビゲートします。対象市場へ進出する多国籍企業、および世界へスケールする地域企業へ現地に根差した専門知識を提供します。
-                </p>
-
-                <div class="hero-buttons" id="seq-4">
-                    <a href="#contact" class="btn btn-primary">対話を始める</a>
-                    <a href="#framework" class="btn btn-secondary">フレームワークを見る</a>
-                </div>
-
-                <!-- FIXED: Realigned Scroll Arrow Container to position the SVG under the text -->
-                <div class="scroll-down-container" id="seq-5">
-                    <a href="#about" class="scroll-down-link" aria-label="About Usセクションへスクロール">
-                        <span class="scroll-down-text">Scroll Down</span>
-                        <svg class="scroll-down-icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
-                    </a>
-                </div>
-
+                
             </div>
-        </section>
-
-        <!-- Dynamic Stacking Layer Workspace Container Entry Point -->
-        <div class="scroll-stack-wrapper">
-            <section class="about-section" id="about">
-    <div class="container about-grid-container">
-        
-        <!-- ROW 1: FULL WIDTH SECTION HEADER TAG & TITLE -->
-        <div class="about-row-header">
-            <span class="section-tag">ABOUT FLUX7</span>
-            <h2>変化する世界市場の流れをマスターする</h2>
-        </div>
-        
-        <!-- ROW 2: LEFT COLUMN - TEXT INTRODUCTION + COMPANY OVERVIEW PANEL -->
-        <div class="about-row-desc-left">
-            <p>激変するグローバル市場において企業の海外展開をナビゲートします。各地域の異なる規制や市場環境に合わせた戦略を同期させ、国境を越えた資産や機能の最適な配置を実現します。</p>
-            
-            <!-- MOVED HERE: Company Overview Panel sits prominently inside the left column below the intro paragraph -->
-            <div class="corporate-profile-panel" style="margin-top: 36px;">
-                <h3>会社概要</h3>
-                <div class="profile-matrix-grid">
-                    <div class="matrix-item">
-                        <span class="matrix-label">本社所在地</span>
-                        <span class="matrix-value">兵庫県尼崎市</span>
-                    </div>
-                    <div class="matrix-item">
-                        <span class="matrix-label">設立</span>
-                        <span class="matrix-value">2026年</span>
-                    </div>
-                    <div class="matrix-item">
-                        <span class="matrix-label">代表取締役</span>
-                        <span class="matrix-value">堀川 清満</span>
-                    </div>
-                    <div class="matrix-item">
-                        <span class="matrix-label">資本金</span>
-                        <span class="matrix-value">¥1,000,000</span>
-                    </div>
-                    <div class="matrix-item dynamic-span-wide">
-                        <span class="matrix-label">事業内容</span>
-                        <span class="matrix-value" style="font-size: 1.05rem; font-weight: 700; color: var(--primary-color);">経営コンサルティング、ビジネスソリューション、貿易業</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- ROW 2: RIGHT COLUMN - BOARDROOM IMAGE LAYER -->
-        <!-- MOVED HERE: The image grid track is reassigned to row 2 right to align smoothly alongside your company profile -->
-        <div class="about-row-image-right" style="grid-row: 2 !important;">
-            <div class="image-corner-frame">
-                <img src="../assets/images/about-boardroom.jpg" alt="FLUX7 役員アライメント">
-            </div>
-        </div>
-        
-        <!-- ROW 3: FULL WIDTH FOOTPRINT - OUR PROMISE & STATS ROW COLLAPSED TO THE BOTTOM -->
-        <!-- MOVED HERE: Stretched across both grid columns to fill horizontal viewport gaps cleanly -->
-        <div class="about-row-stats-left" style="grid-column: 1 / span 2 !important; grid-row: 3 !important; border-top: 1px solid var(--border-color); padding-top: 32px !important; margin-top: 12px;">
-            <div class="about-promise-tray" style="margin-bottom: 24px;">
-                <div class="promise-label">私たちの約束</div>
-                <p class="promise-text" style="font-size: 1.2rem !important; line-height: 1.5;">価値を加速させ、リスクを低減し、シームレスな世界的フローを実現する。</p>
-            </div>
-            <div class="stats-row">
-                <div class="stat-item">
-                    <span class="stat-number">5+</span>
-                    <span class="stat-label">展開国</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">5</span>
-                    <span class="stat-label">地域拠点</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">7</span>
-                    <span class="stat-label">構築柱</span>
-                </div>
-            </div>
-        </div>
-        
-    </div>
-</section>
+        </section> <!-- Closes Section 3 perfectly -->
 
             <!-- ==========================================================================
                4. OUR SERVICES SECTION (FLIP CARDS)
