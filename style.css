@@ -567,7 +567,11 @@ main { position: relative; width: 100%; }
 /* ==========================================================================
    9. SERVICES SECTION LAYOUT
    ========================================================================== */
-.services-narrow-container { max-width: 960px !important; margin: 0 auto; }
+.services-narrow-container { 
+   max-width: 960px !important; 
+   margin: 0 auto; 
+   background-color: var(--white) !important; /* ADD THIS LINE: Alternates to White */
+}
 .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 36px; margin-top: 42px; }
 /* Fix 1: Establish clear heights and 3D environment scales */
 .services-grid .flip-card-node { 
@@ -623,6 +627,7 @@ main { position: relative; width: 100%; }
    10. METHODOLOGY FLUX7 FRAMEWORK LAYOUT
    ========================================================================== */
 .framework-section {
+    background-color: var(--light-bg) !important; /* Alternating zone */
     padding: 32px 0 16px 0 !important; /* Compacts vertical space to shift layout up */
 }
 
@@ -727,7 +732,13 @@ main { position: relative; width: 100%; }
 /* ==========================================================================
    11. LEADERSHIP SECTION LAYOUT
    ========================================================================== */
-.leadership-section .container { max-width: var(--container-width); margin: 0 auto; width: 100%; }
+.leadership-section .container { 
+    max-width: var(--container-width); 
+    margin: 0 auto; 
+    width: 100%; 
+    background-color: var(--white) !important; /* ADD THIS LINE: Alternates to White */
+}
+
 /* Fix 1: Pull title up and clean lines */
 .leadership-section h2 {
     font-family: var(--font-body) !important;
@@ -805,7 +816,14 @@ main { position: relative; width: 100%; }
 /* ==========================================================================
    12. SECTORS SECTION LAYOUT
    ========================================================================== */
-.sectors-heading .section-tag { margin-bottom: 16px !important; }
+.sectors-heading .section-tag { 
+    margin-bottom: 16px !important; 
+}
+#sectors {
+    background-color: var(--light-bg) !important; /* ADD THIS BLOCK: Alternates to Light Background */
+    width: 100% !important;
+    display: block !important;
+}
 .sectors-intro { margin: 0 auto 64px auto !important; font-size: 0.95rem; line-height: 1.6; color: var(--text-muted); text-align: center; }
 .sectors-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 28px; width: 100%; }
 .sector-card {
@@ -829,6 +847,7 @@ main { position: relative; width: 100%; }
    ========================================================================== */
 /* Fix 1: Pull content upward by adjusting section vertical padding layout tracks */
 .contact-section {
+    background-color: var(--white) !important; /* Alternating zone */
     padding: 36px 0 10px 0 !important; /* Shifting vertical padding to lift elements */
 }
 /* Fix 2: Limit structural widths to center panels and collapse widespread lines */
