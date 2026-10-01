@@ -235,13 +235,16 @@ button { cursor: pointer; }
     align-items: center;
     justify-content: center;
 }
-#vanta-ocean-bg, #vanta-ocean-bg canvas {
+#vanta-ocean-bg, #vanta-ocean-bg canvas, .hero-section #vanta-ocean-bg {
     position: absolute !important;
     top: 0 !important;
     left: 0 !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    z-index: -10 !important;
+    width: 100% !important;  /* Changed from vw to % to scale cleanly inside the hero section */
+    height: 100% !important; /* Changed from vh to % to snap flush behind the content overlay */
+    min-width: 100vw !important;
+    min-height: 100vh !important;
+    display: block !important; /* Forces the browser layout engine to render the canvas frame */
+    z-index: -10 !important;  /* Keeps the canvas locked safely behind your text lines */
 }
 .hero-vertical-text {
     position: fixed !important;
