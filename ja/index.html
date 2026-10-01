@@ -706,3 +706,42 @@
 </body>
 </html>
 
+    <!-- ==========================================================================
+         CORE SCRIPT LIBRARY RUNWAY (FIXED HIGH-SPEED CDN INITIALIZATION)
+         ========================================================================== -->
+    
+    <!-- 1. Load Three.js 3D Web Rendering Engine from a reliable public CDN endpoint -->
+    <script src="https://cloudflare.com" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- 2. Load the specific Vanta Waves Animation script from a reliable public CDN endpoint -->
+    <script src="https://cloudflare.com" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- 3. Explicit Inline Subfolder Vanta Driver Engine Initialization Loop -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Check to ensure script libraries are successfully compiled by the browser engine
+            if (typeof VANTA !== "undefined" && VANTA.WAVES) {
+                VANTA.WAVES({
+                    el: "#vanta-ocean-bg",
+                    mouseControls: true,
+                    touchControls: true,
+                    gyroControls: false,
+                    minHeight: 200.00,
+                    minWidth: 200.00,
+                    scale: 1.00,
+                    scaleMobile: 1.00,
+                    color: 0x0b2240,       /* Deep corporate brand navy blue hex code signature */
+                    shininess: 30.00,
+                    waveHeight: 15.00,
+                    waveSpeed: 0.60,
+                    zoom: 0.85
+                });
+            } else {
+                console.error("Vanta CDN asset engines failed to fetch relative to subfolder structures.");
+            }
+        });
+    </script>
+
+    <!-- 4. Load your main application interaction engine code layer -->
+    <script src="../assets/js/app.js"></script>
+</body>
