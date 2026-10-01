@@ -933,7 +933,7 @@ main { position: relative; width: 100%; }
 /* Fix 2: Remove the 300px invisible bounding constraint and clear left-side offsets */
 .footer-logo img { 
    height: auto !important;        /* CHANGED: Removes the hardcoded 300px stretch box */
-   max-height: 100px !important;    /* CHANGED: Restores a clean corporate layout scale footprint */
+   max-height: 150px !important;    /* CHANGED: Restores a clean corporate layout scale footprint */
    width: auto !important; 
    display: block; 
    filter: brightness(0) invert(1) !important; 
