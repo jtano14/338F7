@@ -602,7 +602,6 @@ main { position: relative; width: 100%; }
 }
 
 @media (max-width: 768px) {
-
     .contact-form-grid, .service-packages-grid { grid-template-columns: 1fr !important; }
     .form-group-wide { grid-column: 1 !important; }
 }
