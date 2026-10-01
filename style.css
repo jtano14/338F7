@@ -23,7 +23,12 @@
 
 /* 1. Set the uniform fallback for all general text content */
 body, p, select, input, textarea, button, span, option {
+    margin: 0;
+    color: var(--text-dark);
+    background: #ffffff !important;
+    /* FIX: Changed from --font-family to --font-body to read your clean Plus Jakarta Sans font */
     font-family: var(--font-body) !important;
+    font-size: 16px;
     font-weight: 400;
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
@@ -76,17 +81,6 @@ html {
     scroll-behavior: smooth;
     background-color: #ffffff;
 }
-
-body {
-    margin: 0;
-    color: var(--text-dark);
-    background: #ffffff !important;
-    font-family: var(--font-family);
-    font-size: 16px;
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-}
-
 
 
 img { display: block; max-width: 100%; height: auto; }
@@ -1820,22 +1814,3 @@ main { position: relative; width: 100%; }
     padding-top: 4px !important; /* Tiny fine-tune adjustment to align fonts across pages */
 }
 
-/* ==========================================================================
-   MINIMALISTIC SANS-SERIF FORCE OVERRIDE
-   ========================================================================== */
-
-/* This targets every single text block on your site and strips away any serif end-lines */
-html, body, p, div, span, select, input, textarea, button, option, li, a {
-    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
-}
-
-/* This carefully preserves your elegant serif font ONLY for your actual headings */
-h1, h2, h3, h4, h5, h6, .logo-text {
-    font-family: 'Cormorant Garamond', 'Georgia', serif !important;
-}
-
-/* Re-verify your hero text line clamping */
-.logo-text {
-    white-space: nowrap !important;
-    display: inline-block !important;
-}
