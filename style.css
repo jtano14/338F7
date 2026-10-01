@@ -540,29 +540,59 @@ main { position: relative; width: 100%; }
 /* ==========================================================================
    9. SERVICES SECTION LAYOUT
    ========================================================================== */
+/* ==========================================================================
+   9. SERVICES SECTION LAYOUT (FIXED OVERLAP & 3D FLIP)
+   ========================================================================== */
 .services-narrow-container { max-width: 960px !important; margin: 0 auto; }
 .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 36px; margin-top: 42px; }
-.services-grid .flip-card-node { width: 100%; height: 340px; perspective: 1000px; }
+/* Fix 1: Establish clear heights and 3D environment scales */
+.services-grid .flip-card-node { 
+    width: 100%; 
+    height: 380px; /* Increased slightly to handle global font line changes */
+    perspective: 1000px; 
+}
 .services-grid .flip-card-node:hover .flip-card-inner { transform: rotateY(180deg); }
+/* Fix 2: Set dynamic preserve-3d tracking environment rules on the flip wrapper */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d !important;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+/* Fix 3: Core stacking structure—force both sides to occupy the exact same absolute coordinate area */
+.flip-card-front, .flip-card-back {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden !important; /* Hides hidden side completely across the flip transition */
+    border-radius: 6px;
+}
 .service-card {
     background: var(--white); border: 1px solid var(--border-color); border-top: 4px solid var(--accent-blue); padding: 32px;
-    border-radius: 6px; display: flex !important; flex-direction: column !important; justify-content: center !important;
-    align-items: center !important; text-align: center !important; height: 100%; gap: 16px; box-shadow: 0 4px 12px rgba(11, 34, 64, 0.02);
+    display: flex !important; flex-direction: column !important; justify-content: center !important;
+    align-items: center !important; text-align: center !important; gap: 16px; box-shadow: 0 4px 12px rgba(11, 34, 64, 0.02);
+    z-index: 2; /* Sits on front layer stack by default */
 }
 .service-card-header { display: flex; flex-direction: column; align-items: center; gap: 12px; }
-.service-card-header h3 { font-size: 1.65rem !important; font-weight: 700; }
-.service-front-desc { color: var(--text-muted); font-size: 1.15rem !important; line-height: 1.6; max-width: 360px; }
+.service-card-header h3 { font-size: 1.65rem !important; font-weight: 700; margin: 0 !important; }
+.service-front-desc { color: var(--text-muted); font-size: 1.05rem !important; line-height: 1.6; max-width: 360px; margin: 0 !important; }
+/* Fix 4: Lock backface in rotated position and allow text strings to wrap comfortably */
 .flip-card-back {
-    background-color: var(--primary-color) !important; color: var(--white) !important; padding: 40px 36px !important; border-radius: 6px;
+    background-color: var(--primary-color) !important; color: var(--white) !important; padding: 32px 28px !important;
     display: flex; flex-direction: column; justify-content: center; align-items: flex-start; text-align: left;
     box-shadow: 0 12px 32px rgba(11, 34, 64, 0.18); transform: rotateY(180deg) !important;
+    z-index: 1;
 }
 .flip-card-back h3 {
-    color: var(--white) !important; margin-bottom: 20px; font-size: 1.65rem !important; font-weight: 700;
-    width: 100%; border-bottom: 1px solid rgba(255, 255, 255, 0.15); padding-bottom: 12px;
+    color: var(--white) !important; margin-bottom: 16px; font-size: 1.4rem !important; font-weight: 700;
+    width: 100%; border-bottom: 1px solid rgba(255, 255, 255, 0.15); padding-bottom: 10px;
 }
 .flip-card-back p {
-    color: rgba(255, 255, 255, 0.95) !important; font-size: 0.92rem !important; margin-bottom: 8px; line-height: 1.4; white-space: nowrap; 
+    color: rgba(255, 255, 255, 0.95) !important; font-size: 0.88rem !important; margin-bottom: 8px; line-height: 1.4;
+    white-space: normal !important; /* CHANGED: Replaced nowrap to allow capability text rows to wrap safely */
 }
 
 /* ==========================================================================
