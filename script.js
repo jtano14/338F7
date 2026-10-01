@@ -373,79 +373,109 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 /* ==========================================================================
-   8. SLIDER CONTROL LOGIC - INFINITE LOOP CAROUSEL ENGINE
+   8. REFINED SLIDER CONTROL LOGIC - DRAG & WHEEL SCROLL ENGINE
    ========================================================================== */
-document.addEventListener("DOMContentLoaded", () => {
-    const track = document.getElementById("frameworkSliderTrack");
-    const container = document.getElementById("frameworkSliderContainer");
-    const prevBtn = document.getElementById("frameworkPrev");
-    const nextBtn = document.getElementById("frameworkNext");
+document.addEventListener("DOMContentLoaded", function () {
+    const sliderContainer = document.getElementById("frameworkSliderContainer");
+    const btnPrev = document.getElementById("frameworkPrev");
+    const btnNext = document.getElementById("frameworkNext");
 
-    if (track && container && prevBtn && nextBtn) {
-        let cards = Array.from(track.children);
-        const cardWidth = 195; // Matches the updated narrower card layout width
-        const gap = 24;        // Matches the updated gap spacing rule
-        const stepShift = cardWidth + gap;
+    if (!sliderContainer) return;
 
-        // Initialize: Clone cards on both ends to establish seamless tracking lines
-        const clonesCount = cards.length;
-        
-        // Append clones to the back
-        cards.forEach(card => {
-            const clone = card.cloneNode(true);
-            track.appendChild(clone);
+    // --- A. STATE TRACKING VARIABLES FOR GESTURE DRAGGING ---
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    // Mouse Down Event: Grab and lock the track axis
+    sliderContainer.addEventListener("mousedown", (e) => {
+        isDown = true;
+        sliderContainer.classList.add("active-dragging");
+        startX = e.pageX - sliderContainer.offsetLeft;
+        scrollLeft = sliderContainer.scrollLeft;
+        sliderContainer.style.cursor = "grabbing";
+    });
+
+    // Mouse Leave Event: Release grabbing hold cleanly
+    sliderContainer.addEventListener("mouseleave", () => {
+        isDown = false;
+        sliderContainer.style.cursor = "grab";
+    });
+
+    // Mouse Up Event: Clear hold tracking status
+    sliderContainer.addEventListener("mouseup", () => {
+        isDown = false;
+        sliderContainer.style.cursor = "grab";
+    });
+
+    // Mouse Move Event: Compute velocity offset tracking lines
+    sliderContainer.addEventListener("mousemove", (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - sliderContainer.offsetLeft;
+        const walk = (x - startX) * 1.5; // Drag sensitivity multiplier scalar
+        sliderContainer.scrollLeft = scrollLeft - walk;
+        updateArrowVisibility();
+    });
+
+    // --- B. SMOOTH KINETIC MOUSE WHEEL GESTURES ---
+    sliderContainer.addEventListener("wheel", (e) => {
+        if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+            e.preventDefault();
+            sliderContainer.scrollLeft += e.deltaX;
+            updateArrowVisibility();
+        }
+    }, { passive: false });
+
+    // --- C. CLASSIC BUTTON CLICK TRANSITION FALLBACKS ---
+    const stepShiftWidth = 219; // Individual card width (195px) + gap space width (24px)
+    
+    if (btnNext) {
+        btnNext.addEventListener("click", () => {
+            sliderContainer.scrollBy({ left: stepShiftWidth * 2, behavior: "smooth" });
+            setTimeout(updateArrowVisibility, 350); // Delay safely waits for browser physics loop
         });
-        // Prepend clones to the front
-        cards.slice().reverse().forEach(card => {
-            const clone = card.cloneNode(true);
-            track.insertBefore(clone, track.firstChild);
-        });
-
-        // Reposition initial container matrix track to mask the front clones smoothly
-        let currentIndex = clonesCount;
-        let isTransitioning = false;
-
-        const updatePosition = (animate = true) => {
-            if (!animate) {
-                track.style.transition = "none";
-            } else {
-                track.style.transition = "transform 0.45s cubic-bezier(0.16, 1, 0.3, 1)";
-            }
-            const offset = -(currentIndex * stepShift);
-            track.style.transform = `translateX(${offset}px)`;
-        };
-
-        // Instant background jump reset helper to trick the eye during infinite looping
-        track.addEventListener("transitionend", () => {
-            isTransitioning = false;
-            if (currentIndex >= clonesCount * 2) {
-                currentIndex = clonesCount;
-                updatePosition(false);
-            } else if (currentIndex < clonesCount) {
-                currentIndex = clonesCount * 2 - 1;
-                updatePosition(false);
-            }
-        });
-
-        // Next Slide Transition Trigger
-        nextBtn.addEventListener("click", () => {
-            if (isTransitioning) return;
-            isTransitioning = true;
-            currentIndex++;
-            updatePosition(true);
-        });
-
-        // Previous Slide Transition Trigger
-        prevBtn.addEventListener("click", () => {
-            if (isTransitioning) return;
-            isTransitioning = true;
-            currentIndex--;
-            updatePosition(true);
-        });
-
-        // Set initial starting coordinates safely
-        updatePosition(false);
     }
+
+    if (btnPrev) {
+        btnPrev.addEventListener("click", () => {
+            sliderContainer.scrollBy({ left: -stepShiftWidth * 2, behavior: "smooth" });
+            setTimeout(updateArrowVisibility, 350);
+        });
+    }
+
+    // --- D. SMART CONTROLLER FOR BUTTON OPACITY WINDOWS ---
+    function updateArrowVisibility() {
+        const currentScroll = sliderContainer.scrollLeft;
+        const maxScrollBoundary = sliderContainer.scrollWidth - sliderContainer.clientWidth;
+
+        // Fade left indicator arrow out when at the absolute start of the carousel track
+        if (btnPrev) {
+            btnPrev.style.opacity = currentScroll <= 5 ? "0.2" : "1";
+            btnPrev.style.pointerEvents = currentScroll <= 5 ? "none" : "auto";
+        }
+
+        // Fade right indicator arrow out when tracking reaches pillar 07 at the end threshold
+        if (btnNext) {
+            btnNext.style.opacity = currentScroll >= maxScrollBoundary - 5 ? "0.2" : "1";
+            btnNext.style.pointerEvents = currentScroll >= maxScrollBoundary - 5 ? "none" : "auto";
+        }
+    }
+
+    // Initialize default container cursor and scroll parameters fluidly
+    sliderContainer.style.cursor = "grab";
+    sliderContainer.style.overflowX = "auto"; 
+    sliderContainer.style.scrollbarWidth = "none"; // Clear default tracker bar for Firefox views
+    
+    // Webkit inline style injection to cleanly clear scrollbars in Chrome, Safari & Edge
+    const scrollStylePatch = document.createElement("style");
+    scrollStylePatch.innerHTML = `#frameworkSliderContainer::-webkit-scrollbar { display: none !important; }`;
+    document.head.appendChild(scrollStylePatch);
+
+    // Run visibility calculations immediately upon loading the page
+    updateArrowVisibility();
+    sliderContainer.addEventListener("scroll", updateArrowVisibility, { passive: true });
 });
+
 
 
