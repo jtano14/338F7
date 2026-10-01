@@ -11,7 +11,7 @@
     --border-color: #dfe5eb;
     --white: #ffffff;
     --font-heading: 'Cormorant Garamond', 'Georgia', serif;
-    --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; --container-width: 1180px;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     --small-container-width: 760px;
     --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     --transition-fast: all 0.2s ease;
@@ -22,17 +22,22 @@
    ========================================================================== */
 
 /* 1. Set the uniform fallback for all general text content */
-body, p, select, input, textarea, button, span, option {
+body {
     margin: 0;
     color: var(--text-dark);
     background: #ffffff !important;
-    /* FIX: Changed from --font-family to --font-body to read your clean Plus Jakarta Sans font */
     font-family: var(--font-body) !important;
     font-size: 16px;
-    font-weight: 400;
-    line-height: 1.65;
+    
+    /* RESTORED SPACING: Set back to 1.7 to open up the layout blocks and fix the hero gaps */
+    line-height: 1.7 !important; 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+p, select, input, textarea, button, span, option {
+    font-family: var(--font-body) !important;
+    line-height: 1.7 !important;
 }
 
 /* 2. Apply the premium editorial serif font to all headings */
