@@ -317,7 +317,10 @@ button { cursor: pointer; }
     align-items: center !important;
     justify-content: center !important;
 }
+
+/* UPDATED CLEAN DESIGN - BUBBLE BURST TEMPORARILY DEACTIVATED */
 #bubbleCanvas {
+    display: none !important; /* Hides the canvas and turns off the interaction */
     position: absolute !important;
     top: 50% !important;
     left: 50% !important;
@@ -326,6 +329,7 @@ button { cursor: pointer; }
     width: 600px !important;
     height: 450px !important;
 }
+
 .sharp-logo-layer {
     position: absolute !important;
     top: 50% !important;
