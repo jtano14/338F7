@@ -10,18 +10,47 @@ document.addEventListener("DOMContentLoaded", () => {
             const isOpen = navLinks.classList.toggle("is-open");
             navToggle.setAttribute("aria-expanded", isOpen);
             navToggle.classList.toggle("active");
+
+            // FIXED: Instead of snapping, slide the mobile tray open and closed fluidly
+            if (isOpen) {
+                navLinks.style.display = "flex";
+                navLinks.style.maxHeight = "0px";
+                navLinks.style.opacity = "0";
+                navLinks.style.transition = "max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease";
+                
+                // Allow browser layout engine a micro-frame to calculate the height slide
+                requestAnimationFrame(() => {
+                    navLinks.style.maxHeight = "380px"; // Comfortable height to contain your links runway
+                    navLinks.style.opacity = "1";
+                });
+            } else {
+                navLinks.style.maxHeight = "0px";
+                navLinks.style.opacity = "0";
+                // Wait for the slide transition to complete before clearing display paths
+                setTimeout(() => {
+                    if (!navLinks.classList.contains("is-open")) {
+                        navLinks.style.display = "none";
+                    }
+                }, 400);
+            }
         });
 
+        // Close mobile nav drawer cleanly if a user selects an internal anchor link
         const anchors = navLinks.querySelectorAll("a:not(.lang-switch)");
         anchors.forEach(anchor => {
             anchor.addEventListener("click", () => {
                 navLinks.classList.remove("is-open");
                 navToggle.setAttribute("aria-expanded", "false");
                 navToggle.classList.remove("active");
+                
+                navLinks.style.maxHeight = "0px";
+                navLinks.style.opacity = "0";
+                setTimeout(() => { navLinks.style.display = "none"; }, 400);
             });
         });
     }
 });
+
 
 /* ==========================================================================
    2. OUR SERVICES EXPANSE SLIDE CONTROLLER
