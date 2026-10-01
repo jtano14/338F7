@@ -1819,3 +1819,23 @@ main { position: relative; width: 100%; }
     margin-top: 0 !important;
     padding-top: 4px !important; /* Tiny fine-tune adjustment to align fonts across pages */
 }
+
+/* ==========================================================================
+   MINIMALISTIC SANS-SERIF FORCE OVERRIDE
+   ========================================================================== */
+
+/* This targets every single text block on your site and strips away any serif end-lines */
+html, body, p, div, span, select, input, textarea, button, option, li, a {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+}
+
+/* This carefully preserves your elegant serif font ONLY for your actual headings */
+h1, h2, h3, h4, h5, h6, .logo-text {
+    font-family: 'Cormorant Garamond', 'Georgia', serif !important;
+}
+
+/* Re-verify your hero text line clamping */
+.logo-text {
+    white-space: nowrap !important;
+    display: inline-block !important;
+}
