@@ -264,50 +264,62 @@ button { cursor: pointer; }
     text-indent: clamp(4px, 0.8vw, 8px);
     margin: 4px 0 0 0;
 }
-
-
-.brand-container .hero-subtitle.section-tag {
-    font-size: 1.25rem !important; /* Increased size to match Image 2 */
-    letter-spacing: 0.18em !important;
+.hero-global-transition-tag {
+    font-size: 1.1rem !important; 
     font-weight: 700 !important;
+    letter-spacing: 0.16em !important;
+    text-transform: uppercase !important;
+    margin-top: 24px !important;
 }
-.hero-content h2 {
-    font-size: clamp(1.8rem, 3.5vw, 2.6rem) !important;
+.hero-headline-sans {
+    margin-top: 24px !important;    /* Tightens space beneath subtitle */
+    margin-bottom: 16px !important; /* Tightens space above description */
+    text-align: center;
+}
+.hero-headline-sans .market-line {
+    font-size: clamp(1.8rem, 3.8vw, 2.6rem) !important;
     font-weight: 700 !important;
-    line-height: 1.4 !important;
-    margin: 24px auto !important;
-    max-width: 900px;
+    margin: 4px 0 !important;       /* Clamps the gap closed above and below countries */
+    color: var(--primary-color);
+    line-height: 1.2 !important;
 }
-.hero-content .connector-text {
-    display: block;
-    font-size: 1.4rem !important; /* Larger than default text, smaller than countries */
-    font-weight: 500;
+.hero-headline-sans .hero-connector {
+    display: block !important;
+    font-size: 15px !important;     /* Clean, matching font scale of logo tagline */
+    font-weight: 600 !important;
+    letter-spacing: 0.05em;
     color: var(--text-dark);
-    margin: 8px 0;
+    line-height: 1.3 !important;
 }
-.scroll-down-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    margin-top: 40px;
-}
-.scroll-down-wrapper svg,
-.scroll-down-wrapper i {
-    display: block !important; /* Forces arrow onto its own line below the text */
-}
-
-.brand-container .hero-desc {
+.hero-desc {
     max-width: 680px !important;
     margin: 12px auto 24px !important;
     font-size: 1rem;
     color: var(--text-muted);
 }
-.brand-container .hero-buttons {
+.hero-buttons {
     display: flex !important;
     justify-content: center !important;
     gap: 16px !important;
     margin-bottom: 32px !important;
+}
+.scroll-down-container {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    margin-top: 48px !important;
+    clear: both !important;
+}
+.scroll-down-link {
+    display: flex !important;
+    flex-direction: column !important;  /* Stacks text over icon */
+    align-items: center !important;     /* Centers them horizontally together */
+    gap: 8px !important;                /* Gap between text and arrow */
+    text-decoration: none;
+}
+.scroll-down-icon {
+    display: block !important;
+    margin: 0 auto !important;          /* Keeps arrow perfectly aligned on center line */
 }
 .logo-wrapper {
     position: relative !important;
@@ -317,10 +329,8 @@ button { cursor: pointer; }
     align-items: center !important;
     justify-content: center !important;
 }
-
-/* UPDATED CLEAN DESIGN - BUBBLE BURST TEMPORARILY DEACTIVATED */
 #bubbleCanvas {
-    display: none !important; /* Hides the canvas and turns off the interaction */
+    display: none !important; 
     position: absolute !important;
     top: 50% !important;
     left: 50% !important;
@@ -329,7 +339,6 @@ button { cursor: pointer; }
     width: 600px !important;
     height: 450px !important;
 }
-
 .sharp-logo-layer {
     position: absolute !important;
     top: 50% !important;
