@@ -150,7 +150,7 @@ button { cursor: pointer; }
 }
 
 /* ==========================================================================
-   5. HEADER NAVIGATION BAR
+   5. HEADER NAVIGATION BAR (UPDATED HAMBURGER RULES)
    ========================================================================== */
 .site-header { position: relative; z-index: 100; }
 .navbar {
@@ -194,7 +194,28 @@ button { cursor: pointer; }
     background-color: var(--light-bg);
     color: var(--accent-blue);
 }
-.nav-toggle { display: none; }
+/* FIX: Turn on flex distribution and size the responsive menu button wrapper */
+.nav-toggle { 
+    display: none; /* Stays hidden on wide desktop screens */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    z-index: 1100;
+}
+/* FIX: Draw the three distinct menu lines */
+.nav-toggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--primary-color); /* Deep blue color matching your text theme */
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
 
 /* ==========================================================================
    6. INTERACTIVE HERO LAYER
