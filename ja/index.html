@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FLUX7 | グローバル変革・アジアGCC市場参入アドバイザリー</title>
 
-    <!-- Update this inside the <head> of both files to load the Serif Headings + Rounded Body Font -->
+    <!-- Global Typography Integration -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Include your exact same head stylesheets here so the design matches perfectly -->
-    <link rel="stylesheet" href="../style.css"> <!-- Adjust path to root CSS if needed -->
+    <!-- Primary Stylesheet Connection Linked Back to Root Folder -->
+    <link rel="stylesheet" href="../style.css"> 
 </head>
 <body>
+
 
     <!-- ==========================================================================
        1. SITE HEADER & NAVIGATION
@@ -47,27 +48,63 @@
         <!-- ==========================================================================
            2. HERO SECTION (INTERACTIVE CANVAS & VANTA)
            ========================================================================== -->
-        <section class="hero-section" id="vanta-ocean-bg">
-            <div class="hero-vertical-text">GLOBAL TRANSITION</div>
+        <section class="hero-section" id="hero" aria-labelledby="hero-title">
+            
+            <!-- FIXED: Separated into a standalone background canvas layer element -->
+            <div id="vanta-ocean-bg"></div>
+
+            <!-- Vertical Right Border Sub-Watermark Text -->
+            <div class="hero-vertical-text" aria-hidden="true">GLOBAL BUSINESS</div>
+
             <div class="hero-content container">
-                <div class="brand-container">
+                <div class="brand-container" id="seq-1">
+                    
+                    <!-- Interactive Brand Core Graphics Canvas Box -->
                     <div class="logo-wrapper">
+                        <img src="../assets/images/image_b.png" alt="FLUX7 Graphic Asset" class="sharp-logo-layer" aria-hidden="true">
                         <canvas id="bubbleCanvas"></canvas>
-                        <img src="../assets/images/image_b.png" alt="FLUX7" class="sharp-logo-layer">
                     </div>
-                    <h1 class="logo-text">FLUX 7</h1>
-                    <p class="logo-tagline">FLOW · LINK · UNITE · X-PAND.</p>
-                    <span class="hero-subtitle section-tag">グローバル変革 | アジア・GCC市場マスタリー</span>
-                    <h2 class="hero-desc">米国・インド・シンガポール・ブルネイ・GCCと世界を繋ぐ架け橋</h2>
-                    <p class="hero-subdesc">FLUX7は、複雑化するグローバル展開やクロスボーダー提携をナビゲートします。対象市場へ進出する多国籍企業、および世界へスケールする地域企業へ現地に根差した専門知識を提供します。</p>
-                    <div class="hero-buttons">
-                        <a href="#contact" class="btn btn-primary">対話を始める</a>
-                        <a href="#framework" class="btn btn-secondary">フレームワークを見る</a>
-                    </div>
+
+                    <!-- Main Corporate Sans-Serif Wordmark -->
+                    <h1 class="logo-text" id="hero-title">FLUX 7</h1>
+                    <p class="logo-tagline">FLOW &middot; LINK &middot; UNITE &middot; X-PAND.</p>
+                    <span class="hero-subtitle section-tag hero-global-transition-tag">グローバル変革 | アジア・GCC市場マスタリー</span>
+
                 </div>
+
+                <!-- ==========================================================================
+                     3B. HEADLINE ENGINE & CALL TO ACTION LINK PLATFORMS
+                     ========================================================================== -->
+                <!-- FIXED: Updated with target layout classes to close spacing gaps and apply crisp text lines -->
+                <div class="stacked-headline hero-headline-sans" id="seq-2">
+                     <span class="headline-prefix hero-connector">米国・インド・シンガポール· ブルネイ・GCC</span>
+                     <h2 class="market-line">と世界を繋ぐ架け橋</h2>
+                     <span class="headline-suffix hero-connector">として。</span>
+                </div>
+
+                <p class="hero-desc" id="seq-3">
+                    FLUX7は、複雑化するグローバル展開やクロスボーダー提携をナビゲートします。対象市場へ進出する多国籍企業、および世界へスケールする地域企業へ現地に根差した専門知識を提供します。
+                </p>
+
+                <div class="hero-buttons" id="seq-4">
+                    <a href="#contact" class="btn btn-primary">対話を始める</a>
+                    <a href="#framework" class="btn btn-secondary">フレームワークを見る</a>
+                </div>
+
+                <!-- FIXED: Realigned Scroll Arrow Container to position the SVG under the text -->
+                <div class="scroll-down-container" id="seq-5">
+                    <a href="#about" class="scroll-down-link" aria-label="About Usセクションへスクロール">
+                        <span class="scroll-down-text">Scroll Down</span>
+                        <svg class="scroll-down-icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </a>
+                </div>
+
             </div>
         </section>
 
+        <!-- Dynamic Stacking Layer Workspace Container Entry Point -->
         <div class="scroll-stack-wrapper">
             <!-- ==========================================================================
                3. ABOUT US SECTION (MODERN 2-COLUMN GRID)
