@@ -526,8 +526,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (item !== currentItem) {
                     const panel = item.querySelector(".accordion-panel");
                     const arrow = item.querySelector(".accordion-trigger .accordion-arrow");
-                    if (panel && panel.style.maxHeight !== "0px" && panel.style.maxHeight !== "") {
+                    if (panel && (panel.style.maxHeight !== "0px" && panel.style.maxHeight !== "")) {
                         panel.style.maxHeight = "0px";
+                        panel.classList.remove("is-active"); // CHANGED: Clear tracking class
                         if (arrow) arrow.textContent = "+";
                     }
                 }
@@ -535,16 +536,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Toggle the active state of the tapped panel
             if (currentPanel.style.maxHeight === "0px" || currentPanel.style.maxHeight === "") {
-                // Open fluidly by calculating the total internal pixel text size dynamically
+                currentPanel.classList.add("is-active"); // CHANGED: Apply padding activation class first
                 currentPanel.style.maxHeight = currentPanel.scrollHeight + "px";
-                if (currentArrow) currentArrow.textContent = "−"; // Switches indicator icon to a minus sign
+                if (currentArrow) currentArrow.textContent = "−"; 
             } else {
-                // Collapse securely back to hidden states
                 currentPanel.style.maxHeight = "0px";
+                currentPanel.classList.remove("is-active"); // CHANGED: Strip padding status fluidly
                 if (currentArrow) currentArrow.textContent = "+";
             }
         });
     });
 });
-
-
