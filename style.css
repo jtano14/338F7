@@ -668,6 +668,15 @@ main { position: relative; width: 100%; }
     backface-visibility: hidden !important; /* Hides reverse sides during the animation transition */
     border-radius: 6px;
     border: 1px solid var(--border-color);
+    transition: box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease !important; 
+}
+.framework-section .flip-card-node:hover .flip-card-front,
+.framework-section .flip-card-node:hover .flip-card-back {
+    border-color: #0077b6 !important; /* Forces border outline highlight to accent blue */
+    /* Gas-neon illumination bloom formula: layered blur spreads */
+    box-shadow: 0 0 10px rgba(0, 119, 182, 0.35), 
+                0 0 20px rgba(0, 119, 182, 0.20), 
+                0 8px 32px rgba(0, 119, 182, 0.15) !important;
 }
 /* Front Card Layout Settings */
 .framework-section .flip-card-front { 
