@@ -2,12 +2,22 @@
    FLUX7 GLOBAL MOBILE RESPONSIVE ENGINE (responsive.css)
    ========================================================================== */
 
-/* Universal Visibility Rules for Selective Mobile Hiding */
-.mobile-only-content { display: none !important; }
-.desktop-only-content { display: block; }
+/* 1. DESKTOP BASELINES: Force mobile templates off by default on wide screens */
+.mobile-only-content { 
+    display: none !important; 
+}
+.desktop-only-content { 
+    /* REMOVED 'display: block;' so desktop blocks keep their original flex/grid layout properties intact! */
+}
 
+/* 2. THE MOBILE PURGE ENGINE ACTIVATION ZONE */
 @media (max-width: 900px) {
-    /* 1. DISENGAGE INTENSE DESKTOP POSITION LOCKS FOR SMOOTH VERTICAL SCROLLING */
+    
+    /* Safely activate visibility changes ONLY when viewing on a mobile phone viewport */
+    .mobile-only-content { display: block !important; }
+    .desktop-only-content { display: none !important; }
+
+    /* 3. DISENGAGE INTENSE DESKTOP POSITION LOCKS FOR SMOOTH VERTICAL SCROLLING */
     body, html {
         overflow-y: auto !important;
         scroll-behavior: smooth !important;
@@ -15,10 +25,9 @@
     }
     
     .scroll-stack-wrapper {
-        margin-top: 0 !important; /* Eradicates the 100vh scrolling gap delay */
+        margin-top: 0 !important;
         position: relative !important;
     }
-
     .nav-toggle { display: flex !important; }
     
     .nav-links {
