@@ -630,6 +630,7 @@ main { position: relative; width: 100%; }
     display: flex !important; flex-direction: column !important; justify-content: flex-start !important; 
     gap: 12px !important; /* Tightens space between header, cards, and packages */
     height: 100% !important; width: 100%; max-width: var(--container-width);
+    margin: 0 auto !important; /* FIXED: Instantly aligns the section down the center line */
 }
 .framework-content-header { text-align: center !important; width: 100%; }
 .framework-content-header h2 { margin: 4px 0 10px 0 !important; }
