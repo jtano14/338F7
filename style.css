@@ -342,24 +342,41 @@ main { position: relative; width: 100%; }
 .about-section,
 .services-section,
 .framework-section,
+.leadership-section,
 .sectors-section,
 .contact-section {
     position: sticky !important;
-    top: 76px !important;
+    top: 76px !important;            /* Header offset space */
     height: 100vh !important;
     min-height: 100vh !important;
     max-height: 100vh !important;
     width: 100vw !important;
     overflow: hidden !important;
-    padding: 100px 80px !important;
     margin: 0 !important;
+    display: block !important;       /* Forces strict top-down layout alignment */
+    
+    /* UNIFIED PADDING: Sets every section to match your perfect About Us height */
+    padding: 60px 80px 20px 80px !important; 
 }
 
-.about-section { z-index: 2; background-color: var(--light-bg) !important; }
-.services-section { z-index: 3; background-color: var(--white) !important; }
-.framework-section { z-index: 4; background-color: var(--white) !important; }
-.sectors-section { z-index: 6; background-color: var(--light-bg) !important; }
-.contact-section { z-index: 7; background-color: var(--white) !important; }
+/* 2. Layer Stacking Order (Preserves your original scroll overlap system) */
+.about-section      { z-index: 2; background-color: var(--light-bg) !important; }
+.services-section    { z-index: 3; background-color: var(--white) !important; }
+.framework-section   { z-index: 4; background-color: var(--white) !important; }
+.leadership-section  { z-index: 5; background-color: var(--white) !important; }
+.sectors-section     { z-index: 6; background-color: var(--light-bg) !important; }
+.contact-section     { z-index: 7; background-color: var(--white) !important; }
+
+/* 3. Strip any residual top spaces dragging internal layouts down */
+.about-section .container,
+.services-section .container,
+.framework-unified-container,
+.leadership-section .container,
+.sectors-section .container,
+.contact-section .container {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
 
 /* ==========================================================================
    ABOUT SECTION - MODERN TWO-COLUMN SIDEBAR LAYOUT
