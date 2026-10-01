@@ -778,7 +778,13 @@ main { position: relative; width: 100%; }
 .sector-card:hover { transform: translateY(-6px); box-shadow: 0 12px 24px rgba(11, 34, 64, 0.06); }
 .sector-icon { margin-bottom: 24px; display: flex; align-items: center; }
 .sector-icon svg { width: 32px; height: 32px; color: var(--accent-blue); fill: none; stroke: currentColor; stroke-width: 2; }
-.sector-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 14px; }
+.sector-card h3 { 
+    font-family: var(--font-body) !important; /* Converts text to clean lines */
+    font-size: 1.2rem; 
+    font-weight: 700; 
+    margin-bottom: 14px; 
+    color: var(--primary-color);
+}
 .sector-card p { font-size: 0.85rem; line-height: 1.6; color: var(--text-muted); }
 
 /* ==========================================================================
