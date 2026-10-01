@@ -506,5 +506,45 @@ document.addEventListener("DOMContentLoaded", function () {
     sliderContainer.addEventListener("scroll", updateArrowVisibility, { passive: true });
 });
 
+/* ==========================================================================
+   9. MOBILE FRAMEWORK ACCORDION TOGGLE CONTROLLER
+   ========================================================================== */
+document.addEventListener("DOMContentLoaded", () => {
+    const accordionTriggers = document.querySelectorAll(".accordion-trigger");
+
+    accordionTriggers.forEach(trigger => {
+        trigger.addEventListener("click", (e) => {
+            e.preventDefault();
+            
+            const currentItem = trigger.closest(".accordion-item");
+            const currentPanel = currentItem.querySelector(".accordion-panel");
+            const currentArrow = trigger.querySelector(".accordion-arrow");
+            
+            // SENIOR DEVELOPER OPTION: Close all other open panels first (Accordion Mode)
+            const allItems = document.querySelectorAll(".accordion-item");
+            allItems.forEach(item => {
+                if (item !== currentItem) {
+                    const panel = item.querySelector(".accordion-panel");
+                    const arrow = item.querySelector(".accordion-trigger .accordion-arrow");
+                    if (panel && panel.style.maxHeight !== "0px" && panel.style.maxHeight !== "") {
+                        panel.style.maxHeight = "0px";
+                        if (arrow) arrow.textContent = "+";
+                    }
+                }
+            });
+
+            // Toggle the active state of the tapped panel
+            if (currentPanel.style.maxHeight === "0px" || currentPanel.style.maxHeight === "") {
+                // Open fluidly by calculating the total internal pixel text size dynamically
+                currentPanel.style.maxHeight = currentPanel.scrollHeight + "px";
+                if (currentArrow) currentArrow.textContent = "−"; // Switches indicator icon to a minus sign
+            } else {
+                // Collapse securely back to hidden states
+                currentPanel.style.maxHeight = "0px";
+                if (currentArrow) currentArrow.textContent = "+";
+            }
+        });
+    });
+});
 
 
