@@ -1561,43 +1561,45 @@ main { position: relative; width: 100%; }
 }
 
 .footer-main {
-    display: grid;
+    display: grid !important;
     grid-template-columns: 2fr 1fr 1fr;
     gap: 64px;
     padding-bottom: 48px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
     
-    /* FIX: This brings Quick Links and Our Offices DOWN to align with the logo! */
-    align-items: center !important; 
+    /* MODIFICATION: Force the columns to start at the exact same horizontal top ceiling line */
+    align-items: flex-start !important; 
 }
 
-/* Container for the logo and brand credentials */
+/* 2. Rebalance column headers to eliminate residual layout spacing weights */
+.footer-links-column,
+.footer-offices-column,
 .footer-brand-column {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
     display: flex;
     flex-direction: column;
-    align-items: flex-start !important;
     justify-content: flex-start;
-    position: relative;
-    padding-top: 0 !important; /* Clears any previous padding experiments */
 }
 
 
-/* Fixed container block prevents layout shifts */
-.footer-logo { 
+/* 3. Strip individual title top spacing parameters pushing columns off-sync */
+.footer-links-column h2,
+.footer-offices-column h2,
+.footer-logo {
     margin-top: 0 !important;
-    margin-bottom: 12px !important; /* Elegant gap above your tagline text */
-    display: block;
-    position: relative !important; /* Restores logo back to standard layout flow */
+    padding-top: 0 !important;
+    line-height: 1.2 !important; /* Forces uniform spatial height rules across titles */
 }
 
 .footer-logo img { 
-    height: 250px !important; /* Maintained exactly at 250px */
+    height: 300px !important; /* Maintained exactly at 250px */
     width: auto !important;   
     display: block;
     filter: brightness(0) invert(1) !important; 
     
     /* HORIZONTAL ALIGNMENT FIX: Pulls the logo left so 'F' matches 'M' below it */
-    margin-left: -32px !important; 
+    margin-left: -55px !important; 
     margin-right: auto !important;
 }
 
