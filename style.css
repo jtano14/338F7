@@ -10,12 +10,49 @@
     --text-muted: #6c757d;
     --border-color: #dfe5eb;
     --white: #ffffff;
-    --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    --font-heading: 'Cormorant Garamond', 'Georgia', serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     --container-width: 1180px;
     --small-container-width: 760px;
     --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     --transition-fast: all 0.2s ease;
 }
+
+* ==========================================================================
+   GLOBAL TYPOGRAPHY REBALANCE SETUP
+   ========================================================================== */
+
+/* 1. Set the uniform fallback for all general text content */
+body, p, select, input, textarea, button {
+    font-family: var(--font-body) !important;
+    font-weight: 400;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* 2. Apply the premium editorial serif font to all headings */
+h1, h2, h3, h4, h5, h6, .logo-text {
+    font-family: var(--font-heading) !important;
+    font-weight: 600; /* Gives it that elegant, medium-heavy structural weight */
+    letter-spacing: -0.01em; /* Tights up large text to make it look premium */
+}
+
+/* 3. Replicate the elegant, spaced-out small tags (e.g., ABOUT FLUX7, OUR PROMISE) */
+.section-tag, .promise-label, .matrix-label, .package-tag {
+    font-family: var(--font-body) !important;
+    font-weight: 500 !important;
+    text-transform: uppercase !important; /* Forces uppercase style natively */
+    letter-spacing: 0.18em !important;   /* Spreads letters wide just like the screenshot! */
+    font-size: 0.75rem !important;        /* Small, crisp aesthetic footprint */
+}
+
+/* 4. Make italic quotes look stunning */
+.promise-text, em {
+    font-family: var(--font-heading) !important;
+    font-style: italic !important;
+    font-size: 1.25rem;
+}
+
 
 * { box-sizing: border-box; }
 
