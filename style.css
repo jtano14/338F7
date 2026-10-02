@@ -1064,13 +1064,11 @@ main { position: relative; width: 100%; }
     width: calc(100% - 32px); 
     background-color: var(--white); 
     box-shadow: 0 20px 50px rgba(11, 34, 64, 0.15); 
-    position: fixed !important; /* FIXED: Changed from relative to fixed to anchor coordinates globally */
-    
-    /* NEW: Forces the dialog window to lock perfectly to the center of the viewport screen */
+    position: fixed !important;
     top: 50% !important;
     left: 50% !important;
     transform: translate(-50%, -50%) !important;
-    margin: 0 !important; /* Prevents default browser padding shifts */
+    margin: 0 !important;
 }
 .dialog-close { 
     position: absolute; 
@@ -1085,7 +1083,7 @@ main { position: relative; width: 100%; }
 .dialog-close:hover { 
     color: var(--primary-color); 
 }
-/* ADDED: Formats the map container inside your popup dialog windows cleanly */
+/* Formats the map container inside your popup dialog windows cleanly */
 .office-map {
     width: 100% !important;
     height: 260px !important;
@@ -1094,7 +1092,17 @@ main { position: relative; width: 100%; }
     border-radius: 6px !important;
     overflow: hidden !important;
     border: 1px solid var(--border-color) !important;
-    background-color: var(--light-bg); /* Clean backdrop while the map layer compiles */
+    background-color: var(--light-bg);
+}
+/* FIXED: Forces the map iframe element to fill the parent container completely */
+.office-map iframe {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    border: none !important;
 }
 
 /* ==========================================================================
