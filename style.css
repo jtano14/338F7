@@ -651,8 +651,22 @@ main { position: relative; width: 100%; }
 .framework-content-header h2 { margin: 4px 0 10px 0 !important; }
 .framework-intro { max-width: 720px; margin: 0 auto !important; color: var(--text-muted); font-size: 0.92rem; line-height: 1.4; }
 .framework-slider-outer { position: relative; display: flex; align-items: center; width: 100%; padding: 0 50px; margin-top: 8px !important; }
-.horizontal-slider-container { width: 100%; overflow: hidden; padding: 12px 0; }
-.horizontal-slider-track { display: flex; gap: 24px; width: max-content; transform-style: preserve-3d !important; }
+.horizontal-slider-container { 
+   width: 100%; 
+   overflow: hidden; 
+   padding: 12px 0;
+   user-select: none !important;
+   -webkit-user-select: none !important;
+   -moz-user-select: none !important;
+   -ms-user-select: none !important;
+}
+.horizontal-slider-track { 
+   display: flex; 
+   gap: 24px; 
+   width: max-content; 
+   transform-style: preserve-3d !important;
+   user-select: none !important;
+}
 /* Fix 2: Set dimensional boundaries and hover spin rules for the 7 framework nodes */
 .framework-section .flip-card-node { 
     width: 195px; 
