@@ -264,11 +264,13 @@
         max-height: 0;
         overflow: hidden;
         background-color: var(--light-bg);
-        transition: max-height 0.3s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s ease;
+        transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s ease;
         padding: 0 16px !important;
     }
     .sector-accordion-panel.is-active {
         padding: 12px 16px !important;
+        max-height: max-content !important; /* Auto-scales container box precisely to matching description text volume */
+        overflow: visible !important;        /* Guarantees no truncation bugs occur */
     }
     .sector-accordion-panel p {
         padding: 0;
