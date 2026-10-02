@@ -129,7 +129,7 @@
         <div class="scroll-stack-wrapper">
 
             <!-- ==========================================================================
-                 4. ABOUT US SECTION
+                 4. ABOUT US SECTION (STREAMLINED FOR RESPONSIVE EFFICIENCY)
                  ========================================================================== -->
            <section id="about" class="about-section">
                 <div class="container about-grid-container">
@@ -147,36 +147,15 @@
                     </div>
             
                     <!-- ROW 2: RIGHT - IMAGE LAYER -->
-                    <div class="about-row-image-right">
+                    <!-- TAGGED DESKTOP ONLY: This heavy element vanishes completely on mobile viewports to prevent endless scrolling -->
+                    <div class="about-row-image-right desktop-only-content">
                         <div class="image-corner-frame">
                             <img src="assets/images/about-boardroom.jpg" alt="Flux7 executive boardroom alignment">
                         </div>
                     </div>
             
-                    <!-- ROW 3: LEFT - TAG LINE & STATS -->
-                    <div class="about-row-stats-left">
-                        <div class="about-promise-tray">
-                            <span class="promise-label">Our Promise</span>
-                            <p class="promise-text">Accelerate value. Reduce risk. Deliver seamless global flow.</p>
-                        </div>
-                        
-                        <div class="stats-row">
-                            <div class="stat-item">
-                                <span class="stat-number">5+</span>
-                                <span class="stat-label">Countries</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">5</span>
-                                <span class="stat-label">Regional Offices</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">7</span>
-                                <span class="stat-label">Framework Pillars</span>
-                            </div>
-                        </div>
-                    </div>
-            
-                    <!-- ROW 3: RIGHT - COMPANY OVERVIEW MATRIX -->
+                    <!-- COMPANY OVERVIEW MATRIX -->
+                    <!-- UNIVERSAL LAYER: Sits prominently in desktop slots, but stacks beautifully as Step A directly below text intro descriptions on phones -->
                     <div class="about-row-overview-right">
                         <div class="corporate-profile-panel">
                             <h3>Company Overview</h3>
@@ -201,6 +180,30 @@
                                     <span class="matrix-label">Business Scope</span>
                                     <span class="matrix-value">Business Consultant, Business Solutions, Trading</span>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ROW 3: LEFT - TAG LINE & STATS -->
+                    <!-- UNIVERSAL LAYER: Locked to the bottom left on desktop, but anchors as Step B at the absolute baseline of your mobile layout -->
+                    <div class="about-row-stats-left">
+                        <div class="about-promise-tray">
+                            <span class="promise-label">Our Promise</span>
+                            <p class="promise-text">Accelerate value. Reduce risk. Deliver seamless global flow.</p>
+                        </div>
+                        
+                        <div class="stats-row">
+                            <div class="stat-item">
+                                <span class="stat-number">5+</span>
+                                <span class="stat-label">Countries</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">5</span>
+                                <span class="stat-label">Regional Offices</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">7</span>
+                                <span class="stat-label">Framework Pillars</span>
                             </div>
                         </div>
                     </div>
@@ -619,7 +622,7 @@
 
 
             <!-- ==========================================================================
-                 8. INDUSTRIES & SECTORS WE SERVE
+                 8. INDUSTRIES & SECTORS WE SERVE (ACCORDION UPGRADE)
                  ========================================================================== -->
             <section class="sectors-section" id="sectors" aria-labelledby="sectors-heading">
                 <div class="container">
@@ -630,10 +633,11 @@
                         <p class="sectors-intro max-width-small">Our regional offices provide specialized trade insight and long-standing networks across critical industry channels.</p>
                     </div>
 
-                    <div class="sectors-grid">
+                    <!-- DESKTOP GRID VIEW: Automatically hidden on mobile devices, perfectly intact on PC -->
+                    <div class="sectors-grid desktop-only-content">
                         
                         <!-- CARD 1: JAPAN -->
-                        <div class="sector-card mobile-horizontal-strip">
+                        <div class="sector-card">
                             <div class="sector-icon" aria-hidden="true">
                                 <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
                             </div>
@@ -645,7 +649,7 @@
                         </div>
 
                         <!-- CARD 2: INDIA -->
-                        <div class="sector-card mobile-horizontal-strip">
+                        <div class="sector-card">
                             <div class="sector-icon" aria-hidden="true">
                                 <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
                             </div>
@@ -657,7 +661,7 @@
                         </div>
 
                         <!-- CARD 3: SINGAPORE -->
-                        <div class="sector-card mobile-horizontal-strip">
+                        <div class="sector-card">
                             <div class="sector-icon" aria-hidden="true">
                                 <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                             </div>
@@ -669,7 +673,7 @@
                         </div>
 
                         <!-- CARD 4: BRUNEI -->
-                        <div class="sector-card mobile-horizontal-strip">
+                        <div class="sector-card">
                             <div class="sector-icon" aria-hidden="true">
                                 <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
                             </div>
@@ -681,7 +685,7 @@
                         </div>
 
                         <!-- CARD 5: GCC -->
-                        <div class="sector-card mobile-horizontal-strip">
+                        <div class="sector-card">
                             <div class="sector-icon" aria-hidden="true">
                                 <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
                             </div>
@@ -694,8 +698,84 @@
 
                     </div>
 
-                </div>
-            </section>
+                    <!-- NEW MOBILE ACCORDION VIEW: Automatically turns on ONLY on cell phone viewports -->
+                    <div class="sectors-mobile-accordion mobile-only-content">
+                        
+                        <!-- Japan Item -->
+                        <div class="sector-accordion-item">
+                            <button class="sector-accordion-trigger" aria-expanded="false">
+                                <span class="sector-accordion-title">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                                    Japan
+                                </span>
+                                <span class="sector-accordion-arrow">+</span>
+                            </button>
+                            <div class="sector-accordion-panel">
+                                <p>Technology channels, precision manufacturing, and keiretsu access facilitation profiles.</p>
+                            </div>
+                        </div>
+
+                        <!-- India Item -->
+                        <div class="sector-accordion-item">
+                            <button class="sector-accordion-trigger" aria-expanded="false">
+                                <span class="sector-accordion-title">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                                    India
+                                </span>
+                                <span class="sector-accordion-arrow">+</span>
+                            </button>
+                            <div class="sector-accordion-panel">
+                                <p>Energy networks, metals, rare earth materials, skilled talent pools, and scalable operations.</p>
+                            </div>
+                        </div>
+
+                        <!-- Singapore Item -->
+                        <div class="sector-accordion-item">
+                            <button class="sector-accordion-trigger" aria-expanded="false">
+                                <span class="sector-accordion-title">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                    Singapore
+                                </span>
+                                <span class="sector-accordion-arrow">+</span>
+                            </button>
+                            <div class="sector-accordion-panel">
+                                <p>Finance architecture, intermodal logistics, and integrated centralized ASEAN hub distribution access.</p>
+                            </div>
+                        </div>
+
+                        <!-- Brunei Item -->
+                        <div class="sector-accordion-item">
+                            <button class="sector-accordion-trigger" aria-expanded="false">
+                                <span class="sector-accordion-title">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                                    Brunei
+                                </span>
+                                <span class="sector-accordion-arrow">+</span>
+                            </button>
+                            <div class="sector-accordion-panel">
+                                <p>Downstream processing, manufacturing clusters, and specialized regional gateway trade channels.</p>
+                            </div>
+                        </div>
+
+                        <!-- GCC Item -->
+                        <div class="sector-accordion-item">
+                            <button class="sector-accordion-trigger" aria-expanded="false">
+                                <span class="sector-accordion-title">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                                    GCC
+                                </span>
+                                <span class="sector-accordion-arrow">+</span>
+                            </button>
+                            <div class="sector-accordion-panel">
+                                <p>Regional partnerships, institutional investment setups, infrastructure projects, and market expansion execution.</p>
+                            </div>
+                        </div>
+
+                    </div> <!-- Closes .sectors-mobile-accordion -->
+
+                </div> <!-- Closes .container -->
+            </section> <!-- FIXED: This cleanly closes the entire sectors-section completely -->
+
 
             <!-- ==========================================================================
                  9. CONNECT WITH US FORM PANEL
