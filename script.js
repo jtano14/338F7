@@ -402,108 +402,162 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 /* ==========================================================================
-   8. REFINED SLIDER CONTROL LOGIC - DRAG & WHEEL SCROLL ENGINE
+   8. REFINED SLIDER CONTROL LOGIC - HIGH-SENSITIVITY INFINITE TRANSLATION ENGINE
    ========================================================================== */
 document.addEventListener("DOMContentLoaded", function () {
     const sliderContainer = document.getElementById("frameworkSliderContainer");
+    const sliderTrack = document.getElementById("frameworkSliderTrack");
     const btnPrev = document.getElementById("frameworkPrev");
     const btnNext = document.getElementById("frameworkNext");
 
-    if (!sliderContainer) return;
+    if (!sliderContainer || !sliderTrack) return;
 
-    // --- A. STATE TRACKING VARIABLES FOR GESTURE DRAGGING ---
+    // --- A. INITIALIZE SEAMLESS VIRTUAL CLONES ---
+    const originalCards = Array.from(sliderTrack.children);
+    const cardWidth = 195; // Card structural width
+    const gapWidth = 24;   // Spacing gap width
+    const stepShift = cardWidth + gapWidth; // 219px total shift size
+    const totalOriginals = originalCards.length;
+
+    // Create a complete set of clones at both ends to create an endless loop
+    originalCards.forEach(card => {
+        const cloneTail = card.cloneNode(true);
+        sliderTrack.appendChild(cloneTail);
+    });
+    originalCards.slice().reverse().forEach(card => {
+        const cloneHead = card.cloneNode(true);
+        sliderTrack.insertBefore(cloneHead, sliderTrack.firstChild);
+    });
+
+    // --- B. POSITION TRACK TO LOCK ON REAL FIRST CARD ---
+    // Start at an index offset that skips past the front clone buffer zone
+    let currentIndex = totalOriginals; 
+    let currentXTransform = -(currentIndex * stepShift);
+    
+    // Lock track parameters to disable raw native browser overflow scrolling interferes
+    sliderContainer.style.overflowX = "hidden"; 
+    sliderTrack.style.transition = "none";
+    sliderTrack.style.transform = `translateX(${currentXTransform}px)`;
+
+    // --- C. STATE VARIABLES FOR HIGH-SENSITIVITY DRAGGING ---
     let isDown = false;
     let startX;
-    let scrollLeft;
+    let dragTransformX;
+    let isTransitioning = false;
 
-    // Mouse Down Event: Grab and lock the track axis
+    // Helper function to update position smoothly across the track axis
+    const updateTrackPosition = (animate = true) => {
+        if (animate) {
+            sliderTrack.style.transition = "transform 0.45s cubic-bezier(0.16, 1, 0.3, 1)";
+        } else {
+            sliderTrack.style.transition = "none";
+        }
+        currentXTransform = -(currentIndex * stepShift);
+        sliderTrack.style.transform = `translateX(${currentXTransform}px)`;
+    };
+
+    // --- D. SEAMLESS BACKROUND JUMP RESET ENGINE ---
+    // Triggers instantly right as the transition animation finish line occurs
+    sliderTrack.addEventListener("transitionend", () => {
+        isTransitioning = false;
+        
+        // If user travels past card 07 into the tail clones, seamlessly snap back to real card 01
+        if (currentIndex >= totalOriginals * 2) {
+            currentIndex = totalOriginals;
+            updateTrackPosition(false);
+        } 
+        // If user travels past card 01 into head clones, seamlessly snap forward to real card 07
+        else if (currentIndex < totalOriginals) {
+            currentIndex = (totalOriginals * 2) - 1;
+            updateTrackPosition(false);
+        }
+    });
+
+    // --- E. LIGHTWEIGHT MOUSE GESTURE EVENTS ---
     sliderContainer.addEventListener("mousedown", (e) => {
+        if (isTransitioning) return;
         isDown = true;
         sliderContainer.classList.add("active-dragging");
-        startX = e.pageX - sliderContainer.offsetLeft;
-        scrollLeft = sliderContainer.scrollLeft;
+        startX = e.pageX;
+        dragTransformX = currentXTransform;
         sliderContainer.style.cursor = "grabbing";
+        sliderTrack.style.transition = "none"; // Kill transitions while dragging for real-time tracking
     });
 
-    // Mouse Leave Event: Release grabbing hold cleanly
     sliderContainer.addEventListener("mouseleave", () => {
+        if (!isDown) return;
         isDown = false;
         sliderContainer.style.cursor = "grab";
+        // Snaps track container cleanly to the nearest card threshold if released mid-drag
+        currentIndex = Math.round(-currentXTransform / stepShift);
+        updateTrackPosition(true);
     });
 
-    // Mouse Up Event: Clear hold tracking status
     sliderContainer.addEventListener("mouseup", () => {
+        if (!isDown) return;
         isDown = false;
         sliderContainer.style.cursor = "grab";
+        currentIndex = Math.round(-currentXTransform / stepShift);
+        updateTrackPosition(true);
     });
 
-    // Mouse Move Event: Compute velocity offset tracking lines
     sliderContainer.addEventListener("mousemove", (e) => {
         if (!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - sliderContainer.offsetLeft;
-        const walk = (x - startX) * 1.5; // Drag sensitivity multiplier scalar
-        sliderContainer.scrollLeft = scrollLeft - walk;
-        updateArrowVisibility();
+        e.preventDefault(); // Kills accidental desktop text highlighting completely
+        
+        const currentMouseX = e.pageX;
+        // ULTRA HIGH SENSITIVITY MULTIPLIER: Set to 2.5 so the track glides effortlessly with tiny movements!
+        const deltaX = (currentMouseX - startX) * 2.5; 
+        
+        currentXTransform = dragTransformX + deltaX;
+        sliderTrack.style.transform = `translateX(${currentXTransform}px)`;
     });
 
-    // --- B. SMOOTH KINETIC MOUSE WHEEL GESTURES ---
+    // --- F. SMOOTH MOUSE WHEEL STREAMING HUB ---
+    let wheelTimeout;
     sliderContainer.addEventListener("wheel", (e) => {
         if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
             e.preventDefault();
-            sliderContainer.scrollLeft += e.deltaX;
-            updateArrowVisibility();
+            if (isTransitioning) return;
+            
+            // High-precision direction check
+            if (e.deltaX > 4) {
+                isTransitioning = true;
+                currentIndex++;
+                updateTrackPosition(true);
+            } else if (e.deltaX < -4) {
+                isTransitioning = true;
+                currentIndex--;
+                updateTrackPosition(true);
+            }
         }
     }, { passive: false });
 
-    // --- C. CLASSIC BUTTON CLICK TRANSITION FALLBACKS ---
-    const stepShiftWidth = 219; // Individual card width (195px) + gap space width (24px)
-    
+    // --- G. CLASSIC INDICATOR BUTTON JUMP FALLBACKS ---
     if (btnNext) {
+        btnNext.style.opacity = "1";
+        btnNext.style.pointerEvents = "auto";
         btnNext.addEventListener("click", () => {
-            sliderContainer.scrollBy({ left: stepShiftWidth * 2, behavior: "smooth" });
-            setTimeout(updateArrowVisibility, 350); // Delay safely waits for browser physics loop
+            if (isTransitioning) return;
+            isTransitioning = true;
+            currentIndex += 2; // Slides forward 2 cards at a time matching your layout spec
+            updateTrackPosition(true);
         });
     }
 
     if (btnPrev) {
+        btnPrev.style.opacity = "1";
+        btnPrev.style.pointerEvents = "auto";
         btnPrev.addEventListener("click", () => {
-            sliderContainer.scrollBy({ left: -stepShiftWidth * 2, behavior: "smooth" });
-            setTimeout(updateArrowVisibility, 350);
+            if (isTransitioning) return;
+            isTransitioning = true;
+            currentIndex -= 2; // Slides backward 2 cards at a time matching your layout spec
+            updateTrackPosition(true);
         });
     }
 
-    // --- D. SMART CONTROLLER FOR BUTTON OPACITY WINDOWS ---
-    function updateArrowVisibility() {
-        const currentScroll = sliderContainer.scrollLeft;
-        const maxScrollBoundary = sliderContainer.scrollWidth - sliderContainer.clientWidth;
-
-        // Fade left indicator arrow out when at the absolute start of the carousel track
-        if (btnPrev) {
-            btnPrev.style.opacity = currentScroll <= 5 ? "0.2" : "1";
-            btnPrev.style.pointerEvents = currentScroll <= 5 ? "none" : "auto";
-        }
-
-        // Fade right indicator arrow out when tracking reaches pillar 07 at the end threshold
-        if (btnNext) {
-            btnNext.style.opacity = currentScroll >= maxScrollBoundary - 5 ? "0.2" : "1";
-            btnNext.style.pointerEvents = currentScroll >= maxScrollBoundary - 5 ? "none" : "auto";
-        }
-    }
-
-    // Initialize default container cursor and scroll parameters fluidly
+    // Set interactive default parameters fluidly
     sliderContainer.style.cursor = "grab";
-    sliderContainer.style.overflowX = "auto"; 
-    sliderContainer.style.scrollbarWidth = "none"; // Clear default tracker bar for Firefox views
-    
-    // Webkit inline style injection to cleanly clear scrollbars in Chrome, Safari & Edge
-    const scrollStylePatch = document.createElement("style");
-    scrollStylePatch.innerHTML = `#frameworkSliderContainer::-webkit-scrollbar { display: none !important; }`;
-    document.head.appendChild(scrollStylePatch);
-
-    // Run visibility calculations immediately upon loading the page
-    updateArrowVisibility();
-    sliderContainer.addEventListener("scroll", updateArrowVisibility, { passive: true });
 });
 
 /* ==========================================================================
