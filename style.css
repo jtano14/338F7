@@ -1064,7 +1064,13 @@ main { position: relative; width: 100%; }
     width: calc(100% - 32px); 
     background-color: var(--white); 
     box-shadow: 0 20px 50px rgba(11, 34, 64, 0.15); 
-    position: relative; /* Safeguards absolute positioning for the close button */
+    position: fixed !important; /* FIXED: Changed from relative to fixed to anchor coordinates globally */
+    
+    /* NEW: Forces the dialog window to lock perfectly to the center of the viewport screen */
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    margin: 0 !important; /* Prevents default browser padding shifts */
 }
 .dialog-close { 
     position: absolute; 
