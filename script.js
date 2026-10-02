@@ -86,14 +86,17 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* ==========================================================================
-   3. OFFICE INFO DIALOG POPUP MODAL ARCHITECTURE
+   3. OFFICE INFO DIALOG POPUP MODAL ARCHITECTURE (ANTI-JUMP ALIGNED)
    ========================================================================== */
 document.addEventListener("DOMContentLoaded", () => {
     const officeButtons = document.querySelectorAll("[data-office-dialog]");
     const closeButtons = document.querySelectorAll("[data-dialog-close]");
 
     officeButtons.forEach(btn => {
-        btn.addEventListener("click", () => {
+        // FIXED: Catch the click event 'e' to block native anchor jumps
+        btn.addEventListener("click", (e) => {
+            e.preventDefault(); /* FIXED: Stops the browser from snapping the page to the top */
+            
             const targetId = btn.getAttribute("data-office-dialog");
             const targetDialog = document.getElementById(targetId);
             if (targetDialog) {
@@ -104,7 +107,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     closeButtons.forEach(closeBtn => {
-        closeBtn.addEventListener("click", () => {
+        closeBtn.addEventListener("click", (e) => {
+            e.preventDefault();
             const activeDialog = closeBtn.closest("dialog");
             if (activeDialog) {
                 activeDialog.close();
@@ -130,6 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
 
 /* ==========================================================================
    4. INTERACTIVE LOGO CANVAS ANIMATION ENGINE (CLEAN HOVER BURST ENGINE)
