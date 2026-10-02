@@ -1054,11 +1054,42 @@ main { position: relative; width: 100%; }
 .footer-legal a:hover { color: var(--accent-blue); }
 
 /* ==========================================================================
-   15. OFFICE MODAL POPUPS & RESPONSIVE LAYOUTS (MOBILE PURGE INITIALIZED)
+   15. OFFICE MODAL POPUPS & RESPONSIVE LAYOUTS (STREAMLINED)
    ========================================================================== */
-.office-dialog { border: none; border-radius: 6px; padding: 40px; max-width: 520px; width: calc(100% - 32px); background-color: var(--white); box-shadow: 0 20px 50px rgba(11, 34, 64, 0.15); }
-.dialog-close { position: absolute; top: 16px; right: 16px; font-size: 1.5rem; color: var(--text-muted); cursor: pointer; }
-.dialog-close:hover { color: var(--primary-color); }
+.office-dialog { 
+    border: none; 
+    border-radius: 6px; 
+    padding: 40px; 
+    max-width: 520px; 
+    width: calc(100% - 32px); 
+    background-color: var(--white); 
+    box-shadow: 0 20px 50px rgba(11, 34, 64, 0.15); 
+    position: relative; /* Safeguards absolute positioning for the close button */
+}
+.dialog-close { 
+    position: absolute; 
+    top: 16px; 
+    right: 16px; 
+    font-size: 1.5rem; 
+    color: var(--text-muted); 
+    cursor: pointer; 
+    background: none;
+    border: none;
+}
+.dialog-close:hover { 
+    color: var(--primary-color); 
+}
+/* ADDED: Formats the map container inside your popup dialog windows cleanly */
+.office-map {
+    width: 100% !important;
+    height: 260px !important;
+    margin-top: 20px !important;
+    position: relative !important;
+    border-radius: 6px !important;
+    overflow: hidden !important;
+    border: 1px solid var(--border-color) !important;
+    background-color: var(--light-bg); /* Clean backdrop while the map layer compiles */
+}
 
 /* ==========================================================================
    JAPANESE VIEW SPECIFIC LAYOUT ALIGNMENTS (html[lang="ja"])
