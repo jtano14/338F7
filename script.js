@@ -507,41 +507,51 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /* ==========================================================================
-   9. MOBILE FRAMEWORK ACCORDION TOGGLE CONTROLLER
+   9. COMBINED MOBILE ACCORDION ENGINE (FRAMEWORK & SECTORS SYSTEM)
    ========================================================================== */
 document.addEventListener("DOMContentLoaded", () => {
-    const accordionTriggers = document.querySelectorAll(".accordion-trigger");
+    // 1. Gather all trigger buttons from BOTH accordion systems simultaneously
+    const accordionTriggers = document.querySelectorAll(".accordion-trigger, .sector-accordion-trigger");
 
     accordionTriggers.forEach(trigger => {
         trigger.addEventListener("click", (e) => {
             e.preventDefault();
             
-            const currentItem = trigger.closest(".accordion-item");
-            const currentPanel = currentItem.querySelector(".accordion-panel");
-            const currentArrow = trigger.querySelector(".accordion-arrow");
+            // Determine if we are clicking a Framework item or a Sector item dynamically
+            const isSector = trigger.classList.contains("sector-accordion-trigger");
             
-            // SENIOR DEVELOPER OPTION: Close all other open panels first (Accordion Mode)
-            const allItems = document.querySelectorAll(".accordion-item");
-            allItems.forEach(item => {
+            // Set up relative item naming rules based on the active section block
+            const itemClass = isSector ? ".sector-accordion-item" : ".accordion-item";
+            const panelClass = isSector ? ".sector-accordion-panel" : ".accordion-panel";
+            const arrowClass = isSector ? ".sector-accordion-arrow" : ".accordion-arrow";
+            const triggerClass = isSector ? ".sector-accordion-trigger" : ".accordion-trigger";
+
+            const currentItem = trigger.closest(itemClass);
+            const currentPanel = currentItem.querySelector(panelClass);
+            const currentArrow = trigger.querySelector(arrowClass);
+            
+            // 2. ISOLATION AUTO-RESET: Close other panels inside this SAME accordion section only
+            const allItemsInSection = currentItem.parentElement.querySelectorAll(itemClass);
+            allItemsInSection.forEach(item => {
                 if (item !== currentItem) {
-                    const panel = item.querySelector(".accordion-panel");
-                    const arrow = item.querySelector(".accordion-trigger .accordion-arrow");
+                    const panel = item.querySelector(panelClass);
+                    const arrow = item.querySelector(`${triggerClass} ${arrowClass}`);
                     if (panel && (panel.style.maxHeight !== "0px" && panel.style.maxHeight !== "")) {
                         panel.style.maxHeight = "0px";
-                        panel.classList.remove("is-active"); // CHANGED: Clear tracking class
+                        panel.classList.remove("is-active"); 
                         if (arrow) arrow.textContent = "+";
                     }
                 }
             });
 
-            // Toggle the active state of the tapped panel
+            // 3. SLIDE TRANSITION ANIMATION AXIS
             if (currentPanel.style.maxHeight === "0px" || currentPanel.style.maxHeight === "") {
-                currentPanel.classList.add("is-active"); // CHANGED: Apply padding activation class first
+                currentPanel.classList.add("is-active"); 
                 currentPanel.style.maxHeight = currentPanel.scrollHeight + "px";
                 if (currentArrow) currentArrow.textContent = "−"; 
             } else {
                 currentPanel.style.maxHeight = "0px";
-                currentPanel.classList.remove("is-active"); // CHANGED: Strip padding status fluidly
+                currentPanel.classList.remove("is-active"); 
                 if (currentArrow) currentArrow.textContent = "+";
             }
         });
