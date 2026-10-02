@@ -195,11 +195,14 @@
         max-height: 0;
         overflow: hidden;
         background-color: var(--light-bg);
-        transition: max-height 0.3s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s ease;
+        /* FIXED: Added max-height to the transition string so it animates fluidly */
+        transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s ease;
         padding: 0 16px !important;
     }
     .accordion-panel.is-active {
         padding: 12px 16px !important;
+        max-height: max-content !important; /* Forces the box to expand perfectly to fit any text volume */
+        overflow: visible !important;        /* Prevents clipping masks on small screens */
     }
     .accordion-panel p {
         padding: 0;
