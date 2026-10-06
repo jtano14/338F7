@@ -343,11 +343,28 @@ document.addEventListener("DOMContentLoaded", initializeVantaClouds);
 document.addEventListener("DOMContentLoaded", initializeVantaClouds);
 
 /* ==========================================================================
-   7. INTERACTIVE SCROLL PARALLAX ENGINE & SLOWER TEXT FADE LOOPS
+   7. INTERACTIVE SCROLL PARALLAX ENGINE & NAVBAR PROTECTION (INTEGRATED)
    ========================================================================== */
 let scrollTicking = false;
 
 function updateScrollEffects() {
+    // ==========================================================================
+    // NAVBAR PROTECTION PATCH: Keeps text elements 100% visible on scroll passes
+    // ==========================================================================
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+        navbar.style.opacity = "1";
+        navbar.style.visibility = "visible";
+        navbar.style.display = "flex";
+        
+        // Forces all internal link tags to stay fully visible across scrolling loops
+        const navAnchors = navbar.querySelectorAll('a, button, span');
+        navAnchors.forEach(el => {
+            el.style.opacity = "1";
+            el.style.visibility = "visible";
+        });
+    }
+
     const heroContent = document.querySelector('.hero-content.container');
     const sections = document.querySelectorAll('main > section:not(.hero-section):not(.framework-scroll-section)');
     const scrollPosition = window.scrollY;
@@ -386,7 +403,7 @@ function updateScrollEffects() {
     });
 
     // SECTION FADE OVERLAY - FADE OUT BACKGROUND SECTIONS
-   const allSections = document.querySelectorAll('.about-section, .services-section, .framework-section, .leadership-section, .sectors-section, .contact-section');
+    const allSections = document.querySelectorAll('.about-section, .services-section, .framework-section, .leadership-section, .sectors-section, .contact-section');
     
     allSections.forEach((section) => {
         const rect = section.getBoundingClientRect();
@@ -427,6 +444,7 @@ window.addEventListener('scroll', () => {
     navbar.style.opacity = "1";
     navbar.style.visibility = "visible";
 }, { passive: true });
+
 
 /* ==========================================================================
    8. REFINED SLIDER CONTROL LOGIC - HIGH-SENSITIVITY INFINITE TRANSLATION ENGINE
