@@ -48,6 +48,14 @@
         margin: 0 !important;
     }
     
+     /* FIXED: Force the main mobile header container to remain pinned on scroll */
+    .navbar {
+        position: fixed !important;
+        z-index: 999999 !important;
+        background-color: rgba(255, 255, 255, 0.98) !important;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
+    }
+
     .nav-links {
         position: absolute; 
         top: 76px; 
