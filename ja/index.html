@@ -20,33 +20,39 @@
 <body>
 
 
-    <!-- ==========================================================================
-       1. SITE HEADER & NAVIGATION
-       ========================================================================== -->
-    <header class="site-header">
-        <nav class="navbar">
-            <div class="nav-container">
-                <div class="logo-area">
-                    <a href="index.html">
-                        <img src="../assets/images/image_a.png" alt="FLUX7" class="site-logo">
-                    </a>
-                </div>
-                <div class="nav-links">
-                    <a href="#about">会社概要</a>
-                    <a href="#services">サービス</a>
-                    <a href="#framework">フレームワーク</a>
-                    <a href="#leadership">役員紹介</a>
-                    <a href="#sectors">対象分野</a>
-                    <a href="#contact">お問い合わせ</a>
-                    <!-- Clicking this links back to the main root English index.html -->
-                    <a href="../index.html" class="lang-switch">EN English</a>
-                </div>
-                <button class="nav-toggle" aria-label="メニュー開閉" aria-expanded="false">
-                    <span class="hamburger"></span>
-                </button>
+<!-- ==========================================================================
+     1. SITE HEADER & NAVIGATION
+    ========================================================================== -->
+<<header class="site-header">
+    <nav class="navbar" aria-label="メインナビゲーション">
+        <div class="nav-container">
+            
+            <!-- FIXED: Changed link from index.html to #hero for smooth page jump behavior -->
+            <a href="#hero" class="logo-area" aria-label="FLUX7 トップページリンク">
+                <img src="../assets/images/image_a.png" alt="FLUX7 コーポレートロゴ" class="site-logo" width="140" height="65">
+            </a>
+
+            <!-- FIXED: Shifted position up to match English structural alignment metrics exactly -->
+            <button class="nav-toggle" aria-label="メニュー開閉" aria-expanded="false" aria-controls="primary-navigation-ja">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Navigation Target Anchor Directory Runway -->
+            <div class="nav-links" id="primary-navigation-ja">
+                <a href="#about">会社概要</a>
+                <a href="#services">サービス</a>
+                <a href="#framework">フレームワーク</a>
+                <a href="#leadership">役員紹介</a>
+                <a href="#sectors">対象分野</a>
+                <a href="#contact">お問い合わせ</a>
+                <a href="../index.html" class="lang-switch" aria-label="インターフェース言語を英語に切り替える">EN English</a>
             </div>
-        </nav>
-    </header>
+
+        </div>
+    </nav>
+</header>
 
     <main>
             <!-- ==========================================================================
