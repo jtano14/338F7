@@ -862,7 +862,7 @@
                         <div class="footer-offices-column">
                             <h2>拠点オフィス</h2>
                             <div class="footer-offices">
-                                <button class="office-link" data-office-dialog="dialog-tokyo">東京、日本</button>
+                                <button class="office-link" data-office-dialog="dialog-tokyo">尼崎、日本</button>
                                 <button class="office-link" data-office-dialog="dialog-mumbai">ムンバイ、インド</button>
                                 <button class="office-link" data-office-dialog="dialog-singapore">シンガポール</button>
                                 <button class="office-link" data-office-dialog="dialog-brunei">バンダルスリブガワン、ブルネイ</button>
@@ -888,15 +888,115 @@
     <!-- ==========================================================================
        10. OFFICE REGIONAL DIALOG MODALS
        ========================================================================== -->
-    <dialog id="dialog-tokyo" class="office-dialog">
-        <button class="dialog-close" data-dialog-close>&times;</button>
-        <h2>尼崎、日本</h2>
-        <p>[〒661-0002、兵庫県尼崎市塚口町1丁目22－9]</p>
-        <p>[+81-6-6415-9764]</p>
-        <p><a href="mailto:japan@flux7.com">japan@flux7.com</a></p>
-        <div class="map-placeholder">オフィス地域追跡レーダーマップ読込中...</div>
+     <dialog class="office-dialog" id="dialog-tokyo" aria-labelledby="title-tokyo">
+        <button class="dialog-close" data-dialog-close aria-label="Close dialog window">&times;</button>
+        <h2 id="title-tokyo" style="font-family: var(--font-body) !important; font-size: 1.5rem; font-weight: 700; color: var(--primary-color); margin: 0 0 8px 0 !important;">尼崎, 日本</h2>
+        <address style="font-style: normal; font-size: 0.88rem; color: var(--text-dark); display: flex; flex-direction: column; gap: 4px;">
+         
+    <!-- FIXED: Removed bracket strings to allow clean text rendering -->
+            <span>〒661-0002、兵庫県尼崎市塚口町1丁目22－9</span>
+            <span>+81-6-6415-9764</span>
+            <a href="mailto:japan@flux7.co.jp" style="color: var(--accent-blue); text-decoration: none;">japan@flux7.co.jp</a>
+        </address>
+        
+        <!-- FIXED MAP CONTAINER: Houses the authenticated Embed element cleanly -->
+        <div class="office-map">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3278.025618293886!2d135.40937197620022!3d34.7549474802994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000f1d34c73e36d%3A0x9ce68905fcdcbeb8!2z44CSNjYxLTAwMDIgSHlvZ28sIEFtYWdhc2FraSwgVHN1a2FndWNoaWNoxY0sIDEtY2jFjW1l4oiSMjItOSDml6XmnKznpo_npYnnt4_lkIjkvIHnlLvmnKznpL7jg5Pjg6s!5e0!3m2!1sen!2sjp!4v1790914271014!5m2!1sen!2sjp"
+                width="100%" 
+                height="100%" 
+                style="border:0; display: block;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </dialog>
+    
+    <dialog class="office-dialog" id="dialog-mumbai" aria-labelledby="title-mumbai">
+        <button class="dialog-close" data-dialog-close aria-label="Close dialog window">&times;</button>
+        <h2 id="title-mumbai" style="font-family: var(--font-body) !important; font-size: 1.5rem; font-weight: 700; color: var(--primary-color); margin: 0 0 8px 0 !important;">ムンバイ, インド</h2>
+        <address style="font-style: normal; font-size: 0.88rem; color: var(--text-dark); display: flex; flex-direction: column; gap: 4px;">
+            <span>612 Maker Chambers V, Nariman Point, Mumbai 400021</span>
+            <span>+91-98-2105-2355</span>
+            <a href="mailto:mumbai@flux7.co.jp" style="color: var(--accent-blue); text-decoration: none;">mumbai@flux7.co.jp</a>
+        </address>
+        <div class="office-map" aria-label="Geographic area map container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4481.816740607888!2d72.81999417588591!3d18.92424588224939!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7d1ebfb0adacf%3A0x1783809efa7f0cea!2sMaker%20Chambers%20V%2C%20315%2C%20Jamnalal%20Bajaj%20Marg%2C%20Nariman%20Point%2C%20Mumbai%2C%20Maharashtra%20400021%2C%20India!5e1!3m2!1sen!2sjp!4v1791250074411!5m2!1sen!2sjp"
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
     </dialog>
 
+    <dialog class="office-dialog" id="dialog-singapore" aria-labelledby="title-singapore">
+        <button class="dialog-close" data-dialog-close aria-label="Close dialog window">&times;</button>
+        <h2 id="title-singapore" style="font-family: var(--font-body) !important; font-size: 1.5rem; font-weight: 700; color: var(--primary-color); margin: 0 0 8px 0 !important;">シンガポール</h2>
+        <address style="font-style: normal; font-size: 0.88rem; color: var(--text-dark); display: flex; flex-direction: column; gap: 4px;">
+            <span>531 Upper Cross Street, #02-11 Hong Lim Complex Singapore 050531</span>
+            <span>Contact us via email</span>
+            <a href="mailto:singapore@flux7.co.jp" style="color: var(--accent-blue); text-decoration: none;">singapore@flux7.co.jp</a>
+        </address>
+        <div class="office-map" aria-label="Geographic area map container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4736.718759059234!2d103.84440307044385!3d1.2844505498511483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da190ca09cd1fb%3A0x5e6b87d83ff14161!2s531%20Upper%20Cross%20St%2C%20%2302%2011%20Hong%20Lim%20Complex%2C%20Singapore%20050531!5e1!3m2!1sen!2sjp!4v1791249800798!5m2!1sen!2sjp" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </dialog>
+
+    <dialog class="office-dialog" id="dialog-brunei" aria-labelledby="title-brunei">
+        <button class="dialog-close" data-dialog-close aria-label="Close dialog window">&times;</button>
+        <h2 id="title-brunei" style="font-family: var(--font-body) !important; font-size: 1.5rem; font-weight: 700; color: var(--primary-color); margin: 0 0 8px 0 !important;">バンダルスリブガワン、ブルネイ</h2>
+        <address style="font-style: normal; font-size: 0.88rem; color: var(--text-dark); display: flex; flex-direction: column; gap: 4px;">
+            <span>Plot 5C1B, Salambigar Industrial Park, Brunei Darussalam, BU1129</span>
+            <span>Contact us via email</span>
+            <a href="mailto:brunei@flux7.co.jp" style="color: var(--accent-blue); text-decoration: none;">brunei@flux7.co.jp</a>
+        </address>
+        <div class="office-map" aria-label="Geographic area map container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2973.375930307272!2d114.98230488751484!3d4.991686096020203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3222f74995f3cc49%3A0xd50dd56db710fc3a!2sPolygel%20Organometalic%20(B)%20SDN%20BHD!5e1!3m2!1sen!2sjp!4v1791250032317!5m2!1sen!2sjp" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </dialog>
+
+    <dialog class="office-dialog" id="dialog-dubai" aria-labelledby="title-dubai">
+        <button class="dialog-close" data-dialog-close aria-label="Close dialog window">&times;</button>
+        <h2 id="title-dubai" style="font-family: var(--font-body) !important; font-size: 1.5rem; font-weight: 700; color: var(--primary-color); margin: 0 0 8px 0 !important;">ドバイ、GCC</h2>
+        <address style="font-style: normal; font-size: 0.88rem; color: var(--text-dark); display: flex; flex-direction: column; gap: 4px;">
+            <span>Coming soon</span>
+            <span>Contact us via email</span>
+            <a href="mailto:dubai@flux7.co.jp" style="color: var(--accent-blue); text-decoration: none;">dubai@flux7.co.jp</a>
+        </address>
+        <div class="office-map" aria-label="Geographic area map container">
+            <iframe 
+                src="https://google.com" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </dialog>
+    
     <dialog id="dialog-mumbai" class="office-dialog">
         <button class="dialog-close" data-dialog-close>&times;</button>
         <h2>ムンバイ、インド</h2>
