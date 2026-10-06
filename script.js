@@ -399,11 +399,18 @@ updateScrollEffects();
 
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
+    if (!navbar) return;
+
+    // 1. Manage the background style switch cleanly on scroll transitions
     if (window.scrollY > 50) {
         navbar.classList.add('scrolled');
     } else {
         navbar.classList.remove('scrolled');
     }
+
+    // 2. PROTECT VISIBILITY: Prevent previous parallax calculations from hiding this bar
+    navbar.style.opacity = "1";
+    navbar.style.visibility = "visible";
 }, { passive: true });
 
 /* ==========================================================================
