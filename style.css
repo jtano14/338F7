@@ -158,7 +158,7 @@ button { cursor: pointer; }
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 9999; /* FIXED: Elevated past desktop layer priorities 2-7 to remain visible on scroll */
     background-color: transparent;
     border-bottom: 1px solid transparent;
     transition: background-color 0.3s ease;
