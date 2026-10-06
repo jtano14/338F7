@@ -51,9 +51,15 @@
      /* FIXED: Force the main mobile header container to remain pinned on scroll */
     .navbar {
         position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 76px !important; /* FIXED: Uniform dimension box */
         z-index: 999999 !important;
         background-color: rgba(255, 255, 255, 0.98) !important;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
+        display: flex !important;
+        align-items: center !important;
     }
 
     .nav-links {
