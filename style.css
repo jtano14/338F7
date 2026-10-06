@@ -158,20 +158,27 @@ button { cursor: pointer; }
     top: 0 !important;
     left: 0 !important;
     width: 100% !important;
+    height: 76px !important; /* FIXED: Gives an explicit height match for your sticky pages */
     
-    /* DEFINITIVE FIX: Forces navbar to sit on top of all 3D stacking contexts */
+    /* DEFINITIVE FIX: Sits cleanly on top of all 3D stacking contexts */
     z-index: 999999 !important; 
     transform: translateZ(9999px) !important;
     backface-visibility: visible !important;
     
-    background-color: transparent;
-    border-bottom: 1px solid transparent;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-.navbar.scrolled { 
+    /* CHANGED: Made fully solid white by default so it never fades behind content layers */
     background-color: rgba(255, 255, 255, 0.98) !important; 
     border-bottom: 1px solid var(--border-color) !important;
     box-shadow: 0 4px 20px rgba(11, 34, 64, 0.06) !important; 
+    
+    display: flex !important;
+    align-items: center !important;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.navbar, .navbar.scrolled {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: flex !important;
+    background-color: rgba(255, 255, 255, 0.98) !important;
 }
 .nav-container {
     display: flex;
