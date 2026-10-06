@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. MOBILE MENU TOGGLE CONTROLLER
+   1. MOBILE MENU TOGGLE & LOGO SCROLL CONTROLLER (INTEGRATED)
    ========================================================================== */
 document.addEventListener("DOMContentLoaded", () => {
     const navToggle = document.querySelector(".nav-toggle");
@@ -49,6 +49,21 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     }
+
+    // ==========================================================================
+    // LOGO INTEGRATION PATCH: Forces smooth scroll-to-top execution on logo click
+    // ==========================================================================
+    const logoLinks = document.querySelectorAll(".logo-area");
+    logoLinks.forEach(logo => {
+        logo.addEventListener("click", (e) => {
+            e.preventDefault(); // Stop standard browser anchor jumps from crashing
+            
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    });
 });
 
 
