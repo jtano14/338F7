@@ -62,6 +62,7 @@
         box-shadow: 0 10px 25px rgba(11, 34, 64, 0.05);
         overflow: hidden !important;
         max-height: 0;
+        z-index: 10000; /* FIXED: Ensures the expanded mobile drop tray drops over all elements */
     }
     
     .nav-links.is-open { 
