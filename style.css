@@ -154,16 +154,23 @@ button { cursor: pointer; }
    ========================================================================== */
 .site-header { position: relative; z-index: 100; }
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 9999; /* FIXED: Elevated past desktop layer priorities 2-7 to remain visible on scroll */
+    position: fixed !important; /* Forces fixed position rules */
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    
+    /* FIXED: This combination breaks past 3D stacking layer masks */
+    z-index: 999999 !important; 
+    transform: translateZ(9999px) !important; 
+    
     background-color: transparent;
     border-bottom: 1px solid transparent;
     transition: background-color 0.3s ease;
 }
-.navbar.scrolled { background-color: rgba(255, 255, 255, 0.97); }
+.navbar.scrolled { 
+    background-color: rgba(255, 255, 255, 0.98) !important; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
+}
 .nav-container {
     display: flex;
     align-items: center;
