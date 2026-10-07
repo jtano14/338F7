@@ -406,7 +406,8 @@ function updateScrollEffects() {
    // FIXED: Keeps contact section locked into 100% solid opacity when footer arrives
     const contactSec = document.querySelector('.contact-section');
     if (contactSec) {
-        contactSec.style.transform = "none"; /* Strips accidental vertical pulling animations */
+        contactSec.style.transform = "none !important"; 
+        contactSec.style.top = "0px"; // Forces the element box to remain perfectly frozen
     }
     
    // ==========================================================================
