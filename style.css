@@ -150,55 +150,68 @@ button { cursor: pointer; }
 }
 
 /* ==========================================================================
-   5. HEADER NAVIGATION BAR (DYNAMIC TRANSPARENT TO WHITE PROFILE)
+   5. HEADER NAVIGATION BAR (DYNAMIC LAYER ARCHITECTURE - ANTI-FADE)
    ========================================================================== */
 .site-header { position: relative; z-index: 100; }
-.navbar {
+
+header .navbar, 
+.navbar,
+body .navbar,
+html body .navbar {
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
     width: 100% !important;
     height: 76px !important;
     
-    /* DEFINITIVE FIX: Sits cleanly on top of all 3D stacking contexts */
-    z-index: 999999 !important; 
-    transform: translateZ(9999px) !important;
+    /* DEFINITIVE LAYER IMMUNITY: Overrides any parallax fading thresholds */
+    z-index: 9999999 !important; 
+    transform: translateZ(99999px) !important;
     backface-visibility: visible !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: flex !important;
     
-    /* STARTING STATE: Beautifully transparent on site load over Vanta Clouds */
+    /* STARTING STATE: Completely transparent over your clouds canvas graphic */
     background-color: transparent !important; 
     border-bottom: 1px solid transparent !important;
     box-shadow: none !important;
     
-    display: flex !important;
     align-items: center !important;
     transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Force elements to stay 100% visible and interactive across layout jumps */
-.navbar, .navbar .nav-container, .navbar .nav-links {
+/* Forces structural child components to stay active */
+.navbar .nav-container, 
+.navbar .nav-links,
+.navbar .nav-links a {
     opacity: 1 !important;
     visibility: visible !important;
-    z-index: 999999 !important;
+    display: flex !important;
 }
 
 .navbar .nav-links a {
     color: var(--primary-color) !important;
+}
+
+/* ==========================================================================
+   SCROLLED STATE: Active once scrolled past 50px or viewing sections
+   ========================================================================== */
+header .navbar.scrolled,
+.navbar.scrolled,
+body .navbar.scrolled { 
+    background-color: rgba(255, 255, 255, 0.98) !important; 
+    border-bottom: 1px solid var(--border-color) !important;
+    box-shadow: 0 4px 20px rgba(11, 34, 64, 0.06) !important; 
     opacity: 1 !important;
     visibility: visible !important;
 }
 
-/* ==========================================================================
-   SCROLLED STATE: Active once scrolled past 50px or viewing down page
-   ========================================================================== */
-.navbar.scrolled { 
-    background-color: rgba(255, 255, 255, 0.98) !important; 
-    border-bottom: 1px solid var(--border-color) !important;
-    box-shadow: 0 4px 20px rgba(11, 34, 64, 0.06) !important; 
-}
-
+header .navbar.scrolled .nav-links a,
 .navbar.scrolled .nav-links a {
-    color: #0b2240 !important; /* Rich deep navy blue text against white sheet */
+    color: #0b2240 !important; /* High contrast deep corporate blue text */
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
 /* ==========================================================================
