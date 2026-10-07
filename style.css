@@ -1071,11 +1071,12 @@ main { position: relative; width: 100%; }
     padding-top: 0 !important; 
     line-height: 1.2 !important; 
 }
-/* Fix 2: Remove the 300px invisible bounding constraint and clear left-side offsets */
+
+/* Fix 2: UNIFIED BRAND LOGO PROPORTIONS ENGINE (CALIBRATED RESCALE) */
 .footer-logo img { 
-   height: auto !important;        /* CHANGED: Removes the hardcoded 300px stretch box */
-   max-height: 100px !important;    /* CHANGED: Restores a clean corporate layout scale footprint */
-   width: auto !important; 
+   height: 65px !important;        /* FIXED: Set explicit universal height match from your English layout bar */
+   max-height: 65px !important;    /* FIXED: Tightens down the bounding threshold to suppress Japanese scale blowout */
+   width: auto !important;         /* Forces the browser layout engine to scale aspect ratio elements uniformly */
    display: block; 
    filter: brightness(0) invert(1) !important; 
    margin-top: 0 !important;
@@ -1083,6 +1084,7 @@ main { position: relative; width: 100%; }
    margin-left: 0px !important;    /* CHANGED: Cleared out -125px offset to realign layout to the grid */
    margin-right: auto !important; 
 }
+
 /* Fix 3: Ensure your typography layout system matches clean lines styling */
 .footer-tagline { 
     font-family: var(--font-body) !important;
@@ -1138,6 +1140,7 @@ main { position: relative; width: 100%; }
 .footer-legal { display: flex !important; gap: 24px !important; }
 .footer-legal a { color: rgba(255, 255, 255, 0.6) !important; }
 .footer-legal a:hover { color: var(--accent-blue) !important; }
+
 
 
 /* ==========================================================================
