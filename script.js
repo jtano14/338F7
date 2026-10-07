@@ -11,22 +11,19 @@ document.addEventListener("DOMContentLoaded", () => {
             navToggle.setAttribute("aria-expanded", isOpen);
             navToggle.classList.toggle("active");
 
-            // FIXED: Instead of snapping, slide the mobile tray open and closed fluidly
             if (isOpen) {
                 navLinks.style.display = "flex";
                 navLinks.style.maxHeight = "0px";
                 navLinks.style.opacity = "0";
                 navLinks.style.transition = "max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease";
                 
-                // Allow browser layout engine a micro-frame to calculate the height slide
                 requestAnimationFrame(() => {
-                    navLinks.style.maxHeight = "380px"; // Comfortable height to contain your links runway
+                    navLinks.style.maxHeight = "380px"; 
                     navLinks.style.opacity = "1";
                 });
             } else {
                 navLinks.style.maxHeight = "0px";
                 navLinks.style.opacity = "0";
-                // Wait for the slide transition to complete before clearing display paths
                 setTimeout(() => {
                     if (!navLinks.classList.contains("is-open")) {
                         navLinks.style.display = "none";
@@ -35,7 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        // Close mobile nav drawer cleanly if a user selects an internal anchor link
         const anchors = navLinks.querySelectorAll("a:not(.lang-switch)");
         anchors.forEach(anchor => {
             anchor.addEventListener("click", () => {
@@ -51,17 +47,25 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ==========================================================================
-    // LOGO INTEGRATION PATCH: Forces smooth scroll-to-top execution on logo click
+    // LOGO INTEGRATION: Resets scroll and clears stale hash trackers from URL
     // ==========================================================================
     const logoLinks = document.querySelectorAll(".logo-area");
     logoLinks.forEach(logo => {
         logo.addEventListener("click", (e) => {
-            e.preventDefault(); // Stop standard browser anchor jumps from crashing
+            e.preventDefault(); 
             
+            // 1. Smoothly scroll window viewport framework back to coordinate top 0
             window.scrollTo({
                 top: 0,
                 behavior: "smooth"
             });
+
+            // 2. FIXED: Clears out #about or #services from the address bar back to clean index.html
+            if (history.pushState) {
+                history.pushState("", document.title, window.location.pathname + window.location.search);
+            } else {
+                window.location.hash = ""; // Fallback for older legacy browsers
+            }
         });
     });
 });
