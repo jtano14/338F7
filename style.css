@@ -436,7 +436,7 @@ main { position: relative; width: 100%; }
 }
 
 /* ==========================================================================
-   7. UNIFIED STICKY OVERLAP ENGINE (CALIBRATED DEFENSE PRESETS)
+   7. UNIFIED STICKY OVERLAP ENGINE (DEFINITIVE STATIC PRESETS)
    ========================================================================== */
 .about-section,
 .services-section,
@@ -462,24 +462,22 @@ main { position: relative; width: 100%; }
 .sectors-section     { z-index: 6; background-color: var(--light-bg) !important; }
 
 /* ==========================================================================
-   CONTACT SECTION: ACCORDION SPACING EXPANSION & SUB-PIXEL GAP PATCH
+   CONTACT SECTION: DEFINITIVE LOCK AND GREY LINE MASK PATCH
    ========================================================================== */
 .contact-section { 
     position: sticky !important;
+    top: 0 !important; /* FIXED: Pushed fully up to lock flush under the header viewport frame */
     
-    /* FIX 1: Pulled up by 1px to close the sub-pixel gap and mask the grey line */
-    top: 75px !important; 
-    
-    /* FIX 2: Set to auto height so massive forms have native breathing room */
-    height: auto !important; 
-    min-height: calc(100vh - 76px) !important; 
-    max-height: none !important; 
+    height: 100vh !important; /* FIXED: Locked back onto the strict sticky matrix track */
+    min-height: 100vh !important;
+    max-height: 100vh !important;
     width: 100vw !important;
-    overflow: visible !important;
+    overflow: hidden !important;
     
-    /* FIX 3: Expanded bottom margin padding to completely anchor fields in place */
-    padding: 80px 0 180px 0 !important; 
-    margin: 0 !important;
+    /* DEFINITIVE FIX: Forces a micro-pull to perfectly seal and hide the grey border strip */
+    margin-top: -10px !important; 
+    padding: 110px 0 40px 0 !important; 
+    
     z-index: 7 !important; 
     background-color: var(--white) !important; 
 }
@@ -493,8 +491,6 @@ main { position: relative; width: 100%; }
     margin-top: 0 !important;
     padding-top: 0 !important;
 }
-
-
 
 /* ==========================================================================
    8. ABOUT SECTION LAYOUT
