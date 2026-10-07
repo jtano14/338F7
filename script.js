@@ -403,7 +403,13 @@ function updateScrollEffects() {
         }
     });
 
-    // ==========================================================================
+   // FIXED: Keeps contact section locked into 100% solid opacity when footer arrives
+    const contactSec = document.querySelector('.contact-section');
+    if (contactSec) {
+        contactSec.style.transform = "none"; /* Strips accidental vertical pulling animations */
+    }
+    
+   // ==========================================================================
     // CRITICAL PATCH: Strips fading overrides and forces full navbar visibility
     // ==========================================================================
     const navbar = document.querySelector('.navbar');
