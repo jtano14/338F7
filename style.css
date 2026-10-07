@@ -436,14 +436,13 @@ main { position: relative; width: 100%; }
 }
 
 /* ==========================================================================
-   7. UNIFIED STICKY OVERLAP ENGINE (CLEAN MATRIX BLOCK)
+   7. UNIFIED STICKY OVERLAP ENGINE (CALIBRATED DEFENSE PRESETS)
    ========================================================================== */
 .about-section,
 .services-section,
 .framework-section,
 .leadership-section,
-.sectors-section,
-.contact-section {
+.sectors-section {
     position: sticky !important;
     top: 76px !important;            
     height: 100vh !important;
@@ -462,8 +461,28 @@ main { position: relative; width: 100%; }
 .leadership-section  { z-index: 5; background-color: var(--white) !important; }
 .sectors-section     { z-index: 6; background-color: var(--light-bg) !important; }
 
-/* FIXED: Kept strictly on the sticky stack layer. Deleted the old conflicting relative rule block entirely! */
-.contact-section     { z-index: 7 !important; background-color: var(--white) !important; }
+/* ==========================================================================
+   CONTACT SECTION: ACCORDION SPACING EXPANSION & SUB-PIXEL GAP PATCH
+   ========================================================================== */
+.contact-section { 
+    position: sticky !important;
+    
+    /* FIX 1: Pulled up by 1px to close the sub-pixel gap and mask the grey line */
+    top: 75px !important; 
+    
+    /* FIX 2: Set to auto height so massive forms have native breathing room */
+    height: auto !important; 
+    min-height: calc(100vh - 76px) !important; 
+    max-height: none !important; 
+    width: 100vw !important;
+    overflow: visible !important;
+    
+    /* FIX 3: Expanded bottom margin padding to completely anchor fields in place */
+    padding: 80px 0 180px 0 !important; 
+    margin: 0 !important;
+    z-index: 7 !important; 
+    background-color: var(--white) !important; 
+}
 
 .about-section .container,
 .services-section .container,
@@ -1021,16 +1040,14 @@ main { position: relative; width: 100%; }
    ========================================================================== */
 .main-footer {
     position: relative !important; 
-    z-index: 20 !important; /* FIXED: Layer order optimized with Section 7 styles */
+    z-index: 20 !important; /* Kept dominant to slide safely over the sticky contact base plane */
     width: 100%; 
     padding: 120px 0 40px 0;
     background-image: url('assets/images/image_c.jpg'); 
     background-size: cover; 
     background-position: center center; 
     background-repeat: no-repeat;
-    
-    /* FIXED: Removed negative margins completely to prevent swallowing your Contact fields */
-    margin-top: 0 !important; 
+    margin-top: 0 !important; /* Keep at 0 to follow the layout flow naturally */
 }
 .main-footer::before {
     content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
