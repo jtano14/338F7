@@ -436,7 +436,7 @@ main { position: relative; width: 100%; }
 }
 
 /* ==========================================================================
-   7. UNIFIED STICKY OVERLAP ENGINE (LOCKING CONTACT SECTION FIXED)
+   7. UNIFIED STICKY OVERLAP ENGINE (CLEAN MATRIX BLOCK)
    ========================================================================== */
 .about-section,
 .services-section,
@@ -462,14 +462,8 @@ main { position: relative; width: 100%; }
 .leadership-section  { z-index: 5; background-color: var(--white) !important; }
 .sectors-section     { z-index: 6; background-color: var(--light-bg) !important; }
 
-/* FIXED: Changed to position relative to create an independent trailing block runway */
-.contact-section     { 
-    z-index: 1 !important; 
-    background-color: var(--white) !important; 
-    position: relative !important;
-    top: 0 !important;
-    margin-bottom: 450px !important; /* FIXED: Reserves whitespace for footer slide context */
-}
+/* FIXED: Kept strictly on the sticky stack layer. Deleted the old conflicting relative rule block entirely! */
+.contact-section     { z-index: 7 !important; background-color: var(--white) !important; }
 
 .about-section .container,
 .services-section .container,
@@ -480,6 +474,7 @@ main { position: relative; width: 100%; }
     margin-top: 0 !important;
     padding-top: 0 !important;
 }
+
 
 
 /* ==========================================================================
@@ -1026,14 +1021,16 @@ main { position: relative; width: 100%; }
    ========================================================================== */
 .main-footer {
     position: relative !important; 
-    z-index: 20 !important; /* FIXED: Layer sequence optimized with Section 7 */ 
+    z-index: 20 !important; /* FIXED: Layer order optimized with Section 7 styles */
     width: 100%; 
     padding: 120px 0 40px 0;
     background-image: url('assets/images/image_c.jpg'); 
     background-size: cover; 
     background-position: center center; 
     background-repeat: no-repeat;
-    margin-top: -450px !important; /* FIXED: Pulls the footer frame smoothly up over the contact runway spacer */
+    
+    /* FIXED: Removed negative margins completely to prevent swallowing your Contact fields */
+    margin-top: 0 !important; 
 }
 .main-footer::before {
     content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
@@ -1117,13 +1114,14 @@ main { position: relative; width: 100%; }
    ========================================================================== */
 .footer-bottom { 
     display: flex !important; 
-    justify-content: space-between !important; /* Spreads content back out to far margins */
+    justify-content: space-between !important; /* Forces items out to far margins */
     align-items: center !important; 
     padding-top: 28px !important; 
     font-size: 0.85rem !important; 
     color: rgba(255, 255, 255, 0.6) !important; 
     width: 100% !important;
-    flex-direction: row !important; /* Forces layout to remain a single balanced row line */
+    clear: both !important; /* Breaks out of any parent column containers */
+    flex-direction: row !important; /* Re-forces uniform single-line layout row axis */
 }
 .footer-legal { display: flex !important; gap: 24px !important; }
 .footer-legal a { color: rgba(255, 255, 255, 0.6) !important; }
