@@ -462,26 +462,25 @@ main { position: relative; width: 100%; }
 .sectors-section     { z-index: 6; background-color: var(--light-bg) !important; }
 
 /* ==========================================================================
-   CONTACT SECTION: DEFINITIVE LOCK AND GREY LINE MASK PATCH
+   CONTACT SECTION: ANCHORED AT 76PX WITH PROPER CONTAINER SPACE
    ========================================================================== */
 .contact-section { 
     position: sticky !important;
-    top: 0 !important; /* FIXED: Pushed fully up to lock flush under the header viewport frame */
+    top: 76px !important; /* FIXED: Safely positions the section box directly below your 76px navigation bar */
     
-    height: 100vh !important; /* FIXED: Locked back onto the strict sticky matrix track */
+    height: 100vh !important; 
     min-height: 100vh !important;
     max-height: 100vh !important;
     width: 100vw !important;
     overflow: hidden !important;
     
-    /* DEFINITIVE FIX: Forces a micro-pull to perfectly seal and hide the grey border strip */
-    margin-top: -10px !important; 
-    padding: 110px 0 40px 0 !important; 
+    /* FIXED: Removed the negative margins completely to bring your title text out from behind the bar */
+    margin-top: 0 !important; 
+    padding: 60px 0 40px 0 !important; 
     
     z-index: 7 !important; 
     background-color: var(--white) !important; 
 }
-
 .about-section .container,
 .services-section .container,
 .framework-unified-container,
