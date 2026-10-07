@@ -352,23 +352,6 @@ document.addEventListener("DOMContentLoaded", initializeVantaClouds);
 let scrollTicking = false;
 
 function updateScrollEffects() {
-    // ==========================================================================
-    // NAVBAR PROTECTION PATCH: Keeps text elements 100% visible on scroll passes
-    // ==========================================================================
-    const navbar = document.querySelector('.navbar');
-    if (navbar) {
-        navbar.style.opacity = "1";
-        navbar.style.visibility = "visible";
-        navbar.style.display = "flex";
-        
-        // Forces all internal link tags to stay fully visible across scrolling loops
-        const navAnchors = navbar.querySelectorAll('a, button, span');
-        navAnchors.forEach(el => {
-            el.style.opacity = "1";
-            el.style.visibility = "visible";
-        });
-    }
-
     const heroContent = document.querySelector('.hero-content.container');
     const sections = document.querySelectorAll('main > section:not(.hero-section):not(.framework-scroll-section)');
     const scrollPosition = window.scrollY;
@@ -420,6 +403,24 @@ function updateScrollEffects() {
         }
     });
 
+    // ==========================================================================
+    // CRITICAL PATCH: Strips fading overrides and forces full navbar visibility
+    // ==========================================================================
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+        navbar.classList.remove('faded'); // Prevents class inheritance bugs
+        navbar.style.setProperty('opacity', '1', 'important');
+        navbar.style.setProperty('visibility', 'visible', 'important');
+        navbar.style.setProperty('display', 'flex', 'important');
+        
+        // Forces all internal menu links to stay solid and clickable
+        const navAnchors = navbar.querySelectorAll('a, button, span, div');
+        navAnchors.forEach(el => {
+            el.style.setProperty('opacity', '1', 'important');
+            el.style.setProperty('visibility', 'visible', 'important');
+        });
+    }
+
     scrollTicking = false;
 }
 
@@ -445,9 +446,10 @@ window.addEventListener('scroll', () => {
     }
 
     // 2. PROTECT VISIBILITY: Prevent previous parallax calculations from hiding this bar
-    navbar.style.opacity = "1";
-    navbar.style.visibility = "visible";
+    navbar.style.setProperty('opacity', '1', 'important');
+    navbar.style.setProperty('visibility', 'visible', 'important');
 }, { passive: true });
+
 
 
 /* ==========================================================================
