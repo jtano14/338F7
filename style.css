@@ -165,7 +165,7 @@ button { cursor: pointer; }
     transform: translateZ(9999px) !important;
     backface-visibility: visible !important;
     
-    /* STARTING STATE: Transparent background on the Hero page */
+    /* STARTING STATE: Beautifully transparent on site load over Vanta Clouds */
     background-color: transparent !important; 
     border-bottom: 1px solid transparent !important;
     box-shadow: none !important;
@@ -175,15 +175,21 @@ button { cursor: pointer; }
     transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Ensure navbar visibility remains active during parallax scroll passes */
-.navbar, .navbar.scrolled {
+/* Force elements to stay 100% visible and interactive across layout jumps */
+.navbar, .navbar .nav-container, .navbar .nav-links {
     opacity: 1 !important;
     visibility: visible !important;
-    display: flex !important;
+    z-index: 999999 !important;
+}
+
+.navbar .nav-links a {
+    color: var(--primary-color) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
 /* ==========================================================================
-   SCROLLED STATE: Triggers via JS once user travels past 50px
+   SCROLLED STATE: Active once scrolled past 50px or viewing down page
    ========================================================================== */
 .navbar.scrolled { 
     background-color: rgba(255, 255, 255, 0.98) !important; 
@@ -191,14 +197,12 @@ button { cursor: pointer; }
     box-shadow: 0 4px 20px rgba(11, 34, 64, 0.06) !important; 
 }
 
-/* Forces deep corporate blue text strings once background sheet becomes white */
 .navbar.scrolled .nav-links a {
-    color: #0b2240 !important;
-    opacity: 1 !important;
+    color: #0b2240 !important; /* Rich deep navy blue text against white sheet */
 }
 
 /* ==========================================================================
-   STRUCTURAL CORE & TYPOGRAPHY CONTAINERS
+   STRUCTURAL CORE LAYER TRACES
    ========================================================================== */
 .nav-container {
     display: flex;
@@ -215,7 +219,6 @@ button { cursor: pointer; }
 }
 .nav-links { display: flex; align-items: center; gap: 28px; }
 .nav-links a {
-    color: var(--primary-color);
     font-size: 0.95rem;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -232,7 +235,7 @@ button { cursor: pointer; }
 }
 
 /* ==========================================================================
-   MOBILE HAMBURGER INTERACTIVE BUTTON MATRIX
+   MOBILE HAMBURGER INTERACTIVE BUTTON MATRIX (PRESERVED)
    ========================================================================== */
 .nav-toggle { 
     display: none; 
