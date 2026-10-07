@@ -462,11 +462,13 @@ main { position: relative; width: 100%; }
 .leadership-section  { z-index: 5; background-color: var(--white) !important; }
 .sectors-section     { z-index: 6; background-color: var(--light-bg) !important; }
 
-/* FIXED: Isynchronized contact parameters to block background page sliding */
+/* FIXED: Changed to position relative to create an independent trailing block runway */
 .contact-section     { 
-    z-index: 7 !important; 
+    z-index: 1 !important; 
     background-color: var(--white) !important; 
-    position: sticky !important;
+    position: relative !important;
+    top: 0 !important;
+    margin-bottom: 450px !important; /* FIXED: Reserves whitespace for footer slide context */
 }
 
 .about-section .container,
@@ -1020,14 +1022,18 @@ main { position: relative; width: 100%; }
 }
 
 /* ==========================================================================
-   14. FOOTER WITH ACCENT OVERLAYS (CLEANED & ALIGNED TO ROW TOP)
+   14. FOOTER WITH ACCENT OVERLAYS (FULL DESIGN INTEGRATION)
    ========================================================================== */
 .main-footer {
-    position: relative; 
-    z-index: 25 !important;  
+    position: relative !important; 
+    z-index: 20 !important; /* FIXED: Layer sequence optimized with Section 7 */ 
     width: 100%; 
     padding: 120px 0 40px 0;
-    background-image: url('assets/images/image_c.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat;
+    background-image: url('assets/images/image_c.jpg'); 
+    background-size: cover; 
+    background-position: center center; 
+    background-repeat: no-repeat;
+    margin-top: -450px !important; /* FIXED: Pulls the footer frame smoothly up over the contact runway spacer */
 }
 .main-footer::before {
     content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
@@ -1105,17 +1111,24 @@ main { position: relative; width: 100%; }
 }
 .footer-links a:hover, .office-link:hover { color: var(--accent-blue); padding-left: 2px; }
 .office-link { text-align: left; background: none; border: none; padding: 0; cursor: pointer; }
+
+/* ==========================================================================
+   FIXED: Restores the exact single-line left-and-right spacing from Image 2
+   ========================================================================== */
 .footer-bottom { 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    padding-top: 28px; 
-    font-size: 0.85rem; 
-    color: rgba(255, 255, 255, 0.6); 
+    display: flex !important; 
+    justify-content: space-between !important; /* Spreads content back out to far margins */
+    align-items: center !important; 
+    padding-top: 28px !important; 
+    font-size: 0.85rem !important; 
+    color: rgba(255, 255, 255, 0.6) !important; 
+    width: 100% !important;
+    flex-direction: row !important; /* Forces layout to remain a single balanced row line */
 }
-.footer-legal { display: flex; gap: 24px; }
-.footer-legal a { color: rgba(255, 255, 255, 0.6); }
-.footer-legal a:hover { color: var(--accent-blue); }
+.footer-legal { display: flex !important; gap: 24px !important; }
+.footer-legal a { color: rgba(255, 255, 255, 0.6) !important; }
+.footer-legal a:hover { color: var(--accent-blue) !important; }
+
 
 /* ==========================================================================
    15. OFFICE MODAL POPUPS & RESPONSIVE LAYOUTS (STREAMLINED)
