@@ -1146,7 +1146,14 @@ main { position: relative; width: 100%; }
 /* ==========================================================================
    15. OFFICE MODAL POPUPS & RESPONSIVE LAYOUTS (STREAMLINED)
    ========================================================================== */
+/* FIXED: Base state completely hides dialog tags until JavaScript runs .showModal() */
+dialog,
 .office-dialog { 
+    display: none !important; 
+    opacity: 0 !important;
+    pointer-events: none !important;
+    z-index: -1000 !important;
+
     border: none; 
     border-radius: 6px; 
     padding: 40px; 
@@ -1160,6 +1167,20 @@ main { position: relative; width: 100%; }
     transform: translate(-50%, -50%) !important;
     margin: 0 !important;
 }
+
+/* ==========================================================================
+   OPEN STATE STATE INTERACTION OVERRIDE
+   ========================================================================== */
+/* FIXED: Safely brings your popup boxes back into focus once an office button is tapped */
+dialog[open],
+.office-dialog[open] {
+    display: flex !important;
+    flex-direction: column !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    z-index: 9999999 !important;
+}
+
 .dialog-close { 
     position: absolute; 
     top: 16px; 
@@ -1240,6 +1261,7 @@ html[lang="ja"] .stats-row {
 html[lang="ja"] .stat-number {
     font-size: 2.1rem !important; /* Slightly scaled to lock data content cleanly into viewport baselines */
 }
+
 
 /* ==========================================================================
    FLUX7 BRAND WATERMARK SILHOUETTES (MATTE BACKGROUND ARROWS)
