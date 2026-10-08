@@ -162,6 +162,20 @@
     }
     .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
 
+   /* ==========================================================================
+       FIXED: MOBILE UNSTICKY OVERRIDE PANEL (STOPS HEADER TRAILING INTRUSIONS)
+       ========================================================================== */
+   .about-section *,
+   .services-section *,
+   .framework-section *,
+   .leadership-section *,
+   .sectors-section *,
+   .contact-section * {
+       position: relative !important;
+       top: auto !important;
+       transform: none !important;
+   }
+   
     /* 5. MOBILE ACCORDION STYLING PARAMETERS (THE 7 PILLARS REFACTOR) */
     .framework-mobile-accordion {
         width: 100%;
