@@ -376,7 +376,24 @@ function updateScrollEffects() {
         }
     }
 
-    sections.forEach(section => {
+       sections.forEach(section => {
+        // 1. SCREEN SIZE DETECTOR: If viewed on a mobile phone viewport (under 900px), bypass layout locks
+        if (window.innerWidth <= 900) {
+            section.style.opacity = "1";
+            section.style.transform = "none";
+            
+            // FIXED: Instantly strips dynamic inline position overrides from ghost header items
+            const mobileStickyHeaders = section.querySelectorAll('.about-row-header, [class*="header"]');
+            mobileStickyHeaders.forEach(header => {
+                header.style.position = "relative";
+                header.style.top = "auto";
+                header.style.background = "transparent";
+                header.style.boxShadow = "none";
+            });
+            return; // Cleanly exits this scroll calculation path for this section frame on touch screens
+        }
+
+        // 2. DESKTOP ONLY: Your original stacking animation math continues down here safely
         const rect = section.getBoundingClientRect();
 
         if (rect.top < 0 && rect.bottom > 0) {
