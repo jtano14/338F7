@@ -358,16 +358,21 @@ function updateScrollEffects() {
     const windowHeight = window.innerHeight;
 
     if (heroContent) {
-        // SLOWER FADE: Increased multiplier from 1.2 to 2.2 for smoother transition
-        let fadeThreshold = windowHeight * 2.2;
-        let newOpacity = 1 - (scrollPosition / fadeThreshold);
-        
-        if (newOpacity >= 0) {
-            heroContent.style.opacity = newOpacity;
-            // GENTLER PARALLAX: Reduced from 0.18 to 0.08 for slower drift
-            heroContent.style.transform = `translateY(${scrollPosition * 0.08}px)`;
+        // 1. SCREEN SIZE DETECTOR: If viewed on mobile (under 900px), disable the 3D scroll movement completely
+        if (window.innerWidth <= 900) {
+            heroContent.style.opacity = "1";
+            heroContent.style.transform = "none";
         } else {
-            heroContent.style.opacity = 0;
+            // 2. DESKTOP ONLY: Run your beautiful background drifting parallax effects as normal
+            let fadeThreshold = windowHeight * 2.2;
+            let newOpacity = 1 - (scrollPosition / fadeThreshold);
+            
+            if (newOpacity >= 0) {
+                heroContent.style.opacity = newOpacity;
+                heroContent.style.transform = `translateY(${scrollPosition * 0.08}px)`;
+            } else {
+                heroContent.style.opacity = 0;
+            }
         }
     }
 
