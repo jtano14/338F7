@@ -308,7 +308,27 @@
         line-height: 1.5;
         color: var(--text-dark);
     }
-}
+
+    /* ==========================================================================
+       DEFINITIVE FIXED BOX PURGE ENGINE (STOPS GHOST OVERLAYS OVER HERO/FOOTER)
+       ========================================================================== */
+    .about-row-header,
+    .brand-container,
+    .about-grid-container,
+    div[id*="seq-"], 
+    div[class*="-header"] {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        z-index: 1 !important;
+    }
+
+    /* Safety check: Forces any clipping masks to open up on mobile screens */
+    .scroll-stack-wrapper * {
+        max-height: none !important;
+    }
+} /* 🌟 This curly bracket correctly closes the @media (max-width: 900px) zone */
 
 @media (max-width: 768px) {
     .contact-form-grid, .service-packages-grid { grid-template-columns: 1fr !important; }
