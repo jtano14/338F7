@@ -24,9 +24,13 @@
         height: auto !important;
     }
     
+    /* FIXED: Strips away background and transform layers causing ghost mobile blocks */
     .scroll-stack-wrapper {
         margin-top: 0 !important;
         position: relative !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        transform: none !important;
     }
     
     /* FIX: Force hamburger container to render as a flexible column stack with deep blue lines */
@@ -152,7 +156,17 @@
 
     /* About Grid Structure Collapse Tracking */
     .about-grid-container { display: flex !important; flex-direction: column !important; gap: 24px !important; }
-    .about-row-header { margin-bottom: 4px !important; }
+    
+    /* FIXED: Strips the sticky properties and white card fill background from headers */
+    .about-row-header { 
+        margin-bottom: 4px !important; 
+        position: relative !important;
+        top: 0 !important;
+        background-color: transparent !important;
+        background: transparent !important;
+        box-shadow: none !important;
+    }
+    
     .about-row-stats-left { border-top: 1px solid var(--border-color); padding-top: 24px !important; }
     
     /* Layout Column Flattening resets */
@@ -296,7 +310,7 @@
         transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s ease;
         padding: 0 16px !important;
     }
-    .sector-accordion-panel.is-active {
+        .sector-accordion-panel.is-active {
         padding: 12px 16px !important;
         max-height: max-content !important; /* Auto-scales container box precisely to matching description text volume */
         overflow: visible !important;        /* Guarantees no truncation bugs occur */
@@ -309,10 +323,9 @@
         color: var(--text-dark);
     }
 
-      /* ==========================================================================
+    /* ==========================================================================
        DEFINITIVE FIXED BOX PURGE ENGINE (STOPS GHOST OVERLAYS OVER HERO/FOOTER)
        ========================================================================== */
-    /* 🌟 FIX 1: Strips the sticky properties from the "会社概要" (About) row headers entirely */
     .about-row-header,
     .about-section h2,
     .about-section h3,
@@ -328,25 +341,12 @@
         z-index: 1 !important;
     }
 
-    /* 🌟 FIX 2: Forces the mobile navbar back to transparent on the Hero section load */
-    .navbar {
-        position: fixed !important;
-        background-color: transparent !important; /* Starts transparent over Vanta Clouds */
-        box-shadow: none !important;
-        border-bottom: 1px solid transparent !important;
-    }
-
-    /* Allows the navbar to only become white once the mobile drawer is actively opened */
-    .navbar.is-open,
-    .nav-links.is-open {
-        background-color: rgba(255, 255, 255, 0.98) !important;
-    }
-
     /* Safety check: Forces any hidden clipping containers to release on mobile screens */
     .scroll-stack-wrapper * {
         max-height: none !important;
     }
-}
+} /* 🌟 This curly bracket correctly closes your entire @media (max-width: 900px) block */
+
 
 @media (max-width: 768px) {
     .contact-form-grid, .service-packages-grid { grid-template-columns: 1fr !important; }
