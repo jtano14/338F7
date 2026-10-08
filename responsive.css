@@ -309,26 +309,44 @@
         color: var(--text-dark);
     }
 
-    /* ==========================================================================
+      /* ==========================================================================
        DEFINITIVE FIXED BOX PURGE ENGINE (STOPS GHOST OVERLAYS OVER HERO/FOOTER)
        ========================================================================== */
+    /* 🌟 FIX 1: Strips the sticky properties from the "会社概要" (About) row headers entirely */
     .about-row-header,
-    .brand-container,
-    .about-grid-container,
-    div[id*="seq-"], 
-    div[class*="-header"] {
+    .about-section h2,
+    .about-section h3,
+    .about-row-header *,
+    .about-grid-container h2 {
         position: relative !important;
         top: auto !important;
         left: auto !important;
         transform: none !important;
+        display: block !important;
+        background: transparent !important; /* Removes the floating white card fill background */
+        box-shadow: none !important;
         z-index: 1 !important;
     }
 
-    /* Safety check: Forces any clipping masks to open up on mobile screens */
+    /* 🌟 FIX 2: Forces the mobile navbar back to transparent on the Hero section load */
+    .navbar {
+        position: fixed !important;
+        background-color: transparent !important; /* Starts transparent over Vanta Clouds */
+        box-shadow: none !important;
+        border-bottom: 1px solid transparent !important;
+    }
+
+    /* Allows the navbar to only become white once the mobile drawer is actively opened */
+    .navbar.is-open,
+    .nav-links.is-open {
+        background-color: rgba(255, 255, 255, 0.98) !important;
+    }
+
+    /* Safety check: Forces any hidden clipping containers to release on mobile screens */
     .scroll-stack-wrapper * {
         max-height: none !important;
     }
-} /* 🌟 This curly bracket correctly closes the @media (max-width: 900px) zone */
+}
 
 @media (max-width: 768px) {
     .contact-form-grid, .service-packages-grid { grid-template-columns: 1fr !important; }
