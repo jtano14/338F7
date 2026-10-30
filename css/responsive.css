@@ -58,7 +58,16 @@
   .hero .hero-divider { margin-top: 38px; }
 }
 
-/* small phone and accessibility */
+@media (min-width: 601px) and (max-width: 900px) {
+  .hero-wordmark { margin-top: 35px; gap: 12px; }
+  .wordmark-main { font-size: clamp(80px, 11vw, 120px); }
+  .wordmark-company { font-size: clamp(19px, 3vw, 30px); }
+  .hero-message h1 { font-size: clamp(30px, 3.8vw, 40px); }
+  .hero .business-card { min-height: 245px; padding: 20px; }
+  .hero .card-content strong { font-size: 30px; }
+}
+
+/* <<Mobile 1: small phone and accessibility */
 @media (max-width: 600px) {
   .container { width: min(100% - 32px, 1320px); }
   .hero { padding: 65px 0 60px; }
@@ -137,4 +146,15 @@
   .wordmark-main { font-size: clamp(65px, 17vw, 110px); }
   .wordmark-company { font-size: clamp(14px, 3.7vw, 25px); }
   .hero .hero-divider { margin-top: 32px; }
+}
+
+@media (max-width: 600px) {
+  .hero { padding-top: 35px; padding-bottom: 50px; }
+  .hero-wordmark { gap: 8px; margin-top: 35px; }
+  .wordmark-main { font-size: clamp(56px, 14vw, 85px); }
+  .wordmark-company { font-size: clamp(13px, 3.2vw, 20px); }
+  .hero-message h1 { font-size: clamp(32px, 8vw, 44px); }
+  .hero .hero-divider { margin-top: 28px; }
+  .hero .business-card { min-height: 250px; padding: 22px; }
+  .hero .card-content strong { font-size: 32px; }
 }
