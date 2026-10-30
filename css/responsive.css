@@ -14,6 +14,20 @@
   .business-card { min-height: 350px; padding: 26px; }
 }
 
+/* Project B: Responsive homepage content sections */
+@media (max-width: 900px) {
+  .explore-nav { padding: 70px 0 85px; }
+  .explore-link { grid-template-columns: 45px minmax(0,1fr) 55px; min-height: 105px; padding: 12px; }
+  .explore-name { font-size: clamp(36px, 7.5vw, 70px); }
+  .explore-arrow { font-size: 42px; }
+  .content-section { padding: 75px 0 85px; scroll-margin-top: 76px; }
+  .section-layout { grid-template-columns: 1fr; gap: 28px; padding-top: 40px; }
+  .section-layout h2 { font-size: clamp(42px, 6.5vw, 64px); }
+  .service-detail-grid { margin-top: 45px; }
+  .service-detail-card { min-height: 355px; padding: 26px; }
+  .market-list { margin-top: 45px; }
+}
+
 /* small phone and accessibility */
 @media (max-width: 600px) {
   .container { width: min(100% - 32px, 1320px); }
@@ -33,3 +47,28 @@
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
 
+/* mobile layout */
+@media (max-width: 600px) {
+  .explore-nav { padding: 55px 0 70px; }
+  .section-label { font-size: 9px; letter-spacing: .07em; }
+  .explore-links { margin-top: 22px; }
+  .explore-link { grid-template-columns: 28px minmax(0,1fr) 35px; min-height: 86px; padding: 10px 4px; }
+  .explore-number { margin-top: 12px; font-size: 10px; }
+  .explore-name { font-size: clamp(27px, 7.8vw, 46px); letter-spacing: -.055em; }
+  .explore-arrow { font-size: 30px; transform: none; opacity: 1; }
+  .explore-link:hover .explore-name, .explore-link:focus-visible .explore-name { transform: translateX(3px); }
+  .content-section { padding: 60px 0 70px; }
+  .section-layout { padding-top: 30px; }
+  .section-layout h2 { font-size: clamp(36px, 9vw, 50px); }
+  .section-copy p, .services-intro > p { font-size: 16px; }
+  .service-detail-grid { grid-template-columns: 1fr; gap: 14px; margin-top: 35px; }
+  .service-detail-card { min-height: 310px; padding: 25px; }
+  .service-detail-card h3 { margin-top: 35px; }
+  .market-list { gap: 9px; margin-top: 35px; }
+  .market-list span { min-height: 45px; padding: 12px 15px; font-size: 11px; }
+}
+@media (hover: none) {
+  .explore-link::before { display: none; }
+  .explore-link:hover, .explore-link:focus-visible { color: var(--primary-color); }
+  .explore-arrow { transform: none; opacity: 1; }
+}
