@@ -1,0 +1,9 @@
+/* Project B shared English navigation. Place after each page's existing CSS. */
+.flux7-unified-nav{display:flex!important;align-items:center!important;gap:clamp(10px,1.5vw,22px)!important;flex-wrap:wrap!important}
+.flux7-unified-nav a{font-family:'Inter Tight',Arial,sans-serif!important;font-size:clamp(11px,.93vw,13px)!important;letter-spacing:0!important;white-space:nowrap!important;text-decoration:none!important;position:relative!important}
+.flux7-unified-nav a[aria-current="page"]{color:#0077b6!important;font-weight:800!important}
+.flux7-unified-nav a[aria-current="page"]:after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:2px;background:#0077b6}
+.flux7-unified-footer-nav{display:flex!important;gap:clamp(10px,1.2vw,18px)!important;flex-wrap:wrap!important;align-items:center!important}
+.flux7-unified-footer-nav a{white-space:nowrap;text-decoration:none}
+@media(max-width:900px){.flux7-unified-nav{gap:12px!important;justify-content:center!important}.flux7-unified-nav a{font-size:12px!important}.flux7-unified-nav a[aria-current="page"]:after{bottom:-3px}}
+@media(max-width:560px){.flux7-unified-nav{gap:10px 14px!important}.flux7-unified-nav a{font-size:11px!important}}
