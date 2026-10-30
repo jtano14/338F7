@@ -200,3 +200,50 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--accent-blue); o
   outline: 3px solid var(--accent-blue);
   outline-offset: -3px;
 }
+
+/* Project B: Compact wordmark and unified headline */
+.hero { padding-top: 48px; padding-bottom: 65px; }
+.hero-wordmark {
+  justify-content: flex-start;
+  align-items: baseline;
+  gap: clamp(12px, 2vw, 30px);
+  margin-top: 36px;
+}
+.wordmark-main {
+  font-size: clamp(85px, 12vw, 175px);
+  line-height: .9;
+}
+.wordmark-company {
+  font-size: clamp(24px, 3.3vw, 46px);
+  letter-spacing: -.055em;
+}
+.hero-message h1 {
+  font-size: clamp(32px, 3.1vw, 47px);
+  line-height: 1.12;
+}
+.hero-message h1 span {
+  display: inline;
+  margin-top: 0;
+}
+.hero-message .hero-description { margin-top: 20px; }
+
+/* Project B: Compact Core Business gateway cards */
+.hero .hero-divider { margin: 30px 0 16px; }
+.hero .business-grid { gap: 16px; }
+.hero .business-card {
+  min-height: 235px;
+  padding: 24px;
+}
+.hero .card-content {
+  gap: 10px;
+  margin: 20px 0;
+}
+.hero .card-content strong {
+  font-size: clamp(28px, 2.7vw, 39px);
+  line-height: 1.08;
+}
+.hero .card-content > span {
+  font-size: 13px;
+  line-height: 1.5;
+}
+.hero .card-bottom { padding-top: 13px; }
