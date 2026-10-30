@@ -123,3 +123,80 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--accent-blue); o
 .product-line-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 24px 0; padding: 0; list-style: none; }
 .product-line-list li { padding: 13px 0; border-bottom: 1px solid var(--border-color); color: var(--primary-color); font-size: 15px; font-weight: 600; }
 .service-overview-content .text-link { margin-top: 22px; }
+
+
+/* Project B: Compact two-column homepage Hero */
+.hero { padding: 64px 0 85px; }
+.hero-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr);
+  gap: clamp(45px, 6vw, 100px);
+  align-items: start;
+}
+.hero-top .hero-explore { margin: 0; min-width: 0; }
+.hero-top .explore-links { margin-top: 10px; }
+.hero-top .explore-link {
+  grid-template-columns: 38px minmax(0, 1fr) 42px;
+  min-height: 77px;
+  padding: 8px 12px;
+}
+.hero-top .explore-number { margin-top: 10px; font-size: 10px; }
+.hero-top .explore-name {
+  font-size: clamp(30px, 3.25vw, 49px);
+  letter-spacing: -.055em;
+}
+.hero-top .explore-arrow { font-size: 31px; }
+.hero-message { padding-top: 42px; min-width: 0; }
+.hero-message .eyebrow { margin-bottom: 24px; }
+.hero-message h1 {
+  font-size: clamp(37px, 3.8vw, 57px);
+  line-height: 1.08;
+  letter-spacing: -.055em;
+}
+.hero-message h1 span { display: block; margin-top: 5px; }
+.hero-message .hero-description {
+  max-width: 480px;
+  margin-top: 25px;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+/* Full-width corporate identity statement */
+.hero-wordmark {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 65px;
+  color: var(--primary-color);
+  white-space: nowrap;
+}
+.wordmark-main {
+  font-size: clamp(110px, 17vw, 270px);
+  font-weight: 800;
+  line-height: .85;
+  letter-spacing: -.095em;
+}
+.wordmark-main > span { color: var(--accent-blue); }
+.wordmark-company {
+  font-size: clamp(25px, 3.8vw, 58px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -.06em;
+}
+.hero .hero-divider { margin: 48px 0 24px; }
+
+/* Navigation movement and keyboard interaction */
+.hero-top .explore-link:hover .explore-name,
+.hero-top .explore-link:focus-visible .explore-name {
+  transform: translateX(6px) scale(1.015);
+}
+.hero-top .explore-link:hover .explore-arrow,
+.hero-top .explore-link:focus-visible .explore-arrow {
+  transform: translateX(0) rotate(0);
+  opacity: 1;
+}
+.hero-top .explore-link:focus-visible {
+  outline: 3px solid var(--accent-blue);
+  outline-offset: -3px;
+}
