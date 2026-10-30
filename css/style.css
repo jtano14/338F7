@@ -292,3 +292,17 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--accent-blue); o
   object-position: left center;
   margin: auto 0;
 }
+
+/* Light identity panel for the original blue logo */
+.profile-identity {
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  color: var(--primary-color);
+}
+.profile-identity-label,
+.profile-identity-bottom {
+  color: var(--accent-blue);
+}
+.profile-identity-bottom {
+  border-top-color: var(--border-color);
+}
