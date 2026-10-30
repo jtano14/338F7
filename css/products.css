@@ -26,3 +26,18 @@
 
 /* v5: Three generic trading steps, metal-specific quality is on metals.html. */
 .trading-process-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+
+/* v6: polished trading tiles, readable text, balanced typography */
+.trading-tiles{max-width:1120px;gap:16px}
+.trading-tile{height:226px;min-height:226px;padding:22px;border:1px solid #d8e6f4;border-radius:15px;box-shadow:inset 0 1px 0 rgba(255,255,255,.9)}
+.tile-metals{background:linear-gradient(132deg,#fff 0%,#f5faff 38%,#d5e9fc 100%)}
+.tile-chemicals{background:linear-gradient(132deg,#fff 0%,#f4f8ff 38%,#dbe7fb 100%)}
+.tile-food{background:linear-gradient(132deg,#fff 0%,#f6fbff 38%,#dcecf4 100%)}
+.tile-consumer{background:linear-gradient(132deg,#fff 0%,#f3faff 38%,#d3e9fa 100%)}
+.tile-index{font-size:11px;color:#365d80;letter-spacing:.055em}
+.tile-bottom{gap:9px;padding-right:16px}
+.tile-bottom strong{font-size:clamp(24px,2.2vw,32px);font-weight:800;color:#0b2240;line-height:1.08}
+.tile-bottom small{font-size:14px;line-height:1.4;color:#334e68;max-width:220px;font-weight:500}
+.tile-arrow{right:19px;bottom:18px;font-size:23px}
+.trading-statement h2,.trading-approach h2{font-size:clamp(38px,4vw,56px)}
+.trading-statement,.trading-approach{padding:70px 0}
