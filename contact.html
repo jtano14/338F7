@@ -1,32 +1,47 @@
-'use strict';
-(() => {
-  const form = document.getElementById('inquiry-form');
-  const division = document.getElementById('division');
-  if (!form || !division) return;
-  const queryDivision = new URLSearchParams(window.location.search).get('division');
-  const mappings = {
-    'metals': 'Metals',
-    'chemicals': 'Chemicals',
-    'food-processing': 'Food Processing',
-    'consumer-goods': 'Consumer Goods',
-    'consulting': 'Corporate consulting'
-  };
-  if (queryDivision && mappings[queryDivision]) division.value = mappings[queryDivision];
-  form.addEventListener('submit', event => {
-    event.preventDefault();
-    if (!form.reportValidity()) return;
-    const data = new FormData(form);
-    const get = key => String(data.get(key) || '').trim();
-    const subject = `FLUX7 Inquiry: ${get('division')} / ${get('company')}`;
-    const body = [
-      `Name: ${get('name')}`,
-      `Company: ${get('company')}`,
-      `Email: ${get('email')}`,
-      `Country / region: ${get('country') || 'Not specified'}`,
-      `Inquiry type: ${get('division')}`,
-      '', 'Message:', get('message')
-    ].join('\n');
-    window.location.href = `mailto:info@flux7.co.jp?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  });
-})();
-
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Contact FLUX7 Co., Ltd. for corporate consulting, global trading, and international sourcing inquiries.">
+<title>Contact | FLUX7 Co., Ltd.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/contact.css">
+<link rel="stylesheet" href="css/contact-responsive.css">
+<script src="js/contact.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap header-inner">
+<a class="logo" href="index.html" aria-label="FLUX7 home">FLUX<span>7</span><small>CO., LTD.</small></a>
+<nav aria-label="Primary navigation"><a href="index.html">Home</a><a href="company.html">Company</a><a href="consulting.html">Consulting</a><a href="products.html">Trading</a><a href="leadership.html">Leadership</a><a href="contact.html" aria-current="page">Contact ↗</a></nav>
+</div></header>
+<main id="main">
+<section class="intro"><div class="wrap">
+<div class="eyebrow-line"><span>FLUX7 / CONTACT</span><span>JAPAN · INDIA · ASIA · GCC</span></div>
+<div class="intro-grid"><div><p class="kicker">START A CONVERSATION</p><h1>Good business starts<br>with <em>a connection.</em></h1></div><p>Exploring a new market, sourcing materials, or considering a cross-border partnership? Tell us what you're working on.</p></div>
+</div></section>
+<section class="contact-section"><div class="wrap contact-grid">
+<div class="contact-info"><p class="kicker">REACH OUR TEAM</p><h2>Let's talk about<br><em>what comes next.</em></h2>
+<p class="intro-copy">We welcome inquiries from companies looking to enter Japan, expand internationally, or connect with sourcing and trading partners.</p>
+<div class="contact-detail"><span>GENERAL INQUIRIES</span><a href="mailto:info@flux7.co.jp">info@flux7.co.jp ↗</a></div>
+<div class="contact-detail"><span>HEADQUARTERS</span><address>1-22-9 Tsukaguchi-cho<br>Amagasaki, Hyogo 661-0002<br>Japan</address></div>
+<div class="contact-detail"><span>TELEPHONE</span><a href="tel:+81664159764">+81-6-6415-9764</a></div>
+<div class="contact-note">FLUX7 operates from Japan and works with international partners across Asia and other markets.</div>
+</div>
+<div class="form-panel"><p class="kicker">SEND AN INQUIRY</p><h2>Tell us about your project.</h2>
+<p class="form-note">Complete the fields below to prepare an email to our team. Your email application will open so you can review and send the message.</p>
+<form id="inquiry-form">
+<div class="field-row"><label>Full name <span>*</span><input name="name" autocomplete="name" required maxlength="120"></label><label>Company <span>*</span><input name="company" autocomplete="organization" required maxlength="160"></label></div>
+<div class="field-row"><label>Email <span>*</span><input name="email" type="email" autocomplete="email" required maxlength="200"></label><label>Country / region<input name="country" autocomplete="country-name" maxlength="100"></label></div>
+<label>Inquiry type <span>*</span><select name="division" id="division" required><option value="">Select an area</option><option value="Corporate consulting">Corporate consulting</option><option value="Metals">Metals</option><option value="Chemicals">Chemicals</option><option value="Food Processing">Food Processing</option><option value="Consumer Goods">Consumer Goods</option><option value="Business partnership">Business partnership</option><option value="General inquiry">General inquiry</option></select></label>
+<label>Your message <span>*</span><textarea name="message" rows="6" required maxlength="5000" placeholder="Briefly describe your requirements, target market, product specifications, quantity, or proposed collaboration."></textarea></label>
+<button type="submit">PREPARE EMAIL <span aria-hidden="true">↗</span></button><p class="form-footnote">This form does not upload information to a server. It prepares an email in your default mail application. If nothing opens, email us directly at <a href="mailto:info@flux7.co.jp">info@flux7.co.jp</a>.</p>
+</form></div>
+</div></section>
+<section class="outro"><div class="wrap outro-grid"><div><span>GLOBAL PERSPECTIVE. LOCAL UNDERSTANDING.</span><h2>Across borders.<br><em>In conversation.</em></h2></div><p>From first introductions to long-term commercial relationships, we value practical discussions and clear next steps.</p></div></section>
+</main>
+<footer class="site-footer"><div class="wrap footer-inner"><a class="logo" href="index.html">FLUX<span>7</span><small>CO., LTD.</small></a><nav aria-label="Footer navigation"><a href="company.html">Company Profile</a><a href="consulting.html">Consulting</a><a href="products.html">Trading</a><a href="leadership.html">Leadership</a><a href="contact.html">Contact</a></nav><small>© 2026 FLUX7 Co., Ltd.</small></div></footer>
+</body></html>
