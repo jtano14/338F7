@@ -38,6 +38,26 @@
   .service-overview-label h3 { font-size: clamp(30px, 4vw, 42px); }
 }
 
+/* Project B: Compact Hero tablet layout */
+@media (max-width: 900px) {
+  .hero { padding: 48px 0 70px; }
+  .hero-top { grid-template-columns: 1fr 1fr; gap: 28px; }
+  .hero-top .explore-link {
+    grid-template-columns: 28px minmax(0, 1fr) 30px;
+    min-height: 66px;
+    padding: 8px 5px;
+  }
+  .hero-top .explore-name { font-size: clamp(24px, 3.4vw, 35px); }
+  .hero-top .explore-arrow { font-size: 26px; }
+  .hero-message { padding-top: 30px; }
+  .hero-message h1 { font-size: clamp(32px, 4.3vw, 44px); }
+  .hero-message .hero-description { font-size: 15px; }
+  .hero-wordmark { margin-top: 55px; }
+  .wordmark-main { font-size: clamp(100px, 17vw, 160px); }
+  .wordmark-company { font-size: clamp(22px, 3.8vw, 36px); }
+  .hero .hero-divider { margin-top: 38px; }
+}
+
 /* small phone and accessibility */
 @media (max-width: 600px) {
   .container { width: min(100% - 32px, 1320px); }
@@ -96,4 +116,25 @@
   .service-overview-content p { font-size: 16px; }
   .product-line-list { gap: 8px 18px; }
   .product-line-list li { font-size: 13px; }
+}
+
+/* Project B: Compact Hero mobile layout */
+@media (max-width: 600px) {
+  .hero { padding: 35px 0 55px; }
+  .hero-top { grid-template-columns: 1fr; gap: 35px; }
+  .hero-top .explore-link {
+    grid-template-columns: 27px minmax(0, 1fr) 32px;
+    min-height: 63px;
+    padding: 7px 4px;
+  }
+  .hero-top .explore-name { font-size: clamp(28px, 7.5vw, 40px); }
+  .hero-top .explore-arrow { font-size: 26px; }
+  .hero-message { padding-top: 0; }
+  .hero-message .eyebrow { margin-bottom: 18px; }
+  .hero-message h1 { font-size: clamp(36px, 9vw, 50px); }
+  .hero-message .hero-description { margin-top: 18px; font-size: 16px; }
+  .hero-wordmark { gap: 8px; margin-top: 42px; }
+  .wordmark-main { font-size: clamp(65px, 17vw, 110px); }
+  .wordmark-company { font-size: clamp(14px, 3.7vw, 25px); }
+  .hero .hero-divider { margin-top: 32px; }
 }
