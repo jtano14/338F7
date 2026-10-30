@@ -7,3 +7,23 @@
 .flux7-unified-footer-nav a{white-space:nowrap;text-decoration:none}
 @media(max-width:900px){.flux7-unified-nav{gap:12px!important;justify-content:center!important}.flux7-unified-nav a{font-size:12px!important}.flux7-unified-nav a[aria-current="page"]:after{bottom:-3px}}
 @media(max-width:560px){.flux7-unified-nav{gap:10px 14px!important}.flux7-unified-nav a{font-size:11px!important}}
+
+/* English navigation and Japanese language access. Does not alter /ja/ files. */
+.flux7-unified-nav .flux7-language-link{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:5px 10px!important;border:1px solid #8cb8db!important;
+  border-radius:5px;color:#0077b6!important;font-weight:800!important;
+  line-height:1.3!important;white-space:nowrap;
+}
+.flux7-unified-nav .flux7-language-link:hover{background:#e9f5ff!important}
+.flux7-shared-footer{background:#0b2240;color:#e1ebf3;padding:30px 0}
+.flux7-shared-footer .container{display:flex;flex-wrap:wrap;gap:16px 25px;align-items:center;justify-content:space-between}
+.flux7-shared-footer a{color:#e1ebf3;text-decoration:none}
+.flux7-shared-footer .flux7-footer-brand{font-weight:800;letter-spacing:.05em}
+.flux7-shared-footer .flux7-unified-footer-nav{display:flex;gap:10px 16px;flex-wrap:wrap}
+.flux7-shared-footer .flux7-unified-footer-nav a{font-size:12px}
+.flux7-shared-footer small{font-size:11px;color:#a7c0d5}
+@media(max-width:1050px){
+  .site-header .flux7-unified-nav{gap:8px!important}
+  .site-header .flux7-unified-nav a{font-size:11px!important}
+}
