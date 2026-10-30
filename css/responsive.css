@@ -1,4 +1,4 @@
-/* Tablet and mobile navigation */
+/* <<Tablet and mobile navigation */
 @media (max-width: 900px) {
   .container { width: min(100% - 40px, 1320px); }
   .header-inner { min-height: 76px; }
@@ -66,6 +66,22 @@
   .hero .business-card { min-height: 245px; padding: 20px; }
   .hero .card-content strong { font-size: 30px; }
 }
+
+/* Project B: Company Profile tablet layout */
+@media (max-width: 900px) {
+  .profile-hero { padding: 55px 0 75px; }
+  .profile-hero-grid { gap: 30px; padding-top: 40px; }
+  .profile-hero h1 { font-size: clamp(42px, 5.5vw, 62px); }
+  .profile-lead { font-size: 17px; }
+  .profile-identity { min-height: 320px; padding: 25px; }
+  .profile-identity strong { font-size: clamp(65px, 10vw, 110px); }
+  .profile-identity-company { font-size: 22px; }
+  .profile-history, .profile-details { padding: 70px 0; }
+  .profile-history-grid { gap: 35px; }
+  .profile-data { gap: 0 30px; }
+  .profile-data > div { grid-template-columns: 1fr; gap: 10px; }
+}
+
 
 /* <<Mobile 1: small phone and accessibility */
 @media (max-width: 600px) {
@@ -157,4 +173,23 @@
   .hero .hero-divider { margin-top: 28px; }
   .hero .business-card { min-height: 250px; padding: 22px; }
   .hero .card-content strong { font-size: 32px; }
+}
+
+/* Project B: Company Profile mobile layout */
+@media (max-width: 600px) {
+  .profile-hero { padding: 40px 0 55px; }
+  .profile-hero-grid { grid-template-columns: 1fr; gap: 35px; padding-top: 30px; }
+  .profile-hero h1 { font-size: clamp(42px, 10vw, 58px); }
+  .profile-lead { margin-top: 22px; font-size: 16px; }
+  .profile-identity { min-height: 290px; }
+  .profile-identity strong { font-size: clamp(90px, 20vw, 135px); }
+  .profile-history, .profile-details { padding: 55px 0; }
+  .profile-history-grid { grid-template-columns: 1fr; gap: 25px; padding-top: 30px; }
+  .profile-history-grid p { font-size: 16px; }
+  .profile-details h2 { margin: 30px 0; }
+  .profile-data { grid-template-columns: 1fr; }
+  .profile-data > div { padding: 20px 0; }
+  .profile-contact { padding: 55px 0; }
+  .profile-contact-inner { flex-direction: column; align-items: stretch; }
+  .profile-contact .button { width: 100%; }
 }
