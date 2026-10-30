@@ -28,6 +28,16 @@
   .market-list { margin-top: 45px; }
 }
 
+/* Project B: Responsive Hero navigation and Services */
+@media (max-width: 900px) {
+  .hero-explore { margin-top: 70px; }
+  .hero-explore .explore-link { min-height: 96px; }
+  .hero-explore .explore-name { font-size: clamp(34px, 6.8vw, 64px); }
+  .services-overview { margin-top: 45px; }
+  .service-overview-row { gap: 30px; padding: 40px 0; }
+  .service-overview-label h3 { font-size: clamp(30px, 4vw, 42px); }
+}
+
 /* small phone and accessibility */
 @media (max-width: 600px) {
   .container { width: min(100% - 32px, 1320px); }
@@ -71,4 +81,19 @@
   .explore-link::before { display: none; }
   .explore-link:hover, .explore-link:focus-visible { color: var(--primary-color); }
   .explore-arrow { transform: none; opacity: 1; }
+}
+
+/* mobile adjustments layout */
+@media (max-width: 600px) {
+  .hero-explore { margin-top: 55px; }
+  .hero-explore .explore-links { margin-top: 12px; }
+  .hero-explore .explore-link { min-height: 78px; }
+  .hero-explore .explore-name { font-size: clamp(26px, 7.4vw, 42px); }
+  .hero-explore .explore-arrow { font-size: 28px; }
+  .hero-divider { margin-top: 65px; }
+  .service-overview-row { grid-template-columns: 1fr; gap: 22px; padding: 32px 0; }
+  .service-overview-label h3 { font-size: 34px; }
+  .service-overview-content p { font-size: 16px; }
+  .product-line-list { gap: 8px 18px; }
+  .product-line-list li { font-size: 13px; }
 }
