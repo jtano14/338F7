@@ -247,3 +247,37 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--accent-blue); o
   line-height: 1.5;
 }
 .hero .card-bottom { padding-top: 13px; }
+
+/* Project B: Dedicated Company Profile */
+.profile-hero { padding: 70px 0 95px; background: var(--light-bg); }
+.profile-hero-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 65px; align-items: center; padding-top: 60px; }
+.profile-kicker { margin: 0 0 24px; color: var(--accent-blue); font-size: 12px; font-weight: 700; letter-spacing: .15em; }
+.profile-hero h1 { margin: 0; color: var(--primary-color); font-size: clamp(48px, 5.5vw, 82px); line-height: 1.05; letter-spacing: -.065em; }
+.profile-hero h1 span { color: var(--accent-blue); }
+.profile-lead { max-width: 620px; margin: 30px 0 0; color: var(--text-muted); font-size: 19px; line-height: 1.7; }
+.profile-identity { display: flex; flex-direction: column; min-height: 390px; padding: 38px; background: var(--primary-color); color: var(--white); border-radius: 8px; overflow: hidden; }
+.profile-identity-label { color: var(--border-color); font-size: 11px; font-weight: 700; letter-spacing: .15em; }
+.profile-identity strong { margin-top: auto; font-size: clamp(90px, 11vw, 160px); font-weight: 800; line-height: .85; letter-spacing: -.09em; }
+.profile-identity strong span { color: #53b6ed; }
+.profile-identity-company { margin-top: 12px; font-size: 28px; font-weight: 700; letter-spacing: -.04em; }
+.profile-identity-bottom { margin-top: auto; padding-top: 25px; border-top: 1px solid rgba(255,255,255,.25); color: var(--border-color); font-size: 10px; font-weight: 700; letter-spacing: .1em; }
+
+/* Company history and corporate information */
+.profile-history { padding: 90px 0; background: var(--white); }
+.profile-history-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: start; padding-top: 45px; }
+.profile-history h2, .profile-details h2 { margin: 0; color: var(--primary-color); font-size: clamp(40px, 4.5vw, 65px); line-height: 1.08; letter-spacing: -.055em; }
+.profile-history h2 span, .profile-details h2 span { color: var(--accent-blue); }
+.profile-history-grid p { margin: 0; color: var(--text-muted); font-size: 19px; line-height: 1.8; }
+.profile-details { padding: 90px 0 110px; background: var(--light-bg); }
+.profile-details h2 { margin: 45px 0; }
+.profile-data { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 55px; margin: 0; }
+.profile-data > div { display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 20px; padding: 24px 0; border-bottom: 1px solid var(--border-color); }
+.profile-data dt { color: var(--text-muted); font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.profile-data dd { min-width: 0; margin: 0; color: var(--primary-color); font-size: 16px; font-weight: 600; line-height: 1.5; overflow-wrap: anywhere; }
+
+/* Company Profile closing contact section */
+.profile-contact { padding: 75px 0; background: var(--white); }
+.profile-contact-inner { display: flex; align-items: center; justify-content: space-between; gap: 35px; }
+.profile-contact .profile-kicker { margin-bottom: 12px; }
+.profile-contact h2 { margin: 0; color: var(--primary-color); font-size: clamp(34px, 4vw, 56px); line-height: 1.1; letter-spacing: -.05em; }
+.profile-contact .button { flex-shrink: 0; }
