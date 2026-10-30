@@ -4,3 +4,13 @@
 
 @media(max-width:650px){.products-division-action{padding:18px 24px}.products-primary-link{width:100%;justify-content:center}}
 
+/* Compact catalogue responsive rules */
+@media(max-width:900px){.trading-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}.trading-tile{min-height:200px;max-height:310px}.trading-process-grid{grid-template-columns:repeat(2,1fr)}.trading-statement-grid{gap:30px}}
+@media(max-width:650px){.trading-top{padding:20px 0 45px}.trading-heading{display:block;padding:27px 0 20px}.trading-heading p:last-child{margin-top:14px}.trading-tiles{gap:10px}.trading-tile{padding:13px;min-height:0;max-height:none;aspect-ratio:1/1}.tile-index{font-size:8px}.tile-bottom{gap:8px}.tile-bottom strong{font-size:clamp(17px,4.7vw,24px)}.tile-bottom small{font-size:10px;line-height:1.25;padding-right:5px}.tile-arrow{right:10px;bottom:9px;font-size:16px}.trading-statement,.trading-approach,.trading-process{padding:55px 0}.trading-statement-grid,.trading-origin{grid-template-columns:1fr;gap:20px}.trading-statement-grid>p{font-size:16px}.trading-process-grid{grid-template-columns:1fr 1fr;gap:12px}.trading-process-grid h3{font-size:19px}.trading-process-grid p{font-size:13px}.trading-origin{padding:22px;margin-top:30px}}
+@media(max-width:380px){.tile-bottom strong{font-size:16px}.tile-bottom small{font-size:9px}.tile-index{font-size:7px}}
+@media(prefers-reduced-motion:reduce){.trading-tile{transition:none}}
+
+/* v4: compact cards at every screen width */
+@media(max-width:900px){.trading-tiles{grid-template-columns:repeat(2,minmax(0,1fr));max-width:600px}.trading-tile{height:170px;min-height:0;max-height:none;aspect-ratio:auto}}
+@media(max-width:650px){.trading-tiles{gap:10px}.trading-tile{height:145px;min-height:0;aspect-ratio:auto;padding:12px}.tile-bottom{gap:5px}.tile-bottom strong{font-size:clamp(17px,4.4vw,22px)}.tile-bottom small{font-size:10px;line-height:1.25}.trading-top{padding-bottom:34px}}
+@media(max-width:380px){.trading-tile{height:140px}.tile-bottom small{font-size:9px}}
