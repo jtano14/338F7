@@ -26,3 +26,10 @@
 @media (max-width: 600px) {
   .profile-identity-logo { width: min(90%, 400px); }
 }
+/* Desktop optical correction: source artwork has uneven visual spacing. */
+@media (min-width: 901px) {
+  .profile-identity-logo {
+    position: relative;
+    left: clamp(16px, 2.8vw, 48px);
+  }
+}
