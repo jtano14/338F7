@@ -95,3 +95,31 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--accent-blue); o
 .market-list { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 65px; }
 .market-list span { display: inline-flex; align-items: center; min-height: 54px; padding: 14px 24px; border: 1px solid var(--border-color); border-radius: 4px; color: var(--primary-color); font-size: 13px; font-weight: 700; letter-spacing: .08em; }
 .market-list span:last-child { background: var(--primary-color); border-color: var(--primary-color); color: var(--white); }
+
+/* Project B: Hero navigation revision */
+.hero-intro { max-width: none; }
+.hero-intro > .eyebrow,
+.hero-intro > h1,
+.hero-intro > .hero-description { max-width: 1080px; }
+.hero-explore { margin-top: clamp(65px, 8vw, 110px); }
+.hero-explore .section-label { border-top-color: var(--border-color); }
+.hero-explore .explore-links { margin-top: 18px; }
+.hero-explore .explore-link { min-height: 112px; }
+.hero-explore .explore-name { font-size: clamp(38px, 6vw, 88px); }
+.hero-explore .explore-link:hover,
+.hero-explore .explore-link:focus-visible { color: var(--white); }
+.hero-explore .explore-link::before { background: var(--primary-color); }
+.hero-explore .explore-arrow-external { transform: translateX(40px) rotate(-30deg); }
+.hero-explore .explore-link:hover .explore-arrow-external,
+.hero-explore .explore-link:focus-visible .explore-arrow-external { transform: translateX(0) rotate(0); }
+.hero-divider { margin-top: clamp(70px, 8vw, 110px); }
+
+/* Project B: Services overview without duplicate cards */
+.services-overview { margin-top: 65px; border-top: 1px solid var(--border-color); }
+.service-overview-row { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 6vw, 100px); padding: 52px 0; border-bottom: 1px solid var(--border-color); }
+.service-overview-label > span { color: var(--accent-blue); font-size: 11px; font-weight: 700; letter-spacing: .13em; }
+.service-overview-label h3 { margin: 20px 0 0; color: var(--primary-color); font-size: clamp(32px, 3.5vw, 52px); line-height: 1.12; letter-spacing: -.045em; }
+.service-overview-content p { max-width: 520px; margin: 0 0 20px; color: var(--text-muted); font-size: 17px; line-height: 1.75; }
+.product-line-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 24px 0; padding: 0; list-style: none; }
+.product-line-list li { padding: 13px 0; border-bottom: 1px solid var(--border-color); color: var(--primary-color); font-size: 15px; font-weight: 600; }
+.service-overview-content .text-link { margin-top: 22px; }
