@@ -1,0 +1,10 @@
+/* Targeted final English refinements. */
+.metals-jump a{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:7px;line-height:1.4}
+.metals-jump a>span:last-child{color:#0077b6;font-size:12px}
+.metals-jump a:hover>span:last-child{color:#fff}
+@media(max-width:600px){.metals-jump a{min-width:0;white-space:normal;overflow-wrap:anywhere}}
+/* Contact page: prevent overflowing content on narrow screens. */
+.contact-grid,.contact-grid>* ,.intro-grid,.intro-grid>*,.outro-grid,.outro-grid>*,.field-row,.field-row>*{min-width:0}
+.contact-section .wrap,.contact-section .form-panel,.contact-section input,.contact-section select,.contact-section textarea{max-width:100%}
+.contact-info a,.contact-info address,.contact-note{overflow-wrap:anywhere}
+@media(max-width:560px){.contact-section .form-panel{padding:22px 16px}.contact-section .field-row{grid-template-columns:minmax(0,1fr)}.contact-section .contact-info h2{overflow-wrap:break-word}}
