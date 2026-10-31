@@ -1,0 +1,21 @@
+/* Project B: consistent edge-to-edge catalogue photography. */
+.metals-image-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 5 / 3;
+  overflow: hidden;
+  background: #e9eff4;
+}
+.metals-image-frame img {
+  display: block;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border: 0;
+  transition: transform .25s ease;
+}
+.metals-card:hover .metals-image-frame img {transform: scale(1.025)}
+@media (prefers-reduced-motion: reduce) {
+  .metals-image-frame img {transition: none}
+  .metals-card:hover .metals-image-frame img {transform: none}
+}
