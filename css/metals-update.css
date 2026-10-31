@@ -1,0 +1,13 @@
+/* Project B: Antimony catalogue card updates only */
+#antimony .metals-card-body h3{margin-bottom:12px}
+#antimony .metals-card-body h3 a{display:inline;background:none;color:#0b2240;padding:0;text-align:left;font-size:inherit;font-weight:inherit}
+#antimony .metals-card-body h3 a:hover{color:#0077b6}
+#antimony .metals-card-body .flux7-card-actions{display:grid;gap:9px;margin-top:0}
+#antimony .metals-card-body .flux7-card-actions a{display:block;text-align:center;padding:14px 12px;font-size:12px;font-weight:800;text-decoration:none}
+#antimony .metals-card-body .flux7-spec-button{background:#0b2240;color:white}
+#antimony .metals-card-body .flux7-quote-button{background:white;color:#0b2240;border:1px solid #0b2240}
+#antimony .metals-card-body .flux7-quote-button:hover{background:#eaf3fa;color:#0b2240}
+#antimony .metals-card-body .flux7-incoming-label{font-size:11px;font-weight:800;letter-spacing:.025em;color:#0077b6;margin:0 0 12px;line-height:1.45}
+#antimony .metals-image-frame{aspect-ratio:5/3;overflow:hidden;background:#edf2f6}
+#antimony .metals-image-frame img{display:block;width:100%;height:100%;object-fit:cover}
+.metals-quality-grid article p strong{color:#0b2240}
