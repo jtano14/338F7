@@ -19,3 +19,9 @@
     outline: 2px solid #0077b6; outline-offset: 2px;
   }
 }
+/* Five-link home navigation: prevent long labels from crossing the arrow. */
+@media(max-width:650px){
+ .hero-explore .explore-link{grid-template-columns:32px minmax(0,1fr) 28px;gap:8px;padding-inline:4px}
+ .hero-explore .explore-name{font-size:clamp(23px,6.3vw,40px);line-height:1.08;overflow-wrap:normal}
+ .hero-explore .explore-arrow{font-size:26px;justify-self:end}
+}
