@@ -1,0 +1,9 @@
+/* Project B: shared Antimony detail enhancements */
+.flux7-shipment{background:#eff6fc;border:1px solid #c8ddef;border-left:4px solid #0077b6;padding:24px 28px;margin:24px 0 36px;color:#0b2240}
+.flux7-shipment-eyebrow{display:block;font-size:11px;letter-spacing:.12em;font-weight:800;color:#0077b6}
+.flux7-shipment h2{font-size:clamp(21px,3vw,30px);margin:10px 0 18px;line-height:1.2}
+.flux7-shipment dl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;margin:0 0 15px}
+.flux7-shipment dt{font-size:12px;color:#56697b;margin-bottom:5px}
+.flux7-shipment dd{margin:0;font-weight:750}
+.flux7-shipment p{font-size:13px;line-height:1.6;color:#56697b;margin:0}
+@media(max-width:680px){.flux7-shipment{padding:20px}.flux7-shipment dl{grid-template-columns:1fr;gap:12px}}
