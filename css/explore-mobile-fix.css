@@ -1,0 +1,21 @@
+/* Mobile touch: do not rely on hover to reveal readable text. */
+@media (hover: none), (max-width: 900px) {
+  .hero-explore .explore-link,
+  .hero-explore .explore-link:first-child,
+  .hero-explore .explore-link:hover,
+  .hero-explore .explore-link:focus,
+  .hero-explore .explore-link:active {
+    background: transparent !important;
+    color: #0b2240 !important;
+  }
+  .hero-explore .explore-link .explore-number,
+  .hero-explore .explore-link .explore-name,
+  .hero-explore .explore-link .explore-arrow {
+    color: #0b2240 !important;
+    opacity: 1 !important;
+    -webkit-text-fill-color: #0b2240 !important;
+  }
+  .hero-explore .explore-link:focus-visible {
+    outline: 2px solid #0077b6; outline-offset: 2px;
+  }
+}
