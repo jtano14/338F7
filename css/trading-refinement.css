@@ -1,0 +1,10 @@
+/* Project B, trading tiles: consistent content slots and clear actions. */
+.trading-tile{justify-content:space-between;min-width:0;height:250px;min-height:250px}
+.trading-tile .tile-bottom{display:grid;grid-template-rows:minmax(68px,auto) minmax(48px,auto) auto;gap:8px;align-content:end;padding-right:0}
+.trading-tile .tile-bottom strong{display:flex;align-items:flex-start;align-self:end;min-height:68px;line-height:1.08}
+.trading-tile .tile-bottom small{display:block;min-height:48px;max-width:none;padding-right:0}
+.trading-tile .tile-action{display:inline-flex;align-items:center;justify-content:center;gap:7px;justify-self:start;padding:8px 11px;border:1px solid #90b8d7;border-radius:6px;background:#fff;color:#0b5484;font-size:11px;font-weight:800;line-height:1.15;white-space:nowrap;box-shadow:0 2px 6px rgba(11,34,64,.05)}
+.trading-tile:hover .tile-action,.trading-tile:focus-visible .tile-action{background:#0b2240;color:#fff;border-color:#0b2240}
+@media(max-width:900px){.trading-tile{height:245px;min-height:245px}.trading-tile .tile-bottom{grid-template-rows:minmax(56px,auto) minmax(44px,auto) auto}.trading-tile .tile-bottom strong{min-height:56px}.trading-tile .tile-bottom small{min-height:44px}}
+@media(max-width:650px){.trading-tile{height:225px;min-height:225px;padding:12px}.trading-tile .tile-bottom{grid-template-rows:48px 44px auto;gap:6px}.trading-tile .tile-bottom strong{min-height:48px;font-size:clamp(17px,4.4vw,22px)}.trading-tile .tile-bottom small{min-height:44px;font-size:10px;line-height:1.3}.trading-tile .tile-action{font-size:10px;padding:7px 8px}.trading-tile .tile-index{font-size:8px}}
+@media(max-width:380px){.trading-tile{height:220px;min-height:220px}.trading-tile .tile-bottom strong{font-size:16px}.trading-tile .tile-bottom small{font-size:9px}.trading-tile .tile-action{font-size:9px;padding:7px}}
