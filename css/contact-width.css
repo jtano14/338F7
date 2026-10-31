@@ -1,0 +1,14 @@
+/* Project B: give the inquiry form priority on desktop. */
+@media (min-width: 901px) {
+  .contact-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    gap: clamp(28px, 4vw, 65px);
+    align-items: start;
+  }
+  .contact-grid .form-panel,
+  .contact-grid .contact-info {
+    width: 100%; max-width: none; min-width: 0;
+    box-sizing: border-box;
+  }
+}
