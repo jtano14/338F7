@@ -1,0 +1,8 @@
+/* Project B, contact: inquiry first, introductory message after form. */
+.contact-section{padding-top:36px}
+.contact-grid{align-items:start}
+.contact-grid .form-panel{order:1;min-width:0}
+.contact-grid .contact-info{order:2;min-width:0}
+.intro{padding-top:55px;padding-bottom:55px}
+.intro .intro-grid h1{font-size:clamp(30px,3.5vw,52px)}
+@media(max-width:900px){.contact-section{padding-top:20px}.contact-grid{display:flex;flex-direction:column;gap:30px}.contact-grid .form-panel,.contact-grid .contact-info{width:100%;max-width:100%;box-sizing:border-box}.intro{padding-top:35px;padding-bottom:35px}.intro .intro-grid{display:block}.intro .intro-grid>p{margin-top:18px}}
