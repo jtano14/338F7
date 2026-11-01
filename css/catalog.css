@@ -14,3 +14,6 @@
 .catalog-varieties-list li{font-size:13px;line-height:1.35;padding:8px;background:#fff;border:1px solid #e0eaf2;overflow-wrap:anywhere}
 .catalog-varieties-note{font-size:12px;line-height:1.5;margin-top:12px!important;color:#53677a!important}
 @media(max-width:380px){.catalog-varieties-list{grid-template-columns:1fr}}
+
+/* Align seafood descriptions consistently across catalogue cards. */
+.catalog-seafood-description{min-height:3em}
