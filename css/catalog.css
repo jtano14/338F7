@@ -16,4 +16,12 @@
 @media(max-width:380px){.catalog-varieties-list{grid-template-columns:1fr}}
 
 /* Align seafood descriptions consistently across catalogue cards. */
-.catalog-seafood-description{min-height:1.5em;line-height:1.5;margin-bottom:16px}
+.catalog-seafood-description{min-height:3em}
+
+/* Seafood cards: reserve equal description space so all specification tables start level. */
+#seafood .catalog-seafood-description{min-height:3.2em;box-sizing:border-box;}
+
+/* Keep Explore Varieties anchored directly below the specifications,
+   regardless of how much content is expanded in adjacent cards. */
+#seafood .catalog-varieties{margin-top:0}
+#seafood .catalog-actions{margin-top:auto}
