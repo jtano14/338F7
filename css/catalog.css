@@ -25,3 +25,39 @@
    regardless of how much content is expanded in adjacent cards. */
 #seafood .catalog-varieties{margin-top:0}
 #seafood .catalog-actions{margin-top:auto}
+
+/* Seafood: anchor Explore at the top of the flexible content area.
+   The flexible grid row absorbs unused space BELOW Explore, not above it. */
+#seafood .catalog-card-body{
+  display:grid;
+  grid-template-rows:auto auto auto minmax(min-content,1fr) auto;
+  align-content:stretch;
+}
+#seafood .catalog-varieties{
+  margin:0;
+  align-self:start;
+}
+#seafood .catalog-actions{
+  margin:0;
+  align-self:end;
+}
+/* One prominent, readable species per row, including long fish names. */
+#seafood .catalog-varieties-list{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  gap:0;
+}
+#seafood .catalog-varieties-list li{
+  font-size:23px;
+  line-height:1.25;
+  font-weight:650;
+  padding:11px 0;
+  border:0;
+  border-bottom:1px solid #dce8f2;
+  background:transparent;
+  overflow-wrap:break-word;
+}
+#seafood .catalog-varieties-list li:last-child{border-bottom:0}
+@media(max-width:600px){
+  #seafood .catalog-varieties-list li{font-size:21px}
+}
