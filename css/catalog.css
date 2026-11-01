@@ -16,4 +16,4 @@
 @media(max-width:380px){.catalog-varieties-list{grid-template-columns:1fr}}
 
 /* Align seafood descriptions consistently across catalogue cards. */
-.catalog-seafood-description{min-height:3em}
+.catalog-seafood-description{min-height:1.5em;line-height:1.5;margin-bottom:16px}
