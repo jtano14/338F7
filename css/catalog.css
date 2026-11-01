@@ -61,3 +61,43 @@
 @media(max-width:600px){
   #seafood .catalog-varieties-list li{font-size:21px}
 }
+
+/* Freeze-dried fruit cards: match the seafood Explore interaction.
+   Keep specifications and Explore controls aligned at the top,
+   with expandable formats flowing downward and quotation links at the bottom. */
+#fruits .catalog-card-body{
+  display:grid;
+  grid-template-rows:auto auto auto minmax(min-content,1fr) auto;
+  align-content:stretch;
+}
+#fruits .catalog-card-body > p{
+  min-height:3em;
+  box-sizing:border-box;
+}
+#fruits .catalog-varieties{
+  margin:0;
+  align-self:start;
+}
+#fruits .catalog-actions{
+  margin:0;
+  align-self:end;
+}
+#fruits .catalog-varieties-list{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  gap:0;
+}
+#fruits .catalog-varieties-list li{
+  font-size:23px;
+  line-height:1.25;
+  font-weight:650;
+  padding:11px 0;
+  border:0;
+  border-bottom:1px solid #dce8f2;
+  background:transparent;
+  overflow-wrap:break-word;
+}
+#fruits .catalog-varieties-list li:last-child{border-bottom:0}
+@media(max-width:600px){
+  #fruits .catalog-varieties-list li{font-size:21px}
+}
