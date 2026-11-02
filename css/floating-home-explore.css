@@ -1,0 +1,17 @@
+/* Project B English: floating home shortcut and homepage Explore animation. */
+.flux7-floating-home{position:fixed;right:clamp(16px,2.5vw,36px);bottom:clamp(16px,2.5vw,32px);z-index:9000;display:flex;align-items:center;justify-content:center;width:76px;height:58px;border:1px solid #b6cce0;border-radius:999px;background:#fff;box-shadow:0 6px 24px rgba(11,34,64,.15);font-family:"Inter Tight",Arial,sans-serif;font-weight:800;text-decoration:none;letter-spacing:-.04em;opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .25s ease,transform .25s ease,visibility .25s ease,box-shadow .25s ease;isolation:isolate}
+.flux7-floating-home.is-visible{opacity:1;visibility:visible;transform:translateY(0)}
+.flux7-floating-home:hover,.flux7-floating-home:focus-visible{box-shadow:0 8px 28px rgba(11,34,64,.24);outline-offset:3px}
+.flux7-floating-home .flux7-home-word,.flux7-floating-home .flux7-home-mark{position:absolute;white-space:nowrap;transition:opacity .28s ease,transform .28s ease}
+.flux7-floating-home .flux7-home-word{font-size:14px;color:#0b2240;opacity:1;transform:scale(1)}
+.flux7-floating-home .flux7-home-mark{font-size:29px;opacity:0;transform:scale(.82)}
+.flux7-home-mark .flux7-mark-f{color:#0b2240}.flux7-home-mark .flux7-mark-7{color:#007fbd}
+.flux7-floating-home.is-condensed .flux7-home-word{opacity:0;transform:scale(.82)}
+.flux7-floating-home.is-condensed .flux7-home-mark{opacity:1;transform:scale(1)}
+.flux7-floating-home.is-condensed:hover .flux7-home-word,.flux7-floating-home.is-condensed:focus-visible .flux7-home-word{opacity:1;transform:scale(1)}
+.flux7-floating-home.is-condensed:hover .flux7-home-mark,.flux7-floating-home.is-condensed:focus-visible .flux7-home-mark{opacity:0;transform:scale(.82)}
+/* Override the original bottom-to-top hover fill, keeping the existing colors and sizing. */
+.explore-link::before,.hero-explore .explore-link::before{transform:scaleX(0);transform-origin:left center;transition:transform .42s cubic-bezier(.22,.61,.36,1)}
+.explore-link:hover::before,.explore-link:focus-visible::before,.hero-explore .explore-link:hover::before,.hero-explore .explore-link:focus-visible::before{transform:scaleX(1)}
+@media(max-width:767px){.flux7-floating-home{width:54px;height:54px;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px))}.flux7-floating-home .flux7-home-word{opacity:0}.flux7-floating-home .flux7-home-mark,.flux7-floating-home.is-condensed .flux7-home-mark{opacity:1;transform:scale(1)}.flux7-floating-home.is-condensed:hover .flux7-home-word{opacity:0}.flux7-floating-home.is-condensed:hover .flux7-home-mark{opacity:1}}
+@media(prefers-reduced-motion:reduce){.flux7-floating-home,.flux7-floating-home .flux7-home-word,.flux7-floating-home .flux7-home-mark,.explore-link::before,.hero-explore .explore-link::before{transition:none!important}}
