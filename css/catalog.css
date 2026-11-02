@@ -169,3 +169,14 @@
   .catalog-hero .catalog-jump>a{min-height:0;padding:18px 20px;font-size:16px}
   .catalog-hero .catalog-jump-arrow{font-size:27px}
 }
+
+/* Chemicals table: readable columns with explicit mobile horizontal-scroll cue. */
+.catalog-chemicals-table{min-width:1040px;table-layout:auto}
+.catalog-chemicals-table th,.catalog-chemicals-table td{white-space:normal;overflow-wrap:normal;word-break:normal;vertical-align:top;line-height:1.5}
+.catalog-chemicals-table th:nth-child(1),.catalog-chemicals-table td:nth-child(1){min-width:48px}
+.catalog-chemicals-table th:nth-child(2),.catalog-chemicals-table td:nth-child(2){min-width:160px}
+.catalog-chemicals-table th:nth-child(4),.catalog-chemicals-table td:nth-child(4){min-width:175px}
+.catalog-chemicals-table th:nth-child(8),.catalog-chemicals-table td:nth-child(8){min-width:115px}
+.catalog-quote-link{display:inline-block;white-space:nowrap;text-decoration:none}
+.catalog-scroll-hint{display:none;font-weight:750;color:#0077b6;margin:22px 0 -12px;font-size:14px}
+@media(max-width:767px){.catalog-scroll-hint{display:block}.catalog-table-wrap{overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}.catalog-chemicals-table{min-width:1060px}.catalog-chemicals-table th,.catalog-chemicals-table td{padding:13px 12px;font-size:13px}}
