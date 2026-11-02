@@ -44,3 +44,9 @@ html{scroll-behavior:smooth;scroll-padding-top:90px}
 
 /* Category descriptions in the Frudo and Japanese snack brand catalogues. */
 .cg-category-description{font-size:15px;line-height:1.55;color:#52657a;margin:8px 0 12px;}
+
+/* Typography parity with Metals, Chemicals and Food Processing catalogues.
+   Inter Tight is already loaded by consumer-goods.html. */
+body{font-family:'Inter Tight',Arial,sans-serif;}
+#main,#main button,#main input,#main textarea,#main select{font-family:'Inter Tight',Arial,sans-serif;}
+#main h1,#main h2,#main h3,#main p,#main a,#main span,#main small{font-family:inherit;}
