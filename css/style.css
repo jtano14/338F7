@@ -23,10 +23,10 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--accent-blue); o
 .site-header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.97); border-bottom: 1px solid #e5eaf0; transition: box-shadow .25s ease; }
 .site-header.is-scrolled { box-shadow: 0 8px 28px rgba(11,34,64,.08); }
 .header-inner { display: flex; align-items: center; justify-content: space-between; min-height: 92px; gap: 32px; }
-.brand { display: inline-flex; flex-direction: column; align-items: flex-start; flex-shrink: 0; line-height: 1; }
+.brand { display: inline-flex; flex-direction: row; align-items: baseline; gap: 8px; flex-shrink: 0; line-height: 1; white-space: nowrap; }
 .brand-name { font-size: 34px; font-weight: 800; letter-spacing: -.075em; color: var(--primary-color); }
 .brand-name span { color: var(--accent-blue); }
-.brand-descriptor { margin-top: 5px; font-size: 9px; font-weight: 700; letter-spacing: .38em; color: var(--text-muted); }
+.brand-descriptor { margin-top: 0; font-size: 10px; font-weight: 700; letter-spacing: .08em; color: var(--text-muted); }
 .site-nav { display: flex; align-items: center; gap: clamp(18px, 2.6vw, 40px); }
 .site-nav > a { font-size: 14px; font-weight: 600; color: var(--primary-color); transition: color .2s ease; }
 .site-nav > a:hover, .site-nav > a[aria-current="page"] { color: var(--accent-blue); }
