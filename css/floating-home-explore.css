@@ -20,3 +20,19 @@
 .explore-link:hover::before,.explore-link:focus-visible::before,.hero-explore .explore-link:hover::before,.hero-explore .explore-link:focus-visible::before{transform:scaleX(1)}
 @media(max-width:767px){.flux7-floating-home{width:54px;height:54px;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px))}}
 @media(prefers-reduced-motion:reduce){.flux7-floating-home,.flux7-floating-home .flux7-home-word,.flux7-home-mark .flux7-mark-f,.flux7-home-mark .flux7-mark-7,.explore-link::before,.hero-explore .explore-link::before{transition:none!important}}
+
+
+/* v2: neutralize legacy auto-condensed class, even if old JS is cached. */
+.flux7-floating-home.is-condensed .flux7-home-word{opacity:1;transform:translateY(0) scale(1)}
+.flux7-floating-home.is-condensed .flux7-home-mark{opacity:1;transform:none}
+.flux7-floating-home.is-condensed .flux7-mark-f{opacity:0;transform:translateX(-27px)}
+.flux7-floating-home.is-condensed .flux7-mark-7{opacity:0;transform:translateX(27px)}
+@media (hover:hover) and (pointer:fine){
+.flux7-floating-home:hover .flux7-home-word,.flux7-floating-home:focus-visible .flux7-home-word,.flux7-floating-home.is-condensed:hover .flux7-home-word,.flux7-floating-home.is-condensed:focus-visible .flux7-home-word{opacity:0;transform:translateY(33px) scale(1)}
+.flux7-floating-home:hover .flux7-home-mark,.flux7-floating-home:focus-visible .flux7-home-mark,.flux7-floating-home.is-condensed:hover .flux7-home-mark,.flux7-floating-home.is-condensed:focus-visible .flux7-home-mark{opacity:1;transform:none}
+.flux7-floating-home:hover .flux7-mark-f,.flux7-floating-home:focus-visible .flux7-mark-f,.flux7-floating-home.is-condensed:hover .flux7-mark-f,.flux7-floating-home.is-condensed:focus-visible .flux7-mark-f,.flux7-floating-home:hover .flux7-mark-7,.flux7-floating-home:focus-visible .flux7-mark-7,.flux7-floating-home.is-condensed:hover .flux7-mark-7,.flux7-floating-home.is-condensed:focus-visible .flux7-mark-7{opacity:1;transform:translateX(0)}
+}
+@media (hover:none),(pointer:coarse){
+.flux7-floating-home.is-condensed .flux7-home-word{opacity:0}
+.flux7-floating-home.is-condensed .flux7-mark-f,.flux7-floating-home.is-condensed .flux7-mark-7{opacity:1;transform:translateX(0)}
+}
