@@ -50,3 +50,14 @@ html{scroll-behavior:smooth;scroll-padding-top:90px}
 body{font-family:'Inter Tight',Arial,sans-serif;}
 #main,#main button,#main input,#main textarea,#main select{font-family:'Inter Tight',Arial,sans-serif;}
 #main h1,#main h2,#main h3,#main p,#main a,#main span,#main small{font-family:inherit;}
+
+/* Nairis Worldwide: four category cards, full image without cropping. */
+.cg-nairis-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.cg-nairis-photo{height:230px;background:#f5f8fb;overflow:hidden}
+.cg-nairis-photo img{display:block;width:100%;height:100%;object-fit:contain}
+.cg-nairis-placeholder{height:230px}
+.cg-nairis-category{display:flex;flex-direction:column;padding-bottom:18px}
+.cg-nairis-category .cg-nairis-description{margin-bottom:8px}
+.cg-nairis-category .cg-nairis-link{display:inline-block;align-self:flex-start;margin:auto 18px 0;color:#007db9;text-decoration:none;font-size:13px;font-weight:800;letter-spacing:.025em}
+.cg-nairis-category .cg-nairis-link:hover{text-decoration:underline}
+@media(max-width:600px){.cg-nairis-grid{grid-template-columns:1fr}.cg-nairis-photo,.cg-nairis-placeholder{height:220px}}
