@@ -1,1 +1,104 @@
+/* Project B Consumer Goods only. Does not alter existing catalogues. */
+:root{--cg-navy:#0c2343;--cg-blue:#007fbb;--cg-border:#d3e1ed;--cg-muted:#5c6c7d}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+.cg-wrap{width:min(1180px,calc(100% - 64px));margin-inline:auto}
+.cg-hero{background:linear-gradient(120deg,#f6f9fc,#eaf5fc);padding:74px 0 82px}
+.cg-back,.cg-return{color:var(--cg-blue);text-decoration:none;font-weight:800;font-size:14px}
+.cg-eyebrow{color:var(--cg-blue);font-size:13px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;margin:35px 0 14px}
+.cg-hero h1{font-size:clamp(46px,7vw,92px);line-height:1.02;letter-spacing:-.065em;color:var(--cg-navy);max-width:980px;margin:0 0 26px}
+.cg-hero h1 span{color:var(--cg-blue)}
+.cg-hero p:not(.cg-eyebrow){font-size:clamp(17px,2.3vw,23px);line-height:1.55;color:var(--cg-muted);max-width:800px}
+.cg-hero .cg-hero-note{font-size:14px!important;font-weight:700;margin-top:24px}
+.cg-section{padding-top:70px;padding-bottom:95px}
+.cg-section h2,.cg-brand-detail h2,.cg-cta h2{font-size:clamp(38px,5vw,64px);letter-spacing:-.055em;line-height:1.05;color:var(--cg-navy);margin:0 0 30px}
+.cg-brand-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.cg-brand-card{display:flex;flex-direction:column;border:1px solid var(--cg-border);border-radius:12px;overflow:hidden;background:#fff;color:var(--cg-navy);text-decoration:none;transition:border-color .2s,transform .2s}
+.cg-brand-card:hover,.cg-brand-card:focus-visible{border-color:var(--cg-blue);transform:translateY(-3px)}
+.cg-logo-slot{height:205px;background:#fff;display:flex;align-items:center;justify-content:center;padding:30px;border-bottom:1px solid var(--cg-border)}
+.cg-wordmark{font-weight:800;font-size:clamp(26px,2.8vw,40px);letter-spacing:-.045em;text-align:center;line-height:1.1;overflow-wrap:anywhere}
+.cg-wordmark-hotaru{font-size:30px}.cg-wordmark-hotahika{letter-spacing:.08em}
+.cg-brand-meta{display:flex;justify-content:space-between;align-items:center;padding:20px 23px 0;font-size:12px;font-weight:800;color:var(--cg-blue);letter-spacing:.1em}
+.cg-card-arrow{font-size:32px;line-height:1;color:var(--cg-navy);font-weight:400}
+.cg-brand-card h3{font-size:26px;letter-spacing:-.04em;margin:14px 23px 5px}
+.cg-brand-card p{font-size:16px;color:var(--cg-muted);line-height:1.5;margin:0 23px 24px;flex:1}
+.cg-view{padding:19px 23px;border-top:1px solid var(--cg-border);font-size:13px;font-weight:800;color:var(--cg-blue)}
+.cg-brand-detail{border-top:1px solid var(--cg-border);padding:72px 0 85px;scroll-margin-top:85px}
+.cg-brand-detail:nth-of-type(even){background:#f5f9fc}
+.cg-detail-head{display:flex;justify-content:space-between;align-items:start;gap:25px}
+.cg-detail-head .cg-eyebrow{margin-top:0}.cg-detail-head h2{margin-bottom:10px}
+.cg-detail-position{color:var(--cg-muted);font-size:20px;margin:0 0 24px}
+.cg-brand-description{max-width:850px;font-size:19px;line-height:1.65;color:var(--cg-muted)}
+.cg-detail-links{display:flex;flex-wrap:wrap;gap:12px;margin:25px 0 38px}
+.cg-detail-links a,.cg-cta a{display:inline-block;padding:16px 19px;border:1px solid #9abbd2;text-decoration:none;font-weight:800;font-size:13px;color:var(--cg-navy)}
+.cg-detail-links a:last-child,.cg-cta a{background:var(--cg-navy);color:white;border-color:var(--cg-navy)}
+.cg-product-label{margin-bottom:17px}
+.cg-products{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.cg-product{border:1px solid var(--cg-border);border-radius:10px;background:white;overflow:hidden}
+.cg-product-image{height:180px;background:#f2f6fa;display:grid;place-items:center;color:#70869a;text-align:center;font-size:11px;font-weight:800;letter-spacing:.12em;line-height:1.7}
+.cg-product h3{font-size:20px;color:var(--cg-navy);margin:19px 18px 8px}
+.cg-product p{font-size:14px;color:var(--cg-muted);margin:0 18px 20px}
+.cg-note{color:var(--cg-muted);font-size:13px;line-height:1.6;margin-top:22px}
+.cg-cta{background:#eaf4fb;padding:65px 0 80px}.cg-cta p:not(.cg-eyebrow){max-width:750px;color:var(--cg-muted);font-size:19px;line-height:1.5}.cg-cta a{margin-top:16px}
+@media(max-width:900px){.cg-brand-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.cg-products{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.cg-wrap{width:calc(100% - 34px)}.cg-hero{padding:42px 0 58px}.cg-section{padding:44px 0 60px}.cg-brand-grid,.cg-products{grid-template-columns:1fr}.cg-logo-slot{height:165px}.cg-brand-detail{padding:46px 0 58px}.cg-detail-head{display:block}.cg-return{display:inline-block;margin-bottom:22px}.cg-product-image{height:190px}.cg-detail-links{flex-direction:column}.cg-detail-links a{text-align:center}.cg-brand-description{font-size:17px}}
 
+/* Category descriptions in the Frudo and Japanese snack brand catalogues. */
+.cg-category-description{font-size:15px;line-height:1.55;color:#52657a;margin:8px 0 12px;}
+
+/* Typography parity with Metals, Chemicals and Food Processing catalogues.
+   Inter Tight is already loaded by consumer-goods.html. */
+body{font-family:'Inter Tight',Arial,sans-serif;}
+#main,#main button,#main input,#main textarea,#main select{font-family:'Inter Tight',Arial,sans-serif;}
+#main h1,#main h2,#main h3,#main p,#main a,#main span,#main small{font-family:inherit;}
+
+/* Nairis Worldwide: four category cards, full image without cropping. */
+.cg-nairis-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.cg-nairis-photo{height:230px;background:#f5f8fb;overflow:hidden}
+.cg-nairis-photo img{display:block;width:100%;height:100%;object-fit:contain}
+.cg-nairis-placeholder{height:230px}
+.cg-nairis-category{display:flex;flex-direction:column;padding-bottom:18px}
+.cg-nairis-category .cg-nairis-description{margin-bottom:8px}
+.cg-nairis-category .cg-nairis-link{display:inline-block;align-self:flex-start;margin:auto 18px 0;color:#007db9;text-decoration:none;font-size:13px;font-weight:800;letter-spacing:.025em}
+.cg-nairis-category .cg-nairis-link:hover{text-decoration:underline}
+@media(max-width:600px){.cg-nairis-grid{grid-template-columns:1fr}.cg-nairis-photo,.cg-nairis-placeholder{height:220px}}
+
+/* Consumer Goods supplied brand imagery */
+.cg-logo-slot .cg-brand-logo{display:block;max-width:78%;max-height:125px;width:auto;height:auto;object-fit:contain;margin:auto}
+.cg-product-image img{width:100%;height:100%;object-fit:cover;display:block}
+.cg-nairis-photo img{object-fit:cover}
+
+/* Brand-card logo containment: fixed media region, no overlap with descriptions. */
+.cg-brand-card{min-width:0;isolation:isolate}
+.cg-logo-slot{box-sizing:border-box;position:relative;flex:0 0 150px;height:150px;min-height:0;overflow:hidden;padding:18px 26px;background:#fff}
+.cg-logo-slot img.cg-brand-logo{position:static!important;display:block!important;width:100%!important;height:100%!important;max-width:240px!important;max-height:110px!important;min-width:0!important;min-height:0!important;object-fit:contain!important;object-position:center!important;transform:none!important;filter:none!important;margin:0 auto!important;flex:none!important}
+.cg-brand-meta{position:relative;z-index:1;background:#fff;flex:0 0 auto;padding-top:16px}
+.cg-brand-card h3,.cg-brand-card p,.cg-view{position:relative;z-index:1;background:#fff}
+@media(max-width:600px){.cg-logo-slot{height:138px;flex-basis:138px;padding:16px 24px}.cg-logo-slot img.cg-brand-logo{max-height:100px!important}}
+
+/* Unified catalogue card geometry, applied only to Project B Consumer Goods.
+   Four equal card tracks on desktop; no stretching for two-card brands. */
+#main .cg-products,#main .cg-nairis-grid{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;
+  align-items:stretch;
+}
+#main .cg-product{
+  min-width:0;display:flex;flex-direction:column;overflow:hidden;
+  border:1px solid var(--cg-border);border-radius:10px;background:#fff;
+}
+#main .cg-product-image,#main .cg-nairis-photo{
+  display:block;position:relative;width:100%;height:auto;aspect-ratio:4/3;
+  min-height:0;overflow:hidden;background:#f3f6fa;box-sizing:border-box;
+}
+#main .cg-product-image img,#main .cg-nairis-photo img{
+  display:block;position:static!important;width:100%!important;height:100%!important;
+  max-width:100%!important;max-height:100%!important;object-fit:contain!important;
+  object-position:center!important;transform:none!important;margin:0!important;
+}
+#main .cg-product h3{font-size:17px;line-height:1.25;margin:15px 14px 7px;overflow-wrap:anywhere}
+#main .cg-product p{font-size:13px;line-height:1.5;margin:0 14px 12px}
+#main .cg-product p:last-child{margin-top:auto;margin-bottom:16px}
+#main .cg-product .cg-category-description{margin:0 14px 12px}
+#main .cg-nairis-category{padding-bottom:14px}
+#main .cg-nairis-category .cg-nairis-link{margin:auto 14px 0;font-size:11px}
+@media(max-width:900px){#main .cg-products,#main .cg-nairis-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}}
+@media(max-width:420px){#main .cg-products,#main .cg-nairis-grid{grid-template-columns:1fr}}
