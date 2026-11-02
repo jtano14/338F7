@@ -111,3 +111,14 @@ body{font-family:'Inter Tight',Arial,sans-serif;}
 #main #nairis .cg-product-image img{object-fit:cover!important}
 #main .cg-products .cg-product{min-width:0}
 @media(max-width:600px){#main .cg-logo-slot{height:126px;flex-basis:126px}}
+
+/* Consumer Goods visual correction: November 2026. */
+#main .cg-logo-slot{background:#fff!important}
+#main .cg-logo-slot img.cg-brand-logo{width:100%!important;height:100%!important;object-fit:contain!important;max-width:260px!important;max-height:112px!important}
+#main .cg-products .cg-product-image{background:#fff!important;overflow:hidden!important}
+#main .cg-products .cg-product-image img{width:100%!important;height:100%!important;object-fit:contain!important;object-position:center!important;background:#fff!important}
+/* HNH's product photos have pale grey backgrounds: match their media panels. */
+#main #hotaru .cg-product-image{background:#f4f4f4!important}
+#main #hotaru .cg-product-image img{background:#f4f4f4!important;mix-blend-mode:multiply}
+/* Preserve the compact four-track catalogue layout and approved Nairis photos. */
+#main #nairis .cg-product-image img{object-fit:cover!important}
