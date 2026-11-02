@@ -1,0 +1,24 @@
+/* Consulting-only motion. No layout or typography changes. */
+@media (prefers-reduced-motion: no-preference) {
+  .consulting-accordion details::details-content {
+    block-size: 0;
+    opacity: 0;
+    overflow: clip;
+    transition: block-size 360ms ease, opacity 260ms ease,
+      content-visibility 360ms allow-discrete;
+  }
+  .consulting-accordion details[open]::details-content {
+    block-size: auto;
+    opacity: 1;
+  }
+  @supports (interpolate-size: allow-keywords) {
+    .consulting-accordion { interpolate-size: allow-keywords; }
+  }
+  .consulting-accordion details[open] .consulting-detail {
+    animation: consulting-detail-reveal 320ms ease both;
+  }
+  @keyframes consulting-detail-reveal {
+    from { opacity: 0; transform: translateY(-7px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
