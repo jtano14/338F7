@@ -1,0 +1,10 @@
+/* Polygel partnership, Chemicals page only. */
+.polygel-partnership{padding:38px 0 56px;background:#fff}
+.polygel-panel{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(260px,0.85fr);gap:clamp(24px,4vw,64px);align-items:center;padding:clamp(24px,4vw,52px);border:1px solid #d9e5ef;border-radius:18px;background:#f5f9fc}
+.polygel-copy h2{font-size:clamp(27px,3vw,42px);line-height:1.13;letter-spacing:-.035em;margin:12px 0 20px;color:#092347}
+.polygel-copy p{font-size:15px;line-height:1.75;color:#435c75;margin:0 0 14px}
+.polygel-link{display:inline-flex;gap:18px;align-items:center;margin-top:12px;padding:13px 17px;border-radius:7px;background:#092347;color:#fff;text-decoration:none;font-size:12px;font-weight:800;letter-spacing:.035em;transition:background .2s ease}
+.polygel-link:hover,.polygel-link:focus-visible{background:#0077b6;color:#fff}
+.polygel-identity{background:#fff;border-radius:12px;padding:22px;display:flex;align-items:center;justify-content:center;min-height:210px}
+.polygel-identity img{display:block;width:100%;height:auto;max-width:440px;object-fit:contain}
+@media(max-width:760px){.polygel-partnership{padding:22px 0 36px}.polygel-panel{grid-template-columns:1fr;padding:24px;gap:22px}.polygel-identity{min-height:0;padding:16px}.polygel-copy p{font-size:14px}}
