@@ -61,3 +61,8 @@ body{font-family:'Inter Tight',Arial,sans-serif;}
 .cg-nairis-category .cg-nairis-link{display:inline-block;align-self:flex-start;margin:auto 18px 0;color:#007db9;text-decoration:none;font-size:13px;font-weight:800;letter-spacing:.025em}
 .cg-nairis-category .cg-nairis-link:hover{text-decoration:underline}
 @media(max-width:600px){.cg-nairis-grid{grid-template-columns:1fr}.cg-nairis-photo,.cg-nairis-placeholder{height:220px}}
+
+/* Consumer Goods supplied brand imagery */
+.cg-logo-slot .cg-brand-logo{display:block;max-width:78%;max-height:125px;width:auto;height:auto;object-fit:contain;margin:auto}
+.cg-product-image img{width:100%;height:100%;object-fit:cover;display:block}
+.cg-nairis-photo img{object-fit:cover}
