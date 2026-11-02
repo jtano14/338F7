@@ -41,3 +41,6 @@ html{scroll-behavior:smooth;scroll-padding-top:90px}
 .cg-cta{background:#eaf4fb;padding:65px 0 80px}.cg-cta p:not(.cg-eyebrow){max-width:750px;color:var(--cg-muted);font-size:19px;line-height:1.5}.cg-cta a{margin-top:16px}
 @media(max-width:900px){.cg-brand-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.cg-products{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.cg-wrap{width:calc(100% - 34px)}.cg-hero{padding:42px 0 58px}.cg-section{padding:44px 0 60px}.cg-brand-grid,.cg-products{grid-template-columns:1fr}.cg-logo-slot{height:165px}.cg-brand-detail{padding:46px 0 58px}.cg-detail-head{display:block}.cg-return{display:inline-block;margin-bottom:22px}.cg-product-image{height:190px}.cg-detail-links{flex-direction:column}.cg-detail-links a{text-align:center}.cg-brand-description{font-size:17px}}
+
+/* Category descriptions in the Frudo and Japanese snack brand catalogues. */
+.cg-category-description{font-size:15px;line-height:1.55;color:#52657a;margin:8px 0 12px;}
