@@ -10,6 +10,7 @@
   const name = document.getElementById('office-name');
   const type = document.getElementById('office-type');
   const address = document.getElementById('office-address');
+  const phone = document.getElementById('office-phone');
   const map = document.getElementById('office-map');
   const directions = document.getElementById('office-directions');
   if (!buttons.length || !name || !type || !address || !map || !directions) return;
@@ -24,6 +25,10 @@
     name.textContent = `${office.country} · ${office.city}`;
     type.textContent = office.type.toUpperCase();
     address.textContent = office.address;
+    if (phone) {
+      phone.textContent = office.country === 'Japan' ? 'Tel: +81-6-6415-9764' : '';
+      phone.hidden = office.country !== 'Japan';
+    }
     const query = encodeURIComponent(office.address);
     map.src = `https://www.google.com/maps?q=${query}&output=embed`;
     map.title = `Map showing ${office.city}, ${office.country}`;
