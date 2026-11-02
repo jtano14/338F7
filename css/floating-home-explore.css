@@ -2,16 +2,21 @@
 .flux7-floating-home{position:fixed;right:clamp(16px,2.5vw,36px);bottom:clamp(16px,2.5vw,32px);z-index:9000;display:flex;align-items:center;justify-content:center;width:76px;height:58px;border:1px solid #b6cce0;border-radius:999px;background:#fff;box-shadow:0 6px 24px rgba(11,34,64,.15);font-family:"Inter Tight",Arial,sans-serif;font-weight:800;text-decoration:none;letter-spacing:-.04em;opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .25s ease,transform .25s ease,visibility .25s ease,box-shadow .25s ease;isolation:isolate}
 .flux7-floating-home.is-visible{opacity:1;visibility:visible;transform:translateY(0)}
 .flux7-floating-home:hover,.flux7-floating-home:focus-visible{box-shadow:0 8px 28px rgba(11,34,64,.24);outline-offset:3px}
-.flux7-floating-home .flux7-home-word,.flux7-floating-home .flux7-home-mark{position:absolute;white-space:nowrap;transition:opacity .28s ease,transform .28s ease}
-.flux7-floating-home .flux7-home-word{font-size:14px;color:#0b2240;opacity:1;transform:scale(1)}
-.flux7-floating-home .flux7-home-mark{font-size:29px;opacity:0;transform:scale(.82)}
-.flux7-home-mark .flux7-mark-f{color:#0b2240}.flux7-home-mark .flux7-mark-7{color:#007fbd}
-.flux7-floating-home.is-condensed .flux7-home-word{opacity:0;transform:scale(.82)}
-.flux7-floating-home.is-condensed .flux7-home-mark{opacity:1;transform:scale(1)}
-.flux7-floating-home.is-condensed:hover .flux7-home-word,.flux7-floating-home.is-condensed:focus-visible .flux7-home-word{opacity:1;transform:scale(1)}
-.flux7-floating-home.is-condensed:hover .flux7-home-mark,.flux7-floating-home.is-condensed:focus-visible .flux7-home-mark{opacity:0;transform:scale(.82)}
-/* Override the original bottom-to-top hover fill, keeping the existing colors and sizing. */
+/* HOME drops out while the two halves of F7 converge from opposite sides. */
+.flux7-floating-home .flux7-home-word,.flux7-floating-home .flux7-home-mark{position:absolute;white-space:nowrap;pointer-events:none}
+.flux7-floating-home .flux7-home-word{font-size:14px;color:#0b2240;opacity:1;transform:translateY(0);transition:opacity .22s ease,transform .38s cubic-bezier(.2,.7,.2,1)}
+.flux7-floating-home .flux7-home-mark{display:flex;align-items:baseline;justify-content:center;font-size:29px;line-height:1;letter-spacing:-.07em}
+.flux7-home-mark .flux7-mark-f,.flux7-home-mark .flux7-mark-7{display:inline-block;opacity:0;transition:transform .48s cubic-bezier(.2,.7,.2,1),opacity .24s ease}
+.flux7-home-mark .flux7-mark-f{color:#0b2240;transform:translateX(-25px)}
+.flux7-home-mark .flux7-mark-7{color:#007fbd;transform:translateX(25px)}
+@media(hover:hover) and (pointer:fine){
+.flux7-floating-home:hover .flux7-home-word,.flux7-floating-home:focus-visible .flux7-home-word{opacity:0;transform:translateY(30px)}
+.flux7-floating-home:hover .flux7-mark-f,.flux7-floating-home:hover .flux7-mark-7,.flux7-floating-home:focus-visible .flux7-mark-f,.flux7-floating-home:focus-visible .flux7-mark-7{opacity:1;transform:translateX(0)}
+}
+/* Touch devices show F7 permanently because hover is unavailable. */
+@media(hover:none),(pointer:coarse){.flux7-floating-home .flux7-home-word{opacity:0}.flux7-floating-home .flux7-mark-f,.flux7-floating-home .flux7-mark-7{opacity:1;transform:translateX(0)}}
+/* Preserve the approved left-to-right Explore FLUX7 fill. */
 .explore-link::before,.hero-explore .explore-link::before{transform:scaleX(0);transform-origin:left center;transition:transform .42s cubic-bezier(.22,.61,.36,1)}
 .explore-link:hover::before,.explore-link:focus-visible::before,.hero-explore .explore-link:hover::before,.hero-explore .explore-link:focus-visible::before{transform:scaleX(1)}
-@media(max-width:767px){.flux7-floating-home{width:54px;height:54px;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px))}.flux7-floating-home .flux7-home-word{opacity:0}.flux7-floating-home .flux7-home-mark,.flux7-floating-home.is-condensed .flux7-home-mark{opacity:1;transform:scale(1)}.flux7-floating-home.is-condensed:hover .flux7-home-word{opacity:0}.flux7-floating-home.is-condensed:hover .flux7-home-mark{opacity:1}}
-@media(prefers-reduced-motion:reduce){.flux7-floating-home,.flux7-floating-home .flux7-home-word,.flux7-floating-home .flux7-home-mark,.explore-link::before,.hero-explore .explore-link::before{transition:none!important}}
+@media(max-width:767px){.flux7-floating-home{width:54px;height:54px;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px))}}
+@media(prefers-reduced-motion:reduce){.flux7-floating-home,.flux7-floating-home .flux7-home-word,.flux7-home-mark .flux7-mark-f,.flux7-home-mark .flux7-mark-7,.explore-link::before,.hero-explore .explore-link::before{transition:none!important}}
