@@ -1,4 +1,4 @@
-/* Project B English: accessible, fixed home shortcut. No external dependencies. */
+/* Project B English: floating HOME/F7 shortcut. Hover animation is handled in CSS. */
 (function(){
   'use strict';
   function init(){
@@ -9,16 +9,7 @@
     link.setAttribute('aria-label','Go to FLUX7 homepage');
     link.innerHTML='<span class="flux7-home-word" aria-hidden="true">HOME</span><span class="flux7-home-mark" aria-hidden="true"><span class="flux7-mark-f">F</span><span class="flux7-mark-7">7</span></span>';
     document.body.appendChild(link);
-    var timer=null,visible=false;
-    function update(){
-      var shouldShow=window.scrollY>140;
-      if(shouldShow===visible)return;
-      visible=shouldShow;
-      link.classList.toggle('is-visible',visible);
-      if(timer){clearTimeout(timer);timer=null;}
-      link.classList.remove('is-condensed');
-      if(visible)timer=setTimeout(function(){link.classList.add('is-condensed');},1800);
-    }
+    function update(){link.classList.toggle('is-visible',window.scrollY>140);}
     window.addEventListener('scroll',update,{passive:true});
     update();
   }
