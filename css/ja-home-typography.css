@@ -49,3 +49,33 @@ body { font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", Me
   .hero-top .explore-name { font-size: clamp(21px, 6.1vw, 25px); }
   .business-card .card-content strong { font-size: clamp(19px, 5vw, 23px); }
 }
+
+/* Japanese readability and intentional phrase wrapping, stage 2. */
+.ja-term { white-space: nowrap; }
+/* The English hero uses narrower Latin letters; keep Japanese phrases intact. */
+.hero-message h1 { font-size: clamp(26px, 2.35vw, 35px); line-height: 1.38; letter-spacing: -.055em; }
+.hero-message h1 span { display: block; white-space: nowrap; }
+.hero-message .hero-description { font-size: clamp(15px, 1.18vw, 17px); line-height: 1.85; overflow-wrap: normal; }
+/* Increase small gateway descriptions without enlarging their headings. */
+.hero .card-content > span { font-size: clamp(15px, 1.15vw, 17px); line-height: 1.8; letter-spacing: 0; }
+/* Keep the second headline line intact at typical desktop widths. */
+.about-section .section-heading h2,
+.services-section .services-intro h2 { font-size: clamp(32px, 3.5vw, 49px); line-height: 1.4; letter-spacing: -.05em; }
+.ja-headline-phrase { white-space: nowrap; }
+.section-copy p, .service-overview-content p { overflow-wrap: normal; line-height: 1.9; }
+@media (max-width: 1000px) {
+  .about-section .section-heading h2,
+  .services-section .services-intro h2 { font-size: clamp(27px, 3.3vw, 39px); }
+}
+@media (max-width: 760px) {
+  .hero-message h1 { font-size: clamp(25px, 6.5vw, 36px); }
+  .hero-message h1 span { white-space: normal; }
+  .hero .card-content > span { font-size: 15px; }
+  .about-section .section-heading h2,
+  .services-section .services-intro h2 { font-size: clamp(28px, 6.3vw, 39px); }
+  .ja-headline-phrase { white-space: normal; }
+}
+@media (max-width: 390px) {
+  .hero-message h1 { font-size: 24px; }
+  .hero-message .hero-description { font-size: 15px; }
+}
