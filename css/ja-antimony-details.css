@@ -1,0 +1,9 @@
+/* Project B, Japanese antimony detail pages only. */
+html[lang="ja"] body { font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; }
+html[lang="ja"] .intro h1 { font-size: clamp(2.5rem, 5vw, 4.8rem); line-height: 1.25; letter-spacing: -.045em; overflow-wrap: anywhere; }
+html[lang="ja"] .intro p, html[lang="ja"] .section-head p, html[lang="ja"] .bottom-cta p { line-height: 1.9; overflow-wrap: normal; word-break: normal; }
+html[lang="ja"] .section-head h2, html[lang="ja"] .bottom-cta h2 { line-height: 1.35; letter-spacing: -.035em; }
+html[lang="ja"] .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+html[lang="ja"] .table-wrap table { min-width: 520px; }
+html[lang="ja"] .facts dt, html[lang="ja"] .facts dd { overflow-wrap: normal; word-break: normal; }
+@media (max-width: 700px) { html[lang="ja"] .intro h1 { font-size: clamp(2rem, 8vw, 3rem); } html[lang="ja"] .bottom-cta { align-items: flex-start; } }
