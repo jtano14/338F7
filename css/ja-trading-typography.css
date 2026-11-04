@@ -1,0 +1,22 @@
+/* Project B / Japanese Trading landing only. */
+body:has(.products-page){font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif}
+.products-page,.products-nav a{font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif}
+.products-logo,.flux7-footer-copyright{font-family:"Inter Tight",Arial,sans-serif}
+.trading-heading{align-items:start}
+.trading-heading h1{font-size:clamp(35px,3.9vw,54px);letter-spacing:-.045em;line-height:1.35}
+.trading-heading>p{font-size:clamp(14px,1.2vw,16px);line-height:1.85}
+.tile-bottom strong{font-size:clamp(23px,2.1vw,30px);line-height:1.4;letter-spacing:-.035em}
+.tile-bottom small{font-size:13px;line-height:1.65;overflow-wrap:normal}
+.tile-index{font-size:11px;line-height:1.6}
+.trading-statement-grid{align-items:start}
+.trading-statement h2,.trading-approach h2{font-size:clamp(34px,3.55vw,51px);line-height:1.42;letter-spacing:-.045em}
+.trading-statement-grid>p{font-size:clamp(15px,1.2vw,17px);line-height:1.95;overflow-wrap:normal}
+.trading-process h2{font-size:clamp(31px,3.5vw,48px);line-height:1.42;letter-spacing:-.04em}
+.trading-process-grid h3{font-size:clamp(19px,1.8vw,24px);line-height:1.5;letter-spacing:-.025em}
+.trading-process-grid p{line-height:1.85;overflow-wrap:normal}
+.products-outro-grid{align-items:start}
+.products-outro h2{font-size:clamp(35px,3.9vw,56px);line-height:1.42;letter-spacing:-.04em}
+.products-outro-grid p{font-size:clamp(15px,1.2vw,17px);line-height:1.95}
+@media(max-width:900px){.trading-statement-grid{gap:28px}.trading-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}.trading-tile{min-height:205px;height:auto}}
+@media(max-width:650px){.trading-heading{display:block}.trading-heading>p{max-width:none;margin-top:20px}.trading-tiles{gap:12px}.trading-tile{min-height:195px;padding:15px}.tile-bottom strong{font-size:23px}.tile-bottom small{font-size:12px}.trading-statement-grid,.products-outro-grid{grid-template-columns:1fr;gap:22px}.trading-statement h2,.trading-approach h2{font-size:clamp(30px,7vw,40px)}.trading-process-grid{grid-template-columns:1fr}.trading-process h2{font-size:clamp(29px,7vw,39px)}.products-outro h2{font-size:clamp(32px,7vw,42px)}}
+@media(max-width:380px){.trading-tiles{grid-template-columns:1fr}.trading-tile{min-height:180px}}
