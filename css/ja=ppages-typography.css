@@ -1,0 +1,24 @@
+/* Project B Japanese company and consulting pages. Loaded after original styles. */
+body { font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif; }
+.brand, .brand-name, .brand-descriptor, .consulting-logo, .flux7-footer-copyright,
+.profile-identity-logo, .consulting-package h3 { font-family: "Inter Tight", Arial, sans-serif; }
+.profile-hero h1 { font-size: clamp(31px, 3.65vw, 53px); line-height: 1.38; letter-spacing: -.035em; }
+.profile-history h2, .profile-details h2 { font-size: clamp(28px, 3.35vw, 47px); line-height: 1.4; letter-spacing: -.03em; }
+.profile-contact h2 { font-size: clamp(27px, 3vw, 43px); line-height: 1.4; }
+.profile-lead, .profile-history p, .profile-data dd { font-size: clamp(15px, 1.15vw, 17px); line-height: 1.9; overflow-wrap: normal; }
+.profile-data dt { line-height: 1.65; }
+.consulting-page h1 { font-size: clamp(33px, 4.1vw, 59px); line-height: 1.38; letter-spacing: -.04em; }
+.consulting-section-head h2, .consulting-outro h2 { font-size: clamp(28px, 3.5vw, 49px); line-height: 1.4; letter-spacing: -.035em; }
+.consulting-path h3 { font-size: clamp(29px, 3.2vw, 45px); line-height: 1.4; }
+.consulting-pillar-grid h3 { font-size: clamp(20px, 2vw, 27px); line-height: 1.5; overflow-wrap: normal; }
+.consulting-package h3 { font-size: clamp(25px, 2.5vw, 34px); }
+.consulting-page p, .consulting-detail p, .consulting-package p, .consulting-pillar-grid p { line-height: 1.9; overflow-wrap: normal; }
+.consulting-detail small { line-height: 1.8; }
+.consulting-accordion summary strong { font-size: clamp(18px, 2vw, 25px); line-height: 1.5; }
+.consulting-nav, .site-nav { font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif; }
+@media(max-width: 760px) {
+ .profile-hero h1, .consulting-page h1 { font-size: clamp(27px, 7vw, 39px); }
+ .profile-history h2, .profile-details h2, .consulting-section-head h2, .consulting-outro h2 { font-size: clamp(25px, 6vw, 36px); }
+ .consulting-path h3 { font-size: clamp(26px, 6vw, 36px); }
+ .consulting-page p, .profile-lead, .profile-history p { font-size: 15px; }
+}
