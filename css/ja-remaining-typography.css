@@ -1,0 +1,15 @@
+/* Japanese typography for Leadership, Offices, Contact and legal pages. */
+:root{--ja-font:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif}
+body:lang(ja){font-family:var(--ja-font)}
+body:lang(ja) h1,body:lang(ja) h2,body:lang(ja) h3,body:lang(ja) p,body:lang(ja) label{overflow-wrap:normal;word-break:normal;line-break:strict}
+body:lang(ja) .intro-grid h1{font-size:clamp(2.35rem,4.6vw,4.2rem);line-height:1.3;letter-spacing:-.045em}
+body:lang(ja) .intro-grid>p{font-size:clamp(1rem,1.45vw,1.16rem);line-height:1.95}
+body:lang(ja) .outro-grid h2,body:lang(ja) .cta-inner h2{font-size:clamp(2.25rem,4.2vw,4rem);line-height:1.34;letter-spacing:-.04em}
+body:lang(ja) .outro-grid p,body:lang(ja) .outro-grid>div>p{line-height:1.9}
+body:lang(ja) .leader-info h3{letter-spacing:-.035em}
+body:lang(ja) .leader-info .bio,body:lang(ja) .office-note,body:lang(ja) .contact-note{line-height:1.85}
+body:lang(ja) .contact-info h2,body:lang(ja) .form-panel h2{line-height:1.35;letter-spacing:-.035em}
+body:lang(ja) .legal-container{line-height:1.9}
+body:lang(ja) .legal-container h1{line-height:1.3;letter-spacing:-.04em}
+body:lang(ja) .legal-container h2{line-height:1.45}
+@media(max-width:760px){body:lang(ja) .intro-grid h1{font-size:clamp(2rem,8vw,3rem)}body:lang(ja) .outro-grid h2,body:lang(ja) .cta-inner h2{font-size:clamp(2rem,7vw,3rem)}body:lang(ja) .intro-grid>p{line-height:1.85}}
