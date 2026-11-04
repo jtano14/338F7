@@ -22,3 +22,31 @@ body { font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", Me
  .consulting-path h3 { font-size: clamp(26px, 6vw, 36px); }
  .consulting-page p, .profile-lead, .profile-history p { font-size: 15px; }
 }
+
+/* Japanese desktop line balance and consistent consulting card baselines. */
+.profile-hero-grid > div, .profile-history-grid > *, .profile-data dd { min-width: 0; }
+.profile-lead, .profile-history-grid p, .profile-data dd { line-break: strict; overflow-wrap: normal; word-break: normal; }
+.profile-data dd { font-size: clamp(14px, 1.05vw, 16px); line-height: 1.75; }
+.consulting-hero-grid > div { min-width: 0; }
+.consulting-pillar-grid article { min-width: 0; }
+.consulting-pillar-grid h3 { font-size: clamp(19px, 1.65vw, 22px); line-height: 1.5; letter-spacing: -.035em; min-height: 3em; margin: 30px 0 18px; line-break: strict; word-break: normal; overflow-wrap: normal; }
+.consulting-pillar-grid p { margin: 0; line-break: strict; word-break: normal; overflow-wrap: normal; }
+@media (min-width: 1050px) {
+ .consulting-hero-grid { grid-template-columns: minmax(0, 1fr); gap: 25px; padding-top: 75px; padding-bottom: 65px; }
+ .consulting-page h1 { font-size: clamp(38px, 3.7vw, 49px); white-space: nowrap; }
+ .consulting-hero-aside { max-width: 680px; }
+ .consulting-section-head h2 { max-width: none; }
+ #pathways-title { font-size: clamp(34px, 3.05vw, 41px); white-space: nowrap; }
+}
+@media (min-width: 761px) and (max-width: 1049px) {
+ .consulting-page h1 { font-size: clamp(32px, 3.8vw, 42px); }
+ .consulting-hero-grid { grid-template-columns: 1fr; gap: 25px; }
+ .consulting-section-head h2 { max-width: none; }
+ #pathways-title { font-size: clamp(30px, 3.6vw, 37px); }
+}
+@media (max-width: 760px) {
+ .consulting-page h1, #pathways-title { white-space: normal; }
+ .consulting-pillar-grid h3 { min-height: 0; margin-bottom: 18px; }
+ .consulting-pillar-grid p { margin-top: 0; }
+ .profile-data dd { font-size: 15px; }
+}
