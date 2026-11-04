@@ -79,3 +79,16 @@ body { font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", Me
   .hero-message h1 { font-size: 24px; }
   .hero-message .hero-description { font-size: 15px; }
 }
+
+/* Mobile Japanese line balance: allow natural paragraph wrapping. */
+@media (max-width: 760px) {
+  .hero-description, .section-copy p, .services-intro p,
+  .network-intro p, .service-overview-content p,
+  .business-card .card-content > span {
+    word-break: normal; overflow-wrap: break-word;
+    line-break: strict; text-wrap: pretty;
+    letter-spacing: 0;
+  }
+  .ja-term { white-space: nowrap; }
+  .about-section .section-copy p { max-width: 100%; }
+}
