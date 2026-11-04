@@ -1,9 +1,7 @@
-/* Project B: Japanese metals catalogue only. */
-html[lang="ja"] .metals-hero h1 {font-family:"Noto Sans JP",sans-serif;font-size:clamp(2.6rem,5.2vw,4.8rem);font-weight:800;line-height:1.25;letter-spacing:-.045em;overflow-wrap:normal;word-break:normal;}
-html[lang="ja"] .metals-hero p,html[lang="ja"] .metals-section p,html[lang="ja"] .metals-quality p {line-height:1.85;overflow-wrap:anywhere;word-break:normal;}
-html[lang="ja"] .metals-card h3 {font-family:"Noto Sans JP",sans-serif;font-size:clamp(1.12rem,1.6vw,1.35rem);line-height:1.45;overflow-wrap:normal;word-break:normal;}
-html[lang="ja"] .metals-card-body {display:flex;flex-direction:column;}
-html[lang="ja"] .metals-card-body dl {margin-top:auto;}
-html[lang="ja"] .metals-jump a {gap:12px;}
-html[lang="ja"] .metals-section h2 {font-family:"Noto Sans JP",sans-serif;line-height:1.35;}
-@media(max-width:760px){html[lang="ja"] .metals-hero h1 {font-size:clamp(2.1rem,8vw,3.2rem);line-height:1.35;}html[lang="ja"] .metals-jump a {align-items:flex-start;}html[lang="ja"] .metals-card-body dl {margin-top:1rem;}}
+
+
+/* Japanese quality heading: one line on wide desktops, natural wrap on smaller screens. */
+@media (min-width: 1100px) {
+ html[lang="ja"] #metals-quality-title {font-size:clamp(1.9rem, 2.65vw, 2.55rem);letter-spacing:-.045em;white-space:nowrap;line-height:1.35;}
+}
+@media (max-width:1099px) {html[lang="ja"] #metals-quality-title {white-space:normal;overflow-wrap:normal;word-break:normal;}}
