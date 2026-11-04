@@ -1,0 +1,8 @@
+/* Project B / Japanese chemicals catalogue only. */
+html[lang="ja"] .catalog-hero h1 {font-family:"Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; font-size:clamp(2.9rem,5.5vw,5.4rem); line-height:1.24; letter-spacing:-.045em; overflow-wrap:normal; word-break:keep-all;}
+html[lang="ja"] .catalog-hero p, html[lang="ja"] .polygel-copy p, html[lang="ja"] .catalog-intro {line-height:1.95; overflow-wrap:anywhere;}
+html[lang="ja"] .catalog-section h2, html[lang="ja"] .polygel-copy h2 {font-family:"Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; letter-spacing:-.035em; line-height:1.35;}
+html[lang="ja"] .catalog-chemicals-table th, html[lang="ja"] .catalog-chemicals-table td {white-space:normal; word-break:keep-all; line-height:1.6;}
+html[lang="ja"] .catalog-chemicals-table td:nth-child(2) {min-width:190px;}
+html[lang="ja"] .catalog-chemicals-table td:nth-child(4) {min-width:150px;}
+@media(max-width:767px){html[lang="ja"] .catalog-hero h1{font-size:clamp(2.4rem,9vw,3.4rem)}html[lang="ja"] .catalog-chemicals-table{min-width:940px}html[lang="ja"] .catalog-hero p{font-size:1rem;line-height:1.85}}
