@@ -1,0 +1,84 @@
+/* FLUX7 Project B: shared desktop header and page-boundary standard.
+   Loaded last. Mobile/tablet layouts intentionally remain unchanged. */
+@media (min-width: 1051px) {
+  :root { --flux7-desktop-edge: 32px; --flux7-desktop-width: 1320px; }
+  /* The header's bottom border, height and horizontal alignment are shared. */
+  header.site-header, header.consulting-header, header.products-header {
+    background: #fff !important;
+    border-bottom: 1px solid #e2e9f0 !important;
+    box-shadow: none;
+  }
+  header.site-header > .header-inner,
+  header.consulting-header > .consulting-header-inner,
+  header.products-header > .products-header-inner {
+    box-sizing: border-box !important;
+    width: min(calc(100% - 64px), var(--flux7-desktop-width)) !important;
+    max-width: var(--flux7-desktop-width) !important;
+    height: 92px !important;
+    min-height: 92px !important;
+    padding: 0 !important;
+    margin-inline: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 24px !important;
+  }
+  header a.brand, header a.consulting-logo,
+  header a.products-logo, header a.logo {
+    display: inline-flex !important;
+    align-items: baseline !important;
+    flex-direction: row !important;
+    flex-shrink: 0 !important;
+    gap: 0 !important;
+    font-family: 'Inter Tight', Arial, sans-serif !important;
+    font-size: 34px !important;
+    font-weight: 800 !important;
+    line-height: 1 !important;
+    letter-spacing: -.075em !important;
+    color: #0b2240 !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+  }
+  header a.brand .brand-name { font: inherit !important; letter-spacing: inherit !important; color: inherit !important; }
+  header a.brand .brand-name span, header a.consulting-logo > span,
+  header a.products-logo > span, header a.logo > span { font: inherit !important; color: #0077b6 !important; }
+  header a.brand .brand-descriptor, header a.consulting-logo > small,
+  header a.products-logo > small, header a.logo > small {
+    display: inline-block !important;
+    font-family: 'Inter Tight', Arial, sans-serif !important;
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+    letter-spacing: .08em !important;
+    color: #657589 !important;
+    margin: 0 0 0 8px !important;
+    padding: 0 !important;
+  }
+  header .flux7-unified-nav {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 16px !important;
+    flex-wrap: nowrap !important;
+    min-width: 0;
+  }
+  header .flux7-unified-nav a {
+    font-family: 'Inter Tight', Arial, sans-serif !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    line-height: 1.4 !important;
+    letter-spacing: 0 !important;
+    white-space: nowrap !important;
+  }
+  /* Standardize the page's OUTER content edge; inner text widths remain intentional. */
+  body > main .container, body > main .consulting-container,
+  body > main .products-container, body > main .wrap,
+  body > section .container, body > section .wrap,
+  main > section > .container, main > section > .consulting-container,
+  main > section > .products-container, main > section > .wrap {
+    box-sizing: border-box;
+    width: min(calc(100% - 64px), var(--flux7-desktop-width));
+    max-width: var(--flux7-desktop-width);
+    margin-inline: auto;
+  }
+}
