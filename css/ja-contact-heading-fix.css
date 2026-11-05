@@ -1,0 +1,16 @@
+/* Japanese Contact heading: desktop-only, consistent type across both lines. */
+@media (min-width: 769px) {
+  html[lang="ja"] .contact-info h2 {
+    font-size: clamp(32px, 3.6vw, 42px);
+    line-height: 1.3;
+    letter-spacing: -0.035em;
+    font-weight: 700;
+  }
+  html[lang="ja"] .contact-info h2 em {
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+    white-space: nowrap;
+  }
+}
