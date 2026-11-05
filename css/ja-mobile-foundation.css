@@ -41,3 +41,74 @@
   html[lang="ja"] header .products-logo,
   html[lang="ja"] header .logo { font-size: 24px; }
 }
+
+/* Phase 2: consistent Japanese header wordmark at every viewport width.
+   Homepage .brand is the reference. Scope rules to header logos only.
+   Do not change product titles, navigation, page layouts, or English pages. */
+html[lang="ja"] header a.brand,
+html[lang="ja"] header a.consulting-logo,
+html[lang="ja"] header a.products-logo,
+html[lang="ja"] header a.logo {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: flex-start;
+  gap: 0;
+  width: auto;
+  min-width: 0;
+  height: auto;
+  font-family: "Inter Tight", Arial, sans-serif;
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -.075em;
+  color: #0b2240;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+html[lang="ja"] header a.brand .brand-name {
+  font: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+}
+html[lang="ja"] header a.brand .brand-name span,
+html[lang="ja"] header a.consulting-logo > span,
+html[lang="ja"] header a.products-logo > span,
+html[lang="ja"] header a.logo > span {
+  font: inherit;
+  color: #0077b6;
+}
+html[lang="ja"] header a.brand .brand-descriptor,
+html[lang="ja"] header a.consulting-logo > small,
+html[lang="ja"] header a.products-logo > small,
+html[lang="ja"] header a.logo > small {
+  display: inline-block;
+  margin: 0 0 0 8px;
+  padding: 0;
+  font-family: "Inter Tight", Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: .08em;
+  color: #657589;
+  text-transform: uppercase;
+  vertical-align: baseline;
+}
+@media (max-width: 900px) {
+  html[lang="ja"] header a.brand,
+  html[lang="ja"] header a.consulting-logo,
+  html[lang="ja"] header a.products-logo,
+  html[lang="ja"] header a.logo { font-size: 27px; }
+  html[lang="ja"] header a.brand .brand-descriptor,
+  html[lang="ja"] header a.consulting-logo > small,
+  html[lang="ja"] header a.products-logo > small,
+  html[lang="ja"] header a.logo > small { font-size: 9px; margin-left: 6px; }
+}
+@media (max-width: 360px) {
+  html[lang="ja"] header a.brand,
+  html[lang="ja"] header a.consulting-logo,
+  html[lang="ja"] header a.products-logo,
+  html[lang="ja"] header a.logo { font-size: 24px; }
+}
