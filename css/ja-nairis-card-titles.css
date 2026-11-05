@@ -9,3 +9,13 @@
     white-space: nowrap;
   }
 }
+
+/* Consumer Goods hero: keep the complete Japanese phrase on one desktop line. */
+@media (min-width: 901px) {
+  #main .cg-hero h1 {
+    font-size: clamp(38px, 4.1vw, 58px);
+    max-width: none;
+    letter-spacing: -0.055em;
+    white-space: nowrap;
+  }
+}
