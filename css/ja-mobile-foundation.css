@@ -1,0 +1,43 @@
+/* Project B Japanese mobile foundation, phase 1.
+   Shared header wordmark and text-span safeguards only.
+   Deliberately restricted to <=900px to preserve approved desktop design. */
+@media (max-width: 900px) {
+  html[lang="ja"] header .brand,
+  html[lang="ja"] header .consulting-logo,
+  html[lang="ja"] header .products-logo,
+  html[lang="ja"] header .logo {
+    display: inline-flex; align-items: baseline; gap: 0;
+    font-family: 'Inter Tight', Arial, sans-serif;
+    font-size: 27px; font-weight: 800; line-height: 1;
+    letter-spacing: -0.055em; color: #0b2240;
+    text-decoration: none; white-space: nowrap; flex-shrink: 0;
+  }
+  html[lang="ja"] header .brand-name {
+    font: inherit; letter-spacing: inherit; color: #0b2240;
+  }
+  html[lang="ja"] header .brand-name span,
+  html[lang="ja"] header .consulting-logo span,
+  html[lang="ja"] header .products-logo span,
+  html[lang="ja"] header .logo span { color: #0077b6; font: inherit; }
+  html[lang="ja"] header .brand-descriptor,
+  html[lang="ja"] header .consulting-logo small,
+  html[lang="ja"] header .products-logo small,
+  html[lang="ja"] header .logo small {
+    display: inline-block; margin: 0 0 0 5px;
+    font-family: 'Inter Tight', Arial, sans-serif;
+    font-size: 9px; font-weight: 700; letter-spacing: 0;
+    line-height: 1; color: #0b2240;
+  }
+  html[lang="ja"] .ja-keep,
+  html[lang="ja"] .ja-phrase {
+    font: inherit; color: inherit; letter-spacing: inherit;
+    white-space: nowrap;
+  }
+  html[lang="ja"] .ja-desktop-only-break { display: none; }
+}
+@media (max-width: 360px) {
+  html[lang="ja"] header .brand,
+  html[lang="ja"] header .consulting-logo,
+  html[lang="ja"] header .products-logo,
+  html[lang="ja"] header .logo { font-size: 24px; }
+}
