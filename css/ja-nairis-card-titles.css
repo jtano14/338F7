@@ -1,0 +1,11 @@
+/* Japanese Nairis product titles: consistent two-line desktop layout. */
+@media (min-width: 901px) {
+  #main .cg-nairis-category h3 {
+    min-height: 2.5em;
+    line-height: 1.25;
+  }
+  #main .cg-nairis-category h3 .ja-nairis-title-line {
+    display: block;
+    white-space: nowrap;
+  }
+}
