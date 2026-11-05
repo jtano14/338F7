@@ -7,3 +7,19 @@ html[lang="ja"] .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touc
 html[lang="ja"] .table-wrap table { min-width: 520px; }
 html[lang="ja"] .facts dt, html[lang="ja"] .facts dd { overflow-wrap: normal; word-break: normal; }
 @media (max-width: 700px) { html[lang="ja"] .intro h1 { font-size: clamp(2rem, 8vw, 3rem); } html[lang="ja"] .bottom-cta { align-items: flex-start; } }
+
+/* Approved Japanese antimony product titles: desktop only.
+   Uniform navy, readable sizing, single line within the hero text column. */
+@media (min-width: 769px) {
+  html[lang="ja"] .intro h1 {
+    color: #0b2240;
+    font-size: clamp(25px, 2.8vw, 42px);
+    font-weight: 800;
+    letter-spacing: -0.045em;
+    line-height: 1.25;
+    white-space: nowrap;
+    overflow-wrap: normal;
+    word-break: keep-all;
+  }
+  html[lang="ja"] .intro h1 span { color: inherit; }
+}
