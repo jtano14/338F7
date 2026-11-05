@@ -1,0 +1,15 @@
+/* Japanese freeze-dried fruit card alignment, desktop only. */
+@media (min-width: 769px) {
+  html[lang="ja"] .fruit-shelf-aligned .catalog-data tr:nth-child(3) {
+    height: 64px;
+  }
+  html[lang="ja"] .fruit-shelf-aligned .fruit-shelf-note {
+    white-space: nowrap;
+  }
+}
+/* Do not force a desktop-only line break on mobile. */
+@media (max-width: 768px) {
+  html[lang="ja"] .fruit-desktop-break {
+    display: none;
+  }
+}
