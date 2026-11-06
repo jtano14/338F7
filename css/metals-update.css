@@ -74,3 +74,23 @@
     font-size: 27px;
   }
 }
+
+/* Tungsten product actions: match approved Antimony buttons. */
+#tungsten .metals-card-body .flux7-card-actions{display:grid;gap:9px;margin-top:0;}
+#tungsten .metals-card-body .flux7-card-actions a{
+ display:block;text-align:center;padding:14px 12px;font-size:12px;font-weight:800;
+ text-decoration:none;box-sizing:border-box;line-height:1.35;
+}
+#tungsten .metals-card-body .flux7-spec-button{background:#0b2240;color:#fff;border:1px solid #0b2240;}
+#tungsten .metals-card-body .flux7-quote-button{background:#fff;color:#0b2240;border:1px solid #0b2240;}
+#tungsten .metals-card-body .flux7-quote-button:hover{background:#eaf3fa;color:#0b2240;}
+/* India-origin export compliance notice, between tungsten and quality sections. */
+.metals-compliance{padding:64px 0;background:#f4f8fc;border-top:1px solid #d9e5ef;}
+.metals-compliance-inner{max-width:940px;}
+.metals-compliance h2{font-size:clamp(26px,3vw,38px);line-height:1.2;color:#0b2240;margin:12px 0 20px;}
+.metals-compliance p{font-size:15px;line-height:1.8;color:#40546a;margin:0 0 15px;}
+.metals-compliance strong{color:#0b2240;}
+.metals-compliance .metals-compliance-deadline{padding:14px 18px;border-left:3px solid #0077b6;background:#fff;}
+.metals-compliance .metals-compliance-cta{display:inline-block;padding:14px 22px;margin-top:10px;background:#0b2240;color:#fff;font-size:12px;font-weight:800;text-decoration:none;}
+.metals-compliance .metals-compliance-cta:hover{background:#0077b6;}
+@media(max-width:600px){.metals-compliance{padding:46px 0;}.metals-compliance p{font-size:14px;}}
