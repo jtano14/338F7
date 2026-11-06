@@ -1,0 +1,20 @@
+/* Project B: tungsten and associated powder catalogue links. */
+.metals-card .metals-card-body a.metals-spec-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  padding: 10px 15px;
+  border: 1px solid #087db7;
+  border-radius: 4px;
+  background: transparent;
+  color: #075c8c;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .025em;
+  text-decoration: none;
+}
+.metals-card .metals-card-body a.metals-spec-link:hover,
+.metals-card .metals-card-body a.metals-spec-link:focus-visible {
+  background: #e9f5fc;
+}
