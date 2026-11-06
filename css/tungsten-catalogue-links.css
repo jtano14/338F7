@@ -8,3 +8,26 @@
 .tungsten-note { padding: 17px 20px; background: #f7f9fc; border-left: 3px solid #087db7; line-height: 1.65; }
 .tungsten-standard-section .table-wrap { margin-top: 16px; }
 @media (max-width: 600px) { .tungsten-facts { grid-template-columns: 1fr; } }
+
+/* Product fact cards: one compact, readable layout across all seven catalogues. */
+.tungsten-standard-section:first-child {margin-bottom:24px;}
+.tungsten-standard-section .tungsten-facts {
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;
+ margin:18px 0 0;padding:0;max-width:740px;
+}
+.tungsten-standard-section .tungsten-facts > div {
+ display:flex;flex-direction:column;gap:6px;min-width:0;
+ padding:18px 20px;border:1px solid #d5e0eb;background:#fff;
+}
+.tungsten-standard-section .tungsten-facts dt {
+ display:block;margin:0;color:#64758a;font-size:12px;line-height:1.4;font-weight:600;
+}
+.tungsten-standard-section .tungsten-facts dd {
+ display:block;margin:0;color:#0b2240;font-size:20px;font-weight:750;line-height:1.35;
+ overflow-wrap:anywhere;
+}
+@media(max-width:600px){
+ .tungsten-standard-section .tungsten-facts{grid-template-columns:1fr;gap:10px;}
+ .tungsten-standard-section .tungsten-facts > div{padding:14px 16px;}
+ .tungsten-standard-section .tungsten-facts dd{font-size:18px;}
+}
