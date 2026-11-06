@@ -1,20 +1,10 @@
-/* Project B: tungsten and associated powder catalogue links. */
-.metals-card .metals-card-body a.metals-spec-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 10px;
-  padding: 10px 15px;
-  border: 1px solid #087db7;
-  border-radius: 4px;
-  background: transparent;
-  color: #075c8c;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: .025em;
-  text-decoration: none;
-}
-.metals-card .metals-card-body a.metals-spec-link:hover,
-.metals-card .metals-card-body a.metals-spec-link:focus-visible {
-  background: #e9f5fc;
-}
+/* Tungsten catalogue: shared content hierarchy, English and Japanese. */
+.tungsten-standard-sections { margin-top: 32px; }
+.tungsten-standard-section { margin-bottom: 30px; }
+.tungsten-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin: 18px 0 0; }
+.tungsten-facts > div { padding: 17px 20px; border: 1px solid #d8e1ec; background: #f7f9fc; }
+.tungsten-facts dt { font-size: 12px; color: #52627a; margin-bottom: 7px; }
+.tungsten-facts dd { margin: 0; font-weight: 750; color: #0a2547; }
+.tungsten-note { padding: 17px 20px; background: #f7f9fc; border-left: 3px solid #087db7; line-height: 1.65; }
+.tungsten-standard-section .table-wrap { margin-top: 16px; }
+@media (max-width: 600px) { .tungsten-facts { grid-template-columns: 1fr; } }
