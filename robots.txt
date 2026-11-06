@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://flux7.co.jp/sitemap.xml
