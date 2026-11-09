@@ -58,6 +58,34 @@
     el.type = 'button'; el.className = className; el.textContent = label;
     el.addEventListener('click', fn); return el;
   }
+  /* Business-intent events: no names, email addresses or message contents. */
+  document.addEventListener('click', event => {
+    if (read() !== 'accepted' || typeof window.gtag !== 'function') return;
+    const link = event.target.closest('a[href]');
+    if (!link) return;
+    const raw = link.getAttribute('href') || '';
+    const label = (link.textContent || '').trim().replace(/\\s+/g, ' ').slice(0, 80);
+    const pathname = location.pathname;
+    const language = document.documentElement.lang.toLowerCase().startsWith('ja') ? 'ja' : 'en';
+    const division = /metals|antimony|tungsten/i.test(pathname) ? 'metals'
+      : /consulting/i.test(pathname) ? 'consulting'
+      : /chemicals/i.test(pathname) ? 'chemicals'
+      : /food-processing/i.test(pathname) ? 'food_processing'
+      : /consumer-goods/i.test(pathname) ? 'consumer_goods' : 'general';
+    const base = { page_path: pathname, site_language: language, business_division: division };
+    const quote = /(?:[?&]division=|\\bquote\\b|見積|お見積)/i.test(raw + ' ' + label) ||
+      link.classList.contains('flux7-quote-button') || link.classList.contains('quote');
+    const spec = /\\.(?:pdf|docx?|xlsx?)(?:[?#]|$)/i.test(raw) ||
+      link.classList.contains('flux7-spec-button') || /(?:specification|仕様書|規格)/i.test(label);
+    let name;
+    if (/^mailto:/i.test(raw)) name = 'email_click';
+    else if (quote) name = 'quote_request_click';
+    else if (spec) name = 'specification_click';
+    else if (/(?:^|\\/)contact\\.html(?:[?#]|$)/i.test(raw)) name = 'contact_click';
+    if (!name) return;
+    const details = { ...base, link_path: raw.split('?')[0].split('#')[0] };
+    window.gtag('event', name, details);
+  });
   function init() {
     banner = document.createElement('section');
     banner.className = 'flux7-consent-banner';
