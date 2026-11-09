@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sitemap xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://flux7.co.jp/antimony-ingots.html</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://flux7.co.jp/antimony-ingots.html"/>
@@ -240,4 +240,4 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://flux7.co.jp/tungsten-trioxide.html"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://flux7.co.jp/ja/tungsten-trioxide.html"/>
   </url>
-</sitemap>
+</urlset>
