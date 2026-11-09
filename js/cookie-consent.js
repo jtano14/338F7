@@ -81,7 +81,7 @@
     if (/^mailto:/i.test(raw)) name = 'email_click';
     else if (quote) name = 'quote_request_click';
     else if (spec) name = 'specification_click';
-    else if (/(?:^|\\/)contact\.html(?:[?#]|$)/i.test(raw)) name = 'contact_click';
+    else if (raw.includes('contact.html')) name = 'contact_click';
     if (!name) return;
     const details = { ...base, link_path: raw.split('?')[0].split('#')[0] };
     window.gtag('event', name, details);
