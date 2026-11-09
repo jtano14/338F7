@@ -1,0 +1,13 @@
+/* FLUX7 bilingual optional analytics consent */
+.flux7-consent-banner[hidden]{display:none!important}
+.flux7-consent-banner{position:fixed;inset:auto 0 0;z-index:9999;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px max(20px,calc((100vw - 1200px)/2));background:#0b2240;color:#fff;box-shadow:0 -4px 20px rgba(0,0,0,.18);font:14px/1.55 Arial,sans-serif}
+.flux7-consent-banner p{margin:0;max-width:740px;color:#fff}
+.flux7-consent-actions{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.flux7-consent-actions a{color:#fff;text-decoration:underline}
+.flux7-consent-actions button{min-width:84px;padding:10px 16px;border:1px solid #fff;border-radius:5px;cursor:pointer;font:inherit;font-weight:600}
+.flux7-consent-accept{background:#fff;color:#0b2240}
+.flux7-consent-reject{background:transparent;color:#fff}
+.flux7-consent-actions button:focus-visible,.flux7-cookie-settings:focus-visible{outline:3px solid #71c5ff;outline-offset:3px}
+.flux7-cookie-settings{background:none;border:0;padding:0;color:inherit;font:inherit;cursor:pointer;text-decoration:underline}
+.flux7-cookie-settings-fixed{position:fixed;bottom:10px;right:10px;z-index:9998;padding:5px 8px;background:#0b2240;color:#fff}
+@media(max-width:800px){.flux7-consent-banner{flex-direction:column;align-items:stretch;padding:16px 20px}.flux7-consent-actions{flex-wrap:wrap;justify-content:space-between}.flux7-consent-actions button{flex:1}}
