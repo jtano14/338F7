@@ -27,10 +27,10 @@
     address.textContent = office.address;
     if (phone) {
       phone.textContent = office.country === '日本' ? '電話：+81-6-6415-9764' : '';
-      phone.hidden = office.country !== 'Japan';
+      phone.hidden = office.country !== '日本';
     }
     const query = encodeURIComponent(office.address);
-    map.src = `https://www.google.com/maps?q=${query}&output=embed`;
+    map.src = office.country === '日本' ? "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d300.3424293043841!2d135.412002183079!3d34.75500204035112!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000f1d34bed3501%3A0x2ff03b33a20f1258!2z44CSNjYxLTAwMDIgSHlvZ28sIEFtYWdhc2FraSwgVHN1a2FndWNoaWNoxY0sIDEtY2jFjW1l4oiSMjItOSDplbflhYnjg5Pjg6sgM-majg!5e1!3m2!1sen!2sjp!4v1794299968203!5m2!1sen!2sjp" : `https://www.google.com/maps?q=${query}&output=embed`;
     map.title = `${office.country}・${office.city}の地図`;
     directions.href = `https://www.google.com/maps/search/?api=1&query=${query}`;
   }));
