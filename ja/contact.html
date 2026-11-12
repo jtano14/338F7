@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="../css/desktop-site-consistency.css">
 <link rel="stylesheet" href="../css/cookie-consent.css"/><script defer src="../js/site-preferences.js"></script></head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
+<a class="skip" href="#main">本文へ移動</a>
 <header class="site-header"><div class="wrap header-inner">
 <a aria-label="FLUX7 home" class="logo" href="index.html">FLUX<span>7</span><small>CO., LTD.</small></a>
 <button aria-controls="flux7-mobile-navigation" aria-expanded="false" aria-label="Open navigation menu" class="flux7-mobile-toggle" type="button"><span></span><span></span><span></span></button><nav aria-label="Primary navigation" class="flux7-unified-nav" id="flux7-mobile-navigation"><a href="index.html">ホーム</a><a href="company.html">会社概要</a><a href="consulting.html">コンサルティング</a><a href="products.html">貿易事業</a><a href="leadership.html">経営陣</a><a href="offices.html">拠点案内</a><a aria-current="page" href="contact.html">お問い合わせ</a><a aria-label="Switch to English" class="flux7-language-link" href="../contact.html" hreflang="en" lang="en">English</a></nav>
@@ -29,13 +29,54 @@
 <main id="main">
 <section class="contact-section"><div class="wrap contact-grid">
 <div class="form-panel"><p class="kicker">お問い合わせフォーム</p><h2>事業に<span class="ja-keep">ついて</span><span class="ja-keep">お聞かせください。</span></h2>
-<p class="form-note"><span class="ja-keep">必要</span>事項を入力すると、メールアプリが起動し、送信内容を確認できます。</p>
+<p class="form-note"><span class="ja-keep">必要</span>事項をご入力のうえ、送信してください。お問い合わせ内容は直接当社に届きます。</p>
 <form id="inquiry-form">
+<div style="display:none" aria-hidden="true">
+  <label for="contact-website">この欄は入力しないでください</label>
+  <input type="text" id="contact-website" name="_gotcha" tabindex="-1" autocomplete="off">
+</div>
 <div class="field-row"><label>お名前 <span>*</span><input autocomplete="name" maxlength="120" name="name" required=""/></label><label>会社名 <span>*</span><input autocomplete="organization" maxlength="160" name="company" required=""/></label></div>
-<div class="field-row"><label>メールアドレス <span>*</span><input autocomplete="email" maxlength="200" name="email" required="" type="email"/></label><label>国・地域<input autocomplete="country-name" maxlength="100" name="country"/></label></div>
-<label>お問い合わせ内容 <span>*</span><select id="division" name="division" required=""><option value="">項目を選択してください</option><option value="企業コンサルティング">企業コンサルティング</option><option value="Metals">Metals</option><option value="Chemicals">Chemicals</option><option value="食品加工">食品加工</option><option value="消費財">消費財</option><option value="事業提携">事業提携</option><option value="その他のお問い合わせ">その他のお問い合わせ</option></select></label>
+<div class="field-row">
+  <label>
+    メールアドレス <span>*</span>
+    <input autocomplete="email" maxlength="200"
+      name="email" required type="email"/>
+  </label>
+  <label>
+    国・地域
+    <div class="country-picker" id="country-picker">
+      <input id="country" name="country" type="text"
+        autocomplete="off" maxlength="100"
+        placeholder="国名を選択または入力"
+        role="combobox" aria-autocomplete="list"
+        aria-expanded="false" aria-controls="country-options"/>
+      <button type="button" class="country-picker-toggle"
+        aria-label="国の一覧を表示" tabindex="-1">&#9662;</button>
+      <div id="country-options" class="country-picker-options"
+        role="listbox" hidden></div>
+    </div>
+  </label>
+</div>
+<label>お問い合わせ内容 <span>*</span>
+<select id="division" name="division" required>
+  <option value="" disabled>項目を選択してください</option>
+  <option value="General inquiry" selected>その他のお問い合わせ</option>
+  <option value="Corporate consulting">企業コンサルティング</option>
+  <option value="Metals">金属・鉱物</option>
+  <option value="Chemicals">化学品</option>
+  <option value="Food Processing">食品加工</option>
+  <option value="Consumer Goods">消費財</option>
+  <option value="Business partnership">事業提携</option>
+</select></label>
 <label>お問い合わせ詳細 <span>*</span><textarea maxlength="5000" name="message" placeholder="ご相談内容、対象市場、製品仕様、数量、提携のご提案などをご記入ください。" required="" rows="6"></textarea></label>
-<button type="submit">メールを作成 <span aria-hidden="true">↗</span></button><p class="form-footnote">このフォームからサーバーへの送信は行われません。標準のメールアプリで送信用メールを作成<span class="ja-keep">します。</span>アプリが開かない<span class="ja-keep">場合</span>は、直接こちらにご連絡ください： <a href="mailto:info@flux7.co.jp">info@flux7.co.jp</a>.</p>
+<button type="submit">お問い合わせを送信 <span aria-hidden="true">↗</span></button>
+<p id="form-status" role="status" aria-live="polite"></p>
+<p class="form-footnote">
+  お問い合わせ内容は外部フォームサービスを通じて送信されます。
+  初回のお問い合わせには機密情報を含めないようお願いいたします。
+  メールでのご連絡はこちら：
+  <a href="mailto:info@flux7.co.jp">info@flux7.co.jp</a>
+</p>
 </form></div>
 <div class="contact-info"><p class="kicker">お問い合わせ先</p><h2>次の事業構想を、<br/><em><span class="ja-keep">お聞かせください。</span></em></h2>
 <p class="intro-copy">日本市場への参入、海外展開、調達・貿易<span class="ja-keep">パートナー</span>の開拓に関するご相談を承ります。</p>
