@@ -27,13 +27,53 @@
 <main id="main">
 <section class="contact-section"><div class="wrap contact-grid">
 <div class="form-panel"><p class="kicker">SEND AN INQUIRY</p><h2>Tell us about your project.</h2>
-<p class="form-note">Complete the fields below to prepare an email to our team. Your email application will open so you can review and send the message.</p>
+<p class="form-note">Complete the fields below to send your inquiry directly to our team.</p>
 <form id="inquiry-form">
+  <div style="display:none" aria-hidden="true">
+  <label for="contact-website">Leave this field empty</label>
+  <input type="text" id="contact-website"
+         name="_gotcha" tabindex="-1" autocomplete="off">
+</div>
 <div class="field-row"><label>Full name <span>*</span><input autocomplete="name" maxlength="120" name="name" required=""/></label><label>Company <span>*</span><input autocomplete="organization" maxlength="160" name="company" required=""/></label></div>
-<div class="field-row"><label>Email <span>*</span><input autocomplete="email" maxlength="200" name="email" required="" type="email"/></label><label>Country / region<input autocomplete="country-name" maxlength="100" name="country"/></label></div>
-<label>Inquiry type <span>*</span><select id="division" name="division" required=""><option value="">Select an area</option><option value="Corporate consulting">Corporate consulting</option><option value="Metals">Metals</option><option value="Chemicals">Chemicals</option><option value="Food Processing">Food Processing</option><option value="Consumer Goods">Consumer Goods</option><option value="Business partnership">Business partnership</option><option value="General inquiry">General inquiry</option></select></label>
+<div class="field-row"><label>Email <span>*</span><input autocomplete="email" maxlength="200" name="email" required="" type="email"/></label><label>Country / region
+<div class="country-picker" id="country-picker">
+  <input
+    id="country"
+    name="country"
+    type="text"
+    autocomplete="off"
+    maxlength="100"
+    placeholder="Select or type a country"
+    role="combobox"
+    aria-autocomplete="list"
+    aria-expanded="false"
+    aria-controls="country-options"
+  />
+  <button
+    type="button"
+    class="country-picker-toggle"
+    aria-label="Show countries"
+    tabindex="-1"
+  >&#9662;</button>
+    <div
+    id="country-options"
+    class="country-picker-options"
+    role="listbox"
+    hidden
+  ></div>
+</div>
+</label></div>
+<label>Inquiry type <span>*</span><select id="division" name="division" required=""><option value="" disabled>Select an area</option>
+<option value="General inquiry" selected>General inquiry</option><option value="Corporate consulting">Corporate consulting</option><option value="Metals">Metals</option><option value="Chemicals">Chemicals</option><option value="Food Processing">Food Processing</option><option value="Consumer Goods">Consumer Goods</option><option value="Business partnership">Business partnership</option></select></label>
 <label>Your message <span>*</span><textarea maxlength="5000" name="message" placeholder="Briefly describe your requirements, target market, product specifications, quantity, or proposed collaboration." required="" rows="6"></textarea></label>
-<button type="submit">PREPARE EMAIL <span aria-hidden="true">↗</span></button><p class="form-footnote">This form does not upload information to a server. It prepares an email in your default mail application. If nothing opens, email us directly at <a href="mailto:info@flux7.co.jp">info@flux7.co.jp</a>.</p>
+<button type="submit">SEND INQUIRY <span aria-hidden="true">↗</span></button>
+<p id="form-status" role="status" aria-live="polite"></p>
+<p class="form-footnote">
+  Your inquiry is securely transmitted through our form processing provider.
+  Please avoid including confidential information in your initial message.
+  Alternatively, email us directly at
+  <a href="mailto:info@flux7.co.jp">info@flux7.co.jp</a>.
+</p>
 </form></div>
 <div class="contact-info"><p class="kicker">REACH OUR TEAM</p><h2>Let's talk about<br/><em>what comes next.</em></h2>
 <p class="intro-copy">We welcome inquiries from companies looking to enter Japan, expand internationally, or connect with sourcing and trading partners.</p>
