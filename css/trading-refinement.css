@@ -15,7 +15,7 @@
 
 /* Japanese Trading inquiry footer: restore readable Japanese text hierarchy. */
 html[lang="ja"] .products-page .products-outro-grid > div:first-child > span{
-  display:block;font-size:16px;letter-spacing:.04em;color:#aaccff;
+  display:block;font-size:clamp(30px,3.2vw,42px);line-height:1.3;letter-spacing:-.025em;color:#fff;
 }
 html[lang="ja"] .products-page .products-outro h2{
   font-size:clamp(30px,3.2vw,42px);line-height:1.3;letter-spacing:-.025em;
@@ -35,6 +35,6 @@ html[lang="ja"] .products-page .products-outro-grid a{
   font-size:14px;letter-spacing:.02em;
 }
 @media(max-width:650px){
-  html[lang="ja"] .products-page .products-outro h2{font-size:clamp(28px,7vw,36px)}
+  html[lang="ja"] .products-page .products-outro h2,html[lang="ja"] .products-page .products-outro-grid > div:first-child > span{font-size:clamp(28px,7vw,36px)}
   html[lang="ja"] .products-page .products-outro-grid p{font-size:16px}
 }
